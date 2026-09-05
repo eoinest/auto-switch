@@ -22,8 +22,9 @@ class Budget:
     active_ma: float = 50
     sleep_ma: float = 10
     wake_ma: float = 80
-    # Measured at pack input, separate from rail load; excludes conversion losses.
-    parasitic_pack_ma: float = 1.04
+    # Assumed pack overhead: regulator ~1mA + master-switch LED ~1.008mA
+    # at 4.8V + divider ~0.033mA, rounded. Replace with measurements.
+    parasitic_pack_ma: float = 2.05
     servo_ma: float = 500
     servo_seconds: float = 1
     actions_per_day: float = 20

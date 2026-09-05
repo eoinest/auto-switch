@@ -1,0 +1,192 @@
+{
+  "scope": "Nominal component body envelopes inside pod and pairwise separation. Includes board retainer envelopes and lid pillar envelopes. Excludes other printed supports, full cable routes, USB insertion, fasteners, antenna RF performance and all actual measured fit.",
+  "body_envelopes_mm": {
+    "battery": [
+      [
+        -75.5,
+        -73.0,
+        8.0
+      ],
+      [
+        -10.5,
+        -13.0,
+        30.0
+      ]
+    ],
+    "picowbell": [
+      [
+        7.965,
+        -66.05,
+        8.0
+      ],
+      [
+        60.035,
+        -27.95,
+        26.0
+      ]
+    ],
+    "proto": [
+      [
+        -66.5,
+        3.6000000000000014,
+        9.0
+      ],
+      [
+        -23.5,
+        54.4,
+        23.0
+      ]
+    ],
+    "regulator": [
+      [
+        7.399999999999999,
+        -2.5,
+        9.0
+      ],
+      [
+        50.6,
+        18.5,
+        19.0
+      ]
+    ],
+    "servo_gate": [
+      [
+        19.9,
+        33.38,
+        10.0
+      ],
+      [
+        38.1,
+        48.62,
+        12.54
+      ]
+    ],
+    "master": [
+      [
+        50.9,
+        53.38,
+        10.0
+      ],
+      [
+        69.1,
+        68.62,
+        12.54
+      ]
+    ],
+    "fuse": [
+      [
+        67.3,
+        -6.25,
+        7.3
+      ],
+      [
+        78.7,
+        42.25,
+        18.7
+      ]
+    ],
+    "battery_disconnect": [
+      [
+        5.5,
+        -20.0,
+        10.0
+      ],
+      [
+        30.5,
+        -10.0,
+        20.0
+      ]
+    ]
+  },
+  "inside_cavity": {
+    "battery": true,
+    "picowbell": true,
+    "proto": true,
+    "regulator": true,
+    "servo_gate": true,
+    "master": true,
+    "fuse": true,
+    "battery_disconnect": true
+  },
+  "body_envelope_overlaps": [],
+  "retainer_envelopes_mm": {
+    "proto": [
+      [
+        -73.5,
+        -3.3999999999999986,
+        10.799999999999999
+      ],
+      [
+        -16.5,
+        61.4,
+        12.799999999999999
+      ]
+    ],
+    "regulator": [
+      [
+        0.3999999999999986,
+        -9.5,
+        10.799999999999999
+      ],
+      [
+        57.6,
+        25.5,
+        12.799999999999999
+      ]
+    ],
+    "servo_gate": [
+      [
+        14.379999999999999,
+        26.38,
+        11.0
+      ],
+      [
+        43.620000000000005,
+        55.620000000000005,
+        13.0
+      ]
+    ],
+    "master": [
+      [
+        45.379999999999995,
+        46.379999999999995,
+        11.0
+      ],
+      [
+        74.62,
+        75.62,
+        13.0
+      ]
+    ]
+  },
+  "retainer_issues": [],
+  "passed": true,
+  "pico_stack_reserved_height_mm": 18,
+  "loaded_holder_reserved_height_mm": 22.0,
+  "physical_fit_verified": false,
+  "required_measurements": [
+    "wallplate measurements",
+    "servo brand and ear/shaft/horn measurements",
+    "Pico W versus Pico 2 W and header stack",
+    "holder loaded height and lead exit",
+    "selected cable connector service clearance"
+  ],
+  "installed_assembly_bounds": {
+    "1g": {
+      "dimensions_mm": [
+        174.0,
+        300.7,
+        47.0
+      ],
+      "scope": "Printed enclosure including closed lid, components and example servo leads; excludes insertion space and adhesive thickness."
+    },
+    "2g": {
+      "dimensions_mm": [
+        174.0,
+        300.7,
+        47.0
+      ],
+      "scope": "Printed enclosure including closed lid, components and example servo leads; excludes insertion space and adhesive thickness."
+    }
+  }
+}

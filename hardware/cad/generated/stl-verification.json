@@ -1,24 +1,11 @@
 [
   {
     "file": "1g_chassis.stl",
-    "triangles": 2284,
+    "triangles": 766,
     "dimensions_mm": [
       111.25,
-      236.7,
-      38.0
-    ],
-    "manifold": true,
-    "positive_volume": true,
-    "on_bed": true,
-    "fits_A1": true
-  },
-  {
-    "file": "1g_electronics_lid.stl",
-    "triangles": 896,
-    "dimensions_mm": [
-      100.0,
-      120.0,
-      3.0
+      134.7,
+      37.0
     ],
     "manifold": true,
     "positive_volume": true,
@@ -39,12 +26,12 @@
     "fits_A1": true
   },
   {
-    "file": "1g_yoke_1.stl",
-    "triangles": 876,
+    "file": "1g_servo1_yoke.stl",
+    "triangles": 704,
     "dimensions_mm": [
       22.1,
       60.0,
-      15.0
+      17.0
     ],
     "manifold": true,
     "positive_volume": true,
@@ -53,24 +40,11 @@
   },
   {
     "file": "2g_chassis.stl",
-    "triangles": 2570,
+    "triangles": 962,
     "dimensions_mm": [
       157.3,
-      236.7,
-      38.0
-    ],
-    "manifold": true,
-    "positive_volume": true,
-    "on_bed": true,
-    "fits_A1": true
-  },
-  {
-    "file": "2g_electronics_lid.stl",
-    "triangles": 896,
-    "dimensions_mm": [
-      100.0,
-      120.0,
-      3.0
+      134.7,
+      37.0
     ],
     "manifold": true,
     "positive_volume": true,
@@ -91,12 +65,12 @@
     "fits_A1": true
   },
   {
-    "file": "2g_yoke_1.stl",
-    "triangles": 876,
+    "file": "2g_servo1_yoke.stl",
+    "triangles": 708,
     "dimensions_mm": [
       22.1,
       60.0,
-      15.0
+      17.0
     ],
     "manifold": true,
     "positive_volume": true,
@@ -104,12 +78,194 @@
     "fits_A1": true
   },
   {
-    "file": "2g_yoke_2.stl",
-    "triangles": 876,
+    "file": "2g_servo2_yoke.stl",
+    "triangles": 704,
     "dimensions_mm": [
       22.1,
       60.0,
-      15.0
+      17.0
+    ],
+    "manifold": true,
+    "positive_volume": true,
+    "on_bed": true,
+    "fits_A1": true
+  },
+  {
+    "file": "coupon_battery_holder.stl",
+    "triangles": 32,
+    "dimensions_mm": [
+      68.0,
+      63.0,
+      22.0
+    ],
+    "manifold": true,
+    "positive_volume": true,
+    "on_bed": true,
+    "fits_A1": true
+  },
+  {
+    "file": "coupon_master_cradle.stl",
+    "triangles": 1728,
+    "dimensions_mm": [
+      33.24,
+      33.24,
+      11.0
+    ],
+    "manifold": true,
+    "positive_volume": true,
+    "on_bed": true,
+    "fits_A1": true
+  },
+  {
+    "file": "coupon_picowbell_mount.stl",
+    "triangles": 1548,
+    "dimensions_mm": [
+      62.5,
+      48.5,
+      8.0
+    ],
+    "manifold": true,
+    "positive_volume": true,
+    "on_bed": true,
+    "fits_A1": true
+  },
+  {
+    "file": "coupon_proto_cradle.stl",
+    "triangles": 1718,
+    "dimensions_mm": [
+      61.0,
+      68.8,
+      10.8
+    ],
+    "manifold": true,
+    "positive_volume": true,
+    "on_bed": true,
+    "fits_A1": true
+  },
+  {
+    "file": "coupon_regulator_cradle.stl",
+    "triangles": 1724,
+    "dimensions_mm": [
+      61.2,
+      39.0,
+      10.8
+    ],
+    "manifold": true,
+    "positive_volume": true,
+    "on_bed": true,
+    "fits_A1": true
+  },
+  {
+    "file": "coupon_servo_ear_mount.stl",
+    "triangles": 184,
+    "dimensions_mm": [
+      20.0,
+      40.0,
+      37.0
+    ],
+    "manifold": true,
+    "positive_volume": true,
+    "on_bed": true,
+    "fits_A1": true
+  },
+  {
+    "file": "coupon_servo_gate_cradle.stl",
+    "triangles": 1728,
+    "dimensions_mm": [
+      33.24,
+      33.24,
+      11.0
+    ],
+    "manifold": true,
+    "positive_volume": true,
+    "on_bed": true,
+    "fits_A1": true
+  },
+  {
+    "file": "docking_strap.stl",
+    "triangles": 404,
+    "dimensions_mm": [
+      12.0,
+      38.0,
+      3.0
+    ],
+    "manifold": true,
+    "positive_volume": true,
+    "on_bed": true,
+    "fits_A1": true
+  },
+  {
+    "file": "electronics_lid.stl",
+    "triangles": 1018,
+    "dimensions_mm": [
+      174.0,
+      162.0,
+      3.0
+    ],
+    "manifold": true,
+    "positive_volume": true,
+    "on_bed": true,
+    "fits_A1": true
+  },
+  {
+    "file": "electronics_pod.stl",
+    "triangles": 11130,
+    "dimensions_mm": [
+      174.0,
+      162.0,
+      44.0
+    ],
+    "manifold": true,
+    "positive_volume": true,
+    "on_bed": true,
+    "fits_A1": true
+  },
+  {
+    "file": "retainer_master.stl",
+    "triangles": 828,
+    "dimensions_mm": [
+      29.24,
+      29.24,
+      2.0
+    ],
+    "manifold": true,
+    "positive_volume": true,
+    "on_bed": true,
+    "fits_A1": true
+  },
+  {
+    "file": "retainer_proto.stl",
+    "triangles": 816,
+    "dimensions_mm": [
+      57.0,
+      64.8,
+      2.0
+    ],
+    "manifold": true,
+    "positive_volume": true,
+    "on_bed": true,
+    "fits_A1": true
+  },
+  {
+    "file": "retainer_regulator.stl",
+    "triangles": 816,
+    "dimensions_mm": [
+      57.2,
+      35.0,
+      2.0
+    ],
+    "manifold": true,
+    "positive_volume": true,
+    "on_bed": true,
+    "fits_A1": true
+  },
+  {
+    "file": "retainer_servo_gate.stl",
+    "triangles": 828,
+    "dimensions_mm": [
+      29.24,
+      29.24,
+      2.0
     ],
     "manifold": true,
     "positive_volume": true,

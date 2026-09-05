@@ -2,6 +2,8 @@
 
 ## Recommended first build
 
+Exact selected parts and quantities are in [the shopping list](shopping-list.md); follow [the pin-by-pin wiring guide](wiring.md).
+
 Use four removable **AA NiMH** cells, a regulated **5 V buck-boost** supply, and a **high-side servo power switch**. AA is a more practical prototype starting point than AAA for servo pulses and energy capacity. The Mac mini runs the local gateway and phone website. **Demo mode** keeps Wi-Fi connected and polls every second; **Daily mode** disables the WLAN interface between configurable polls (60 seconds by default). Ordinary waiting in Daily mode is not deep sleep. Expect runtime to depend heavily on measured board waiting current; months are not established.
 
 Panasonic's cited cell family lists minimum capacities of 1900 mAh for AA and 750 mAh for AAA at nominal 1.2 V. Four cells in series provide 4.8 V nominal; capacity remains 1900 or 750 mAh. That is about **9.12 Wh for four AA**, or **3.6 Wh for four AAA**. Other cell generations differ: use the wrapper rating and measured usable energy. [Panasonic eneloop specifications](https://www.panasonic.com/global/energy/products/eneloop/en/lineup/eneloop.html).
@@ -12,8 +14,8 @@ Fresh four-cell packs can exceed Pico's direct-input limit. Do not connect this 
 
 ```text
 4 × AA NiMH series pack
-  positive -> fuse near pack -> master switch -> PACK+ (sense here)
-  negative ---------------------------------------- COMMON GND
+  positive -> fuse near pack -> 2810 master VIN -> VOUT -> PACK+ (sense here)
+  negative, master GND ---------------------------- COMMON GND
 
 PACK+ -> 5 V buck-boost VIN
 GND   -> regulator GND
@@ -24,7 +26,9 @@ regulator 5 V OUT -> +5V
 +5V -> high-side load-switch VIN
 load-switch VOUT -> servo red power wires
 load-switch GND  -> COMMON GND
-load-switch EN   <- GP15 (pin 20), with 100k pulldown to GND
+load-switch ON   <- GP15 (pin 20), with 100k pulldown to GND
+load-switch VOUT -> 1k bleeder -> GND
+D2 Schottky: ANODE -> GND, CATHODE (stripe) -> load-switch VOUT
 servo brown/black ground -> COMMON GND (direct short power return)
 GP16 -> 1k resistor -> first servo signal
 GP17 -> 1k resistor -> second servo signal, if used
@@ -39,32 +43,33 @@ Verify actual connector polarity: wire colors are conventions. Regulator/load-sw
 
 The Pico's USB-to-VSYS diode and the external Schottky diode form supply ORing. USB can power the Pico while the external supply is connected, without feeding the servo rail or cells through VSYS. **Do not bridge VBUS and VSYS**, and do not connect the battery or regulator directly to VBUS. Place the external diode close to Pico. This follows Raspberry Pi's recommended external-power arrangement. [Raspberry Pi hardware design guide, power section](https://pip.raspberrypi.com/documents/RP-008279-DS).
 
-The servo must get motor current from its own switched branch. Do not run it from Pico 3V3, a GPIO, or a computer USB port through the Pico traces. Use common ground and keep motor return current out of the ADC ground path. Tie the enable low in hardware so reset and unconfigured GPIO cannot intentionally enable the servo rail. Software drives signal low before/after power removal to reduce signal back-powering. A series resistor limits fault current; it is not a level shifter. If the servo cannot reliably accept 3.3 V PWM, add an appropriate unidirectional 3.3-to-5 V buffer with power-off isolation and verify its power sequencing.
+In this battery build, the servo gets motor current from its own switched branch. Do not run it from Pico 3V3 or a GPIO. A USB-powered Pico does expose nominal 5 V at VBUS (pin 40), and a servo can run from it if that USB supply and power path support its current. However, VBUS cannot be switched off by software and does not provide 5 V when the Pico is powered only through VSYS. See [the VBUS versus power-gating explanation](wiring.md#can-the-servo-take-power-from-the-picos-5-v-pin). Use common ground and keep motor return current out of the ADC ground path. Tie the enable low in hardware so reset and unconfigured GPIO cannot intentionally enable the servo rail. Software drives signal low before/after power removal to reduce signal back-powering. A series resistor limits fault current; it is not a level shifter. If the servo cannot reliably accept 3.3 V PWM, add an appropriate unidirectional 3.3-to-5 V buffer with power-off isolation and verify its power sequencing.
 
-The TPS22918 is an example **2 A, 1–5.5 V high-side load switch** with a GPIO-compatible enable, configurable rise time, and output discharge. It does not provide a current limiter. Use a documented assembled carrier/EVM or a correctly laid out circuit; the tiny bare IC is not a beginner wire-in component. Configure controlled startup and output discharge according to the carrier/datasheet so the disconnected servo rail falls promptly. Do not replace it with an unspecified low-side MOSFET module: switching ground can leave the servo powered through its signal. [TI TPS22918](https://www.ti.com/product/TPS22918).
+The selected assembled switch is **Pololu 2810 Mini MOSFET Slide Switch LV**, used twice. The first is the physical master ahead of both regulator and ADC, with its ON input unused. The second gates the servo rail: keep its physical slider **OFF**, cover it inside the pod, and connect its ON pad to GP15 with a 100k pulldown. A high ON input enables power; low/disconnected disables it while the slider is OFF. The master has reverse-polarity protection. Do not confuse this board with a latching pushbutton version. It has no current limiter or active discharge: the selected 1k bleeder discharges the switched output, and D2 clamps negative output transients. Verify decay and startup on the bench. [Pololu 2810](https://www.pololu.com/product/2810).
 
-A possible regulator is the **Pololu S18V20F5**. It handles voltages above and below 5 V, has reverse-input protection, and has about 1 mA typical no-load consumption under many conditions. Current capability depends on input voltage and thermal conditions; the 2 A headline is not a guarantee at every battery voltage. Leave its ENABLE unconnected in this first power design; the regulator remains on in both modes. Its enable is pulled toward VIN, so do not connect it directly to a Pico GPIO. [Pololu regulator documentation](https://www.pololu.com/product/2574).
+The master LED draws about 210 µA per input volt while on: approximately **1.01 mA at 4.8 V** continuously. The servo gate adds roughly 1.05 mA only while enabled; the 1k bleeder adds 5 mA at that time. These small additional actuation loads are within the illustrative 500 mA aggregate switched-load assumption below, which must be replaced by measurements. The manufacturer's thermal current figures are test conditions, not a guarantee inside this enclosure.
+The selected regulator is the **Pololu S18V20F5**. It handles voltages above and below 5 V, has reverse-input protection, and has about 1 mA typical no-load consumption under many conditions. Current capability depends on input voltage and thermal conditions; the 2 A headline is not a guarantee at every battery voltage. Leave its ENABLE unconnected in this first power design; the regulator remains on in both modes. Its enable is pulled toward VIN, so do not connect it directly to a Pico GPIO. [Pololu regulator documentation](https://www.pololu.com/product/2574).
 
-Start with 470–1000 µF bulk capacitance rated at least 10 V on the unswitched regulated 5 V rail and local ceramics at the switch/module as specified. Check startup inrush and output droop with the actual load. A capacitor helps short transients; it cannot supply a sustained stall or make an undersized regulator adequate. Choose the fuse only after measuring input peaks: its current and time characteristic must protect the weakest wire/connector/holder without tripping on normal startup. Do not solder directly to cells.
+Use the selected Panasonic EEUFR1A471, 470 µF rated 10 V, as initial bulk capacitance on the unswitched regulated 5 V rail and local ceramics at the switch/module as specified. Check startup inrush and output droop with the actual load. A capacitor helps short transients; it cannot supply a sustained stall or make an undersized regulator adequate. The starting fuse is a SCHURTER 0001.2507, 2 A time-lag ceramic in a Littelfuse 01500274Z holder. Verify its current/time behavior against input peaks and the weakest wire/connector/holder; it is not an instantaneous 2 A current limiter. At 4.4 V input, 85% efficiency, a 5 V / 2 A output would demand about 2.67 A from the pack before logic load. This is not a supported continuous operating point for the selected 2 A fused assembly. Drive only one servo at a time, measure actual peaks, and revise the supply if needed. Do not solder directly to cells.
 
 ## Measuring the battery
 
 The external divider measures the **unregulated pack**, since regulated VSYS would remain nearly constant as the cells discharge. `Vpack = ADC_voltage × (100 + 47) / 47`, so the nominal scale is **3.12766**. At a deliberately conservative 6.4 V pack check, ADC voltage is about 2.05 V, below 3.3 V with 1% resistor tolerance. At 4.8 V the divider consumes about 33 µA. A 100 nF capacitor at the ADC provides filtering; allow at least 20 ms after power-up before sampling, average readings, and calibrate against a meter.
 
-Master off must remove the divider supply as well as regulator input; otherwise an unpowered Pico can be back-powered through its ADC. The regulator's reverse-input protection does not protect the separate divider branch. Use a keyed holder/connector and check polarity before connection; add reverse-polarity protection ahead of both paths for a user-proof assembly. Do not sample a raw battery voltage directly on GP26.
+Master off must remove the divider supply as well as regulator input; otherwise an unpowered Pico can be back-powered through its ADC. The selected 2810 master provides reverse-input protection ahead of both regulator and divider. The regulator's own protection alone would not protect the separate divider branch. Still use the keyed connector and check polarity before connection. Do not sample a raw battery voltage directly on GP26.
 
-Show measured pack volts and a low-battery warning first. NiMH's fairly flat discharge voltage, servo sag, temperature, and cell imbalance make a voltage-derived percentage only an estimate. A four-cell voltage does not reveal one weak or reversed cell. Test a cutoff around **4.4 V under a repeatable rested/light load** as a conservative initial calibration point, check individual cells, and adjust from the cell maker's limits and actual voltage sag. This number is a project starting assumption, not a certified battery protection threshold. A runtime estimate requires a measured current/energy model; accurate state of charge requires more instrumentation, such as a suitably chosen coulomb counter plus calibration. Do not substitute a single-cell Li-ion fuel-gauge module blindly.
+When battery sensing is enabled, firmware shows measured pack volts, warns on low voltage, and inhibits new servo moves below `battery.low_v` (default 4.4 V; `null` disables this software threshold). This does not disconnect the whole pack: the Pico continues draining it, so switch off and remove discharged cells promptly. Sensing is disabled until the divider is installed and configured. NiMH's fairly flat discharge voltage, servo sag, temperature, and cell imbalance make a voltage-derived percentage only an estimate. A four-cell voltage does not reveal one weak or reversed cell. Test a cutoff around **4.4 V under a repeatable rested/light load** as a conservative initial calibration point, check individual cells, and adjust from the cell maker's limits and actual voltage sag. This number is a project starting assumption, not a certified battery protection threshold. A runtime estimate requires a measured current/energy model; accurate state of charge requires more instrumentation, such as a suitably chosen coulomb counter plus calibration. Do not substitute a single-cell Li-ion fuel-gauge module blindly.
 
 ## What runtime to expect
 
 All currents below are **illustrative assumptions, not measured Pico W or MG90S specifications**. They show why keeping Wi-Fi reachable dominates small batteries. “50 mA” here means logic current seen at the regulated **5 V rail**, not 3.3 V chip current.
 
-The bundled estimator separately models 80% accessible nominal battery energy, 85% conversion efficiency, 1.04 mA pack-side parasitics, 500 mA servo current at 5 V for 1 second total press-and-return time, and 20 actions per day across all servos. With those assumptions:
+The bundled estimator separately models 80% accessible nominal battery energy, 85% conversion efficiency, 2.05 mA pack-side parasitics (about 1 mA regulator + 1.01 mA master LED + 0.033 mA divider, rounded), 500 mA servo current at 5 V for 1 second total press-and-return time, and 20 actions per day across all servos. With those assumptions:
 
 | Always-awake logic current at 5 V | Four AAA, 750 mAh | Four AA, 1900 mAh |
 | --- | --- | --- |
-| 20 mA | about 23 hours | about 59 hours |
-| 50 mA | about 9.6 hours | about 24 hours |
+| 20 mA | about 22 hours | about 57 hours |
+| 50 mA | about 9.5 hours | about 24 hours |
 | 100 mA | about 4.8 hours | about 12 hours |
 
 At 50 mA, logic uses 6 Wh/day before conversion losses. The assumed 20 servo actions use only about 0.014 Wh/day. Frequent switching or a longer powered return changes the servo term, but servo idle holding is the avoidable cost: cut its power after each completed action. Use **total** press + return powered time, and count ON and OFF separately. Energy sufficiency does not establish that AAA can deliver required pulse current without brownout.
@@ -94,10 +99,10 @@ With the same batteries, efficiency, parasitics, and servo assumptions above, bu
 
 | Radio-off waiting current at 5 V | Four AA, 60-second polls | Four AA, 5-minute polls |
 | --- | --- | --- |
-| 5 mA (unmeasured scenario) | about 5.3 days | about 7.7 days |
-| 10 mA (estimator default assumption) | about 3.6 days | about 4.4 days |
-| 20 mA (unmeasured scenario) | about 2.2 days | about 2.4 days |
-| 1 mA (experimental target, not established) | about 8.7 days | about 19 days |
+| 5 mA (unmeasured scenario) | about 4.9 days | about 6.8 days |
+| 10 mA (estimator default assumption) | about 3.4 days | about 4.1 days |
+| 20 mA (unmeasured scenario) | about 2.1 days | about 2.3 days |
+| 1 mA (experimental target, not established) | about 7.7 days | about 14 days |
 
 These estimates show that longer intervals provide diminishing returns when the board's waiting current dominates. Four AAA would provide about 39% of these energy-based runtimes if they could supply the same peaks; that pulse-current condition needs testing. Replace the current assumptions with measurements on the actual Pico/UF2, disconnected from USB and debugger, with the finished regulator and servo switch.
 

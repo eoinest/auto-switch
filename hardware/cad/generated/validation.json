@@ -1,7 +1,7 @@
 {
   "configuration": {
     "units": "mm",
-    "status": "PROVISIONAL \u2014 measure wallplate and your MG90S before printing",
+    "status": "Source-dimensioned reference design; physical parts and wallplate not yet measured",
     "plate_height": 114.3,
     "plate_widths": {
       "1": 69.85,
@@ -14,56 +14,168 @@
     "rocker_width": 31.5,
     "rocker_height": 65.0,
     "rocker_surface_z": 10.0,
-    "pivot_z": 30.0,
+    "pivot_z": 31.0,
     "pad_radius": 26.0,
     "pad_post_height": 12.0,
-    "servo_body": [
-      24.0,
-      22.8,
-      12.2
-    ],
-    "servo_axis_offset_y": 5.5,
-    "horn_fastener_radius": 7.0,
-    "pod_internal_width": 96.0,
-    "pod_internal_height": 116.0,
-    "pod_internal_depth": 34.0
+    "sweep_limit_degrees": 10.0,
+    "fit_clearance_per_side": 0.5,
+    "servo": {
+      "case_length": 22.8,
+      "case_width": 12.4,
+      "case_height": 28.4,
+      "base_to_shaft_tip": 32.5,
+      "ear_span": 32.1,
+      "base_to_ear_under": 18.5,
+      "ear_thickness": 2.0,
+      "ear_hole_pitch": 27.5,
+      "ear_hole_diameter": 2.2,
+      "shaft_offset_y": 5.2,
+      "shaft_diameter": 4.8,
+      "lower_case_height": 24.0,
+      "cable_diameter": 1.4,
+      "user_brand_verified": false,
+      "unsourced_fit_dimensions": [
+        "ear_thickness",
+        "ear_hole_pitch",
+        "ear_hole_diameter",
+        "shaft_offset_y",
+        "shaft_diameter",
+        "lower_case_height",
+        "cable_diameter"
+      ]
+    },
+    "horn": {
+      "arm_span": 22.0,
+      "arm_width": 5.0,
+      "arm_thickness": 2.0,
+      "hub_diameter": 7.0,
+      "hub_depth": 4.0,
+      "fastener_radius": 7.0,
+      "user_horn_verified": false
+    },
+    "pod_internal_width": 170.0,
+    "pod_internal_height": 158.0,
+    "pod_internal_depth": 40.0,
+    "battery_holder": {
+      "size": [
+        63.0,
+        58.0,
+        16.0
+      ],
+      "loaded_allowance_z": 22.0,
+      "cell_max_diameter": 14.5,
+      "cell_max_length": 50.5,
+      "measured": false
+    },
+    "pico": {
+      "variant": "Pico W reference",
+      "pcb": [
+        51.0,
+        21.0,
+        1.0
+      ],
+      "mounting_hole_pitch": [
+        47.0,
+        11.4
+      ],
+      "mounting_hole_diameter": 2.1,
+      "header_pitch": 2.54,
+      "header_row_pitch": 17.78,
+      "header_plastic_height": 2.54,
+      "usb_plug_service": [
+        32.0,
+        14.0,
+        12.0
+      ],
+      "user_board_verified": false,
+      "user_header_verified": false
+    },
+    "layout": {
+      "battery": [
+        -43.0,
+        -43.0,
+        8.0
+      ],
+      "picowbell": [
+        34.0,
+        -47.0,
+        8.0
+      ],
+      "proto": [
+        -45.0,
+        29.0,
+        9.0
+      ],
+      "regulator": [
+        29.0,
+        8.0,
+        9.0
+      ],
+      "servo_gate": [
+        29,
+        41,
+        10
+      ],
+      "master": [
+        60,
+        61,
+        10
+      ],
+      "fuse": [
+        73.0,
+        18.0,
+        13.0
+      ],
+      "battery_disconnect": [
+        18,
+        -15,
+        15
+      ]
+    },
+    "required_checks_before_print": [
+      "wallplate measurements",
+      "servo brand and ear/shaft/horn measurements",
+      "Pico W versus Pico 2 W and header stack",
+      "holder loaded height and lead exit",
+      "selected cable connector service clearance"
+    ]
   },
   "parts": [
     {
-      "file": "1g_yoke_1.stl",
+      "file": "1g_servo1_yoke.stl",
       "dimensions_mm": [
         22.1,
         60.0,
-        15.0
+        17.0
       ],
       "non_manifold_edges": 0,
       "connected_components": 1,
-      "volume_mm3": 5580.29,
-      "triangles": 876
+      "volume_mm3": 5788.48,
+      "triangles": 704
+    },
+    {
+      "file": "coupon_servo_ear_mount.stl",
+      "dimensions_mm": [
+        20.0,
+        40.0,
+        37.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 8138.99,
+      "triangles": 184
     },
     {
       "file": "1g_chassis.stl",
       "dimensions_mm": [
         111.25,
-        236.7,
-        38.0
+        134.7,
+        37.0
       ],
       "non_manifold_edges": 0,
       "connected_components": 1,
-      "volume_mm3": 113088.96,
-      "triangles": 2284
-    },
-    {
-      "file": "1g_electronics_lid.stl",
-      "dimensions_mm": [
-        100.0,
-        120.0,
-        3.0
-      ],
-      "non_manifold_edges": 0,
-      "connected_components": 1,
-      "volume_mm3": 35267.66,
-      "triangles": 896
+      "volume_mm3": 23870.74,
+      "triangles": 766
     },
     {
       "file": "1g_fit_ring.stl",
@@ -78,52 +190,172 @@
       "triangles": 32
     },
     {
-      "file": "2g_yoke_1.stl",
+      "file": "retainer_proto.stl",
       "dimensions_mm": [
-        22.1,
-        60.0,
-        15.0
+        57.0,
+        64.8,
+        2.0
       ],
       "non_manifold_edges": 0,
       "connected_components": 1,
-      "volume_mm3": 5580.29,
-      "triangles": 876
+      "volume_mm3": 3264.32,
+      "triangles": 816
     },
     {
-      "file": "2g_yoke_2.stl",
+      "file": "coupon_proto_cradle.stl",
       "dimensions_mm": [
-        22.1,
-        60.0,
-        15.0
+        61.0,
+        68.8,
+        10.8
       ],
       "non_manifold_edges": 0,
       "connected_components": 1,
-      "volume_mm3": 5580.29,
-      "triangles": 876
+      "volume_mm3": 18122.58,
+      "triangles": 1718
+    },
+    {
+      "file": "retainer_regulator.stl",
+      "dimensions_mm": [
+        57.2,
+        35.0,
+        2.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 2340.8,
+      "triangles": 816
+    },
+    {
+      "file": "coupon_regulator_cradle.stl",
+      "dimensions_mm": [
+        61.2,
+        39.0,
+        10.8
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 10882.58,
+      "triangles": 1724
+    },
+    {
+      "file": "retainer_servo_gate.stl",
+      "dimensions_mm": [
+        29.24,
+        29.24,
+        2.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 1132.74,
+      "triangles": 828
+    },
+    {
+      "file": "coupon_servo_gate_cradle.stl",
+      "dimensions_mm": [
+        33.24,
+        33.24,
+        11.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 5847.55,
+      "triangles": 1728
+    },
+    {
+      "file": "retainer_master.stl",
+      "dimensions_mm": [
+        29.24,
+        29.24,
+        2.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 1132.74,
+      "triangles": 828
+    },
+    {
+      "file": "coupon_master_cradle.stl",
+      "dimensions_mm": [
+        33.24,
+        33.24,
+        11.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 5847.55,
+      "triangles": 1728
+    },
+    {
+      "file": "electronics_pod.stl",
+      "dimensions_mm": [
+        174.0,
+        162.0,
+        44.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 183486.81,
+      "triangles": 11130
+    },
+    {
+      "file": "docking_strap.stl",
+      "dimensions_mm": [
+        12.0,
+        38.0,
+        3.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 1313.68,
+      "triangles": 404
+    },
+    {
+      "file": "electronics_lid.stl",
+      "dimensions_mm": [
+        174.0,
+        162.0,
+        3.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 82535.36,
+      "triangles": 1018
+    },
+    {
+      "file": "2g_servo1_yoke.stl",
+      "dimensions_mm": [
+        22.1,
+        60.0,
+        17.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 5788.48,
+      "triangles": 708
+    },
+    {
+      "file": "2g_servo2_yoke.stl",
+      "dimensions_mm": [
+        22.1,
+        60.0,
+        17.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 5788.48,
+      "triangles": 704
     },
     {
       "file": "2g_chassis.stl",
       "dimensions_mm": [
         157.3,
-        236.7,
-        38.0
+        134.7,
+        37.0
       ],
       "non_manifold_edges": 0,
       "connected_components": 1,
-      "volume_mm3": 126297.15,
-      "triangles": 2570
-    },
-    {
-      "file": "2g_electronics_lid.stl",
-      "dimensions_mm": [
-        100.0,
-        120.0,
-        3.0
-      ],
-      "non_manifold_edges": 0,
-      "connected_components": 1,
-      "volume_mm3": 35267.66,
-      "triangles": 896
+      "volume_mm3": 28687.63,
+      "triangles": 962
     },
     {
       "file": "2g_fit_ring.stl",
@@ -136,7 +368,31 @@
       "connected_components": 1,
       "volume_mm3": 2868.0,
       "triangles": 32
+    },
+    {
+      "file": "coupon_battery_holder.stl",
+      "dimensions_mm": [
+        68.0,
+        63.0,
+        22.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 11176.0,
+      "triangles": 32
+    },
+    {
+      "file": "coupon_picowbell_mount.stl",
+      "dimensions_mm": [
+        62.5,
+        48.5,
+        8.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 12427.74,
+      "triangles": 1548
     }
   ],
-  "limits": "Topology/dimensions checked digitally. Fit, torque, clearance through motion and adhesion require physical validation."
+  "limits": "Source geometry and digital checks; unknown user hardware dimensions remain gated. Read fit-checks.json and docs/mechanics.md."
 }

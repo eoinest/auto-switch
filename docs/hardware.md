@@ -45,25 +45,21 @@ TowerPro lists an MG90S body of 22.8 × 12.2 × 28.5 mm, 1.8 kgf·cm stall torqu
 
 Start with a supply path designed for roughly **2 A available to one moving servo plus logic**, and measure the actual loaded peaks. This is a design allowance, not a sourced MG90S current rating. Serialize commands on the double unit; two simultaneous stall/start currents require a larger verified power path. Larger servos and lookalikes may require more. [Power wiring and test sequence](power.md).
 
-## Additional parts for the prototype
+## Selected parts for revision 2
 
-| Item | Quantity / selection rule |
+The first version used placeholder component envelopes and an unspecified servo load-switch carrier. Revision 2 selects actual purchasable parts so the enclosure can be designed around their mounting and connection requirements:
+
+| Function | Selected component |
 | --- | --- |
-| Pico W/WH or Pico 2 W | One per unit; use matching MicroPython firmware |
-| MG90S with supplied horn and screw | One per controlled paddle; existing parts |
-| Matched rechargeable NiMH AA cells | Four; 1900–2000 mAh class is a useful starting point |
-| External NiMH charger | Correct for the cells; charge outside this device |
-| Four-AA series holder | Example: [Pololu 1153](https://www.pololu.com/product/1153/), 58 × 63 × 16 mm, 24 AWG leads; secure it in the tray and cover exposed contacts with the enclosure; measure before final printing |
-| Master switch, fuse/holder, connectors | Rated for measured input peaks; protect wire and holder, fuse close to pack positive |
-| 5 V buck-boost regulator | Example: Pololu S18V20F5; verify current at lowest intended battery voltage, size and heat, not just headline rating |
-| High-side servo load-switch module | 5 V input, 3.3 V enable, at least 2 A path, default-off enable pulldown; e.g. TPS22918-based carrier following its reference circuit |
-| Schottky diode for Pico VSYS branch | 1 A / at least 20 V class; anode at regulated 5 V, cathode stripe toward VSYS |
-| Capacitors | Start with 470–1000 µF, ≥10 V electrolytic at 5 V regulator output, plus local ceramics per module guides |
-| Battery divider | 100 kΩ and 47 kΩ, 1%; 100 nF capacitor; optional separate reverse-polarity protection for sense branch |
-| Signal components | 100 kΩ enable pulldown; 1 kΩ series resistor per PWM signal; level buffer only if the actual servo requires it |
-| Assembly materials | Perfboard, insulated short power leads sized for peaks, heat-shrink, strain relief, small machine screws/nuts sized to CAD |
-| Printed parts and soft pads | Fit frame, housing, servo supports, horn adapters; silicone/TPU contact pads |
-| Adhesive strips | Chosen for the actual wall/plate finish, with accessible removal tabs; validate cyclic peel before unattended use |
-| Meter | Voltage/current checking; capturing short servo peaks may require a current logger or oscilloscope |
+| Removable batteries and contacts | Pololu 1153 four-AA holder with its supplied red/black leads |
+| Cells | Four matched Panasonic eneloop AA NiMH cells; external NiMH charger |
+| Regulated 5 V | Pololu 2574 / S18V20F5 |
+| Master and servo switches | Two Pololu 2810 **LV slide-switch** modules; different control wiring for each |
+| Socketed Pico mounting | Adafruit 5905 Proto Under Plate PiCowBell; compatible with the Pico’s existing headers |
+| Passive components and soldered junctions | Adafruit 1608 quarter-size Perma-Proto |
+| Battery disconnect | Mating Pololu 2180 + 2181 JST RCY prewired pigtails |
+| Protection and wiring | Selected fuse/holder, diodes, capacitor, resistors, servo mating leads and power wire in the shopping list |
 
-This is a selection BOM, not a tested production PCB or a guarantee that a particular breakout fits the first enclosure. The bench current-limit supply is helpful during development; it is not the intended wall installation power source.
+The full [shopping list](shopping-list.md) gives manufacturer/order identifiers, source links and quantities. The [wiring guide](wiring.md) maps those parts to the existing GP15/16/17/26 firmware pins, including connector polarity and actual physical Pico pin numbers. The 2810 is an assembled high-side module; it replaces the earlier generic TPS22918 suggestion.
+
+The [component-source register](component-sources.md) separates manufacturer dimensions, conservative fit allowances and unresolved measurements. A part number freezes the intended purchased part; it does not eliminate manufacturer tolerances, solder protrusion or variation in third-party MG90S servos. The revised CAD checks nominal component placement and clearance. The small fit coupons and a bench assembly still verify the actual printed and purchased parts.

@@ -1,0 +1,424 @@
+{
+  "schema_version": 1,
+  "units": "mm",
+  "research_date": "2026-09-05",
+  "status": "Selected prototype parts; not fabricated or fit-verified",
+  "dimension_policy": "Published envelopes and source geometry are distinct from design service allowances. null means not established, never zero. Exact source CAD does not prove assembled connector/header/lead fit.",
+  "parts": [
+    {
+      "id": "battery_holder",
+      "manufacturer_part": "Pololu 1153",
+      "quantity_two_gang": 1,
+      "quantity_one_gang": 1,
+      "source": "https://www.pololu.com/product/1153",
+      "published_envelope_mm": [
+        63,
+        58,
+        16
+      ],
+      "design_service_envelope_mm": [
+        65,
+        60,
+        22
+      ],
+      "mounting_holes": null,
+      "notes": "Published holder size; loaded-cell total height and lead exit envelope require measurement. 6-inch 24AWG leads. Reserve is not measured."
+    },
+    {
+      "id": "regulator",
+      "manufacturer_part": "Pololu 2574 S18V20F5",
+      "quantity_two_gang": 1,
+      "quantity_one_gang": 1,
+      "source": "https://www.pololu.com/product/2574",
+      "published_envelope_mm": [
+        43,
+        21,
+        10
+      ],
+      "design_service_envelope_mm": [
+        45,
+        23,
+        12
+      ],
+      "mounting_holes": {
+        "diameter_mm": 2.18,
+        "rectangle_pitch_mm": [
+          38.9,
+          16.6
+        ],
+        "centers_mm": null,
+        "note": "Pitch rounded in vendor drawing. Do not infer exact centers from rounded outer dimensions."
+      },
+      "drawing": "https://www.pololu.com/file/0J1417/s18v20x-step-up-step-down-voltage-regulator-dimensions.pdf",
+      "drawing_pcb_xy_mm": [
+        43.2,
+        21.0
+      ],
+      "notes": "Envelope excludes optional terminal blocks. Direct solder harness keeps height down; preserve airflow. ENABLE unused."
+    },
+    {
+      "id": "power_switch",
+      "manufacturer_part": "Pololu 2810 Mini MOSFET Slide Switch LV",
+      "quantity_two_gang": 2,
+      "quantity_one_gang": 2,
+      "source": "https://www.pololu.com/product/2810",
+      "published_envelope_mm": [
+        15.24,
+        15.24,
+        2.54
+      ],
+      "design_service_envelope_mm": [
+        18,
+        18,
+        6
+      ],
+      "mounting_holes": [],
+      "drawing": "https://www.pololu.com/file/0J1103/mini-mosfet-slide-switch-with-reverse-voltage-protection-dimension-diagram.pdf",
+      "drawing_pcb_xy_mm": [
+        15.2,
+        15.2
+      ],
+      "drawing_lever_extent_mm": 16.1,
+      "notes": "No mounting holes; electrical through holes are not screw holes. One master, one GP15 servo gate. Physical gate slider OFF; master ON pin unused. Cable bend space additional."
+    },
+    {
+      "id": "pico_socket_carrier",
+      "manufacturer_part": "Adafruit 5905 Proto Under Plate PiCowBell",
+      "quantity_two_gang": 1,
+      "quantity_one_gang": 1,
+      "source": "https://www.adafruit.com/product/5905",
+      "published_envelope_mm": [
+        52,
+        38.2,
+        5.6
+      ],
+      "design_service_envelope_mm": [
+        54,
+        40,
+        18
+      ],
+      "mounting_holes": {
+        "diameter_mm": 2.5,
+        "centers_mm": [
+          [
+            -23.495,
+            -16.51
+          ],
+          [
+            -23.495,
+            16.51
+          ],
+          [
+            23.495,
+            -16.51
+          ],
+          [
+            23.495,
+            16.51
+          ]
+        ],
+        "origin": "PCB center; long axis X",
+        "source": "Eagle board mounting elements and MOUNTINGHOLE_2.5_PLATED package"
+      },
+      "pcb_source": "https://github.com/adafruit/Adafruit-Proto-Under-Plate-PiCowBell-PCB",
+      "source_outline_mm": [
+        52.07,
+        38.1
+      ],
+      "source_outline_corner_radius_mm": 2.54,
+      "notes": "Pre-soldered female headers included. Published size excludes plugged-in Pico. 18mm stack is planning allowance requiring actual header measurement. Keep extra metal/wires/components 10mm from Pico antenna as project allowance, not manufacturer RF guarantee. Do not use product5200 STEP as5905."
+    },
+    {
+      "id": "discrete_board",
+      "manufacturer_part": "Adafruit 1608 quarter Perma-Proto",
+      "quantity_two_gang": 1,
+      "quantity_one_gang": 1,
+      "source": "https://www.adafruit.com/product/1608",
+      "published_envelope_mm": [
+        43,
+        50.8,
+        1.6002
+      ],
+      "design_service_envelope_mm": [
+        45,
+        53,
+        16
+      ],
+      "mounting_holes": {
+        "diameter_mm": 3.2,
+        "pitch_mm": 35.56,
+        "centers_mm": null
+      },
+      "notes": "Manufacturer out of stock at research date. Discrete component populated height is design allowance. 589 three-pack page has inconsistent mm/inch dimensions; do not silently substitute. Power wiring direct22AWG; printed bus current rating not established. Exact Mouser listing available; live stock unverified.",
+      "purchase": "https://www.mouser.com/en/ProductDetail/Adafruit/1608?qs=GURawfaeGuCPUqYJerHUuQ%3D%3D"
+    },
+    {
+      "id": "fuse_holder",
+      "manufacturer_part": "Littelfuse 01500274Z",
+      "quantity_two_gang": 1,
+      "quantity_one_gang": 1,
+      "source": "https://www.littelfuse.com/assetdocs/fuse-holder-150-datasheet?assetguid=662e5ae4-2c3a-4d7a-8642-e7d9db02703d",
+      "published_envelope_mm": [
+        47.5,
+        11,
+        11
+      ],
+      "design_service_envelope_mm": [
+        70,
+        14,
+        14
+      ],
+      "mounting_holes": null,
+      "purchase": "https://www.digikey.com/en/products/detail/littelfuse-inc/01500274Z/29453",
+      "notes": "Length tolerance \u00b11mm. Cylindrical body.16AWG330mmloop leads cut/trim to suit.70mm reserve includes provisional bend/opening clearance."
+    },
+    {
+      "id": "fuse",
+      "manufacturer_part": "SCHURTER 0001.2507 SPT 5x20 2A time-lag",
+      "quantity_two_gang": 1,
+      "quantity_one_gang": 1,
+      "source": "https://www.schurter.com/en/datasheet/SPT_5x20",
+      "published_envelope_mm": [
+        20,
+        5.2,
+        5.2
+      ],
+      "design_service_envelope_mm": null,
+      "mounting_holes": null,
+      "purchase": "https://www.digikey.com/en/products/detail/schurter-inc/0001-2507/639706",
+      "buy_quantity": 3,
+      "notes": "Ceramic, explicit DC rating; buy two spares. Fuse time-current coordination still needs measured input pulse and wiring validation."
+    },
+    {
+      "id": "battery_connector_female",
+      "manufacturer_part": "Pololu 2180 JST RCY female pigtail",
+      "quantity_two_gang": 1,
+      "quantity_one_gang": 1,
+      "source": "https://www.pololu.com/product/2180",
+      "published_envelope_mm": null,
+      "design_service_envelope_mm": [
+        25,
+        10,
+        10
+      ],
+      "mounting_holes": null,
+      "notes": "100mm20AWG prewired; reserve applies to mated2180+2181 shells only, not cable bends. Put recessed contact half toward battery after checking actual contacts and polarity."
+    },
+    {
+      "id": "battery_connector_male",
+      "manufacturer_part": "Pololu 2181 JST RCY male pigtail",
+      "quantity_two_gang": 1,
+      "quantity_one_gang": 1,
+      "source": "https://www.pololu.com/product/2181",
+      "published_envelope_mm": null,
+      "design_service_envelope_mm": null,
+      "mounting_holes": null,
+      "notes": "Matching2180. JST RCY rated3A with22AWG; wire gauge alone does not increase connector rating."
+    },
+    {
+      "id": "servo_extension",
+      "manufacturer_part": "Pololu 2169 12-inch twisted servo extension",
+      "quantity_two_gang": 2,
+      "quantity_one_gang": 1,
+      "source": "https://www.pololu.com/product/2169",
+      "published_envelope_mm": null,
+      "design_service_envelope_mm": null,
+      "mounting_holes": null,
+      "notes": "22AWG300mm purchased length. Fitted harness retains male end with ~100mm wire cut to dry-fit route, direct solder to componentboard; original servo female plugs here. Unused female half spare. No full extension coil assumed in CAD."
+    },
+    {
+      "id": "servo_headers",
+      "manufacturer_part": "Pololu 965 1x40 straight male header",
+      "quantity_two_gang": 0,
+      "quantity_one_gang": 0,
+      "source": "https://www.pololu.com/product/965",
+      "published_envelope_mm": null,
+      "design_service_envelope_mm": null,
+      "mounting_holes": null,
+      "notes": "Optional bench build using uncut extensions; final fitted harness direct-solders trimmed male pigtails, so no header purchase needed.",
+      "optional_bench_buy_quantity": 1
+    },
+    {
+      "id": "bulk_capacitor",
+      "manufacturer_part": "Panasonic EEUFR1A471",
+      "quantity_two_gang": 1,
+      "quantity_one_gang": 1,
+      "source": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDF0000/ast-ind-152838.pdf",
+      "published_envelope_mm": [
+        8,
+        8,
+        11.5
+      ],
+      "design_service_envelope_mm": [
+        9,
+        9,
+        13
+      ],
+      "mounting_holes": null,
+      "lead_pitch_mm": 3.5,
+      "notes": "470uF10V radial polarized. C1 on unswitched regulated5V. Envelope excludes leads. Distributor specifies13mm maximum seated height; nominal11.5mm can length differs from full installed height.",
+      "published_max_seated_height_mm": 13
+    },
+    {
+      "id": "adc_capacitor",
+      "manufacturer_part": "KEMET C315C104K5R5TA",
+      "quantity_two_gang": 1,
+      "quantity_one_gang": 1,
+      "source": "https://search.kemet.com/component-documentation/download/specsheet/C315C104K5R5TA",
+      "published_envelope_mm": [
+        3.81,
+        2.54,
+        3.14
+      ],
+      "design_service_envelope_mm": null,
+      "mounting_holes": null,
+      "lead_pitch_mm": 2.54,
+      "notes": "100nF50VX7R radial; buy3 total to have2 extra bypass caps for bench layout if needed."
+    },
+    {
+      "id": "diodes",
+      "manufacturer_part": "Vishay 1N5819-E3/73",
+      "quantity_two_gang": 2,
+      "quantity_one_gang": 2,
+      "source": "https://www.vishay.com/docs/88525/1n5817.pdf",
+      "published_envelope_mm": null,
+      "design_service_envelope_mm": null,
+      "mounting_holes": null,
+      "notes": "1A40V SchottkyDO41. D1 ORing: anode5V,cathodeVSYS. D2 negative rail clamp: anodeGND,cathodeSERVO_5V; not a positive overvoltage clamp."
+    },
+    {
+      "id": "resistors_100k",
+      "manufacturer_part": "Yageo MFR-25FBF52-100K",
+      "quantity_two_gang": 2,
+      "quantity_one_gang": 2,
+      "source": "https://www.yageogroup.com/content/Resource%20Library/Datasheet/YAGEO-MFR_DATASHEET.pdf",
+      "published_envelope_mm": [
+        6.3,
+        2.4,
+        2.4
+      ],
+      "design_service_envelope_mm": null,
+      "mounting_holes": null,
+      "notes": "1%1/4W axial. Divider top and GP15pulldown. Body tolerance\u00b1.5length\u00b1.2diam;leads excluded."
+    },
+    {
+      "id": "resistors_47k",
+      "manufacturer_part": "Yageo MFR-25FBF52-47K",
+      "quantity_two_gang": 1,
+      "quantity_one_gang": 1,
+      "source": "https://www.yageogroup.com/content/Resource%20Library/Datasheet/YAGEO-MFR_DATASHEET.pdf",
+      "published_envelope_mm": [
+        6.3,
+        2.4,
+        2.4
+      ],
+      "design_service_envelope_mm": null,
+      "mounting_holes": null,
+      "notes": "1%1/4W divider bottom."
+    },
+    {
+      "id": "resistors_1k",
+      "manufacturer_part": "Yageo MFR-25FBF52-1K",
+      "quantity_two_gang": 3,
+      "quantity_one_gang": 2,
+      "source": "https://www.yageogroup.com/content/Resource%20Library/Datasheet/YAGEO-MFR_DATASHEET.pdf",
+      "published_envelope_mm": [
+        6.3,
+        2.4,
+        2.4
+      ],
+      "design_service_envelope_mm": null,
+      "mounting_holes": null,
+      "notes": "1%1/4W: one signal resistor perservo, one switched rail bleeder."
+    },
+    {
+      "id": "wire",
+      "manufacturer_part": "Adafruit 3111 22AWG stranded six-color spool set",
+      "quantity_two_gang": 1,
+      "quantity_one_gang": 1,
+      "source": "https://www.adafruit.com/product/3111",
+      "published_envelope_mm": null,
+      "design_service_envelope_mm": null,
+      "mounting_holes": null,
+      "notes": "Shared consumable purchase, not one set consumed perdevice. Budget about1m total hookup perunit then trim after dry-fit."
+    },
+    {
+      "id": "heat_shrink",
+      "manufacturer_part": "Adafruit 344 heat-shrink assortment",
+      "quantity_two_gang": 1,
+      "quantity_one_gang": 1,
+      "source": "https://www.adafruit.com/product/344",
+      "published_envelope_mm": null,
+      "design_service_envelope_mm": null,
+      "mounting_holes": null,
+      "notes": "Shared consumable; insulate every soldered wire splice and exposed discrete lead."
+    },
+    {
+      "id": "usb_data_cable",
+      "manufacturer_part": "Adafruit 3879 USB-C to Micro-B 0.3m",
+      "quantity_two_gang": 1,
+      "quantity_one_gang": 1,
+      "source": "https://www.adafruit.com/product/3879",
+      "published_envelope_mm": null,
+      "design_service_envelope_mm": null,
+      "mounting_holes": null,
+      "notes": "Shared commissioning cable. Direct Pico USB access; no panel adapter required. Molded connector envelope not published; physicalfit check required."
+    },
+    {
+      "id": "cells_and_charger",
+      "manufacturer_part": "Panasonic K-KJ17MCA4BA",
+      "quantity_two_gang": 1,
+      "quantity_one_gang": 1,
+      "source": "https://www.panasonicbatteryproducts.com/wp-content/uploads/2024/01/2023-PANASONIC-CATALOG_DIGITAL.pdf",
+      "published_envelope_mm": null,
+      "design_service_envelope_mm": null,
+      "mounting_holes": null,
+      "notes": "One external BQ-CC17 charger + four AA NiMH; charger stays outside device. Reuse charger for other units. Four cells per holder."
+    },
+    {
+      "id": "strain_relief_ties",
+      "manufacturer_part": "Panduit PLT1M-C",
+      "quantity_two_gang": 12,
+      "quantity_one_gang": 12,
+      "source": "https://mkt.panduit.com/rs/955-VFM-023/images/Panduit_IEI-Focus-Products-EMEA-WEB.pdf",
+      "purchase": "https://www.digikey.com/en/products/detail/panduit-corp/PLT1M-C/280033",
+      "published_envelope_mm": null,
+      "design_service_envelope_mm": null,
+      "mounting_holes": null,
+      "strap_width_mm": 2.5,
+      "strap_length_mm": 99,
+      "notes": "12 is assembly allowance pending routing; pack100 commonly sold. Strap dimensions source-confirmed; latch head dimensions not established."
+    }
+  ],
+  "mechanical_hardware": {
+    "source": "Current CAD assembly requirements from mechanical design; physical assembly not verified",
+    "per_unit": {
+      "m2_5x6_screws": 4,
+      "m2_5x8_screws": 16,
+      "m3x8_screws": 4,
+      "m3x6_screws": 4,
+      "m3_hex_nuts": 4,
+      "holder_ties_2_5x200": 2
+    },
+    "per_servo": {
+      "m2x10_screws": 2,
+      "m2_nuts": 2,
+      "m2_washers": 2,
+      "bumpon_sj5302_pads": 2
+    },
+    "bambu_skus": {
+      "m2_5x6": "AA029",
+      "m2_5x8": "AA030",
+      "m3x6": "AA036",
+      "m3x8": "AA037"
+    },
+    "contact_pad": {
+      "manufacturer": "3M",
+      "part": "SJ5302",
+      "diameter_mm": 7.9,
+      "height_mm": 2.2,
+      "source": "https://multimedia.3m.com/mws/media/1614405O/3m-tm-bumpon-tm-protective-products-sj5000-sj5300-sj5400-sj5500-sj5700-sj6100.pdf"
+    },
+    "horn_fasteners": "Must measure supplied horn holes and reuse supplied shaft screw; no invented thread specification."
+  }
+}

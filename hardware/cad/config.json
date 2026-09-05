@@ -1,8 +1,11 @@
 {
   "units": "mm",
-  "status": "PROVISIONAL — measure wallplate and your MG90S before printing",
+  "status": "Source-dimensioned reference design; physical parts and wallplate not yet measured",
   "plate_height": 114.3,
-  "plate_widths": {"1": 69.85, "2": 115.9},
+  "plate_widths": {
+    "1": 69.85,
+    "2": 115.9
+  },
   "gang_spacing": 46.0,
   "plate_clearance_per_side": 0.7,
   "frame_wall": 3.0,
@@ -10,13 +13,129 @@
   "rocker_width": 31.5,
   "rocker_height": 65.0,
   "rocker_surface_z": 10.0,
-  "pivot_z": 30.0,
+  "pivot_z": 31.0,
   "pad_radius": 26.0,
   "pad_post_height": 12.0,
-  "servo_body": [24.0, 22.8, 12.2],
-  "servo_axis_offset_y": 5.5,
-  "horn_fastener_radius": 7.0,
-  "pod_internal_width": 96.0,
-  "pod_internal_height": 116.0,
-  "pod_internal_depth": 34.0
+  "sweep_limit_degrees": 10.0,
+  "fit_clearance_per_side": 0.5,
+  "servo": {
+    "case_length": 22.8,
+    "case_width": 12.4,
+    "case_height": 28.4,
+    "base_to_shaft_tip": 32.5,
+    "ear_span": 32.1,
+    "base_to_ear_under": 18.5,
+    "ear_thickness": 2.0,
+    "ear_hole_pitch": 27.5,
+    "ear_hole_diameter": 2.2,
+    "shaft_offset_y": 5.2,
+    "shaft_diameter": 4.8,
+    "lower_case_height": 24.0,
+    "cable_diameter": 1.4,
+    "user_brand_verified": false,
+    "unsourced_fit_dimensions": [
+      "ear_thickness",
+      "ear_hole_pitch",
+      "ear_hole_diameter",
+      "shaft_offset_y",
+      "shaft_diameter",
+      "lower_case_height",
+      "cable_diameter"
+    ]
+  },
+  "horn": {
+    "arm_span": 22.0,
+    "arm_width": 5.0,
+    "arm_thickness": 2.0,
+    "hub_diameter": 7.0,
+    "hub_depth": 4.0,
+    "fastener_radius": 7.0,
+    "user_horn_verified": false
+  },
+  "pod_internal_width": 170.0,
+  "pod_internal_height": 158.0,
+  "pod_internal_depth": 40.0,
+  "battery_holder": {
+    "size": [
+      63.0,
+      58.0,
+      16.0
+    ],
+    "loaded_allowance_z": 22.0,
+    "cell_max_diameter": 14.5,
+    "cell_max_length": 50.5,
+    "measured": false
+  },
+  "pico": {
+    "variant": "Pico W reference",
+    "pcb": [
+      51.0,
+      21.0,
+      1.0
+    ],
+    "mounting_hole_pitch": [
+      47.0,
+      11.4
+    ],
+    "mounting_hole_diameter": 2.1,
+    "header_pitch": 2.54,
+    "header_row_pitch": 17.78,
+    "header_plastic_height": 2.54,
+    "usb_plug_service": [
+      32.0,
+      14.0,
+      12.0
+    ],
+    "user_board_verified": false,
+    "user_header_verified": false
+  },
+  "layout": {
+    "battery": [
+      -43.0,
+      -43.0,
+      8.0
+    ],
+    "picowbell": [
+      34.0,
+      -47.0,
+      8.0
+    ],
+    "proto": [
+      -45.0,
+      29.0,
+      9.0
+    ],
+    "regulator": [
+      29.0,
+      8.0,
+      9.0
+    ],
+    "servo_gate": [
+      29,
+      41,
+      10
+    ],
+    "master": [
+      60,
+      61,
+      10
+    ],
+    "fuse": [
+      73.0,
+      18.0,
+      13.0
+    ],
+    "battery_disconnect": [
+      18,
+      -15,
+      15
+    ]
+  },
+  "required_checks_before_print": [
+    "wallplate measurements",
+    "servo brand and ear/shaft/horn measurements",
+    "Pico W versus Pico 2 W and header stack",
+    "holder loaded height and lead exit",
+    "selected cable connector service clearance"
+  ]
 }

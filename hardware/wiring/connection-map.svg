@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1000" viewBox="0 0 1400 1000">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#486351"/></marker></defs>
+<rect width="1400" height="1000" fill="#f7f8f3"/>
+<style>text{font-family:Arial,sans-serif;fill:#20342a}.title{font-size:29px;font-weight:700}.sub{font-size:15px;fill:#54675b}.name{font-size:19px;font-weight:700}.detail{font-size:14px}.wire{fill:none;stroke:#486351;stroke-width:3;marker-end:url(#arrow)}.signal{fill:none;stroke:#b87922;stroke-width:3;stroke-dasharray:7 4;marker-end:url(#arrow)}.tag{font-size:13px;fill:#396143;font-weight:700}</style>
+<text x="40" y="50" class="title">Auto Switch · selected parts and connections</text>
+<text x="40" y="79" class="sub">4 × AA NiMH  →  regulated 5 V  →  Pico W + separately switched servos</text>
+<rect x="40" y="120" width="230" height="118" rx="12" fill="#e7edde" stroke="#9bab9b"/>
+<text x="57" y="149" class="name">Battery holder</text>
+<text x="57" y="175" class="detail">Pololu 1153 · 4 AA cells</text>
+<text x="57" y="196" class="detail">Red = positive</text>
+<text x="57" y="217" class="detail">Black = common ground</text>
+<rect x="325" y="120" width="180" height="118" rx="12" fill="#e7edde" stroke="#9bab9b"/>
+<text x="342" y="149" class="name">Fuse + plug</text>
+<text x="342" y="175" class="detail">Fuse near holder positive</text>
+<text x="342" y="196" class="detail">Keyed battery disconnect</text>
+<text x="342" y="217" class="detail">See shopping list</text>
+<rect x="560" y="120" width="270" height="118" rx="12" fill="#e7edde" stroke="#9bab9b"/>
+<text x="577" y="149" class="name">Master switch</text>
+<text x="577" y="175" class="detail">Pololu 2810 LV</text>
+<text x="577" y="196" class="detail">Use physical slide switch</text>
+<text x="577" y="217" class="detail">ON input stays disconnected</text>
+<rect x="920" y="120" width="370" height="118" rx="12" fill="#e7edde" stroke="#9bab9b"/>
+<text x="937" y="149" class="name">5 V regulator</text>
+<text x="937" y="175" class="detail">Pololu 2574 · S18V20F5</text>
+<text x="937" y="196" class="detail">PACK_SW → VIN · VOUT → 5 V</text>
+<text x="937" y="217" class="detail">Leave ENABLE disconnected</text>
+<path d="M 270 174 H 325" class="wire"/>
+<path d="M 505 174 H 560" class="wire"/>
+<path d="M 830 174 H 920" class="wire"/>
+<text x="843" y="160" class="tag">PACK_SW</text>
+<rect x="920" y="307" width="370" height="95" rx="12" fill="#e7edde" stroke="#9bab9b"/>
+<text x="937" y="336" class="name">Bulk capacitor</text>
+<text x="937" y="362" class="detail">470 µF / ≥10 V across 5 V and GND</text>
+<text x="937" y="383" class="detail">Negative stripe → GND</text>
+<path d="M 1110 238 V 307" class="wire"/>
+<text x="1125" y="277" class="tag">5 V</text>
+<rect x="920" y="465" width="370" height="121" rx="12" fill="#e7edde" stroke="#9bab9b"/>
+<text x="937" y="494" class="name">Servo power gate</text>
+<text x="937" y="520" class="detail">Pololu 2810 LV · physical slide OFF</text>
+<text x="937" y="541" class="detail">VIN = 5 V · ON = GP15 (3.3 V logic)</text>
+<text x="937" y="562" class="detail">VOUT feeds only the servos</text>
+<path d="M 1280 270 H 1330 V 518 H 1290" class="wire"/>
+<path d="M 1110 270 H 1280" class="wire"/>
+<rect x="920" y="658" width="370" height="116" rx="12" fill="#e7edde" stroke="#9bab9b"/>
+<text x="937" y="687" class="name">Servo plugs</text>
+<text x="937" y="713" class="detail">Ground / switched 5 V / signal</text>
+<text x="937" y="734" class="detail">One plug per MG90S</text>
+<text x="937" y="755" class="detail">Route motor returns straight to GND</text>
+<path d="M 1105 586 V 658" class="wire"/>
+<text x="1120" y="626" class="tag">SERVO_5V</text>
+<rect x="510" y="307" width="322" height="113" rx="12" fill="#e7edde" stroke="#9bab9b"/>
+<text x="527" y="336" class="name">Pico supply diode D1</text>
+<text x="527" y="362" class="detail">1N5819 · anode from regulated 5 V</text>
+<text x="527" y="383" class="detail">Striped cathode → Pico VSYS pin 39</text>
+<text x="527" y="404" class="detail">USB may power Pico independently</text>
+<path d="M 1010 270 H 668 V 307" class="wire"/>
+<rect x="510" y="477" width="322" height="199" rx="12" fill="#e7edde" stroke="#9bab9b"/>
+<text x="527" y="506" class="name">Pico W / Pico 2 W</text>
+<text x="527" y="532" class="detail">Pin 39 VSYS ← diode D1</text>
+<text x="527" y="553" class="detail">Pin 38 GND → common ground</text>
+<text x="527" y="574" class="detail">Pin 20 GP15 → gate ON</text>
+<text x="527" y="595" class="detail">Pin 21 GP16 → 1 kΩ → servo 0 signal</text>
+<text x="527" y="616" class="detail">Pin 22 GP17 → 1 kΩ → servo 1 signal</text>
+<text x="527" y="637" class="detail">Pin 31 GP26 ← battery ADC node</text>
+<path d="M 667 420 V 477" class="wire"/>
+<path d="M 832 548 H 920" class="signal"/>
+<path d="M 832 604 H 871 V 730 H 920" class="signal"/>
+<rect x="40" y="307" width="375" height="146" rx="12" fill="#e7edde" stroke="#9bab9b"/>
+<text x="57" y="336" class="name">Battery voltage divider</text>
+<text x="57" y="362" class="detail">PACK_SW → 100 kΩ → ADC node</text>
+<text x="57" y="383" class="detail">ADC node → 47 kΩ → GND</text>
+<text x="57" y="404" class="detail">ADC node → 100 nF → GND</text>
+<text x="57" y="425" class="detail">ADC node → GP26 (never raw pack)</text>
+<path d="M 870 174 V 271 H 231 V 307" class="wire"/>
+<path d="M 415 389 H 455 V 628 H 510" class="signal"/>
+<rect x="40" y="506" width="375" height="172" rx="12" fill="#f0e9d9" stroke="#9bab9b"/>
+<text x="57" y="535" class="name">Small protection parts</text>
+<text x="57" y="561" class="detail">100 kΩ: gate ON input → GND</text>
+<text x="57" y="582" class="detail">1 kΩ / ¼ W: SERVO_5V → GND</text>
+<text x="57" y="603" class="detail">D2 1N5819 negative-spike clamp:</text>
+<text x="57" y="624" class="detail">striped cathode → SERVO_5V</text>
+<text x="57" y="645" class="detail">anode → GND</text>
+<rect x="40" y="736" width="792" height="86" rx="12" fill="#e7edde" stroke="#9bab9b"/>
+<text x="57" y="765" class="name">Every GND is common</text>
+<text x="57" y="791" class="detail">Battery black, both switches, regulator, Pico, capacitors and servo ground wires.</text>
+<text x="40" y="873" class="sub">Pin numbers refer to the Pico’s physical 40-pin edge headers, not GPIO numbers.</text>
+<text x="40" y="901" class="sub">The servo gate slider must remain OFF; ON bypasses the Pico’s power control.</text>
+<text x="40" y="929" class="sub">This battery build leaves VBUS unused. VBUS exposes USB 5 V, but has no software power switch.</text>
+<text x="40" y="957" class="sub">Functional connection map; follow docs/wiring.md for pinouts, harness assembly and meter checks.</text>
+</svg>

@@ -1,0 +1,294 @@
+{
+  "schema_version": 1,
+  "units": "mm",
+  "checked_on": "2026-09-05",
+  "scope": "Manufacturer reference geometry, not measured fit of the user components; unknowns are null.",
+  "sources": {
+    "pico_w_datasheet": {
+      "url": "https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf",
+      "checked_on": "2026-09-05",
+      "sha256": "ba8649ba98437301b9f1621504569a27f1d2ba6111795b4df76783adb08de7c5",
+      "bytes": 20175431,
+      "redistributed": false,
+      "license": "CC BY-ND 4.0; source retained only outside repository",
+      "release": 7,
+      "build_date": "2026-07-03",
+      "mechanical_figure": 3,
+      "printed_page": 6,
+      "pdf_page_index": 6
+    },
+    "pico_2_w_datasheet": {
+      "url": "https://datasheets.raspberrypi.com/picow/pico-2-w-datasheet.pdf",
+      "checked_on": "2026-09-05",
+      "sha256": "8f519b945e9f7078ffd3fee464992fca376d8037ebcd1f83bd2a021241717eb2",
+      "bytes": 3791194,
+      "redistributed": false,
+      "license": "CC BY-ND 4.0; source retained only outside repository",
+      "release": 2,
+      "build_date": "2026-07-03",
+      "mechanical_figure": 3,
+      "printed_page": 6,
+      "pdf_page_index": 6
+    },
+    "pico_w_step": {
+      "url": "https://pip.raspberrypi.com/documents/RP-008318-DS",
+      "checked_on": "2026-09-05",
+      "sha256": "fc282d072183f645718b3c1b0f456117b23b681c6b17073a8aa7131b53dba367",
+      "bytes": 838467,
+      "redistributed": true,
+      "license": "Raspberry Pi permissive design grant; see vendor/NOTICE.md"
+    },
+    "pico_2_nonwireless_step": {
+      "url": "https://pip.raspberrypi.com/documents/RP-009061-CA",
+      "checked_on": "2026-09-05",
+      "sha256": "74974c52ee695a1d2c638d8288c798b42236c60d7de7af5345b9a5017f993f82",
+      "bytes": 2215615,
+      "redistributed": false,
+      "license": "MIT in archive; not redistributed because not the required wireless model"
+    },
+    "towerpro_dimension_key": {
+      "url": "https://towerpro.com.tw/wp-content/uploads/2014/07/%E5%B0%8F%E9%A6%AC%E9%81%94%E5%B0%BA%E5%AF%B8%E6%A8%99%E7%A4%BA%E5%9C%96B.jpg",
+      "checked_on": "2026-09-05",
+      "sha256": "239562be5f25bb06d03900741d7388dcb30ab004a294155a060c10875b151f8c",
+      "bytes": 146730,
+      "redistributed": false,
+      "license": "TowerPro all rights reserved; research copy outside repository"
+    },
+    "towerpro_product": {
+      "url": "https://towerpro.com.tw/product/mg90s-3/",
+      "checked_on": "2026-09-05",
+      "redistributed": false,
+      "license": "No CAD redistribution grant established"
+    },
+    "skystar_mg90s": {
+      "url": "https://www.tinytronics.nl/product_files/000263_Data_Sheet_of_MG90S_Analog_Servo_Motor.pdf",
+      "checked_on": "2026-09-05",
+      "redistributed": false,
+      "manufacturer": "Shenzhen Sky Star Technology Co., Ltd",
+      "license": "No redistribution grant established; URL only"
+    },
+    "picowbell": {
+      "url": "https://www.adafruit.com/product/5905",
+      "cad_url": "https://github.com/adafruit/Adafruit-Proto-Under-Plate-PiCowBell-PCB",
+      "checked_on": "2026-09-05"
+    }
+  },
+  "pico_w_family": {
+    "models": [
+      "Raspberry Pi Pico W",
+      "Raspberry Pi Pico WH",
+      "Raspberry Pi Pico 2 W",
+      "Raspberry Pi Pico 2 W with headers"
+    ],
+    "coordinate_system": {
+      "origin": "center of PCB component-side top plane",
+      "x": "across short board width",
+      "y": "toward micro USB",
+      "z": "from PCB into components"
+    },
+    "source_ids": [
+      "pico_w_datasheet",
+      "pico_2_w_datasheet"
+    ],
+    "confidence": "Manufacturer nominal mechanical drawing; actual headers and component populations vary",
+    "pcb": {
+      "width": 21.0,
+      "length": 51.0,
+      "thickness": 1.0,
+      "bounds_min": [
+        -10.5,
+        -25.5,
+        -1.0
+      ],
+      "bounds_max": [
+        10.5,
+        25.5,
+        0.0
+      ]
+    },
+    "mounting_holes": {
+      "diameter": 2.1,
+      "diameter_tolerance_plus_minus": 0.05,
+      "centers_xy": [
+        [
+          -5.7,
+          -23.5
+        ],
+        [
+          5.7,
+          -23.5
+        ],
+        [
+          -5.7,
+          23.5
+        ],
+        [
+          5.7,
+          23.5
+        ]
+      ],
+      "coordinate_basis": "11.4 transverse center spacing, 2 offset from each short edge; centered across board"
+    },
+    "main_headers": {
+      "rows": 2,
+      "pins_per_row": 20,
+      "pitch": 2.54,
+      "row_spacing": 17.78,
+      "row_x": [
+        -8.89,
+        8.89
+      ],
+      "first_pin_y": 24.13,
+      "last_pin_y": -24.13,
+      "drill_diameter": 1.0,
+      "presoldered_header_part_number": null,
+      "pin_projection_below_pcb": null,
+      "plastic_insulator_height": null,
+      "header_pin_section": null
+    },
+    "usb_drawing": {
+      "receptacle_shell_width": 8.0,
+      "overhang_beyond_pcb_typical": 1.3,
+      "plug_width": null,
+      "plug_height": null,
+      "insertion_clearance_length": null
+    },
+    "antenna_carrier_cutout": {
+      "width": 14.0,
+      "depth_from_nonusb_end": 9.0,
+      "bounds_xy_min": [
+        -7.0,
+        -25.5
+      ],
+      "bounds_xy_max": [
+        7.0,
+        -16.5
+      ],
+      "source_section": "2.2.1 and Figure 7",
+      "z_clearance": null,
+      "note": "Carrier cutout, not a complete three-dimensional RF keep-out. Leave antenna space free; no nearby batteries, motor, conductors or enclosure material without validation."
+    },
+    "pico_w_official_cad": {
+      "archive": "vendor/PicoW-step.zip",
+      "archive_member": "PicoW.stp",
+      "step_internal_filename": "PicoW-4.stp",
+      "step_timestamp": "2023-08-11T10:10:01",
+      "assembly": "rpi-picow-r3-2.brd",
+      "blender_mesh": "vendor/PicoW.obj",
+      "material_file": "vendor/PicoW.mtl",
+      "mesh_metadata": "vendor/PicoW-mesh-metadata.json",
+      "notice": "vendor/NOTICE.md",
+      "source_origin_to_centered_translation": [
+        -10.5,
+        -25.5,
+        0
+      ],
+      "headers_included": false,
+      "all_passives_included": false,
+      "manufacturer_model_contains_simplifications": true,
+      "source_model_pcb_z_min": -0.9607,
+      "usb_part_name": "FCI_10103594-0001LF",
+      "usb_centered_bounds_min": [
+        -3.9946057847,
+        20.7943097675,
+        -0.8
+      ],
+      "usb_centered_bounds_max": [
+        3.99480598,
+        26.85,
+        2.6947058824
+      ]
+    },
+    "pico_2_w_cad_status": {
+      "verified_exact_model_found": false,
+      "datasheet_step_link_points_to": "pico_2_nonwireless_step",
+      "downloaded_archive_member": "rpi_pico2.step",
+      "root_product_name": "rpi_pico2",
+      "action": "Do not label the non-wireless Pico 2 model or Pico W model as exact Pico 2 W geometry."
+    }
+  },
+  "picowbell_carrier": {
+    "part": "Adafruit 5905",
+    "source_id": "picowbell",
+    "vendor_overall_dimensions": [
+      52.0,
+      38.2,
+      5.6
+    ],
+    "pcb_outline_from_eagle": [
+      52.07,
+      38.1
+    ],
+    "includes_female_headers": true,
+    "female_header_count": 2,
+    "female_header_pins_each": 20,
+    "header_part_number": null,
+    "assembled_height_with_user_pico": null,
+    "planning_stack_allowance": 18.0,
+    "planning_allowance_is_verified": false,
+    "note": "No extra female sockets are required for the presoldered product. Loaded height must be measured."
+  },
+  "mg90s": {
+    "user_variant_identified": false,
+    "verified_manufacturer_step_found": false,
+    "reference_manufacturer": "TowerPro",
+    "reference_product": "MG90S digital servo",
+    "source_ids": [
+      "towerpro_product",
+      "towerpro_dimension_key"
+    ],
+    "coordinate_system": {
+      "origin": "case base at plan-view case center",
+      "x": "along long case dimension",
+      "y": "across short case dimension",
+      "z": "toward output shaft"
+    },
+    "reference_dimensions": {
+      "A_base_to_shaft_tip": 32.5,
+      "B_case_length": 22.8,
+      "C_base_to_highest_gearbox_housing_excluding_shaft": 28.4,
+      "D_case_width": 12.4,
+      "E_ear_tip_to_tip_span_not_hole_pitch": 32.1,
+      "F_base_to_ear_underside": 18.5
+    },
+    "conflicting_short_spec_on_same_page": {
+      "dimensions": [
+        22.8,
+        12.2,
+        28.5
+      ],
+      "note": "Width differs from D by0.2; height convention differs. Do not silently collapse these into an exact-fit profile."
+    },
+    "measured_values_required": {
+      "main_rectangular_case_height": null,
+      "ear_thickness": null,
+      "ear_hole_diameter": null,
+      "ear_hole_center_spacing": null,
+      "shaft_center_x": null,
+      "shaft_center_y": null,
+      "shaft_spline_diameter": null,
+      "shaft_spline_tooth_count": null,
+      "retaining_screw_thread": null,
+      "retaining_screw_length": null,
+      "horn_outer_envelope": null,
+      "horn_attachment_hole_pattern": null,
+      "cable_exit_envelope": null,
+      "cable_minimum_bend_radius": null
+    },
+    "published_cable_length": 250.0,
+    "mounting_guidance": "Use supplied horn and center screw. Measure actual servo before a close-fit cradle; keep ear span separate from mounting-hole pitch.",
+    "separate_manufacturer_example_not_user_part": {
+      "manufacturer": "Shenzhen Sky Star Technology Co., Ltd",
+      "name": "MG90S Analog Servo",
+      "source_id": "skystar_mg90s",
+      "specified_case_dimensions": [
+        22.4,
+        12.1,
+        22.8
+      ],
+      "specified_spline_teeth": 20,
+      "specified_spline_diameter": 4.9,
+      "reason_recorded": "Demonstrates incompatible MG90S variants; do not apply these values to TowerPro or the user servo without identification."
+    }
+  }
+}
