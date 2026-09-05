@@ -47,7 +47,7 @@ Start with a supply path designed for roughly **2 A available to one moving serv
 
 ## Selected parts for revision 2
 
-The first version used placeholder component envelopes and an unspecified servo load-switch carrier. Revision 2 selects actual purchasable parts so the enclosure can be designed around their mounting and connection requirements:
+The first version used placeholder component envelopes and an unspecified servo load-switch carrier. The current headerless revision selects actual purchasable parts so the enclosure can be designed around their mounting and connection requirements:
 
 | Function | Selected component |
 | --- | --- |
@@ -55,11 +55,11 @@ The first version used placeholder component envelopes and an unspecified servo 
 | Cells | Four matched Panasonic eneloop AA NiMH cells; external NiMH charger |
 | Regulated 5 V | Pololu 2574 / S18V20F5 |
 | Master and servo switches | Two Pololu 2810 **LV slide-switch** modules; different control wiring for each |
-| Socketed Pico mounting | Adafruit 5905 Proto Under Plate PiCowBell; compatible with the Pico’s existing headers |
+| Direct Pico mounting | Headerless Pico W, four M2 × 6 nylon screws and soldered edge-pad wires; no PiCowBell |
 | Passive components and soldered junctions | Adafruit 1608 quarter-size Perma-Proto |
 | Battery disconnect | Mating Pololu 2180 + 2181 JST RCY prewired pigtails |
 | Protection and wiring | Selected fuse/holder, diodes, capacitor, resistors, servo mating leads and power wire in the shopping list |
 
-The full [shopping list](shopping-list.md) gives manufacturer/order identifiers, source links and quantities. The [wiring guide](wiring.md) maps those parts to the existing GP15/16/17/26 firmware pins, including connector polarity and actual physical Pico pin numbers. The 2810 is an assembled high-side module; it replaces the earlier generic TPS22918 suggestion.
+The root [BOM](../BOM.md), [BOM CSV](../hardware/bom.csv) and [shopping list](shopping-list.md) give manufacturer/order identifiers, source links and quantities. The [wiring guide](wiring.md) maps those parts to the existing GP15/16/17/26 firmware pins, including connector polarity and actual physical Pico pin numbers. The 2810 is an assembled high-side module; it replaces the earlier generic TPS22918 suggestion.
 
 The [component-source register](component-sources.md) separates manufacturer dimensions, conservative fit allowances and unresolved measurements. A part number freezes the intended purchased part; it does not eliminate manufacturer tolerances, solder protrusion or variation in third-party MG90S servos. The revised CAD checks nominal component placement and clearance. The small fit coupons and a bench assembly still verify the actual printed and purchased parts.

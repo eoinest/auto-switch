@@ -2,7 +2,7 @@
 
 The Pico W reference now uses **Raspberry Pi's own 3D assembly**, rather than an invented board-shaped box. The repository includes the original STEP archive plus a Blender-importable OBJ with 11 named parts. An MG90S label, however, does not identify one guaranteed mechanical drawing: the original manufacturer's page omits several dimensions needed for a tight mount, and other manufacturers sell different MG90S geometries.
 
-Machine-readable values, source IDs, unresolved measurements, and checksums are in [board-servo.json](../hardware/components/board-servo.json). Final physical-fit approval still requires matching the actual purchased board, servo, headers and power carrier.
+Machine-readable values, source IDs, unresolved measurements, and checksums are in [board-servo.json](../hardware/components/board-servo.json). Final physical-fit approval still requires matching the actual purchased board, servo, solder joints and power components.
 
 ## Pico W and Pico 2 W mechanical interface
 
@@ -24,7 +24,9 @@ For this table, the origin is the center of the PCB's **top plane**, x crosses i
 
 The antenna guidance applies in three dimensions: keep nearby hardware and material away, particularly the battery, servo metal, wiring, carrier copper and fasteners. The 14 × 9 mm number is a **carrier cutout**, not a claim that objects placed 0.1 mm above that rectangle are harmless. Neither inspected datasheet gives one universal z clearance. Place the antenna at an exposed edge and verify Wi-Fi in the actual enclosure. [Pico W mechanical and keep-out sections](https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf).
 
-Presoldered headers add an unknown underside projection until their actual part or measurements are known. Do not put a printed floor against those pins. The selected **Adafruit PiCowBell 5905 already includes two 20-pin female sockets**, so there is no separate socket purchase for that carrier. Its listed 52 × 38.2 × 5.6 mm size excludes the plugged-in Pico. The board's Eagle outline gives 52.07 × 38.10 mm; use the carrier source and actual loaded assembly for stack height. An 18 mm stack allowance in the planning model is an allowance, not a manufacturer-confirmed dimension. [Adafruit carrier](https://www.adafruit.com/product/5905), [Adafruit board source](https://github.com/adafruit/Adafruit-Proto-Under-Plate-PiCowBell-PCB).
+The current fitted revision uses a **headerless Pico W with direct soldered wires** and four nylon mounting screws. Its PCB hole pattern comes from the official drawing; the generated fit report probes the actual exported mounting posts and checks reserved underside solder and USB access. Solder height and wire bends still require a dry fit. The original headered Pico can be used on the bench.
+
+The earlier socketed revision selected Adafruit 5905 PiCowBell (52.07 × 38.10 mm Eagle outline) and an assumed 18 mm loaded stack. That carrier and header stack are **not in the current default BOM or STL assembly**. The earlier source evidence remains attributable to [Adafruit's carrier](https://www.adafruit.com/product/5905) and [board source](https://github.com/adafruit/Adafruit-Proto-Under-Plate-PiCowBell-PCB).
 
 ## Original source CAD and Blender import
 
@@ -80,8 +82,8 @@ No manufacturer-authorized MG90S STEP model was established in this research. Co
 
 ## Measurements still needed for final fit
 
-1. Exact board marking: Pico W, Pico WH, Pico 2 W, or Pico 2 W with headers; whether the user's soldered headers are a known manufacturer's part.
-2. Actual header projection below the PCB, fully seated Pico-to-carrier spacing, and clearance around underside solder joints.
+1. Use the selected headerless Pico W for the current source-matched assembly. A different board variant or existing soldered headers requires rechecking the component envelope.
+2. Actual underside solder-joint height, direct-wire bend and strain relief, nylon screw engagement, and USB plug clearance.
 3. Servo case length/width/height; mounting-ear span, underside height, thickness, hole diameter and center spacing; shaft center relative to case; highest horn/screw height and cable bend envelope.
 4. The supplied horn's center and peripheral holes, retaining screw, and clearance through the printed adapter.
 5. Actual USB plug envelope and insertion space, and the single/double wall-plate dimensions from the mechanical guide.

@@ -12,3 +12,6 @@ firmware/config.json
 *.blend2
 *.log
 gateway/local-*.plist
+
+.playwright-cli/
+output/playwright/

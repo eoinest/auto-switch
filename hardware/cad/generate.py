@@ -16,7 +16,7 @@ PARTS={x['id']:x for x in POWER['parts']}
 for old in OUT.glob('*.stl'):old.unlink()
 
 def printable(o,name,rotate=False,export_it=True):
-    PRINTS.append(o);o['role']='printed';o['print_name']=name
+    PRINTS.append(o);o['role']='printed';o['print_name']=name;o['export_rotate_y_90']=rotate
     if export_it:export(o,name,rotate)
     return o
 
@@ -153,7 +153,7 @@ def build_pod(g,cx,h):
     cut(pod,(cx,py,depth/2+5),(pw,ph,depth+2))
     # Motorleadexitattheloweredge; noleadisroutedbehindwall.
     cut(pod,(cx,py-ph/2,16),(24,8,12))
-    pp=C['layout']['picowbell'];usbtop=pp[2]+9.14
+    pp=C['layout']['pico'];usbtop=pp[2]+1
     cut(pod,(cx+pw/2,py+pp[1],usbtop+1),(8,18,16))
     for sx in(-1,1):
         for sy in(-1,1):
@@ -162,11 +162,11 @@ def build_pod(g,cx,h):
             drill(pod,(xx,yy,42),1.25,8)
     # Componentcoordinatesrelativepodcentre; eachbaseisindependentlyspecified.
     loc={k:(cx+v[0],py+v[1],v[2]) for k,v in C['layout'].items()}
-    # Boardwithrealholes: allfourPiCowBellpostsuseEaglecentres, notPico guessedholes.
-    x,y,z=loc['picowbell'];holes=PARTS['pico_socket_carrier']['mounting_holes']['centers_mm']
+    # Headerless Pico: published47x11.4mm pitch and2.1mm board holes.
+    x,y,z=loc['pico'];holes=[(sx*23.5,sy*5.7) for sx in(-1,1) for sy in(-1,1)]
     for hx,hy in holes:
-        boolean(pod,cyl('PiCowBell M2.5standoff',(x+hx,y+hy,(4+z)/2),2.7,z-4),'UNION')
-        drill(pod,(x+hx,y+hy,z-1.5),1.0,6)
+        boolean(pod,cyl('Pico M2 standoff',(x+hx,y+hy,(4+z)/2),1.95,z-4),'UNION')
+        drill(pod,(x+hx,y+hy,z-2.25),.8,6.5)
     module_specs=[('proto',43.0,50.8,1.6),('regulator',43.2,21,1.6),('servo_gate',15.24,15.24,.8),('master',15.24,15.24,.8)]
     for name,w,hh,thick in module_specs:
         x,y,z=loc[name]
@@ -191,6 +191,15 @@ def build_pod(g,cx,h):
         support=box('fuseclip',(x,y+yy,8.5),(15,5,9))
         boolean(support,cyl('fuse cavity',(x,y+yy,z),6.0,8,'Y'),'DIFFERENCE')
         boolean(pod,support,'UNION')
+    # Positive retention for the fuse: two small cable ties pass through paired eyes.
+    for xx in(-8,8):
+        for yy in(-14,14):
+            eye=box('fuse tie anchor',(x+xx,y+yy,7),(6,6,6),TEAL)
+            boolean(pod,eye,'UNION');cut(pod,(x+xx,y+yy,7),(8,3.5,2.4))
+    # Four wire strain-relief eyes; all channels stay above the4mm back wall.
+    for xx,yy in[(0,-68),(-8,30),(3,-15),(58,-22)]:
+        eye=box('harness tie anchor',(cx+xx,py+yy,7),(7,5,6),TEAL)
+        cut(eye,(cx+xx,py+yy,7),(3.5,8,2.4));boolean(pod,eye,'UNION')
     for xx in(-24,24):pod_floor_nut(pod,(cx+xx,h/2+32))
     printable(pod,'electronics_pod',export_it=g==1);FIXTURES.append(pod)
     for xx in(-24,24):
@@ -199,7 +208,7 @@ def build_pod(g,cx,h):
         printable(strap,'docking_strap',export_it=g==1 and xx==-24)
     # Realcomponentsandseparatevisiblewiring/servicevolumes.
     battery(loc['battery'],f'{g}g battery')
-    picowbell(loc['picowbell'],f'{g}g pico')
+    pico_headerless(loc['pico'],f'{g}g pico')
     regulator(loc['regulator'],f'{g}g regulator')
     proto(loc['proto'],f'{g}g proto')
     mosfet(loc['servo_gate'],f'{g}g gate')
@@ -226,13 +235,12 @@ for g,cx in[(1,-160),(2,160)]:
 batw,bath,_=C['battery_holder']['size'];gap=C['fit_clearance_per_side']
 bat=box('PRINT battery loadedheight coupon',(0,0,11),(batw+2*gap+4,bath+2*gap+4,22),TEAL)
 cut(bat,(0,0,12),(batw+2*gap,bath+2*gap,26));printable(bat,'coupon_battery_holder');bat.hide_render=True;bat.hide_set(True);COUPONS.append(bat)
-# Coupon forPiCowBell mountingholes+Pico headerstackandUSBopening.
-cp=C['pico'];pw,ph=54.5,40.5
-coupon=box('PRINT PiCowBell fit coupon',(0,0,2),(pw+8,ph+8,4),TEAL)
-for hx,hy in PARTS['pico_socket_carrier']['mounting_holes']['centers_mm']:
-    boolean(coupon,cyl('PiCowBell mount',(hx,hy,6),2.7,4),'UNION');drill(coupon,(hx,hy,6),1,6)
-# Postsaretheactualmountingtest;theexternalUSBservicewindowisinthemainpod.
-printable(coupon,'coupon_picowbell_mount');coupon.hide_render=True;coupon.hide_set(True);COUPONS.append(coupon)
+# Coupon uses identical headerless Pico post geometry and solder floor clearance.
+coupon=box('PRINT headerless Pico fit coupon',(0,0,2),(57,27,4),TEAL)
+for hx in(-23.5,23.5):
+    for hy in(-5.7,5.7):
+        boolean(coupon,cyl('Pico mount',(hx,hy,6),1.95,4),'UNION');drill(coupon,(hx,hy,5.75),.8,6.5)
+printable(coupon,'coupon_pico_mount');coupon.hide_render=True;coupon.hide_set(True);COUPONS.append(coupon)
 scene.frame_end=100;scene.frame_set(1)
 # Explicitlabelsandscale;perpartgeometrydoesnotgetscaledtofitrender.
 for x,t in[(-160,'ONE GANG'),(160,'TWO GANG')]:
@@ -248,6 +256,13 @@ scene.render.resolution_x=1800;scene.render.resolution_y=1400;scene.render.resol
 for area in bpy.context.screen.areas:
     if area.type=='VIEW_3D':
         area.spaces.active.shading.color_type='MATERIAL';area.spaces.active.region_3d.view_distance=620;area.spaces.active.region_3d.view_location=(0,95,10);area.spaces.active.region_3d.view_rotation=camera.rotation_euler.to_quaternion()
+# Record exact export-local to assembly-world transform for independent STL readback.
+for ob in PRINTS:
+    rot=Matrix.Rotation(math.pi/2,4,'Y') if ob['export_rotate_y_90'] else Matrix.Identity(4)
+    pts=[rot @ (ob.matrix_world @ v.co) for v in ob.data.vertices]
+    lo=Vector([min(p[i] for p in pts) for i in range(3)]);hi=Vector([max(p[i] for p in pts) for i in range(3)])
+    offset=Vector(((lo.x+hi.x)/2,(lo.y+hi.y)/2,lo.z))
+    ob['stl_to_world']=[v for row in (rot.inverted() @ Matrix.Translation(offset)) for v in row]
 # ExplicitassemblyBOM+boundingboxesexcludecouponsandlighting.
 (OUT/'validation.json').write_text(json.dumps({'configuration':C,'parts':REPORT,'limits':'Source geometry and digital checks; unknown user hardware dimensions remain gated. Read fit-checks.json and docs/mechanics.md.'},indent=2)+'\n')
 fit=envelope_report(C)

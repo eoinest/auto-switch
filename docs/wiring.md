@@ -1,8 +1,12 @@
 # Wiring the selected parts
 
-This is the assembly map for revision 2. It replaces the first revision’s unspecified load-switch breakout with **two Pololu 2810 LV modules**: one master switch and one servo power gate. Component purchases and quantities are in [shopping-list.md](shopping-list.md). The Pico firmware pin assignments stay the same.
+This is the assembly map for the headerless Pico revision. It replaces the first revision’s unspecified load-switch breakout with **two Pololu 2810 LV modules**: one master switch and one servo power gate. Component purchases and quantities are in the root [BOM](../BOM.md), with a searchable copy in the [learning module](../learn/index.html#parts). The Pico firmware pin assignments stay the same.
 
-![Selected-part wiring map](../hardware/wiring/connection-map.svg)
+Start with the [interactive power map](../learn/index.html#power), which shows the on-board regulator and both supplies. The [diagram guide](diagram-guide.md) explains the symbols.
+
+![How power reaches the Pico](../hardware/wiring/power-map.svg)
+
+The [complete connection sheet](../hardware/wiring/connection-map.svg) includes every passive component and terminal.
 
 The complete connection list is also machine-readable in [`hardware/wiring/harness.json`](../hardware/wiring/harness.json). This is a functional wiring plan, not a manufactured PCB or a bench-tested circuit. Use the installed boards’ **silkscreen labels**; a connector viewed from its mating face is mirrored relative to its solder face.
 
@@ -21,9 +25,9 @@ regulator VOUT (5 V) → diode D1 → Pico VSYS
 regulator VOUT (5 V) → servo-gate 2810 VIN → VOUT → servo power
 ```
 
-Battery black, both modules’ GND pads, regulator GND, the Pico and servo grounds all share a ground net. Splice/terminate the motor ground on the power assembly; do not make motor current pass through the Pico or its socket carrier.
+Battery black, both modules’ GND pads, regulator GND, the Pico and servo grounds all share a ground net. Splice/terminate the motor ground on the power assembly; do not make motor current pass through the Pico board.
 
-The Pico with existing headers plugs into the **Adafruit 5905 Proto Under Plate PiCowBell**. Use the labeled duplicate pads/sockets for the low-current connections below. Solder the selected 22-AWG harness to the labeled duplicate pads, with strain relief. The harness stays attached to the carrier while the Pico itself can still unplug from its female sockets. The spare socket row is available for temporary low-current bench jumpers, but those are not required for this build. [Carrier details](https://www.adafruit.com/product/5905).
+The current fitted assembly uses a **headerless Pico W**, mounted directly on printed posts with nylon screws. Solder the six low-current wires below to its named edge pads; one gang omits GP17. No PiCowBell or 40-pin socket carrier is required. Leave clearance under the PCB for solder joints and secure the insulated wires to the printed strain relief so the joints carry no cable tension. The existing headered Pico remains useful on the bench, but is not the board stack checked by the current STLs. Physical pin numbers identify the same pads with or without headers.
 
 ## Pico harness: six low-current connections
 
@@ -79,7 +83,7 @@ Make the harness with the enclosure and chosen boards on the bench. The shopping
 
 - Battery: keep the holder’s leads long enough to lift out the holder; shorten excess pigtail wire rather than tightly folding it. Keep the inline fuse near battery positive and its cap accessible.
 - Power assembly: use short 22-AWG stranded runs, roughly 50–100 mm where the current layout permits; leave enough service slack to remove a board. The holder’s original 24-AWG leads remain the limiting supplied wire segment and must be checked under the actual load.
-- Pico logic/VSYS harness: start with roughly 150 mm of the selected stranded hookup wire per connection, then trim after trial assembly. Solder to the carrier’s labeled duplicate pads. These wires do not carry servo motor current.
+- Pico logic/VSYS harness: start with roughly 150 mm of the selected stranded hookup wire per connection, then trim after trial assembly. Solder to the Pico’s corresponding edge pads, keeping underside solder inside the checked allowance. These wires do not carry servo motor current.
 - Servos: retain the original three-wire connectors. Cut each selected Pololu 2169 extension to retain its mating male end and roughly 100 mm of lead (confirm the required length by dry-fitting first); solder those three leads to the appropriate nets on the power assembly. Insulate the cut wires and provide strain relief. This keeps the original servo detachable without coiling a whole 12-inch extension inside the pod. The full extension and optional three-pin headers can be used on the bench. Route each **signal separately**; a servo Y-cable would send one signal to both motors and is not appropriate for independent control.
 - USB: the selected micro-USB **data** cable is for programming/service. Keep its plug insertion space unobstructed; it is removed for the battery installation.
 - Use insulated tie anchors/strain relief at enclosure exits. Keep wires out of the moving yoke, out from under lid screw bosses, and away from the Pico antenna zone. Do not trap an unrecessed tie or solder joint between the housing and wall.

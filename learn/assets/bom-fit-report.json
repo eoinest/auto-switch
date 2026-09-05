@@ -1,0 +1,246 @@
+{
+  "revision": "3-headerless-pico-w",
+  "automated_checks_passed": true,
+  "physical_fit_verified": false,
+  "installed_print_counts": {
+    "1": {
+      "electronics_lid.stl": 1,
+      "retainer_master.stl": 1,
+      "1g_chassis.stl": 1,
+      "docking_strap.stl": 2,
+      "retainer_servo_gate.stl": 1,
+      "electronics_pod.stl": 1,
+      "1g_servo1_yoke.stl": 1,
+      "retainer_proto.stl": 1,
+      "retainer_regulator.stl": 1
+    },
+    "2": {
+      "retainer_servo_gate.stl": 1,
+      "docking_strap.stl": 2,
+      "retainer_regulator.stl": 1,
+      "2g_servo2_yoke.stl": 1,
+      "2g_chassis.stl": 1,
+      "retainer_master.stl": 1,
+      "2g_servo1_yoke.stl": 1,
+      "retainer_proto.stl": 1,
+      "electronics_pod.stl": 1,
+      "electronics_lid.stl": 1
+    }
+  },
+  "checks": [
+    {
+      "name": "1-gang nominal component meshes versus exported STLs",
+      "passed": true,
+      "detail": "Exact Boolean volume intersections after bounding-box filtering; >0.05 mm\u00b3 reported. Coplanar seating contact allowed. Geometry is nominal; unidentified servo and cosmetic internal details remain provisional.",
+      "component_meshes": 65,
+      "candidate_intersections_tested": 83,
+      "clashes": []
+    },
+    {
+      "name": "2-gang nominal component meshes versus exported STLs",
+      "passed": true,
+      "detail": "Exact Boolean volume intersections after bounding-box filtering; >0.05 mm\u00b3 reported. Coplanar seating contact allowed. Geometry is nominal; unidentified servo and cosmetic internal details remain provisional.",
+      "component_meshes": 76,
+      "candidate_intersections_tested": 95,
+      "clashes": []
+    },
+    {
+      "name": "Pico four M2 pilot holes and support rims in pod STL",
+      "passed": true,
+      "detail": "47\u00d711.4mm source pitch; nominal 1.6 mm pilot must be tapped M2\u00d70.4. Probes verify center cavity and support at 1 mm radius.",
+      "posts": [
+        {
+          "center_xy_mm": [
+            -149.5,
+            106.15
+          ],
+          "pilot_bottom_z_mm": 2.5,
+          "rim_heights_z_mm": [
+            7.999996185302734,
+            7.999996185302734,
+            8.0,
+            8.0
+          ],
+          "passed": true
+        },
+        {
+          "center_xy_mm": [
+            -149.5,
+            117.55
+          ],
+          "pilot_bottom_z_mm": 2.5,
+          "rim_heights_z_mm": [
+            7.999996185302734,
+            7.999996185302734,
+            8.0,
+            8.0
+          ],
+          "passed": true
+        },
+        {
+          "center_xy_mm": [
+            -102.5,
+            106.15
+          ],
+          "pilot_bottom_z_mm": 2.5,
+          "rim_heights_z_mm": [
+            7.999996185302734,
+            7.999996185302734,
+            8.0,
+            8.0
+          ],
+          "passed": true
+        },
+        {
+          "center_xy_mm": [
+            -102.5,
+            117.55
+          ],
+          "pilot_bottom_z_mm": 2.5,
+          "rim_heights_z_mm": [
+            7.999996185302734,
+            7.999996185302734,
+            8.0,
+            7.999996185302734
+          ],
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "USB insertion rays through exported pod wall",
+      "passed": true,
+      "detail": "Nine rays sample a 14\u00d712 mm provisional plug corridor from socket mouth to exterior. Actual cable molded shell and neck length still require measurement.",
+      "rays_passed": 9,
+      "rays_total": 9
+    },
+    {
+      "name": "STL collision detector controls",
+      "passed": true,
+      "detail": "Known 4 mm\u00b3 probe inside floor must intersect; same probe in free air must not.",
+      "positive_volume_mm3": 3.9999999999999996,
+      "negative_volume_mm3": 0.0
+    },
+    {
+      "name": "Headerless underside solder reserve probes",
+      "passed": true,
+      "detail": "Nine vertical rays in 3 mm design reserve; excludes mounting rims. Actual solder/wire routing must be checked.",
+      "rays_passed": 9,
+      "rays_total": 9
+    },
+    {
+      "name": "Loaded-holder reserved body versus actual pod STL",
+      "passed": true,
+      "detail": "63\u00d758\u00d722mm allowance, not measured loaded holder. Nominal feet meet its base; locators remain outside.",
+      "intersection_mm3": 0.0
+    },
+    {
+      "name": "Fuse and harness tie channel probes",
+      "passed": true,
+      "detail": "Twenty-four rays sample the paired fuse eyes and four wire-tie eyes. Chosen 2.5 mm ties use nominal 3.5\u00d72.4 mm openings; latch heads and actual routes remain a physical check.",
+      "rays_passed": 24,
+      "rays_total": 24
+    },
+    {
+      "name": "Capacitor maximum seated height allowance",
+      "passed": true,
+      "detail": "9\u00d79\u00d713mm reserve above PCB, including the 13 mm maximum seated height rather than only 11.5 mm nominal can height.",
+      "intersection_volumes_mm3": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Selected Pico screw depth",
+      "passed": true,
+      "detail": "M2\u00d76 screw begins at PCB top 9 mm; tip at 3 mm leaves 3 mm between tip and wall-side back. Pilot bottom is 2.5 mm, leaving 0.5 mm screw-tip allowance; pre-tap without piercing the closed back."
+    },
+    {
+      "name": "Every BOM STL reference exists",
+      "passed": true,
+      "detail": "Reads hardware/bom.csv directly; coupons are reference artifacts and not installed duplicates.",
+      "missing": []
+    },
+    {
+      "name": "1-gang installed print quantity map",
+      "passed": true,
+      "detail": "One surround, one yoke per servo, pod, lid, four retainers, and two docking straps.",
+      "counts": {
+        "electronics_lid.stl": 1,
+        "retainer_master.stl": 1,
+        "1g_chassis.stl": 1,
+        "docking_strap.stl": 2,
+        "retainer_servo_gate.stl": 1,
+        "electronics_pod.stl": 1,
+        "1g_servo1_yoke.stl": 1,
+        "retainer_proto.stl": 1,
+        "retainer_regulator.stl": 1
+      }
+    },
+    {
+      "name": "2-gang installed print quantity map",
+      "passed": true,
+      "detail": "One surround, one yoke per servo, pod, lid, four retainers, and two docking straps.",
+      "counts": {
+        "retainer_servo_gate.stl": 1,
+        "docking_strap.stl": 2,
+        "retainer_regulator.stl": 1,
+        "2g_servo2_yoke.stl": 1,
+        "2g_chassis.stl": 1,
+        "retainer_master.stl": 1,
+        "2g_servo1_yoke.stl": 1,
+        "retainer_proto.stl": 1,
+        "electronics_pod.stl": 1,
+        "electronics_lid.stl": 1
+      }
+    }
+  ],
+  "stl_sha256": {
+    "1g_chassis.stl": "b06d7a70905d456dce7df4f38b0b080d6281b1dce0b0fdf6c5d9509497898078",
+    "1g_fit_ring.stl": "2902af24e374c97c72f9b2a48d4453ab56e8f6cfbe7892c01c30c9c82435fe9a",
+    "1g_servo1_yoke.stl": "ea331f22942667d11540fdd4b83560c9124fa6ea55a0029989f2759409783141",
+    "2g_chassis.stl": "b3cc8fc24b594363f6ce6cf81d2843f535f0df76e802b063b0b85954f788f9b6",
+    "2g_fit_ring.stl": "b63a9e2a4adb13e90dcc9fb1195da96dba9f1faa2fd90e272755a5ccb9c3ecc7",
+    "2g_servo1_yoke.stl": "332a8b5f31618de032277f9637c016aeadbf624890a49dfb7e1f6433684967ec",
+    "2g_servo2_yoke.stl": "ad47215c2c6adf36bacc56c3435620b73fa9f503710ec6a2a0639a13dd63f2c2",
+    "coupon_battery_holder.stl": "245bf71ef06a1a9a5c6225ac1ff0437f65f712b54e02effe9159a02b4137c95f",
+    "coupon_master_cradle.stl": "3751419974f05e35a474a4a6b1789807a8d93d39c7865dabf455f2a0b228360c",
+    "coupon_pico_mount.stl": "990064aa172fe318a0833f3f70295b48c36f03b068ee9e0af6ea1c39aefe44a8",
+    "coupon_proto_cradle.stl": "353cea3f1adaaccedfda5684e27846bb97caf322c873a3950107cf5ef961e150",
+    "coupon_regulator_cradle.stl": "606e237192efdd87f933b00c526e73246a58b78eaa02f68693888e71b5808fb9",
+    "coupon_servo_ear_mount.stl": "d6ad05d1a2845e11b46cb943973cb54b1dc1e28a762ebf02b355b2c6b505507f",
+    "coupon_servo_gate_cradle.stl": "3751419974f05e35a474a4a6b1789807a8d93d39c7865dabf455f2a0b228360c",
+    "docking_strap.stl": "a721238632586b553ab42c9dfaa3304dfaeb44696cb4bcb5f40765d4bc51f210",
+    "electronics_lid.stl": "8372543a927dc6a1d20595f3753354d6c7134ded5e9ba4dedd0b299be69ccb07",
+    "electronics_pod.stl": "c4009d6d2e4d6d6a61d03a71baa0fb2b12fb63436597892d585472b37705d4a3",
+    "retainer_master.stl": "1cb70cd2d4cd92129c50d83d49a4543f5c4c8994c607271769010ed1f2f9f625",
+    "retainer_proto.stl": "e18a591ad732ca7036a1bd88cde8a92c4cbe89ac3d2827ef0d2579833294e64e",
+    "retainer_regulator.stl": "42d4f3291511e1531dc7adba659f914433b48c4abbd9857bf097ab78eecc9aa4",
+    "retainer_servo_gate.stl": "a894df2ec3e4ac3fb650f206d14f55b09de0479eaca0384db80ed6b221d167f0"
+  },
+  "bom_sha256": "a079efac77ce0790c6b1ac349d96fc3b71dc1845c85c4a63bf677b9554f18861",
+  "limits": [
+    "Both assembled gang variants tested at neutral; complete dynamic motion is not collision solved.",
+    "Nominal component geometry is not proof of manufacturing tolerance, actual servo/horn fit, all wire routing, thermal performance, or printed thread strength.",
+    "Full electrical board pad routing and complete wire harness placement are not modeled.",
+    "Screw threads and all fastener bodies are not modeled; selected interfaces use nominal hole/depth checks.",
+    "Current textured-wall mounting and exact horn-to-yoke fasteners remain unresolved."
+  ],
+  "input_sha256": {
+    "hardware/cad/audit_fit.py": "d98bd8440791dc3ce95b3e5dab166b99831ffd4e065998d1c21ca0703dd9049f",
+    "hardware/cad/generate.py": "b7284b49babc85f399bb73b38c7fb924860ad26f73d6a142209a2ab68dabb53e",
+    "hardware/cad/component_models.py": "c03ff5649b6e82441f9db2b268193d9cf543a8b30f7ed2fe40159e576ee9221a",
+    "hardware/cad/fit_model.py": "c298e9da5bc376aff76033a1a1af14313f4c076a25b3c2cb6fa6bdec1bcaf40c",
+    "hardware/cad/config.json": "4372352574168a054ab68d47de1df6919414737aa06b3a7277701494ff0e889d",
+    "hardware/cad/generated/auto-switch.blend": "b777e00f91a90b2dfd41714e4db773bce9338530d2a23a2e9815fb82211647fd",
+    "hardware/components/power-parts.json": "e172d24ad07c69279850d0f187ccc5316ab2ac6d8aa7713dfb7f3a609432d813"
+  },
+  "remaining_measurements": [
+    "wallplate measurements",
+    "servo brand and ear/shaft/horn measurements",
+    "Headerless Pico W and solder-wire protrusion",
+    "holder loaded height and lead exit",
+    "selected cable connector service clearance"
+  ],
+  "purchased_part_count": 40
+}

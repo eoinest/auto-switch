@@ -117,11 +117,11 @@
     "fits_A1": true
   },
   {
-    "file": "coupon_picowbell_mount.stl",
+    "file": "coupon_pico_mount.stl",
     "triangles": 1548,
     "dimensions_mm": [
-      62.5,
-      48.5,
+      57.0,
+      27.0,
       8.0
     ],
     "manifold": true,
@@ -209,7 +209,7 @@
   },
   {
     "file": "electronics_pod.stl",
-    "triangles": 11130,
+    "triangles": 11458,
     "dimensions_mm": [
       174.0,
       162.0,

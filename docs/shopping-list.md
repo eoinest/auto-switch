@@ -1,10 +1,12 @@
-# Selected prototype shopping list
+# Detailed purchase notes — headerless Pico W revision
 
-This is a concrete set of parts for **one two-gang actuator**. Use the Pico W / Pico 2 W, two MG90S servos, soldering tools, and printer you already have. One-gang uses the same electronics but one servo, one extension, and one fewer 1k signal resistor. A second independent room unit needs another complete electronics set and four cells; charger, wire spools, USB cable, and tools can be shared. Nothing has been purchased.
+**Start with the [BOM](../BOM.md)** for single- and two-gang installed quantities, printable quantities and fit status. [Download the CSV](../hardware/bom.csv). These notes explain the selections.
 
-The selected modules preserve firmware GP15 servo power control. The physical fit is based on vendor drawings where available, with explicit allowances for unreported connectors, soldered headers, and wires. See [machine-readable dimensions](../hardware/components/power-parts.json), [wiring](wiring.md), and [power calculations](power.md). Measure the actual holder with cells, your servo horns, and your soldered Pico before printing the final shell.
+This is a concrete set of parts for **one two-gang actuator**. The fitted default now uses a **headerless Raspberry Pi Pico W**, two existing MG90S servos, your soldering tools and printer. Your already-headered board remains useful for bench experiments; the current STLs no longer include its carrier. One-gang uses the same electronics but one servo, one extension, and one fewer 1k signal resistor. A second independent room unit needs another complete electronics set and four cells; charger, wire spools, USB cable, and tools can be shared. Nothing has been purchased.
 
-## Battery, power and sockets
+The selected modules preserve firmware GP15 servo power control. The physical fit is based on vendor drawings where available, with explicit allowances for unreported connectors, solder joints, and wires. See [machine-readable dimensions](../hardware/components/power-parts.json), [wiring](wiring.md), and [power calculations](power.md). Measure the actual holder with cells, your servo horns, and your soldered wires on the headerless Pico before printing the final shell.
+
+## Battery, power and board
 
 | Buy quantity | Exact selection and purchase link | What it does |
 | --- | --- | --- |
@@ -12,7 +14,7 @@ The selected modules preserve firmware GP15 servo power control. The physical fi
 | 1 kit | Panasonic **K-KJ17MCA4BA**, BQ-CC17 charger with four eneloop AA cells; [manufacturer catalog](https://www.panasonicbatteryproducts.com/wp-content/uploads/2024/01/2023-PANASONIC-CATALOG_DIGITAL.pdf), [manufacturer combo-pack/store links](https://www.panasonicbatteryproducts.com/product/eneloop-combo-packs/) | Charge cells outside the device. Use four matched AA NiMH cells; this is not a Li-ion battery design. Check the exact kit code and included cell capacity when ordering. |
 | 1 | [Pololu 2574 S18V20F5 5V regulator](https://www.pololu.com/product/2574) | Buck-boost supply. Direct-solder wires; included optional terminal blocks are not in the enclosure envelope. |
 | 2 | [Pololu 2810 Mini MOSFET Slide Switch LV](https://www.pololu.com/product/2810) | One accessible physical master, one servo gate controlled through its ON pad. Servo gate slider stays OFF under a cover. Master ON pad unused. |
-| 1 | [Adafruit 5905 Proto Under Plate PiCowBell](https://www.adafruit.com/product/5905) | Detachable Pico carrier with pre-soldered female sockets. **No additional pair of 20-pin female headers needed.** |
+| 1 | [Raspberry Pi Pico W, headerless](https://www.raspberrypi.com/products/raspberry-pi-pico/) | Official Pico W reference mesh and four board mounting holes. Solder connections directly to its pads. **No PiCowBell or headers in this revision.** |
 | 1 | [Adafruit 1608 quarter Perma-Proto](https://www.adafruit.com/product/1608); [DigiKey exact part](https://www.digikey.com/en/products/detail/adafruit-industries-llc/1608/5154676); [Mouser exact part](https://www.mouser.com/en/ProductDetail/Adafruit/1608?qs=GURawfaeGuCPUqYJerHUuQ%3D%3D) | Discrete components and harness junctions. Manufacturer and DigiKey were out of stock when researched; Mouser lists the exact part but live availability was not verified. Do not substitute a different board size without updating CAD. |
 | 1 | [Littelfuse 01500274Z inline 5×20 fuse holder](https://www.digikey.com/en/products/detail/littelfuse-inc/01500274Z/29453) | Near the battery positive lead. Prewired 16AWG loop is cut and trimmed; body about 47.5 × Ø11 mm. |
 | 3 | [SCHURTER 0001.2507 2A time-lag ceramic fuse](https://www.digikey.com/en/products/detail/schurter-inc/0001-2507/639706) | One fitted, two spares. Explicit DC rating in [manufacturer specification](https://www.schurter.com/en/datasheet/SPT_5x20). Verify pulse/fault coordination during bench testing. |
@@ -27,13 +29,13 @@ The 2810 switch boards are assembled, but harness soldering is still required. T
 | 2 | [Pololu 2169 12-inch twisted servo extension](https://www.pololu.com/product/2169) | 22AWG, male-to-female. For the fitted build, cut it to retain the male end with about 100mm of wire, then solder to the component board. One extension for one-gang. |
 | 1 optional bench strip | [Pololu 965 40-pin straight male header](https://www.pololu.com/product/965) | Optional for a bench setup retaining the complete extensions: break into two three-pin lengths, 2.54mm pitch. Mark GND / +5V / signal. Final fitted harness below solders directly. |
 | 1 shared set | [Adafruit 3111 six-color 22AWG stranded wire set](https://www.adafruit.com/product/3111) | Direct solder power and ground harness; budget roughly 1m total hookup per unit, trim after dry-fit. Existing equivalent stranded wire can replace this purchase. |
-| 1 pack; allow 12 ties per unit | [Panduit PLT1M-C](https://www.digikey.com/en/products/detail/panduit-corp/PLT1M-C/280033), 99 × 2.5mm | Strain relief through printed tie slots; trim tails. Count is a routing allowance, not a validated assembly count. |
+| 1 pack; 6 ties per unit | [Panduit PLT1M-C](https://www.digikey.com/en/products/detail/panduit-corp/PLT1M-C/280033), 99 × 2.5mm | Four wire strain-relief ties and two fuse-retention ties through printed eyes; trim tails. Actual harness and latch fit remain to be checked. |
 | 1 shared pack | [Adafruit 344 heat-shrink assortment](https://www.adafruit.com/product/344) | Insulate soldered splices and exposed component leads. |
 | 1 shared cable | [Adafruit 3879 USB-C to Micro-B data cable, 0.3m](https://www.adafruit.com/product/3879) | Mac commissioning and firmware uploads through the accessible Pico socket. Existing working data cable is fine. No panel adapter is necessary. |
 
 For the **fitted harness**, the servo female connector plugs into the retained extension male connector. Its three shortened wires solder directly to the component-board ground, switched 5V, and per-channel signal-resistor output. Choose final wire length after dry-fit, insulate it, and secure a small service loop; do not pack the unused 300mm extension plus original servo lead into a coil near the antenna. The unused female half is a bench spare. This leaves each servo detachable without needing the optional male-header strip.
 
-No crimp tool is needed for these prewired connectors. Solder the carrier's duplicated GPIO/VSYS/GND pads to the component board so the Pico itself stays removable. Use direct 22AWG power connections rather than assuming the protoboard's thin buses are rated for motor pulses. Keep every ground common, and route the motor return directly to the power branch. Solder alone is not strain relief: secure the insulated wires through the pod's tie features. Keep a service loop so opening the lid cannot pull on solder joints.
+No crimp tool is needed for these prewired connectors. Solder the headerless Pico's GPIO/VSYS/GND pads directly to the component board. The board can unscrew from its posts but remains tethered by wires; leave a service loop. Pads are labelled by GPIO in the wiring guide, and physical pin numbers still apply without installed headers. Use direct 22AWG power connections rather than assuming the protoboard's thin buses are rated for motor pulses. Keep every ground common, and route the motor return directly to the power branch. Solder alone is not strain relief: secure the insulated wires through the pod's tie features. Keep a service loop so opening the lid cannot pull on solder joints.
 
 RCY is specified for 3A with 22AWG in [JST's specification](https://www.jst.com/products/wire-to-wire-connectors/rcy-connector/); thicker pigtails do not increase that contact rating. Do not use a servo Y cable joining two signal wires. Do not use thin breadboard jumper leads as the battery/servo power harness. Actual MG90S connector shape and wire colors must be checked before connection.
 
@@ -52,11 +54,13 @@ Primary dimensions: [Panasonic FR drawing/table](https://industrial.panasonic.co
 
 ## What is exact, and what still needs fitting
 
-The carrier outline and mounting-hole coordinates come from [Adafruit's 5905 Eagle source](https://github.com/adafruit/Adafruit-Proto-Under-Plate-PiCowBell-PCB): 52.07 × 38.10mm PCB, four 2.5mm drilled holes centered at X=±23.495, Y=±16.510mm. Its product envelope excludes the plugged-in Pico and your existing headers. The vendor's guide links a model for another PiCowBell SKU; that is not evidence of a 5905 model.
+The default is a **headerless Pico W**, not a socketed stack. Its [official mechanical drawing](https://datasheets.raspberrypi.com/picow/pico-w-product-brief.pdf) gives a 51 × 21 × 1 mm PCB and four Ø2.1 mm mounting holes on a 47 × 11.4 mm rectangle. The scene imports Raspberry Pi's original W STEP geometry. Four M2×6 nylon screws fit the nominal holes; mounting posts leave 4 mm underneath the PCB, of which 3 mm is reserved for solder and wire protrusion. The board itself sits lower than the former carrier stack. The Pico W model must not be described as exact component geometry for Pico 2 W.
+
+The earlier PiCowBell/header version is available in Git history. Do not buy its carrier or four M2.5×6 mounting screws for this revision. Existing male headers will not fit the new low mounting position.
 
 The [regulator drawing](https://www.pololu.com/file/0J1417/s18v20x-step-up-step-down-voltage-regulator-dimensions.pdf) and [switch drawing](https://www.pololu.com/file/0J1103/mini-mosfet-slide-switch-with-reverse-voltage-protection-dimension-diagram.pdf) establish PCB outlines. Wire exits, solder blobs, connector insertion space, and print tolerances remain assembly allowances. The 2810 electrical holes are not mounting screw holes. The holder's stated 16mm height is not proof that a loaded holder occupies only 16mm.
 
-Reserve a region free of extra metal, wire bundles, battery cells, and power modules around the Pico antenna; 10mm is this project's preliminary clearance, not a certified radio keepout. The PiCowBell manufacturer supports Pico W use, but that does not establish the assembled enclosure's radio performance. Test Wi-Fi with the populated pod closed, in the final orientation, before trusting the battery estimate: retries increase energy use.
+Reserve a region free of extra metal, wire bundles, battery cells, and power modules around the Pico antenna; 10mm is this project's preliminary clearance, not a certified radio keepout. The manufacturer antenna guidance does not establish the assembled enclosure's radio performance. Test Wi-Fi with the populated pod closed, in the final orientation, before trusting the battery estimate: retries increase energy use.
 
 ## Mechanical hardware and contact pads
 
@@ -64,7 +68,7 @@ These quantities match the current CAD assembly. Buy the next pack size above th
 
 | Installed quantity | Selection | Position |
 | --- | --- | --- |
-| 4 | [Bambu AA029, M2.5×6 SHCS](https://us.store.bambulab.com/en/products/m2-5-socket-head-cap-machine-screws-shcs-1), one 20-pack | PiCowBell mounting. Head Ø4.3 × 2.35mm. |
+| 4 | [M2×6 nylon cheese-head screws, DIN 84 / ISO 1207](https://www.westfieldfasteners.co.uk/Bolts-Screws-Metric/Plastic-Machine-Screw-Slotted-Cheese-M2x6-Nylon.html); [TR Fastenings source](https://www.trfastenings.com/products/Catalogue/Plastic-Hardware/Machine-Screws/Cheese-Head/TR00011396-000) | Headerless Pico mounting. Nominal head Ø3.8 × 1.3 mm. Pre-tap the printed 1.6 mm pilots M2×0.4; nylon screws are not self-tappers. |
 | 16 | [Bambu AA030, M2.5×8 SHCS](https://us.store.bambulab.com/en/products/m2-5-socket-head-cap-machine-screws-shcs-1), one 20-pack | Four removable perimeter retainers: regulator, protoboard, two switches. |
 | 4 | [Bambu AA037, M3×8 SHCS](https://us.store.bambulab.com/products/m3-socket-head-cap-machine-screws-shcs-1), one 20-pack | Electronics lid. Head Ø5.4 × 2.8mm. |
 | 4 | [Bambu AA036, M3×6 SHCS](https://us.store.bambulab.com/products/m3-socket-head-cap-machine-screws-shcs-1), one 20-pack | Pod-to-frame docking. |
@@ -78,4 +82,4 @@ The frame has two 20×78mm adhesive lands. Do not trim Command strips to force a
 
 Reuse the **original servo spline horn and shaft screw**. The horn-to-printed-yoke screw diameter and spacing must come from your actual supplied horn: no generic M2 spline/shaft screw purchase is specified, since forcing the wrong thread can damage the servo. The bench-fit process determines whether the supplied horn screws can retain the yoke or whether matching small screws/nuts are needed. That is the one deliberately unresolved fastener interface.
 
-Use PETG for the functional chassis/yokes and PLA for quick fit coupons if already on hand. A meter, calipers, wire stripper/cutter, and small hex keys (1.5, 2, 2.5mm) are needed for assembly and checks. No battery charger, exposed mains wiring, or wall-plate replacement circuit is built into this enclosure.
+Use PETG for the functional chassis/yokes and PLA for quick fit coupons if already on hand. A meter, calipers, wire stripper/cutter, M2×0.4 hand tap and holder, small slotted screwdriver, and small hex keys (1.5, 2, 2.5mm) are needed for assembly and checks. No battery charger, exposed mains wiring, or wall-plate replacement circuit is built into this enclosure.

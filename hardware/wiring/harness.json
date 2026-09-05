@@ -1,5 +1,5 @@
 {
-  "revision": 2,
+  "revision": 3,
   "status": "Assembly wiring plan; continuity and powered bench tests required",
   "units": "millimetres",
   "power_topology": "4xAA NiMH, high-side master switch, regulated 5V, independently switched servo rail",
@@ -9,7 +9,7 @@
     "MASTER": "Pololu 2810 LV; use onboard slide, leave ON control input disconnected",
     "REG": "Pololu 2574 S18V20F5; leave ENABLE disconnected",
     "GATE": "Pololu 2810 LV; onboard slide MUST remain OFF; GP15 drives ON input",
-    "PICO": "Pico W / Pico 2 W; physical pin numbers below refer to 40-pin edge headers",
+    "PICO": "Headerless Pico W; physical pin numbers below identify the same edge pads without headers",
     "D1": "1N5819 Schottky, regulated 5V to VSYS; stripe toward Pico",
     "D2": "1N5819 Schottky negative-transient clamp; stripe toward switched servo positive",
     "C1": "470uF >=10V electrolytic on unswitched 5V; negative stripe toward ground",
@@ -24,26 +24,93 @@
     "SERVO1": "Second existing MG90S; omit for one gang"
   },
   "nets": {
-    "BAT_POS": ["BAT.red", "F1.in"],
-    "FUSED_BAT": ["F1.out", "MASTER.VIN"],
-    "PACK_SW": ["MASTER.VOUT", "REG.VIN", "R_TOP.1"],
-    "5V": ["REG.VOUT", "D1.anode", "GATE.VIN", "C1.positive"],
-    "VSYS": ["D1.cathode", "PICO.pin39_VSYS"],
-    "SERVO_5V": ["GATE.VOUT", "SERVO0.power", "SERVO1.power", "D2.cathode", "R_BLEED.1"],
-    "ADC": ["R_TOP.2", "R_BOTTOM.1", "C_ADC.1", "PICO.pin31_GP26"],
-    "SERVO_ENABLE": ["PICO.pin20_GP15", "GATE.ON", "R_EN.1"],
-    "PWM0_RAW": ["PICO.pin21_GP16", "R_PWM0.1"],
-    "PWM0": ["R_PWM0.2", "SERVO0.signal"],
-    "PWM1_RAW": ["PICO.pin22_GP17", "R_PWM1.1"],
-    "PWM1": ["R_PWM1.2", "SERVO1.signal"],
-    "GND": ["BAT.black", "MASTER.GND", "REG.GND", "GATE.GND", "PICO.pin38_GND", "SERVO0.ground", "SERVO1.ground", "D2.anode", "C1.negative", "R_BOTTOM.2", "C_ADC.2", "R_EN.2", "R_BLEED.2"]
+    "BAT_POS": [
+      "BAT.red",
+      "F1.in"
+    ],
+    "FUSED_BAT": [
+      "F1.out",
+      "MASTER.VIN"
+    ],
+    "PACK_SW": [
+      "MASTER.VOUT",
+      "REG.VIN",
+      "R_TOP.1"
+    ],
+    "5V": [
+      "REG.VOUT",
+      "D1.anode",
+      "GATE.VIN",
+      "C1.positive"
+    ],
+    "VSYS": [
+      "D1.cathode",
+      "PICO.pin39_VSYS"
+    ],
+    "SERVO_5V": [
+      "GATE.VOUT",
+      "SERVO0.power",
+      "SERVO1.power",
+      "D2.cathode",
+      "R_BLEED.1"
+    ],
+    "ADC": [
+      "R_TOP.2",
+      "R_BOTTOM.1",
+      "C_ADC.1",
+      "PICO.pin31_GP26"
+    ],
+    "SERVO_ENABLE": [
+      "PICO.pin20_GP15",
+      "GATE.ON",
+      "R_EN.1"
+    ],
+    "PWM0_RAW": [
+      "PICO.pin21_GP16",
+      "R_PWM0.1"
+    ],
+    "PWM0": [
+      "R_PWM0.2",
+      "SERVO0.signal"
+    ],
+    "PWM1_RAW": [
+      "PICO.pin22_GP17",
+      "R_PWM1.1"
+    ],
+    "PWM1": [
+      "R_PWM1.2",
+      "SERVO1.signal"
+    ],
+    "GND": [
+      "BAT.black",
+      "MASTER.GND",
+      "REG.GND",
+      "GATE.GND",
+      "PICO.pin38_GND",
+      "SERVO0.ground",
+      "SERVO1.ground",
+      "D2.anode",
+      "C1.negative",
+      "R_BOTTOM.2",
+      "C_ADC.2",
+      "R_EN.2",
+      "R_BLEED.2"
+    ]
   },
-  "leave_unconnected": ["PICO.pin40_VBUS", "PICO.pin36_3V3_OUT", "MASTER.ON", "REG.ENABLE"],
-  "one_gang_omit": ["SERVO1", "R_PWM1"],
+  "leave_unconnected": [
+    "PICO.pin40_VBUS",
+    "PICO.pin36_3V3_OUT",
+    "MASTER.ON",
+    "REG.ENABLE"
+  ],
+  "one_gang_omit": [
+    "SERVO1",
+    "R_PWM1"
+  ],
   "rules": [
     "Master switch OFF removes power from both regulator input and battery divider.",
-    "Signal/Pico header wires carry logic current only; servo motor current uses direct power wiring.",
-    "All grounds are common; return servo current directly to the power board, not through the Pico header.",
+    "Signal/Pico pad wires carry logic current only; servo motor current uses direct power wiring.",
+    "All grounds are common; return servo current directly to the power board, not through the Pico board.",
     "The servo gate onboard slider must stay OFF or it overrides GP15 power control.",
     "The regulator ENABLE pin is pulled toward battery voltage; never wire it directly to GP15.",
     "A fuse and MCU low-voltage inhibition are not a complete NiMH battery protection circuit.",

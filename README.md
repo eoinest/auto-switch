@@ -8,10 +8,17 @@ The current four-AA assembly is a spacious **174 × 300.7 × 47 mm** prototype, 
 
 ![One-gang and two-gang assembly design](hardware/cad/generated/assembly.png)
 
+## Start here: diagram, lessons and BOM
+
+- **[Interactive circuit learning module](learn/index.html)** — a power-source simulator, 12 guided lessons, 24 questions, five calculation/signal experiments and a design challenge. Run `python3 -m http.server 8766 --bind 127.0.0.1 --directory learn`, then open **http://127.0.0.1:8766**. You can also open the HTML directly. [Learning guide](learn/README.md).
+- **[Bill of materials](BOM.md)** — exact single-/double-switch quantities, selected parts, purchase links and fit status. Also available as [BOM.csv](hardware/bom.csv), with a searchable copy in the module’s Parts & Fit tab.
+- **[Power diagram](hardware/wiring/power-map.svg)** — explicitly follows external power through D1 into Pico VSYS, its on-board regulator and the chip. The [full connection sheet](hardware/wiring/connection-map.svg) includes every passive and terminal.
+- **[BOM-to-STL fit report](docs/bom-fit-report.md)** — actual digital checks and remaining physical measurements. Current exports target a **headerless Pico W**.
+
 ## What’s included
 
 - Parameterized Blender designs, an animated assembly, modular STL parts, fit coupons, and independent mesh checks.
-- An official Pico W reference mesh, source-linked component dimensions, and explicit allowances for headers, wires and unmeasured servo details.
+- An official Pico W reference mesh, source-linked component dimensions, and explicit allowances for direct-solder wires and unmeasured servo details.
 - MicroPython servo control, brief calibrated press/neutral return, external servo power gating, optional battery measurement and UTC schedules.
 - A phone-friendly local website with one/two switch controls, command history, battery voltage/optional estimated percentage, and Daily/Demo mode selection.
 - A Python Mac mini relay with a persistent command queue. No cloud account or paid service is required.
@@ -33,7 +40,7 @@ flowchart LR
     Servo --> Paddle[Existing paddle switch]
 ```
 
-The Pico runs MicroPython, not Linux. In relay mode, the web server lives on the Mac mini and the Pico polls it. An optional direct mode runs a small HTTP server on the Pico itself for always-connected bench/demo use. The selected PiCowBell carrier accepts existing headers; their actual stack height still needs checking. The included official component mesh represents **Pico W**, not an exact Pico 2 W component layout. [Source dimensions and remaining measurements](docs/component-sources.md).
+The Pico runs MicroPython, not Linux. In relay mode, the web server lives on the Mac mini and the Pico polls it. An optional direct mode runs a small HTTP server on the Pico itself for always-connected bench/demo use. The fitted design now uses a headerless Pico W, direct-solder wires and four nylon mounting screws. No PiCowBell carrier is needed; the existing headered board remains useful for bench work. The included official component mesh represents **Pico W**, not an exact Pico 2 W component layout. [Source dimensions and remaining measurements](docs/component-sources.md).
 
 **The Pico does expose USB 5 V at VBUS (pin 40).** A suitable USB supply can power a servo through that connection, but software cannot switch VBUS off, and battery power at VSYS does not produce 5 V at VBUS. This battery design uses a separate switched motor branch so it can remove servo power between actions. [Pin-by-pin wiring and explanation](docs/wiring.md).
 
@@ -59,7 +66,7 @@ Open **http://127.0.0.1:8765/?demo**, then click Connect. The key is prefilled, 
 ## Build in small steps
 
 1. **Measure and fit.** Measure each installed plate’s width, height and depth, the paddle centres and your servo horn. Edit [`hardware/cad/config.json`](hardware/cad/config.json). Print only [`1g_fit_ring.stl`](hardware/cad/generated/1g_fit_ring.stl) or [`2g_fit_ring.stl`](hardware/cad/generated/2g_fit_ring.stl) first. Standard dimensions are provisional presets, not dimensions recovered from the photo.
-2. **Bench the power circuit.** Obtain the additional parts in [the exact shopping list](docs/shopping-list.md), including a four-AA holder with leads, detachable battery pigtails, regulated supply and servo switch. Check the [wiring and meter tests](docs/wiring.md). Do not power a servo from a Pico GPIO or 3V3.
+2. **Bench the power circuit.** Obtain the additional parts in [the exact shopping list](docs/shopping-list.md), including a headerless Pico W, four-AA holder with leads, detachable battery pigtails, regulated supply and servo switch. Check the [wiring and meter tests](docs/wiring.md). Do not power a servo from a Pico GPIO or 3V3.
 3. **Fit the mechanism.** Test the component fit coupons before printing the chassis, rocking yoke, separate electronics pod and lid. Reuse the supplied servo horn and centre screw, add the selected soft pads and assemble on a fixture first. Individual print dimensions are checked against the A1's nominal 256 mm bed; the installed assembly spans multiple printed parts. [Assembly guide](docs/mechanics.md).
 4. **Calibrate the Pico.** Copy the MicroPython files and UI to the board. Set Wi-Fi, keys and conservative neutral/press pulses, testing the servo off the wall first. Only mark a channel calibrated/enabled after it presses gently and returns fully clear. [Firmware guide](docs/firmware.md).
 5. **Connect the Mac mini.** Run the relay on your LAN, set `transport` to `gateway` on the Pico, and connect the phone. Test Daily/Demo, reboot, failed network and interrupted movement. [Relay guide](docs/gateway.md).
@@ -72,6 +79,7 @@ The pictured wall appears textured. **The selected Command strips exclude textur
 ## Monorepo
 
 ```text
+learn/                Offline interactive circuit course, diagrams and searchable BOM
 firmware/             MicroPython controller + direct HTTP + relay client
 firmware/www/         Shared self-contained phone UI (no build step)
 gateway/              Mac mini server, SQLite queue, launchd template
@@ -101,6 +109,8 @@ Use Blender 5.x; delivered exports were generated with 5.2.1. FreeCAD is another
 ```sh
 python3 -m unittest discover -s tests -v
 node --check firmware/www/app.js
+node tests/test_learning_model.cjs
+python3 tools/build_learning.py --check
 python3 hardware/cad/verify_stl.py
 ```
 

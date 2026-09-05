@@ -13,16 +13,16 @@
         30.0
       ]
     ],
-    "picowbell": [
+    "pico": [
       [
-        7.965,
-        -66.05,
+        8.499999999999996,
+        -57.5,
         8.0
       ],
       [
-        60.035,
-        -27.95,
-        26.0
+        60.849999999999994,
+        -36.5,
+        12.0
       ]
     ],
     "proto": [
@@ -34,7 +34,7 @@
       [
         -23.5,
         54.4,
-        23.0
+        23.6
       ]
     ],
     "regulator": [
@@ -100,7 +100,7 @@
   },
   "inside_cavity": {
     "battery": true,
-    "picowbell": true,
+    "pico": true,
     "proto": true,
     "regulator": true,
     "servo_gate": true,
@@ -161,13 +161,13 @@
   },
   "retainer_issues": [],
   "passed": true,
-  "pico_stack_reserved_height_mm": 18,
+  "pico_stack_reserved_height_mm": 4,
   "loaded_holder_reserved_height_mm": 22.0,
   "physical_fit_verified": false,
   "required_measurements": [
     "wallplate measurements",
     "servo brand and ear/shaft/horn measurements",
-    "Pico W versus Pico 2 W and header stack",
+    "Headerless Pico W and solder-wire protrusion",
     "holder loaded height and lead exit",
     "selected cable connector service clearance"
   ],

@@ -64,27 +64,20 @@ def pico_vendor(cx,cy,top,group):
         tag(o,group,'Raspberry Pi Pico W official STEP; tessellated0.03mm; excludes user headers');result.append(o)
     return result
 
-def picowbell(p,group):
-    x,y,z=p;holes=[(sx*23.495,sy*16.51,2.5) for sx in(-1,1) for sy in(-1,1)]
-    board('COMPONENT Adafruit5905 PiCowBell PCB',(x,y,z),(52.07,38.1,1.6),holes,group,PCB)
-    # Visible solder pads and real40-way socket rows; source hole pitch2.54mm.
-    for row in(-8.89,8.89):
-        sock=box('COMPONENT PiCowBell female socket',(x,y+row,z+3.6),(50.8,2.54,4),BLACK)
-        for i in range(20):cut(sock,(x-24.13+i*2.54,y+row,z+4.6),(.85,.85,2.1))
-        tag(sock,group,'5905overallheight5.6mm; individual socket cavity dimensions design allowance')
-        male=pb('COMPONENT fitted male header insulator',(x,y+row,z+6.87),(50.8,2.54,2.54),BLACK,group,'User header2.54mm plastic height unverified')
-        for i in range(20):
-            xx=x-24.13+i*2.54
-            pb('COMPONENT header pin',(xx,y+row,z+6.5),(.64,.64,8),COPPER,group,'0.64mm square pin design assumption; test installed header')
-    # Pico bottom at socket top5.6 + male spacer2.54; PCB nominal1mm.
-    top=z+9.14
+def pico_headerless(p,group):
+    x,y,z=p;top=z+1
     pico_vendor(x,y,top,group)
-    service('USB plug insertion',(x+26.85+16,y,top+1),(32,14,12),'External service allowance; cable brand and shell unmeasured')
-    service('Antenna added-metal exclusion',(x-21,y,top+3),(29,34,24),'Manufacturer carrier-cutout14x9mm +10mm design spacing; not measured RF performance')
-    # Functional solder pads, not fabricated claims about small components.
-    for xx in(-19,-14,-9,-4,1,6,11,16,21):
-        for yy in(-14,14):pc('COMPONENT PiCowBell pad',(x+xx,y+yy,z+1.63),.75,.08,mat=COPPER,group=group)
-    label('Pico W + PiCowBell',(x-22,y+15,z+1.7),1.7)
+    # Four nominal nylon heads; tapped printed posts carry the board at its mounting holes.
+    for xx in(-23.5,23.5):
+        for yy in(-5.7,5.7):
+            pc('COMPONENT Pico M2x6 nylon screw head',(x+xx,y+yy,top+.65),1.9,1.3,mat=WHITE,group=group,source='DIN84 nylon M2x6 nominal head3.8x1.3; threads not modeled')
+    service('USB plug insertion',(x+26.85+16,y,top+1),(32,14,12),'External service allowance; cable shell must fit measured14x12 opening reserve')
+    service('Antenna added-metal exclusion',(x-21,y,top+3),(29,34,24),'Manufacturer antenna cutout plus10mm design spacing; not measured RF performance')
+    service('Pico underside solder and wire',(x+2,y,z-1.5),(41,23,3),'3mm solder/insulation allowance above floor; trim leads and verify actual protrusion')
+    # Example soldered signal and supply leads: routed toward USB end, away from antenna.
+    for k,mat in enumerate((WIRE_RED,WIRE_BLACK,WIRE_YELLOW)):
+        wire('HARNESS Pico soldered wire',[(x+17-k*2.54,y+8.89,top),(x+17-k*2.54,y+15,top+2),(x+12-k*2.54,y+19,top+3)],.65,mat,group)
+    label('Pico W • direct solder',(x-21,y+15,z+.3),1.7)
     return top
 
 def battery(p,group):
@@ -133,6 +126,7 @@ def proto(p,group):
     # Capacitor selection and limits are shared with power-parts.json when supplied.
     pc('COMPONENT470uF capacitor',(x-10,y+5,z+7.35),4,11.5,mat=BLACK,group=group)
     label('470uF',(x-13,y+3,z+13.2),1.2)
+    service('470uF maximum seated allowance',(x-10,y+5,z+1.6+6.5),(9,9,13),'Maximum seated13mm abovePCB; nominal can geometry11.5mm')
     for i in range(5 if group.startswith('1g') else 6):
         dy=-15+i*5
         pc('COMPONENT resistor body',(x+5,y+dy,z+3.2),1.2,6.3,'X',GREY,group,'Selected axial resistor nominal6.3xdiameter2.4; leads illustrative')

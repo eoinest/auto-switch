@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1320" viewBox="0 0 1500 1320" role="img" aria-labelledby="diagram-title diagram-desc">
+<title id="diagram-title">Auto Switch — follow the power into the Pico</title>
+<desc id="diagram-desc">Battery power passes through a fuse, disconnect, master switch and five volt regulator. One branch feeds external diode D1 and Pico VSYS pad 39, then its onboard regulator powers the chip at 3.3 volts. USB feeds VBUS and its separate onboard diode into VSYS. The other five volt branch powers the servo gate. Blue dashed lines are logic. All grounds are connected.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="context-stroke"/></marker></defs>
+<style>
+text{font-family:Arial,Helvetica,sans-serif;fill:#233942}.title{font-size:34px;font-weight:700;letter-spacing:-.7px}.subtitle{font-size:19px;fill:#53636b}.name{font-size:22px;font-weight:700}.body{font-size:18px}.small{font-size:16px;fill:#53636b}.micro{font-size:14px;fill:#53636b}.net{font-size:17px;font-weight:700;letter-spacing:.3px}.mono{font-family:monospace;font-size:16px}.wire{fill:none;stroke-width:4;stroke-linejoin:round;stroke-linecap:round}.signal{stroke-dasharray:8 6;stroke-width:3}.is-off{opacity:.2} .component{cursor:pointer} .section{font-size:17px;font-weight:700;letter-spacing:1.4px;fill:#53636b}
+</style>
+<rect width="1500" height="1320" fill="#f7f6f0"/>
+<text x="40" y="55" class="title">Where does the Pico get its power?</text>
+<text x="40" y="87" class="subtitle">Two ways in. One 3.3 V supply inside. Motor power takes its own branch.</text>
+<text x="40" y="137" class="section">1   BATTERY SUPPLY · PARTS YOU ADD</text>
+<g id="path-battery">
+<g data-part="BAT" class="component">
+<rect x="40" y="165" width="210" height="140" rx="14" fill="#fff4df" stroke="#b5c5c9" stroke-width="1.5"/>
+<text x="58" y="197" class="name">Four AA cells</text>
+<text x="58" y="226" class="body">NiMH · 4.8 V nominal</text>
+<text x="58" y="251" class="body">Varies with charge</text>
+<text x="58" y="276" class="body">Pololu 1153 holder</text>
+</g>
+<g data-part="F1" class="component">
+<rect x="290" y="165" width="165" height="140" rx="14" fill="#fff4df" stroke="#b5c5c9" stroke-width="1.5"/>
+<text x="308" y="197" class="name">Fuse F1</text>
+<text x="308" y="226" class="body">2 A time-delay</text>
+<text x="308" y="251" class="body">Near battery +</text>
+<text x="308" y="276" class="body">5 × 20 mm</text>
+</g>
+<g data-part="RCY" class="component">
+<rect x="495" y="165" width="150" height="140" rx="14" fill="#fff4df" stroke="#b5c5c9" stroke-width="1.5"/>
+<text x="513" y="197" class="name">RCY plug</text>
+<text x="513" y="226" class="body">Detachable</text>
+<text x="513" y="251" class="body">2180 + 2181</text>
+<text x="513" y="276" class="body">Check polarity</text>
+</g>
+<g data-part="MASTER" class="component">
+<rect x="690" y="165" width="240" height="140" rx="14" fill="#fff4df" stroke="#b5c5c9" stroke-width="1.5"/>
+<text x="708" y="197" class="name">Master switch</text>
+<text x="708" y="226" class="body">Pololu 2810 LV</text>
+<text x="708" y="251" class="body">Use physical slider</text>
+<text x="708" y="276" class="body">ON pad left unused</text>
+</g>
+<path d="M250 235H290" class="wire" stroke="#ad5c12" marker-end="url(#arrow)"/>
+<path d="M455 235H495" class="wire" stroke="#ad5c12" marker-end="url(#arrow)"/>
+<path d="M645 235H690" class="wire" stroke="#ad5c12" marker-end="url(#arrow)"/>
+</g>
+<g id="path-pack-sw">
+<path d="M930 235H1080" class="wire" stroke="#ad5c12" marker-end="url(#arrow)"/>
+<text x="949" y="211" class="net" style="fill:#ad5c12">PACK_SW</text>
+</g>
+<g id="path-regulated">
+<g data-part="REG" class="component">
+<rect x="1080" y="165" width="380" height="140" rx="14" fill="#ffece4" stroke="#b5c5c9" stroke-width="1.5"/>
+<text x="1098" y="197" class="name">External 5 V regulator</text>
+<text x="1098" y="226" class="body">Pololu 2574 · S18V20F5</text>
+<text x="1098" y="251" class="body">Makes steady 5 V from the pack</text>
+<text x="1098" y="276" class="body">ENABLE pad left unused</text>
+</g>
+<path d="M1268 305V357H800V415" class="wire" stroke="#ba421f" marker-end="url(#arrow)"/>
+<circle cx="1268" cy="357" r="6" fill="#ba421f"/>
+<text x="965" y="339" class="net" style="fill:#ba421f">REGULATED 5 V</text>
+</g>
+<text x="40" y="392" class="section">2   THE PICO BRANCH</text>
+<rect x="390" y="575" width="630" height="480" rx="20" fill="#edf5ef" stroke="#68a184" stroke-width="1.5"/>
+<g id="path-pico-external">
+<g data-part="D1" class="component">
+<rect x="605" y="415" width="385" height="110" rx="14" fill="#ffece4" stroke="#b5c5c9" stroke-width="1.5"/>
+<text x="623" y="447" class="name">External diode D1</text>
+<text x="623" y="476" class="body">1N5819 · stripe toward VSYS</text>
+<text x="623" y="501" class="body">Prevents USB feeding the servo rail</text>
+</g>
+<path d="M800 525V593" class="wire" stroke="#ba421f" marker-end="url(#arrow)"/>
+<text x="605" y="556" class="small">5 V minus a diode drop</text>
+</g>
+<text x="414" y="620" class="name">PICO W / PICO 2 W BOARD</text>
+<text x="414" y="647" class="small">Already built into the board below this line</text>
+<text x="820" y="591" class="net" style="fill:#7354b3">39 · VSYS</text>
+<g id="path-usb">
+<g data-part="USB" class="component">
+<rect x="40" y="688" width="245" height="120" rx="14" fill="#f0eafa" stroke="#b5c5c9" stroke-width="1.5"/>
+<text x="58" y="720" class="name">Optional USB cable</text>
+<text x="58" y="749" class="body">Nominal 5 V from a host</text>
+<text x="58" y="774" class="body">Programming / testing</text>
+</g>
+<path d="M285 748H421" class="wire" stroke="#7354b3" marker-end="url(#arrow)"/>
+<text x="414" y="714" class="net" style="fill:#7354b3">40 · VBUS</text>
+<g transform="translate(563 748)"><path d="M0 0H20M50 0H72M20 -14L46 0L20 14Z M48 -15V15" fill="white" stroke="#7354b3" stroke-width="3"/></g>
+<path d="M421 748H563" class="wire" stroke="#7354b3" marker-end="url(#arrow)"/>
+<path d="M635 748H800" class="wire" stroke="#7354b3" marker-end="url(#arrow)"/>
+<text x="541" y="690" class="net">Onboard diode</text>
+<text x="529" y="716" class="small">Already on the Pico</text>
+</g>
+<g id="path-vsys">
+<path d="M800 593V748" class="wire" stroke="#7354b3"/>
+<circle cx="800" cy="748" r="6" fill="#7354b3"/>
+<path d="M800 748V802" class="wire" stroke="#7354b3" marker-end="url(#arrow)"/>
+<text x="825" y="744" class="net" style="fill:#7354b3">VSYS junction</text>
+<rect x="680" y="802" width="300" height="91" rx="14" fill="#fff" stroke="#b5c5c9" stroke-width="1.5"/>
+<text x="698" y="834" class="name">Onboard regulator</text>
+<text x="698" y="863" class="body">VSYS → regulated 3.3 V</text>
+</g>
+<g id="path-3v3">
+<path d="M830 893V974H710" class="wire" stroke="#187451" marker-end="url(#arrow)"/>
+<text x="741" y="957" class="net" style="fill:#187451">3.3 V</text>
+<g data-part="PICO" class="component">
+<rect x="425" y="933" width="285" height="83" rx="14" fill="#dbedde" stroke="#b5c5c9" stroke-width="1.5"/>
+<text x="443" y="965" class="name">Chip + Wi-Fi</text>
+<text x="443" y="994" class="body">This is what runs your code.</text>
+</g>
+</g>
+<text x="414" y="1040" class="small">Pin numbers also identify solder pads on a headerless Pico.</text>
+<g id="path-motor-input">
+<path d="M1268 357V415" class="wire" stroke="#ba421f" marker-end="url(#arrow)"/>
+<g data-part="GATE" class="component">
+<rect x="1080" y="415" width="380" height="166" rx="14" fill="#ffece4" stroke="#b5c5c9" stroke-width="1.5"/>
+<text x="1098" y="447" class="name">Servo power gate</text>
+<text x="1098" y="476" class="body">Pololu 2810 LV · slider stays OFF</text>
+<text x="1098" y="501" class="body">VIN receives regulated 5 V</text>
+<text x="1098" y="526" class="body">ON receives a 3.3 V control signal</text>
+<text x="1098" y="551" class="body">GPIO decides; MOSFET carries power.</text>
+</g>
+</g>
+<g id="path-motor-output">
+<path d="M1380 581V673" class="wire" stroke="#ba421f" marker-end="url(#arrow)"/>
+<text x="1200" y="626" class="net" style="fill:#ba421f">SWITCHED SERVO_5V</text>
+<g data-part="SERVO0" class="component">
+<rect x="1130" y="673" width="330" height="134" rx="14" fill="#ffece4" stroke="#b5c5c9" stroke-width="1.5"/>
+<text x="1148" y="705" class="name">MG90S servo(s)</text>
+<text x="1148" y="734" class="body">Separate power and signal wires</text>
+<text x="1148" y="759" class="body">One or two independent motors</text>
+<text x="1148" y="784" class="body">Power is disconnected when idle.</text>
+</g>
+</g>
+<g id="path-control">
+<path d="M1020 876H1050V547H1080" class="wire signal" stroke="#176e99" marker-end="url(#arrow)"/>
+<text x="1039" y="863" class="net" style="fill:#176e99">20 · GP15 → ON</text>
+</g>
+<g id="path-pwm">
+<path d="M1020 927H1097V765H1130" class="wire signal" stroke="#176e99" marker-end="url(#arrow)"/>
+<text x="1071" y="934" class="net" style="fill:#176e99">21 / 22 · GP16 / GP17</text>
+<text x="1103" y="960" class="small">PWM → 1 kΩ → servo signal</text>
+</g>
+<g id="path-adc">
+<g data-part="ADC" class="component">
+<rect x="40" y="423" width="310" height="199" rx="14" fill="#e4f2f2" stroke="#b5c5c9" stroke-width="1.5"/>
+<text x="58" y="455" class="name">Battery measurement</text>
+<text x="58" y="484" class="body">PACK_SW → 100 kΩ → ADC</text>
+<text x="58" y="509" class="body">ADC → 47 kΩ → GND</text>
+<text x="58" y="534" class="body">ADC → 100 nF → GND</text>
+<text x="58" y="559" class="body">ADC → pad 31 / GP26</text>
+<text x="58" y="584" class="body">Before the 5 V regulator.</text>
+</g>
+<text x="40" y="648" class="small">Same PACK_SW net as the master output.</text>
+</g>
+<g id="path-ground">
+<path d="M135 305v12" class="wire" stroke="#344858"/>
+<path d="M135 317v12m-15 0h30m-24 7h18m-12 7h6" class="wire" stroke="#344858"/>
+<text x="155" y="328" class="small">GND</text>
+<path d="M725 305v12" class="wire" stroke="#344858"/>
+<path d="M725 317v12m-15 0h30m-24 7h18m-12 7h6" class="wire" stroke="#344858"/>
+<text x="745" y="328" class="small">GND</text>
+<path d="M1440 305v12" class="wire" stroke="#344858"/>
+<path d="M1440 317v12m-15 0h30m-24 7h18m-12 7h6" class="wire" stroke="#344858"/>
+<text x="1460" y="328" class="small">GND</text>
+<path d="M160 808v12" class="wire" stroke="#344858"/>
+<path d="M160 820v12m-15 0h30m-24 7h18m-12 7h6" class="wire" stroke="#344858"/>
+<text x="180" y="831" class="small">GND</text>
+<path d="M1100 581v12" class="wire" stroke="#344858"/>
+<path d="M1100 593v12m-15 0h30m-24 7h18m-12 7h6" class="wire" stroke="#344858"/>
+<text x="1120" y="604" class="small">GND</text>
+<path d="M55 1108H1450" class="wire" stroke="#344858"/>
+<path d="M55 1108v12m-15 0h30m-24 7h18m-12 7h6" class="wire" stroke="#344858"/>
+<path d="M567 1016V1108" class="wire" stroke="#344858"/>
+<circle cx="567" cy="1108" r="6" fill="#344858"/>
+<text x="590" y="1087" class="net" style="fill:#344858">38 · GND</text>
+<path d="M1440 807V1108" class="wire" stroke="#344858"/>
+<circle cx="1440" cy="1108" r="6" fill="#344858"/>
+<text x="40" y="1150" class="body">COMMON GND: battery −, USB GND, Pico, regulator, both switches, servos and passive returns.</text>
+<text x="40" y="1178" class="small">This is the return path. Connect motor returns at the power assembly; do not route motor current through the Pico.</text>
+</g>
+<rect x="40" y="1210" width="1420" height="77" rx="14" fill="#fff" stroke="#b5c5c9" stroke-width="1.5"/>
+<text x="60" y="1241" class="body">Read the arrows as available power paths, not measured current. Blue dashes carry control / measurement signals.</text>
+<text x="60" y="1268" class="small">USB alone powers the Pico, not the motors. With both sources: the higher post-diode voltage usually wins; near-equal sources can share.</text>
+</svg>

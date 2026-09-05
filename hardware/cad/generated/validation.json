@@ -68,7 +68,7 @@
       "measured": false
     },
     "pico": {
-      "variant": "Pico W reference",
+      "variant": "Raspberry Pi Pico W, headerless",
       "pcb": [
         51.0,
         21.0,
@@ -79,26 +79,26 @@
         11.4
       ],
       "mounting_hole_diameter": 2.1,
-      "header_pitch": 2.54,
-      "header_row_pitch": 17.78,
-      "header_plastic_height": 2.54,
       "usb_plug_service": [
         32.0,
         14.0,
         12.0
       ],
       "user_board_verified": false,
-      "user_header_verified": false
+      "connection": "Direct solder wires to castellated/through-hole pads; no carrier or headers",
+      "mount_screw": {
+        "type": "M2x6 nylon DIN84 cheese head",
+        "head_diameter": 3.8,
+        "head_height": 1.3,
+        "pilot_diameter": 1.6,
+        "thread": "M2x0.4; pre-tap printed pilot"
+      },
+      "underside_solder_allowance": 3.0
     },
     "layout": {
       "battery": [
         -43.0,
         -43.0,
-        8.0
-      ],
-      "picowbell": [
-        34.0,
-        -47.0,
         8.0
       ],
       "proto": [
@@ -130,15 +130,21 @@
         18,
         -15,
         15
+      ],
+      "pico": [
+        34.0,
+        -47.0,
+        8.0
       ]
     },
     "required_checks_before_print": [
       "wallplate measurements",
       "servo brand and ear/shaft/horn measurements",
-      "Pico W versus Pico 2 W and header stack",
+      "Headerless Pico W and solder-wire protrusion",
       "holder loaded height and lead exit",
       "selected cable connector service clearance"
-    ]
+    ],
+    "revision": "3-headerless-pico-w"
   },
   "parts": [
     {
@@ -294,8 +300,8 @@
       ],
       "non_manifold_edges": 0,
       "connected_components": 1,
-      "volume_mm3": 183486.81,
-      "triangles": 11130
+      "volume_mm3": 184181.66,
+      "triangles": 11458
     },
     {
       "file": "docking_strap.stl",
@@ -382,15 +388,15 @@
       "triangles": 32
     },
     {
-      "file": "coupon_picowbell_mount.stl",
+      "file": "coupon_pico_mount.stl",
       "dimensions_mm": [
-        62.5,
-        48.5,
+        57.0,
+        27.0,
         8.0
       ],
       "non_manifold_edges": 0,
       "connected_components": 1,
-      "volume_mm3": 12427.74,
+      "volume_mm3": 6302.48,
       "triangles": 1548
     }
   ],

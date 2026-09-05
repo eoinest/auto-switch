@@ -24,7 +24,7 @@ for path in sorted(root.glob('*.stl')):
     assert volume>0, f'Inverted volume: {path}'
     results.append({'file':path.name,'triangles':count,'dimensions_mm':[round(d,3) for d in dims],'manifold':True,'positive_volume':True,'on_bed':True,'fits_A1':True})
 expected={p['file'] for p in json.loads((root/'validation.json').read_text())['parts']}
-required={'1g_chassis.stl','1g_fit_ring.stl','1g_servo1_yoke.stl','2g_chassis.stl','2g_fit_ring.stl','2g_servo1_yoke.stl','2g_servo2_yoke.stl','coupon_battery_holder.stl','coupon_master_cradle.stl','coupon_picowbell_mount.stl','coupon_proto_cradle.stl','coupon_regulator_cradle.stl','coupon_servo_ear_mount.stl','coupon_servo_gate_cradle.stl','docking_strap.stl','electronics_lid.stl','electronics_pod.stl','retainer_master.stl','retainer_proto.stl','retainer_regulator.stl','retainer_servo_gate.stl'}
+required={'1g_chassis.stl','1g_fit_ring.stl','1g_servo1_yoke.stl','2g_chassis.stl','2g_fit_ring.stl','2g_servo1_yoke.stl','2g_servo2_yoke.stl','coupon_battery_holder.stl','coupon_master_cradle.stl','coupon_pico_mount.stl','coupon_proto_cradle.stl','coupon_regulator_cradle.stl','coupon_servo_ear_mount.stl','coupon_servo_gate_cradle.stl','docking_strap.stl','electronics_lid.stl','electronics_pod.stl','retainer_master.stl','retainer_proto.stl','retainer_regulator.stl','retainer_servo_gate.stl'}
 assert expected==required, 'Generated manifest lacks an expected printable'
 assert {p['file'] for p in results}==expected, 'STL files do not match generated manifest'
 (root/'stl-verification.json').write_text(json.dumps(results,indent=2)+'\n')

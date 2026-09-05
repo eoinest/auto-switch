@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="data:,">
+  <meta name="description" content="Learn to design the Auto Switch battery, Pico and servo circuit with an interactive power map, guided lessons, experiments and a checked bill of materials.">
+  <title>Learn the circuit · Auto Switch</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="data.js"></script>
+  <script defer src="model.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#power"><span class="mark" aria-hidden="true">↯</span>auto switch <span class="brand-divider">/</span> <span class="brand-sub">circuit lab</span></a>
+    <span class="local-label">LEARN LOCALLY · NO HARDWARE CONTROL</span>
+  </header>
+  <main id="main">
+    <div class="intro"><p class="eyebrow">FROM YOUR FIRST CIRCUIT TO YOUR OWN DESIGN</p><h1>Understand every connection.</h1><p>Start with what powers the Pico. Then learn the parts, try the numbers, and design the circuit yourself.</p></div>
+    <nav class="main-nav" aria-label="Learning sections">
+      <a href="#power" data-page="power">Power map</a><a href="#lessons" data-page="lessons">Guided lessons <span id="lesson-count"></span></a><a href="#workbench" data-page="workbench">Workbench</a><a href="#parts" data-page="parts">Parts &amp; fit</a>
+    </nav>
+    <section id="page-power" class="page" aria-labelledby="power-heading">
+      <div class="section-heading"><div><p class="eyebrow">01 / FOLLOW THE ENERGY</p><h2 id="power-heading">What is powering the Pico?</h2></div><a href="assets/power-map.svg" target="_blank" rel="noopener">Open full diagram ↗</a></div>
+      <p class="lede">These controls change an illustration. They never connect to your device. Highlighted paths show where supply voltage is available, not measured current. Readouts illustrate nominal steady states; real rails take time to rise and discharge.</p>
+      <div class="power-controls"><fieldset><legend>Available supply</legend><div class="segmented"><button type="button" data-supply="battery" aria-pressed="true">Battery</button><button type="button" data-supply="usb" aria-pressed="false">USB</button><button type="button" data-supply="both" aria-pressed="false">Both</button><button type="button" data-supply="none" aria-pressed="false">Neither</button></div></fieldset><label class="check"><input type="checkbox" id="master-on" checked> Battery master switch on</label><label class="check"><input type="checkbox" id="servo-request"> Pico requests servo power</label></div>
+      <div class="power-readout" aria-live="polite"><div><span>Pico chip</span><strong id="pico-voltage"></strong></div><div><span>Servo supply</span><strong id="servo-voltage"></strong></div><p id="power-explanation"></p></div>
+      <div id="power-trace" class="power-trace"></div>
+      <div class="diagram-frame"><div id="power-svg" class="diagram"></div></div>
+      <div class="part-inspector"><label for="inspect-part">Explore a part</label><select id="inspect-part"></select><div id="part-detail" aria-live="polite"></div></div>
+      <details class="wiring-details"><summary>Show the complete connection sheet, including every resistor and capacitor</summary><p>Each ground symbol connects to the same GND net. Physical pin numbers still identify the edge pads on a Pico without soldered headers.</p><p><a href="assets/connection-map.svg" target="_blank" rel="noopener">Open or save the full connection sheet ↗</a></p><div class="diagram-frame"><div id="wiring-svg" class="diagram"></div></div></details>
+      <div class="next-step"><p>New to voltage, current or ground? The lessons build these ideas in order.</p><a class="button" href="#lessons">Start the guided lessons →</a></div>
+    </section>
+    <section id="page-lessons" class="page" hidden aria-labelledby="lessons-heading">
+      <div class="section-heading"><div><p class="eyebrow">02 / BUILD YOUR MENTAL MODEL</p><h2 id="lessons-heading">One concept at a time.</h2></div><span id="progress-label"></span></div>
+      <progress id="course-progress" value="0" max="12" aria-label="Lessons completed"></progress>
+      <p class="subtle">Progress stays in this browser. Each lesson includes a worked example and two checks with explanations; completion means answering both correctly.</p>
+      <div class="lesson-layout"><nav id="lesson-nav" aria-label="Lessons"></nav><article id="lesson-content"></article></div>
+      <details><summary>Sources, scope and what is still uncertain</summary><div id="course-sources"></div></details>
+      <button class="quiet" type="button" id="reset-progress">Reset learning progress</button>
+    </section>
+    <section id="page-workbench" class="page" hidden aria-labelledby="workbench-heading">
+      <div class="section-heading"><div><p class="eyebrow">03 / MAKE A PREDICTION, THEN TRY IT</p><h2 id="workbench-heading">Your circuit workbench.</h2></div></div>
+      <p class="lede">These are transparent teaching models, not a simulation of an actual motor, battery chemistry or circuit transient.</p>
+      <div class="lab-tabs" aria-label="Experiments"><button data-lab="ohm">Voltage &amp; current</button><button data-lab="divider">Read a battery</button><button data-lab="pwm">Servo signal</button><button data-lab="capacitor">Capacitor buffer</button><button data-lab="energy">Battery life</button><button data-lab="design">Design it yourself</button></div>
+      <div id="lab-content"></div>
+    </section>
+    <section id="page-parts" class="page" hidden aria-labelledby="parts-heading">
+      <div class="section-heading"><div><p class="eyebrow">04 / WHAT TO BUY, WHAT TO PRINT</p><h2 id="parts-heading">Bill of materials &amp; fit evidence.</h2></div><a href="assets/bom.csv" download>Download BOM.csv ↓</a></div>
+      <p class="lede">The selected assembly uses a <strong>headerless Pico W with soldered wires</strong>. No socket carrier is needed. The table maps purchased parts to printed parts and distinguishes digital checks from real measurements.</p>
+      <div id="fit-summary"></div>
+      <div class="bom-controls"><label for="gang-count">Build size <select id="gang-count"><option value="1">One switch</option><option value="2" selected>Two switches</option></select></label><label for="bom-search">Find a part <input id="bom-search" type="search" placeholder="Pico, holder, wire, resistor…"></label></div>
+      <p id="bom-count" class="subtle" aria-live="polite"></p>
+      <div class="table-wrap"><table><caption class="sr-only">Selected bill of materials</caption><thead><tr><th scope="col">Part</th><th scope="col">Qty</th><th scope="col">Fit &amp; printed interface</th><th scope="col">Source / buy</th></tr></thead><tbody id="bom-body"></tbody></table></div>
+      <h3>Installed print quantities</h3><p>These quantities follow the build size above. Print the small fit coupons first; coupons and fit rings are test pieces, additional to this installed assembly.</p>
+      <div class="table-wrap"><table><caption class="sr-only">Installed printed parts for the selected build</caption><thead><tr><th scope="col">STL file</th><th scope="col">Copies</th></tr></thead><tbody id="print-body"></tbody></table></div>
+      <details><summary>Read the complete machine-readable fit report</summary><pre id="fit-report"></pre></details>
+      <p><a href="assets/BOM.md" download>Save the written BOM ↓</a> · <a href="https://github.com/eoinest/auto-switch/tree/main/hardware/cad/generated" target="_blank" rel="noopener">Blender model and STL files ↗</a></p>
+    </section>
+  </main>
+  <footer><span>Auto Switch · open-source, local-first learning</span><a href="https://github.com/eoinest/auto-switch" target="_blank" rel="noopener">Project &amp; source code ↗</a><span id="checked-date"></span></footer>
+  <noscript>This module uses JavaScript for its interactive lessons. The written BOM and circuit diagrams remain in this folder's assets directory and in the repository.</noscript>
+</body>
+</html>

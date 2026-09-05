@@ -1,10 +1,46 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "units": "mm",
   "research_date": "2026-09-05",
   "status": "Selected prototype parts; not fabricated or fit-verified",
   "dimension_policy": "Published envelopes and source geometry are distinct from design service allowances. null means not established, never zero. Exact source CAD does not prove assembled connector/header/lead fit.",
   "parts": [
+    {
+      "id": "pico",
+      "manufacturer_part": "Raspberry Pi Pico W (headerless)",
+      "quantity_one_gang": 1,
+      "quantity_two_gang": 1,
+      "source": "https://www.raspberrypi.com/products/raspberry-pi-pico/",
+      "drawing": "https://datasheets.raspberrypi.com/picow/pico-w-product-brief.pdf",
+      "published_envelope_mm": [
+        51,
+        21,
+        1
+      ],
+      "notes": "Official Pico W STEP includes the actual board, USB socket and major components. Direct solder five wires for one gang or six for two gangs. No carrier or headers.",
+      "mounting_holes": {
+        "diameter_mm": 2.1,
+        "centers_mm": [
+          [
+            -23.5,
+            -5.7
+          ],
+          [
+            -23.5,
+            5.7
+          ],
+          [
+            23.5,
+            -5.7
+          ],
+          [
+            23.5,
+            5.7
+          ]
+        ],
+        "origin": "PCBcenter;longaxisX"
+      }
+    },
     {
       "id": "battery_holder",
       "manufacturer_part": "Pololu 1153",
@@ -22,7 +58,7 @@
         22
       ],
       "mounting_holes": null,
-      "notes": "Published holder size; loaded-cell total height and lead exit envelope require measurement. 6-inch 24AWG leads. Reserve is not measured."
+      "notes": "Published bare-holder dimensions; loaded height and lead exits require measurement. Includes 6-inch 24 AWG leads. The loaded reserve is not a measurement."
     },
     {
       "id": "regulator",
@@ -82,53 +118,6 @@
       "notes": "No mounting holes; electrical through holes are not screw holes. One master, one GP15 servo gate. Physical gate slider OFF; master ON pin unused. Cable bend space additional."
     },
     {
-      "id": "pico_socket_carrier",
-      "manufacturer_part": "Adafruit 5905 Proto Under Plate PiCowBell",
-      "quantity_two_gang": 1,
-      "quantity_one_gang": 1,
-      "source": "https://www.adafruit.com/product/5905",
-      "published_envelope_mm": [
-        52,
-        38.2,
-        5.6
-      ],
-      "design_service_envelope_mm": [
-        54,
-        40,
-        18
-      ],
-      "mounting_holes": {
-        "diameter_mm": 2.5,
-        "centers_mm": [
-          [
-            -23.495,
-            -16.51
-          ],
-          [
-            -23.495,
-            16.51
-          ],
-          [
-            23.495,
-            -16.51
-          ],
-          [
-            23.495,
-            16.51
-          ]
-        ],
-        "origin": "PCB center; long axis X",
-        "source": "Eagle board mounting elements and MOUNTINGHOLE_2.5_PLATED package"
-      },
-      "pcb_source": "https://github.com/adafruit/Adafruit-Proto-Under-Plate-PiCowBell-PCB",
-      "source_outline_mm": [
-        52.07,
-        38.1
-      ],
-      "source_outline_corner_radius_mm": 2.54,
-      "notes": "Pre-soldered female headers included. Published size excludes plugged-in Pico. 18mm stack is planning allowance requiring actual header measurement. Keep extra metal/wires/components 10mm from Pico antenna as project allowance, not manufacturer RF guarantee. Do not use product5200 STEP as5905."
-    },
-    {
       "id": "discrete_board",
       "manufacturer_part": "Adafruit 1608 quarter Perma-Proto",
       "quantity_two_gang": 1,
@@ -149,7 +138,7 @@
         "pitch_mm": 35.56,
         "centers_mm": null
       },
-      "notes": "Manufacturer out of stock at research date. Discrete component populated height is design allowance. 589 three-pack page has inconsistent mm/inch dimensions; do not silently substitute. Power wiring direct22AWG; printed bus current rating not established. Exact Mouser listing available; live stock unverified.",
+      "notes": "Exact 1608 board selected. Manufacturer was out of stock when researched; Mouser lists this part but live stock is unverified. Direct-wire the motor power; PCB bus current rating is not established.",
       "purchase": "https://www.mouser.com/en/ProductDetail/Adafruit/1608?qs=GURawfaeGuCPUqYJerHUuQ%3D%3D"
     },
     {
@@ -170,7 +159,7 @@
       ],
       "mounting_holes": null,
       "purchase": "https://www.digikey.com/en/products/detail/littelfuse-inc/01500274Z/29453",
-      "notes": "Length tolerance \u00b11mm. Cylindrical body.16AWG330mmloop leads cut/trim to suit.70mm reserve includes provisional bend/opening clearance."
+      "notes": "Length tolerance \u00b11 mm. The cylindrical holder includes a 330 mm loop of 16 AWG wire to cut and trim. Two short ties positively retain it. A 70 mm service envelope is provisional."
     },
     {
       "id": "fuse",
@@ -202,7 +191,7 @@
         10
       ],
       "mounting_holes": null,
-      "notes": "100mm20AWG prewired; reserve applies to mated2180+2181 shells only, not cable bends. Put recessed contact half toward battery after checking actual contacts and polarity."
+      "notes": "100 mm, 20 AWG prewired lead. The 25\u00d710\u00d710 mm allowance covers the mated 2180/2181 shells; actual dimensions and cable bends need checking. Recessed contacts belong on the fused battery side."
     },
     {
       "id": "battery_connector_male",
@@ -213,7 +202,7 @@
       "published_envelope_mm": null,
       "design_service_envelope_mm": null,
       "mounting_holes": null,
-      "notes": "Matching2180. JST RCY rated3A with22AWG; wire gauge alone does not increase connector rating."
+      "notes": "Matches 2180. JST RCY is rated 3 A with 22 AWG wiring; thicker wire does not increase the connector rating."
     },
     {
       "id": "servo_extension",
@@ -224,7 +213,7 @@
       "published_envelope_mm": null,
       "design_service_envelope_mm": null,
       "mounting_holes": null,
-      "notes": "22AWG300mm purchased length. Fitted harness retains male end with ~100mm wire cut to dry-fit route, direct solder to componentboard; original servo female plugs here. Unused female half spare. No full extension coil assumed in CAD."
+      "notes": "Purchased length 300 mm, 22 AWG. Cut to retain the male end with roughly 100 mm lead, trimmed after dry fit; solder to the component board. The original servo remains detachable. Unused female half is a spare."
     },
     {
       "id": "servo_headers",
@@ -256,7 +245,7 @@
       ],
       "mounting_holes": null,
       "lead_pitch_mm": 3.5,
-      "notes": "470uF10V radial polarized. C1 on unswitched regulated5V. Envelope excludes leads. Distributor specifies13mm maximum seated height; nominal11.5mm can length differs from full installed height.",
+      "notes": "470 \u00b5F, 10 V polarized radial capacitor. C1 sits on unswitched regulated 5 V. Nominal can is \u00d88\u00d711.5 mm; reserve 13 mm maximum seated height above the PCB. Observe polarity.",
       "published_max_seated_height_mm": 13
     },
     {
@@ -273,7 +262,7 @@
       "design_service_envelope_mm": null,
       "mounting_holes": null,
       "lead_pitch_mm": 2.54,
-      "notes": "100nF50VX7R radial; buy3 total to have2 extra bypass caps for bench layout if needed."
+      "notes": "100 nF, 50 V X7R radial. Buy three: one installed for ADC filtering and two spares for bench bypassing if needed."
     },
     {
       "id": "diodes",
@@ -284,7 +273,7 @@
       "published_envelope_mm": null,
       "design_service_envelope_mm": null,
       "mounting_holes": null,
-      "notes": "1A40V SchottkyDO41. D1 ORing: anode5V,cathodeVSYS. D2 negative rail clamp: anodeGND,cathodeSERVO_5V; not a positive overvoltage clamp."
+      "notes": "1 A, 40 V Schottky DO-41. D1: anode to 5 V, striped cathode to VSYS. D2: anode to GND, striped cathode to SERVO_5V; it clamps negative excursions, not positive overvoltage."
     },
     {
       "id": "resistors_100k",
@@ -299,7 +288,7 @@
       ],
       "design_service_envelope_mm": null,
       "mounting_holes": null,
-      "notes": "1%1/4W axial. Divider top and GP15pulldown. Body tolerance\u00b1.5length\u00b1.2diam;leads excluded."
+      "notes": "1%, \u00bc W axial. Battery-divider top and GP15 pulldown. Nominal body 6.3\u00d7\u00d82.4 mm with \u00b10.5 mm length and \u00b10.2 mm diameter tolerance; leads are additional."
     },
     {
       "id": "resistors_47k",
@@ -314,7 +303,7 @@
       ],
       "design_service_envelope_mm": null,
       "mounting_holes": null,
-      "notes": "1%1/4W divider bottom."
+      "notes": "1%, \u00bc W axial; battery-divider bottom resistor."
     },
     {
       "id": "resistors_1k",
@@ -329,7 +318,7 @@
       ],
       "design_service_envelope_mm": null,
       "mounting_holes": null,
-      "notes": "1%1/4W: one signal resistor perservo, one switched rail bleeder."
+      "notes": "1%, \u00bc W axial; one PWM signal resistor per servo and one switched-rail bleeder."
     },
     {
       "id": "wire",
@@ -340,7 +329,7 @@
       "published_envelope_mm": null,
       "design_service_envelope_mm": null,
       "mounting_holes": null,
-      "notes": "Shared consumable purchase, not one set consumed perdevice. Budget about1m total hookup perunit then trim after dry-fit."
+      "notes": "Buy one shared spool set if existing wire is unsuitable. Budget about 1 metre total hookup wire per device, then trim after dry fit. Quantity is an allowance, not a spool consumed per device."
     },
     {
       "id": "heat_shrink",
@@ -362,7 +351,7 @@
       "published_envelope_mm": null,
       "design_service_envelope_mm": null,
       "mounting_holes": null,
-      "notes": "Shared commissioning cable. Direct Pico USB access; no panel adapter required. Molded connector envelope not published; physicalfit check required."
+      "notes": "Shared commissioning data cable, removed for normal battery operation. No panel adapter. The actual molded plug must fit the reserved service corridor."
     },
     {
       "id": "cells_and_charger",
@@ -378,8 +367,8 @@
     {
       "id": "strain_relief_ties",
       "manufacturer_part": "Panduit PLT1M-C",
-      "quantity_two_gang": 12,
-      "quantity_one_gang": 12,
+      "quantity_two_gang": 6,
+      "quantity_one_gang": 6,
       "source": "https://mkt.panduit.com/rs/955-VFM-023/images/Panduit_IEI-Focus-Products-EMEA-WEB.pdf",
       "purchase": "https://www.digikey.com/en/products/detail/panduit-corp/PLT1M-C/280033",
       "published_envelope_mm": null,
@@ -387,18 +376,18 @@
       "mounting_holes": null,
       "strap_width_mm": 2.5,
       "strap_length_mm": 99,
-      "notes": "12 is assembly allowance pending routing; pack100 commonly sold. Strap dimensions source-confirmed; latch head dimensions not established."
+      "notes": "Four harness ties and two fuse-retention ties per device. Printed paired fuse eyes and four harness eyes have3.5x2.4mm openings; actual cable routing and latch dimensions require fitting. Buy smallest pack covering6; extras shared."
     }
   ],
   "mechanical_hardware": {
     "source": "Current CAD assembly requirements from mechanical design; physical assembly not verified",
     "per_unit": {
-      "m2_5x6_screws": 4,
       "m2_5x8_screws": 16,
       "m3x8_screws": 4,
       "m3x6_screws": 4,
       "m3_hex_nuts": 4,
-      "holder_ties_2_5x200": 2
+      "holder_ties_2_5x200": 2,
+      "m2x6_nylon_screws": 4
     },
     "per_servo": {
       "m2x10_screws": 2,
@@ -407,7 +396,6 @@
       "bumpon_sj5302_pads": 2
     },
     "bambu_skus": {
-      "m2_5x6": "AA029",
       "m2_5x8": "AA030",
       "m3x6": "AA036",
       "m3x8": "AA037"
@@ -419,6 +407,16 @@
       "height_mm": 2.2,
       "source": "https://multimedia.3m.com/mws/media/1614405O/3m-tm-bumpon-tm-protective-products-sj5000-sj5300-sj5400-sj5500-sj5700-sj6100.pdf"
     },
-    "horn_fasteners": "Must measure supplied horn holes and reuse supplied shaft screw; no invented thread specification."
-  }
+    "horn_fasteners": "Must measure supplied horn holes and reuse supplied shaft screw; no invented thread specification.",
+    "pico_screws": {
+      "part": "Westfield WF52650 M2x6 nylon cheese head, similar to DIN84",
+      "source": "https://www.westfieldfasteners.co.uk/Bolts-Screws-Metric/Plastic-Machine-Screw-Slotted-Cheese-M2x6-Nylon.html",
+      "purchase": "https://www.westfieldfasteners.co.uk/Bolts-Screws-Metric/Plastic-Machine-Screw-Slotted-Cheese-M2x6-Nylon.html",
+      "head_diameter_mm": 3.8,
+      "head_height_mm": 1.3,
+      "notes": "Selected vendor publishes3.8mm head diameter and1.3mm height; nylon version is similar toDIN84. Pre-tap printed1.6mm pilots M2x0.4; verify actual screw and thread fit.",
+      "standard_reference": "https://www.trfastenings.com/products/Catalogue/Plastic-Hardware/Machine-Screws/Cheese-Head/TR00011396-000"
+    }
+  },
+  "revision": "3-headerless-pico-w"
 }

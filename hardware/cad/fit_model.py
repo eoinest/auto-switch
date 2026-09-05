@@ -32,8 +32,8 @@ def envelope_report(c):
     """Nominal bought-part space checks, not a whole-assembly collision solver."""
     specs={
         'battery':(65,60,c['battery_holder']['loaded_allowance_z']),
-        'picowbell':(52.07,38.1,18),
-        'proto':(43,50.8,14),
+        'pico':(52.35,21,4),
+        'proto':(43,50.8,14.6),
         'regulator':(43.2,21,10),
         'servo_gate':(18.2,15.24,2.54),
         'master':(18.2,15.24,2.54),
@@ -44,6 +44,7 @@ def envelope_report(c):
     envelopes={}
     for key,size in specs.items():
         x,y,z=c['layout'][key]
+        if key=='pico':x+=.675  # USB extends1.35mm beyond one end of51mm board.
         envelopes[key]=bounds((x,y,z if key in centered else z+size[2]/2),size)
     cavity=((-c['pod_internal_width']/2,-c['pod_internal_height']/2,4),(c['pod_internal_width']/2,c['pod_internal_height']/2,4+c['pod_internal_depth']))
     inside={k:contained(v,cavity) for k,v in envelopes.items()}
@@ -73,6 +74,6 @@ def envelope_report(c):
     return {'scope':'Nominal component body envelopes inside pod and pairwise separation. Includes board retainer envelopes and lid pillar envelopes. Excludes other printed supports, full cable routes, USB insertion, fasteners, antenna RF performance and all actual measured fit.',
             'body_envelopes_mm':envelopes,'inside_cavity':inside,'body_envelope_overlaps':clashes,
             'retainer_envelopes_mm':retainers,'retainer_issues':retainer_issues,
-            'passed':all(inside.values()) and not clashes and not retainer_issues,'pico_stack_reserved_height_mm':18,
+            'passed':all(inside.values()) and not clashes and not retainer_issues,'pico_stack_reserved_height_mm':4,
             'loaded_holder_reserved_height_mm':c['battery_holder']['loaded_allowance_z'],
             'physical_fit_verified':False,'required_measurements':c['required_checks_before_print']}

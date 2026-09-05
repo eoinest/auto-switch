@@ -1,0 +1,37 @@
+"""Render visible BOM and fit report from the selected CSV and current audit."""
+import csv,json
+from verify_bom import validate
+from pathlib import Path
+R=Path(__file__).resolve().parents[1];O=R/'hardware/cad/generated'
+with (R/'hardware/bom.csv').open() as f:rows=list(csv.DictReader(f))
+errors=validate()
+if errors:raise SystemExit('Cannot publish stale BOM evidence: '+str(errors))
+report=json.loads((O/'bom-fit-report.json').read_text())
+stl_results=json.loads((O/'stl-verification.json').read_text())
+if set(r['file'] for r in stl_results)!=set(report['stl_sha256']):raise SystemExit('STL verification and audit sets differ')
+text='''# Bill of materials — auto-switch\n\n**Default: headerless Raspberry Pi Pico W, direct-soldered wires, four rechargeable AA cells.** One-gang controls one paddle; two-gang controls two. Each room needs its own complete unit. The current design does **not** use a PiCowBell, male Pico headers or a separate header adapter. Your headered Pico remains useful for bench tests.\n\n[Download the BOM CSV](hardware/bom.csv) · [Detailed purchasing notes](docs/shopping-list.md) · [Actual STL fit report](docs/bom-fit-report.md) · [Wiring guide](docs/wiring.md)\n\nQuantities below are **installed quantities per device**, except rows marked shared or allowance. Buy the smallest pack covering the count; the fuse purchase is three (one installed, two spares), and the 100 nF capacitor purchase is three (one installed, two spares). The Panasonic kit includes one external charger and the first four cells. Nothing has been purchased. Purchase links are selections, not live stock or price guarantees.\n\n**Fit status: nominal digital checks pass; physical fit is not certified.** The purchased-part meshes were checked against the actual STL triangles, not only compared with a dimensions list. The exact MG90S/horn, loaded holder, soldered harness, connectors and installed wallplate still require measurements and coupon tests. Horn-to-yoke fasteners and the mounting method for the textured wall remain unresolved. Do not order a full kit on the assumption that these two interfaces are finalized.\n'''
+for category in dict.fromkeys(r['category'] for r in rows):
+ text+='\n## '+category+'\n\n| Part / purchase link | One-gang | Two-gang | Quantity unit | Fit status |\n|---|---:|---:|---|---|\n'
+ for r in rows:
+  if r['category']!=category:continue
+  part='['+r['part']+']('+r['purchase_url']+')' if r['purchase_url'] else r['part']
+  text+=f"| {part} | {r['quantity_one_gang']} | {r['quantity_two_gang']} | {r['unit']} | {r['fit_status']} |\n"
+text+='''\n## What to print\n\nThese are installed print quantities, **not** one copy of every STL. Each unit uses its own pod and lid. Two copies of the docking strap are needed for either unit. The shared pod has 170 × 158 × 40 mm internal space; the assembled layout is about 174 × 300.7 × 47 mm. We retained wiring/service space instead of assuming a bare Pico automatically makes the whole pod smaller.\n\n| STL | One-gang | Two-gang |\n|---|---:|---:|\n'''
+a=report['installed_print_counts']['1'];b=report['installed_print_counts']['2']
+for name in sorted(set(a)|set(b)):
+ text+=f"| [{name}](hardware/cad/generated/{name}) | {a.get(name,0)} | {b.get(name,0)} |\n"
+text+='''\nPrint the relevant wallplate fit ring, `coupon_pico_mount.stl`, `coupon_servo_ear_mount.stl`, `coupon_battery_holder.stl` and four board cradles **first**. Cradle coupons use their matching retainer. Coupon screws can be reused in the device after testing. Coupon material and brim/support consumption depend on slicer settings.\n\n## Headerless Pico connection and mounting\n\nFour M2×6 **nylon** screws hold the actual Pico board through its Ø2.1 mm mounting holes. Pre-tap the printed pilots M2×0.4; nylon screws are not self-tapping. The official Pico W model includes the board, USB socket and major components. Wires solder directly to the pads labelled VSYS, GND, GP15, GP16, GP26, and GP17 for the second servo. The board remains tethered to its harness when unscrewed; leave a service loop and strain relief.\n\nThe old socketed arrangement is available in Git history. Its carrier and four M2.5×6 mounting screws do not fit the new default mounting scheme. Do not push the already-headered board into this lower mounting position.\n\nThe [CSV](hardware/bom.csv) has the per-part STL mapping, source URLs and detailed assembly notes. The [fit report](docs/bom-fit-report.md) separates source dimensions, design allowances and unresolved physical measurements.\n'''
+(R/'BOM.md').write_text(text)
+md='''# BOM-to-STL fit evidence\n\nThis is a **nominal digital fit audit**, not a report from a physically assembled unit. The current headerless Pico W build retains explicit measurement gates. See the [BOM](../BOM.md) and [machine-readable evidence](../hardware/cad/generated/bom-fit-report.json).\n\n`audit_fit.py` reads the exported STL triangles, reconstructs their assembly placement, and checks the modeled purchased parts against those meshes using exact Boolean intersection volumes. It also ray-probes actual mounting holes and access channels. Coplanar seating contact and intersections below 0.05 mm³ are not treated as interference. Actual component tolerances, unseen wire bends and full dynamic motion remain outside that test.\n\n## Automated results\n\n| Check | Result | Evidence |\n|---|---|---|\n'''
+for c in report['checks']:
+ detail=c['detail']
+ if 'component_meshes' in c:detail=f"{c['component_meshes']} component meshes; {c['candidate_intersections_tested']} candidate intersections; {len(c['clashes'])} reported clashes. "+detail
+ md+=f"| {c['name']} | {'PASS' if c['passed'] else 'FAIL'} | {detail} |\n"
+md+='''\nAll 21 exported STL files also pass independent manifold-edge, positive-volume, print-bed origin and A1 256 mm volume checks. The Blender exporter separately requires a single connected solid per printable. Bed checks exclude added slicer brims/supports. Saved report hashes bind the audit to the exact BOM, STL files and generator inputs; `python3 tools/verify_bom.py` rejects stale evidence.\n\n## Per-part mapping and remaining work\n\nA mapped STL means the part has a relevant modeled interface or reserved space; it does not imply every connector or wire has manufacturer CAD. Empty mappings identify external tools/consumables.\n\n| Part | Associated STLs | Status and remaining check |\n|---|---|---|\n'''
+for r in rows:
+ stls=', '.join(f'[{n}](../hardware/cad/generated/{n})' for n in r['stl_files'].split(';') if n) or 'Outside enclosure / shared consumable'
+ md+=f"| {r['part']} | {stls} | **{r['fit_status']}**. {r['notes']} |\n"
+md+='\n## Explicit limits\n\n'+'\n'.join('- '+x for x in report['limits'])+'\n\n'
+md+='The illustrated regulator/protoboard internals and generic connector bodies are space models; they are not replacement manufacturing drawings. The servo geometry is a TowerPro reference with several labelled unsourced interface dimensions. Current physical fit remains **unverified** even when every automated row reads PASS.\n'
+(R/'docs/bom-fit-report.md').write_text(md)
+print('Wrote BOM.md and docs/bom-fit-report.md')

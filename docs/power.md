@@ -2,7 +2,7 @@
 
 ## Recommended first build
 
-Exact selected parts and quantities are in [the shopping list](shopping-list.md); follow [the pin-by-pin wiring guide](wiring.md).
+Exact selected parts and quantities are in [the BOM](../BOM.md) and [the shopping list](shopping-list.md); follow [the pin-by-pin wiring guide](wiring.md).
 
 Use four removable **AA NiMH** cells, a regulated **5 V buck-boost** supply, and a **high-side servo power switch**. AA is a more practical prototype starting point than AAA for servo pulses and energy capacity. The Mac mini runs the local gateway and phone website. **Demo mode** keeps Wi-Fi connected and polls every second; **Daily mode** disables the WLAN interface between configurable polls (60 seconds by default). Ordinary waiting in Daily mode is not deep sleep. Expect runtime to depend heavily on measured board waiting current; months are not established.
 
