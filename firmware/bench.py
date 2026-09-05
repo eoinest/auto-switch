@@ -1,11 +1,8 @@
 """USB REPL bench control, including original Pico without WiFi."""
 import json
 import uasyncio as asyncio
-from machine import Pin
 from control import Controller
 from hardware import Hardware
-
-Pin(15, Pin.OUT, value=0)
 
 
 def move(channel, state):
@@ -22,12 +19,17 @@ def move(channel, state):
 
 
 def off():
-    """Emergency rail disable on the documented default pin."""
-    Pin(15, Pin.OUT, value=0)
+    """Stop signal output; only the gated profile can also disable the rail."""
+    with open("config.json") as stream:
+        config = json.load(stream)
+    hardware = Hardware(config)
+    hardware.off()
+    if hardware.enable is None:
+        print("PWM stopped; servo still powered. Disconnect supply to remove power.")
 
 
 def neutral(channel=0):
-    """Detached-horn alignment only: neutral pulse for 300ms, then power off."""
+    """Detached-horn alignment: neutral for 300ms, then profile-specific cleanup."""
     with open("config.json") as stream:
         config = json.load(stream)
     hardware = Hardware(config)

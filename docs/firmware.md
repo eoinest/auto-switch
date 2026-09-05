@@ -4,6 +4,14 @@ The firmware targets a **Pico W or Pico 2 W running the corresponding MicroPytho
 
 This is a prototype implementation with passing host tests. It has **not been flashed or tested against a physical board, servo, power circuit, or printed assembly**. The included angles are intentionally small starting points for calibration, not a known fit for your switch.
 
+## Choose the hardware profile
+
+For the **ungated AA demonstration circuit**, copy `firmware/config.aa-demo.example.json` as `firmware/config.json`. It explicitly selects `hardware_profile: "aa-demo"`, `power_enable_pin: null`, direct Wi-Fi control, and `battery.enabled: false`. GP15 is unused: startup, normal motion, cleanup and the bench helpers never configure it. The example contains one disabled, uncalibrated servo on GP16; a second channel may use GP17. It contains no schedules.
+
+The AA demo's servo supply remains connected until you disconnect the external supply. `Hardware.power_on()` cannot switch that supply; `Hardware.off()` and `bench.off()` stop PWM and drive signal pins low. **Stopping pulses does not guarantee that a particular servo releases holding torque, and it does not remove servo power.** There is no battery measurement, low-voltage motion inhibition or automatic battery cutoff in this profile. Disconnect the pack after supervised use. The API reports `hardware_profile: "aa-demo"`, `servo_power_gated: false` and `battery: null`; these describe configuration, not measured rail voltage.
+
+The original `firmware/config.example.json` keeps the **gated battery circuit**. Omitting `hardware_profile` means `"gated"`, and GP15 remains the required enable output. Fit its external enable pulldown: it holds the gate off during reset and while configuration is being loaded, before firmware configures GPIO. An unknown profile, a gate pin in the AA profile, enabled ADC in the AA profile, or conflicting channel assignment is rejected before hardware initialization. The two wiring strategies require their matching configuration files.
+
 ## Choose a transport
 
 | Configuration | Phone opens | Radio behavior | Command behavior |
@@ -19,10 +27,10 @@ Gateway delivery is at most once: the Mac mini marks a queued command dispatched
 ## Install
 
 1. Select the MicroPython firmware for the exact board at [the official downloads page](https://micropython.org/download/). Existing MicroPython can be retained if its board-specific Wi-Fi, `uasyncio`, PWM and ADC interfaces work. Record the exact UF2 version in your build notes.
-2. Follow the external low-voltage wiring in [power and electronics](power.md). Fit the GP15 enable pulldown before connecting servo power. Keep the horn detached for initial setup.
-3. Copy `firmware/config.example.json` to `firmware/config.json`. This private file is ignored by Git. Set Wi-Fi credentials and generate a random token, for example `python3 -c 'import secrets; print(secrets.token_hex(32))'`.
+2. Follow the external low-voltage wiring for your selected hardware profile: [AA demo build guide](aa-demo-plan.md), or the original gated circuit in [power and electronics](power.md). The gated circuit's GP15 pulldown is required; the AA demo leaves GP15 disconnected. Keep the horn detached for initial setup.
+3. Copy the matching example (`config.aa-demo.example.json` for the AA demo, `config.example.json` for the gated circuit) to `firmware/config.json`. This private file is ignored by Git. Set Wi-Fi credentials and generate a random token, for example `python3 -c 'import secrets; print(secrets.token_hex(32))'`.
 4. For direct mode, set `api_token` and retain `transport: "direct"`. For gateway mode, set `transport: "gateway"`, `gateway.host` to the Mac mini's reserved LAN IPv4 address, `gateway.port`, and `gateway.token` to its **device token**. The phone uses the separate gateway **client token**. See [gateway setup](gateway.md).
-5. Leave each channel's `enabled` and `calibrated` set to `false` until the physical fit and endpoints have been checked. Remove the second channel object for a single-switch build. Do not change `power_enable_pin`: this revision requires GP15.
+5. Leave each channel's `enabled` and `calibrated` set to `false` until the physical fit and endpoints have been checked. Remove the second channel object for a single-switch build. Keep `power_enable_pin` at `null` for AA demo or `15` for the gated circuit. The AA demo requires direct transport and no battery ADC.
 6. Transfer the files with Thonny or [MicroPython's mpremote](https://docs.micropython.org/en/latest/reference/mpremote.html). With mpremote installed and exactly one board connected, run from the repository root:
 
 ```sh
@@ -34,7 +42,7 @@ mpremote reset
 mpremote repl
 ```
 
-Skip `mkdir` if `www` already exists. mpremote's filesystem commands stop the running program before transferring. Do transfers with the servo supply disconnected; then reconnect only after reviewing configuration. Ctrl-C in the REPL stops the running firmware and its cleanup disables the servo rail. A missing configuration or placeholder token stops startup without enabling motion.
+Skip `mkdir` if `www` already exists. mpremote's filesystem commands stop the running program before transferring. Do transfers with the servo supply disconnected; then reconnect only after reviewing configuration. Ctrl-C in the REPL stops the running firmware and its cleanup stops PWM. Only the gated profile also disables the servo rail; disconnect the AA servo supply to remove power. A missing configuration or placeholder token stops startup without enabling motion.
 
 In direct mode, the USB console prints the Pico URL. Reserve that address in your router. Your phone and device must be on a LAN that permits client-to-client traffic; guest-network isolation can prevent access. In gateway mode, the Pico does not also expose a direct HTTP server.
 
@@ -42,15 +50,15 @@ In direct mode, the USB console prints the Pico URL. Reserve that address in you
 
 The servo uses the original MG90S horn, its center retaining screw, and the printed horn adapter. Do not rely on a printed imitation spline. Support the assembly on the bench while adjusting travel. The electrical installation remains closed; the mechanism only touches the plastic rocker.
 
-1. With the printed lever detached, run `import bench; bench.neutral(0)` over the USB REPL. This emits the configured neutral pulse for 300 ms and turns the servo rail off. It is intentionally available before enabling a channel, so use it only with the horn detached.
-2. Install the horn so neutral leaves clearance at both switch ends. Confirm that the unpowered mechanism is removable and that manual operation remains possible.
+1. With the printed lever detached, run `import bench; bench.neutral(0)` over the USB REPL. This emits the configured neutral pulse for 300 ms and then stops PWM. Only the gated profile also turns the servo rail off. It is intentionally available before enabling a channel, so use it only with the horn detached.
+2. Install the horn so neutral leaves clearance at both switch ends. Disconnect the servo supply and confirm that the unpowered mechanism is removable and that manual operation remains possible.
 3. Change only the local `config.json` to enable and calibrate the channel. Begin with the small sample `on_us: 1400`, `neutral_us: 1500`, `off_us: 1600`. These are guesses, and you may need to swap on/off according to horn orientation. Test using `bench.move(0, 'on')` and `bench.move(0, 'off')`; use channel 1 for the right-hand servo.
 4. Increase travel only in small increments, such as 25 µs, and stop as soon as the rocker latches. If the servo buzzes, the chassis lifts, or the lever flexes excessively, disconnect the servo supply and revise the fit or endpoint. Do not lengthen dwell to overpower a blocked switch.
-5. Validate the on and off strokes repeatedly with the final mounting method before allowing unattended use. Set `calibrated: true` only for the finished geometry and servo. Recalibrate after moving the horn or changing a printed part.
+5. Validate the on and off strokes repeatedly with the final mounting method. The AA profile is for supervised demonstrations; it has no automatic battery cutoff. Set `calibrated: true` only for the finished geometry and servo. Recalibrate after moving the horn or changing a printed part.
 
-Normal motion is: rail on → neutral → short on/off press → neutral → rail off, with only one servo moving at a time. Signal pins are driven low while the servo rail is off. Firmware constrains pulses to 1100–1900 µs, a total configured span of at most 400 µs, and a neutral position strictly between the two endpoints. Dwell and return times must each be 50–400 ms. The maximum configured cycle is 1.25 seconds and a 2-second **cooperative software timeout** cancels a stalled coroutine and disables power in `finally`.
+Both profiles command neutral → short on/off press → neutral, with only one commanded motion at a time, then stop PWM and drive signal pins low. The gated profile additionally turns the servo rail on before the cycle and off afterward. The AA demo keeps the rail powered throughout; another powered servo may still hold position even while it receives no pulses. Firmware constrains pulses to 1100–1900 µs, a total configured span of at most 400 µs, and a neutral position strictly between the two endpoints. Dwell and return times must each be 50–400 ms. The maximum configured cycle is 1.25 seconds and a 2-second **cooperative software timeout** cancels a stalled coroutine and runs profile-specific cleanup in `finally` (PWM stop for both profiles, power disable only for the gated profile).
 
-That timeout is not an independent electrical fail-safe: a frozen interpreter cannot guarantee a GPIO transition. Network connection, DNS, NTP, poll and acknowledgment operations are guarded against starting while a servo is powered. Use a properly rated load switch and current-limited bench supply during development. A production design would need an independently enforced timeout or current limit if a software lockup must not leave the servo powered.
+That timeout is not an independent electrical fail-safe: a frozen interpreter cannot guarantee a GPIO transition. Network connection, DNS, NTP, poll and acknowledgment operations are guarded against starting during a commanded motion. This does not mean an ungated servo is unpowered between commands. Use a suitable supply and a physically accessible disconnect during development. The original gated design requires a properly rated load switch. A production design would need an independently enforced timeout or current limit if a software lockup must not leave the servo powered.
 
 ## Direct API
 
@@ -72,7 +80,9 @@ Authorization: Bearer <api_token>
   "uptime": 42,
   "clock_synced": false,
   "busy": false,
-  "transport": "direct"
+  "transport": "direct",
+  "hardware_profile": "gated",
+  "servo_power_gated": true
 }
 ```
 
@@ -107,6 +117,8 @@ Failures acknowledge `success:false` with a short `error` string. The client acc
 
 ## Battery readings
 
+This section applies to the original gated circuit. The AA demo rejects `battery.enabled: true` because its ADC divider is absent. It returns no battery reading and offers no low-battery protection.
+
 Enable `battery.enabled` only after installing and verifying the external divider on **GP26**. The default 100 kΩ top / 47 kΩ bottom divider multiplies measured ADC voltage by 147/47. Never connect a battery pack directly to a Pico ADC pin. Readings are averaged across eight ADC samples; divider tolerance, ADC reference error and load sag still affect accuracy.
 
 An enabled battery report is `{voltage: 5.16, percent: null, estimated: true, low: false}`. `low_v` defaults to **4.4 V as an initial four-cell NiMH light-load threshold**, and must be calibrated for the actual pack and measurement circuit. The firmware checks this before enabling servo power, displays `low:true` below it, and inhibits new motions. This does **not** turn off the Pico or prevent further battery discharge. Fit a pack-appropriate hardware cutoff for unattended battery protection. Set `low_v: null` only when intentionally disabling this software threshold.
@@ -123,6 +135,6 @@ There is no catch-up for a minute missed while off, no persisted execution ledge
 
 ## Verification and references
 
-Run `python3 -m unittest discover -s tests -p 'test_firmware.py' -v` on a development computer. Tests cover authorization, oversized/malformed requests, uncalibrated refusal, pulse/time limits, interrupted motions, mutually exclusive actuation, low-battery inhibition, UTC scheduling, acknowledgment failure, and a simulated gateway loop with a concurrent local schedule. These checks use fake GPIO and networking; they cannot measure current, verify servo strength, prove an adhesive mounting load, or validate a UF2 on real hardware.
+Run `python3 -m unittest discover -s tests -p 'test_firmware*.py' -v` on a development computer. Tests cover authorization, oversized/malformed requests, uncalibrated refusal, pulse/time limits, interrupted motions, mutually exclusive actuation, low-battery inhibition, UTC scheduling, acknowledgment failure, and a simulated gateway loop with a concurrent local schedule. Additional profile tests exercise real hardware/startup/bench modules with fake GPIO, including no GP15 access in AA mode, legacy gate behavior, cancellation cleanup and invalid profiles rejected before GPIO initialization. These checks use fake GPIO and networking; they cannot measure current, verify servo strength, prove an adhesive mounting load, or validate a UF2 on real hardware.
 
 Primary interface references: [MicroPython RP2 quick reference](https://docs.micropython.org/en/latest/rp2/quickref.html), [PWM duty and deinitialization](https://docs.micropython.org/en/latest/library/machine.PWM.html), [asyncio streams and tasks](https://docs.micropython.org/en/latest/library/asyncio.html), [mpremote](https://docs.micropython.org/en/latest/reference/mpremote.html), and [port-dependent sleep behavior](https://docs.micropython.org/en/latest/library/machine.html).

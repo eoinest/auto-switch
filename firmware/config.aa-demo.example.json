@@ -1,0 +1,28 @@
+{
+  "device": "auto-switch-aa-demo",
+  "transport": "direct",
+  "wifi": {
+    "ssid": "",
+    "password": ""
+  },
+  "api_token": "REPLACE_WITH_RANDOM_32_BYTE_HEX_TOKEN",
+  "power_enable_pin": null,
+  "channels": [
+    {
+      "name": "Demo switch",
+      "pin": 16,
+      "enabled": false,
+      "calibrated": false,
+      "neutral_us": 1500,
+      "on_us": 1400,
+      "off_us": 1600,
+      "dwell_ms": 200,
+      "return_ms": 200
+    }
+  ],
+  "battery": {
+    "enabled": false
+  },
+  "schedules_utc": [],
+  "hardware_profile": "aa-demo"
+}

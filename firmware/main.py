@@ -2,11 +2,6 @@
 import json
 import time
 import uasyncio as asyncio
-from machine import Pin
-
-# Default EN is held low as early as possible; also fit an external pulldown.
-Pin(15, Pin.OUT, value=0)
-
 from control import Controller, Scheduler
 from hardware import Hardware
 from http_api import API
@@ -93,7 +88,9 @@ async def run(config):
             return {"device": config.get("device", "auto-switch"),
                     "channels": controller.status_channels(), "battery": hardware.battery(),
                     "uptime": clock.elapsed_ms // 1000, "clock_synced": clock.synced(),
-                    "busy": controller.busy, "transport": transport}
+                    "busy": controller.busy, "transport": transport,
+                    "hardware_profile": config.get("hardware_profile", "gated"),
+                    "servo_power_gated": controller.power_enable_pin is not None}
 
         # Validate credentials before starting schedules or network operations.
         client = GatewayClient(config["gateway"]) if transport == "gateway" else None
@@ -166,9 +163,7 @@ def start():
     except OSError as error:
         print("Startup stopped. Copy/edit config.example.json as config.json:", str(error))
     except Exception as error:
-        print("Startup stopped; servo power off:", str(error))
-    finally:
-        Pin(15, Pin.OUT, value=0)
+        print("Startup stopped; disconnect servo supply before troubleshooting:", str(error))
 
 
 if __name__ == "__main__":

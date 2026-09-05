@@ -1,0 +1,113 @@
+{
+  "revision": 1,
+  "status": "Proposed AA demo wiring; unpowered connectivity checked, physical assembly and powered tests required",
+  "units": "millimetres",
+  "power_topology": "4xAA NiMH to manual master switch to regulated 5V; servo rail always powered while master is on; Pico VSYS through D1",
+  "parts": {
+    "BAT": "Pololu 1153 holder with four matched AA NiMH cells; red positive, black negative",
+    "F1": "Inline fuse near battery positive; rating and holder selected in demo BOM",
+    "RCY": "Polarized two-pole disconnect with both mated contact pairs shown; verify actual wire polarity",
+    "MASTER": "Pololu 2810 LV; use onboard slide, leave ON disconnected",
+    "REG": "Pololu 2574 S18V20F5 fixed 5V; leave ENABLE disconnected",
+    "PICO": "Headered Pico W for breadboard; USB socket at top",
+    "D1": "1N5819 Schottky from regulated 5V to VSYS; cathode stripe toward Pico",
+    "C1": "470uF >=10V electrolytic across external 5V/GND; negative stripe to GND",
+    "R_PWM0": "1k ohm series servo 0 signal resistor",
+    "R_PWM1": "Optional 1k ohm series servo 1 signal resistor",
+    "SERVO0": "MG90S servo; identify power, ground and signal from actual supplier pinout",
+    "SERVO1": "Optional second MG90S servo",
+    "P5V": "WAGO 221-415 five-port lever connector; all five ports are internally connected",
+    "PGND_A": "WAGO 221-415 five-port lever connector; all five ports are internally connected",
+    "PGND_B": "WAGO 221-415 five-port lever connector; all five ports are internally connected"
+  },
+  "nets": {
+    "BAT_POS": [
+      "BAT.red",
+      "F1.in"
+    ],
+    "FUSED_BAT": [
+      "F1.out",
+      "RCY.battery_positive",
+      "RCY.load_positive",
+      "MASTER.VIN"
+    ],
+    "PACK_SW": [
+      "MASTER.VOUT",
+      "REG.VIN"
+    ],
+    "5V": [
+      "REG.VOUT",
+      "D1.anode",
+      "C1.positive",
+      "SERVO0.power",
+      "SERVO1.power",
+      "P5V.1",
+      "P5V.2",
+      "P5V.3",
+      "P5V.4",
+      "P5V.5"
+    ],
+    "VSYS": [
+      "D1.cathode",
+      "PICO.pin39_VSYS"
+    ],
+    "PWM0_RAW": [
+      "PICO.pin21_GP16",
+      "R_PWM0.1"
+    ],
+    "PWM0": [
+      "R_PWM0.2",
+      "SERVO0.signal"
+    ],
+    "PWM1_RAW": [
+      "PICO.pin22_GP17",
+      "R_PWM1.1"
+    ],
+    "PWM1": [
+      "R_PWM1.2",
+      "SERVO1.signal"
+    ],
+    "GND": [
+      "BAT.black",
+      "RCY.battery_negative",
+      "RCY.load_negative",
+      "MASTER.GND",
+      "REG.GND",
+      "PICO.pin38_GND",
+      "SERVO0.ground",
+      "SERVO1.ground",
+      "C1.negative",
+      "PGND_A.1",
+      "PGND_A.2",
+      "PGND_A.3",
+      "PGND_A.4",
+      "PGND_A.5",
+      "PGND_B.1",
+      "PGND_B.2",
+      "PGND_B.3",
+      "PGND_B.4",
+      "PGND_B.5"
+    ]
+  },
+  "leave_unconnected": [
+    "PICO.pin40_VBUS",
+    "PICO.pin36_3V3_OUT",
+    "PICO.pin20_GP15",
+    "PICO.pin31_GP26",
+    "MASTER.ON",
+    "REG.ENABLE"
+  ],
+  "one_gang_omit": [
+    "SERVO1",
+    "R_PWM1"
+  ],
+  "rules": [
+    "Servo power is continuously present while master is ON; no software power gate exists.",
+    "Servo motor supply and return use direct external wiring, not breadboard strips or Pico pins.",
+    "Pico branch uses regulated 5V through D1 into physical pin39 VSYS; never raw pack to VBUS.",
+    "Pico VBUS and 3V3_OUT remain unconnected on this breadboard.",
+    "RCY is shown connected for the continuity model; unplug it for servicing or changing wiring.",
+    "No battery ADC or automatic low-battery cutoff is included. Supervised demo only; regulator undervoltage lockout is not four-cell NiMH protection.",
+    "Unpowered wiring graph does not model diode, fuse, regulator, master switch, Pico internals or motor dynamics."
+  ]
+}

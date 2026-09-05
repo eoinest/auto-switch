@@ -1,13 +1,12 @@
-"""RP2040 hardware boundary. Servo power requires an external active-high switch."""
+"""Pico hardware boundary with explicit gated and continuously powered profiles."""
 from machine import ADC, Pin, PWM
-from control import battery_reading
+from control import battery_reading, validate_hardware_config
 
 
 class Hardware:
     def __init__(self, config):
-        self.enable = Pin(15, Pin.OUT, value=0)
-        if config.get("power_enable_pin", 15) != 15:
-            raise ValueError("this wiring revision requires power_enable_pin 15")
+        enable_pin = validate_hardware_config(config)
+        self.enable = Pin(enable_pin, Pin.OUT, value=0) if enable_pin is not None else None
         self.pins = [c["pin"] for c in config["channels"]]
         self.pwms = {}
         for pin in self.pins:
@@ -16,11 +15,14 @@ class Hardware:
         self.adc = ADC(26) if self.battery_cfg.get("enabled") is True else None
 
     def power_on(self):
-        self.enable.value(0)
+        # The AA demo rail is already powered; this cannot switch it.
+        if self.enable is not None:
+            self.enable.value(0)
         reading = self.battery()
         if reading is not None and reading["low"]:
             raise ValueError("battery below low_v; recharge before moving")
-        self.enable.value(1)
+        if self.enable is not None:
+            self.enable.value(1)
 
     def pulse(self, channel, microseconds):
         if channel not in self.pwms:
@@ -28,8 +30,10 @@ class Hardware:
         self.pwms[channel].duty_ns(microseconds * 1000)
 
     def off(self):
-        # Cut the rail first even if a subsequent PWM operation fails.
-        self.enable.value(0)
+        # Gated profile cuts the rail first. AA demo only stops control pulses;
+        # it cannot guarantee loss of holding torque or remove servo power.
+        if self.enable is not None:
+            self.enable.value(0)
         for pwm in self.pwms.values():
             pwm.duty_u16(0)
             pwm.deinit()

@@ -1,0 +1,25 @@
+item,from,to,note
+D1,a30,a35,Stripe toward row 35 (VSYS).
+R_PWM0,f30,f35,1 kΩ
+J1,b35,j4,VSYS
+J2,b50,j5,GND
+J3,j22,j30,PWM0_RAW
+L1,b30,P5V.3,Pico supply branch only; servo current stays off breadboard.
+L2,a50,PGND_B.2,Common ground branch to breadboard.
+L3,j35,SERVO0.signal,Servo 0 signal only.
+E1,BAT.red,F1.in,external harness
+E2,F1.out,RCY.battery_positive,external harness
+E3,RCY.battery_positive,RCY.load_positive,external harness
+E4,RCY.load_positive,MASTER.VIN,external harness
+E5,MASTER.VOUT,REG.VIN,external harness
+E6,REG.VOUT,P5V.1,external harness
+E7,P5V.2,C1.positive,external harness
+E8,P5V.4,SERVO0.power,external harness
+E9,BAT.black,RCY.battery_negative,external harness
+E10,RCY.battery_negative,RCY.load_negative,external harness
+E11,RCY.load_negative,PGND_A.1,external harness
+E12,PGND_A.2,MASTER.GND,external harness
+E13,PGND_A.3,REG.GND,external harness
+E14,PGND_A.4,PGND_B.1,external harness
+E15,PGND_A.5,C1.negative,external harness
+E16,PGND_B.3,SERVO0.ground,external harness

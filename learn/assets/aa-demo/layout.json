@@ -1,0 +1,364 @@
+{
+  "board": {
+    "part": "Adafruit 239 or matching 830-point, 63-row board",
+    "rows": 63,
+    "columns": "abcdefghij",
+    "connected_groups": [
+      "abcde",
+      "fghij"
+    ],
+    "power_rails_used": false,
+    "pico_start_row": 3,
+    "pico_columns": [
+      "c",
+      "h"
+    ]
+  },
+  "pico_pins": {
+    "1": "c3",
+    "40": "h3",
+    "2": "c4",
+    "39": "h4",
+    "3": "c5",
+    "38": "h5",
+    "4": "c6",
+    "37": "h6",
+    "5": "c7",
+    "36": "h7",
+    "6": "c8",
+    "35": "h8",
+    "7": "c9",
+    "34": "h9",
+    "8": "c10",
+    "33": "h10",
+    "9": "c11",
+    "32": "h11",
+    "10": "c12",
+    "31": "h12",
+    "11": "c13",
+    "30": "h13",
+    "12": "c14",
+    "29": "h14",
+    "13": "c15",
+    "28": "h15",
+    "14": "c16",
+    "27": "h16",
+    "15": "c17",
+    "26": "h17",
+    "16": "c18",
+    "25": "h18",
+    "17": "c19",
+    "24": "h19",
+    "18": "c20",
+    "23": "h20",
+    "19": "c21",
+    "22": "h21",
+    "20": "c22",
+    "21": "h22"
+  },
+  "sources": [
+    {
+      "title": "Pico W physical drawing",
+      "url": "https://datasheets.raspberrypi.com/picow/pico-w-product-brief.pdf"
+    },
+    {
+      "title": "Official Pico W pinout",
+      "url": "https://datasheets.raspberrypi.com/picow/PicoW-A4-Pinout.pdf"
+    },
+    {
+      "title": "Adafruit 239 full-size breadboard",
+      "url": "https://www.adafruit.com/product/239"
+    },
+    {
+      "title": "Breadboard connections and split rails",
+      "url": "https://learn.adafruit.com/breadboards-for-beginners/breadboard-tips-and-tricks"
+    },
+    {
+      "title": "Adafruit 1957 male/male jumpers",
+      "url": "https://www.adafruit.com/product/1957"
+    },
+    {
+      "title": "Pololu 2810 switch wiring",
+      "url": "https://www.pololu.com/product/2810"
+    },
+    {
+      "title": "Pololu 2574 regulator wiring",
+      "url": "https://www.pololu.com/product/2574"
+    }
+  ],
+  "revision": 1,
+  "harness_revision": 1,
+  "title": "AA-powered ungated demo: headered Pico W breadboard",
+  "physical_build_verified": false,
+  "placements": [
+    {
+      "ref": "D1",
+      "value": "1N5819",
+      "type": "diode",
+      "terminals": {
+        "anode": "a30",
+        "cathode": "a35"
+      },
+      "step": 2,
+      "note": "Stripe toward row 35 (VSYS)."
+    },
+    {
+      "ref": "R_PWM0",
+      "value": "1 k\u03a9",
+      "type": "resistor",
+      "terminals": {
+        "1": "f30",
+        "2": "f35"
+      },
+      "step": 3
+    },
+    {
+      "ref": "R_PWM1",
+      "value": "1 k\u03a9",
+      "type": "resistor",
+      "terminals": {
+        "1": "f40",
+        "2": "f45"
+      },
+      "step": 4,
+      "optional": true
+    }
+  ],
+  "terminal_bindings": {
+    "PICO.pin39_VSYS": "h4",
+    "PICO.pin38_GND": "h5",
+    "PICO.pin21_GP16": "h22",
+    "PICO.pin22_GP17": "h21",
+    "D1.anode": "a30",
+    "D1.cathode": "a35",
+    "R_PWM0.1": "f30",
+    "R_PWM0.2": "f35",
+    "R_PWM1.1": "f40",
+    "R_PWM1.2": "f45"
+  },
+  "jumpers": [
+    {
+      "id": "J1",
+      "a": "b35",
+      "b": "j4",
+      "net": "VSYS",
+      "step": 2,
+      "optional": false
+    },
+    {
+      "id": "J2",
+      "a": "b50",
+      "b": "j5",
+      "net": "GND",
+      "step": 2,
+      "optional": false
+    },
+    {
+      "id": "J3",
+      "a": "j22",
+      "b": "j30",
+      "net": "PWM0_RAW",
+      "step": 3,
+      "optional": false
+    },
+    {
+      "id": "J4",
+      "a": "j21",
+      "b": "j40",
+      "net": "PWM1_RAW",
+      "step": 4,
+      "optional": true
+    }
+  ],
+  "leads": [
+    {
+      "id": "L1",
+      "hole": "b30",
+      "node": "P5V.3",
+      "net": "5V",
+      "step": 2,
+      "optional": false,
+      "note": "Pico supply branch only; servo current stays off breadboard."
+    },
+    {
+      "id": "L2",
+      "hole": "a50",
+      "node": "PGND_B.2",
+      "net": "GND",
+      "step": 2,
+      "optional": false,
+      "note": "Common ground branch to breadboard."
+    },
+    {
+      "id": "L3",
+      "hole": "j35",
+      "node": "SERVO0.signal",
+      "net": "PWM0",
+      "step": 3,
+      "optional": false,
+      "note": "Servo 0 signal only."
+    },
+    {
+      "id": "L4",
+      "hole": "j45",
+      "node": "SERVO1.signal",
+      "net": "PWM1",
+      "step": 4,
+      "optional": true,
+      "note": "Optional second servo signal only."
+    }
+  ],
+  "external_wires": [
+    [
+      "BAT.red",
+      "F1.in"
+    ],
+    [
+      "F1.out",
+      "RCY.battery_positive"
+    ],
+    [
+      "RCY.battery_positive",
+      "RCY.load_positive"
+    ],
+    [
+      "RCY.load_positive",
+      "MASTER.VIN"
+    ],
+    [
+      "MASTER.VOUT",
+      "REG.VIN"
+    ],
+    [
+      "REG.VOUT",
+      "P5V.1"
+    ],
+    [
+      "P5V.2",
+      "C1.positive"
+    ],
+    [
+      "P5V.4",
+      "SERVO0.power"
+    ],
+    [
+      "P5V.5",
+      "SERVO1.power"
+    ],
+    [
+      "BAT.black",
+      "RCY.battery_negative"
+    ],
+    [
+      "RCY.battery_negative",
+      "RCY.load_negative"
+    ],
+    [
+      "RCY.load_negative",
+      "PGND_A.1"
+    ],
+    [
+      "PGND_A.2",
+      "MASTER.GND"
+    ],
+    [
+      "PGND_A.3",
+      "REG.GND"
+    ],
+    [
+      "PGND_A.4",
+      "PGND_B.1"
+    ],
+    [
+      "PGND_A.5",
+      "C1.negative"
+    ],
+    [
+      "PGND_B.3",
+      "SERVO0.ground"
+    ],
+    [
+      "PGND_B.4",
+      "SERVO1.ground"
+    ]
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "title": "Place the Pico with power disconnected",
+      "text": "Keep USB and battery disconnected. USB socket at top; insert all left header pins in c3-c22 and right pins in h3-h22. Leave the side rails unused."
+    },
+    {
+      "id": 2,
+      "title": "Build the Pico supply branch",
+      "text": "D1 anode a30, striped cathode a35. J1 b35 to j4 (VSYS); J2 b50 to j5 (GND). L1 b30 to external P5V; L2 a50 to external PGND. Leave L1/L2 disconnected at source until voltage checks. VBUS h3 is unused."
+    },
+    {
+      "id": 3,
+      "title": "Add first servo signal",
+      "text": "R_PWM0 f30 to f35, J3 j22 to j30, L3 j35 to servo 0 signal. Servo power and ground connect directly to external P5V and PGND."
+    },
+    {
+      "id": 4,
+      "title": "Optional second servo",
+      "text": "For two servos add R_PWM1 f40 to f45, J4 j21 to j40, L4 j45 to servo 1 signal. Add its external power and ground leads. Omit these for one servo."
+    },
+    {
+      "id": 5,
+      "title": "Inspect and measure before connecting electronics",
+      "text": "Check every connection unpowered. Remove Pico and unplug servos, then connect the supply branch and switch on for voltage checks. Black meter probe c50 (GND); red c30 (regulated 5V), then c35 (after D1, below 5.5V). Disconnect battery before reinstalling Pico and connecting one unloaded servo. This diagram is not proof of powered operation."
+    }
+  ],
+  "connector_blocks": [
+    {
+      "ref": "P5V",
+      "part": "WAGO 221-415",
+      "ports": [
+        "P5V.1",
+        "P5V.2",
+        "P5V.3",
+        "P5V.4",
+        "P5V.5"
+      ]
+    },
+    {
+      "ref": "PGND_A",
+      "part": "WAGO 221-415",
+      "ports": [
+        "PGND_A.1",
+        "PGND_A.2",
+        "PGND_A.3",
+        "PGND_A.4",
+        "PGND_A.5"
+      ]
+    },
+    {
+      "ref": "PGND_B",
+      "part": "WAGO 221-415",
+      "ports": [
+        "PGND_B.1",
+        "PGND_B.2",
+        "PGND_B.3",
+        "PGND_B.4",
+        "PGND_B.5"
+      ]
+    }
+  ],
+  "connector_port_notes": {
+    "P5V.1": "Regulator VOUT",
+    "P5V.2": "C1 positive",
+    "P5V.3": "L1 to breadboard b30",
+    "P5V.4": "Servo 0 power",
+    "P5V.5": "Servo 1 power; empty for one servo",
+    "PGND_A.1": "RCY load negative (battery return)",
+    "PGND_A.2": "Master GND",
+    "PGND_A.3": "Regulator GND",
+    "PGND_A.4": "Link to PGND_B.1",
+    "PGND_A.5": "C1 negative",
+    "PGND_B.1": "Link from PGND_A.4",
+    "PGND_B.2": "L2 to breadboard a50",
+    "PGND_B.3": "Servo 0 ground",
+    "PGND_B.4": "Servo 1 ground; empty for one servo",
+    "PGND_B.5": "Empty; electrically common GND"
+  }
+}

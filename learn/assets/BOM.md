@@ -1,6 +1,19 @@
 # Bill of materials — auto-switch
 
-**Default: headerless Raspberry Pi Pico W, direct-soldered wires, four rechargeable AA cells.** One-gang controls one paddle; two-gang controls two. Each room needs its own complete unit. The current design does **not** use a PiCowBell, male Pico headers or a separate header adapter. Your headered Pico remains useful for bench tests.
+**Current build: simplified AA demo, using your headered Pico.**
+
+- [Amazon-first shopping list with exact parts and quantities](docs/aa-demo-shopping.md)
+- [AA demo BOM CSV](hardware/aa-demo-bom.csv)
+- [Illustrated breadboard viewer](learn/aa-demo.html) · [One-servo SVG](hardware/wiring/aa-demo/breadboard-1-servo.svg) · [Two-servo SVG](hardware/wiring/aa-demo/breadboard-2-servo.svg)
+- [Assembly guide and AA firmware profile](docs/aa-demo-plan.md)
+
+Use the AA-demo list for new bench purchases. The older BOM below describes the gated enclosure and its historical fit audit; it does not certify the new WAGO/breadboard assembly or add those parts to your current shopping list.
+
+---
+
+## Earlier gated prototype — reference BOM
+
+**Earlier gated assembly: headerless Raspberry Pi Pico W, direct-soldered wires, four rechargeable AA cells.** One-gang controls one paddle; two-gang controls two. Each room needs its own complete unit. The current design does **not** use a PiCowBell, male Pico headers or a separate header adapter. Your headered Pico remains useful for bench tests.
 
 [Download the BOM CSV](hardware/bom.csv) · [Detailed purchasing notes](docs/shopping-list.md) · [Actual STL fit report](docs/bom-fit-report.md) · [Wiring guide](docs/wiring.md)
 

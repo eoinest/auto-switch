@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Auto Switch · AA demo bench</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="aa-demo.css">
+  <script src="aa-demo.js" defer></script>
+</head>
+<body>
+<header><a href="index.html">← Circuit lessons</a><span>AUTO SWITCH / AA DEMO</span><a href="#parts">Shopping list ↓</a></header>
+<main>
+  <p class="eyebrow">THE SELECTED FOUR-AA DESIGN</p>
+  <h1>A bench build you can follow.</h1>
+  <p class="intro">Four rechargeable AA cells, one physical switch, and a 5 V regulator. The Pico sends position commands; the servos get power directly from the regulator.</p>
+  <div class="facts"><span>No servo power gate</span><span>No battery ADC circuit</span><span>Wi-Fi stays connected</span><span>Use your headered Pico</span></div>
+  <section aria-labelledby="diagram-title" class="diagram-section">
+    <div class="section-head"><div><p class="eyebrow">01 / ASSEMBLY MAP</p><h2 id="diagram-title">Every component, in one view.</h2></div><p>Vector illustrations, not to scale.<br>Hole addresses and connector ports are exact.</p></div>
+    <div class="viewer" id="viewer">
+      <div class="toolbar">
+        <label>Build <select id="gangs"><option value="1">1 servo · start here</option><option value="2">2 servos</option></select></label>
+        <button id="fit">Fit</button><button id="minus" aria-label="Zoom out">−</button><output id="zoom">100%</output><button id="plus" aria-label="Zoom in">+</button>
+        <button id="fullscreen">Full screen</button>
+        <a id="svg-download" download href="assets/aa-demo/breadboard-1-servo.svg">SVG</a><a id="png-download" download href="assets/aa-demo/breadboard-1-servo.png">PNG</a>
+      </div>
+      <div id="canvas" tabindex="0" aria-label="Scrollable breadboard illustration"><div id="diagram">Loading diagram…</div></div>
+      <div id="wire-info" aria-live="polite">Click a wire to highlight its physical endpoints. Scroll to explore when zoomed in.</div>
+    </div>
+    <div class="notes">
+      <article><strong>Follow the labels.</strong><p>USB at the top; Pico headers in c3–c22 and h3–h22. The side power rails are unused. Our WAGO port numbers run left to right.</p></article>
+      <article><strong>Connectors are part of the circuit.</strong><p>The servo extension splits into power, ground, and signal. WAGO blocks distribute power outside the breadboard; each block joins all five ports.</p></article>
+      <article><strong>Check before powering.</strong><p>Remove the Pico and unplug servos for voltage checks. Use the AA-demo firmware profile. This is a supervised prototype without automatic low-battery cutoff.</p></article>
+    </div>
+    <p class="links"><a id="placement-download" href="assets/aa-demo/placements-1-servo.csv" download>Hole + wire checklist CSV</a><a href="assets/aa-demo/guide.md">Assembly and voltage-check guide</a><a href="assets/aa-demo/config.example.json" download>AA-demo firmware configuration</a></p>
+  </section>
+  <section id="steps" aria-labelledby="steps-title"><p class="eyebrow">02 / BUILD ORDER</p><h2 id="steps-title">Keep power disconnected while wiring.</h2><ol id="step-list"></ol></section>
+  <section id="parts" aria-labelledby="parts-title">
+    <div class="section-head"><div><p class="eyebrow">03 / SHOPPING LIST</p><h2 id="parts-title">Known parts. Clear quantities.</h2></div><a href="assets/aa-demo/bom.csv" download>Download BOM CSV ↗</a></div>
+    <p>Amazon links where the listing identity was checked; exact manufacturer or distributor parts for the remaining items. Quantities are installed components, not the number of retail packs. Reuse the Pico, servos, and tools you already have.</p>
+    <p class="notice">No prices or checkout stock are promised. The new bench assembly has not been fitted to the old enclosure STLs. <a href="assets/aa-demo/shopping.md">Read purchasing, wire-gauge, and fit notes.</a></p>
+    <div id="bom"></div>
+  </section>
+  <footer>Electrical connectivity checked for both channel counts. Physical assembly, loaded current, and battery runtime still need bench testing. This page does not connect to hardware.</footer>
+</main>
+</body></html>

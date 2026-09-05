@@ -26,21 +26,43 @@ def validate_channel(channel):
     integer(channel.get("pin"), 0, 22, "servo pin")
 
 
+def validate_hardware_config(config):
+    """Validate before touching GPIO; return the gate pin or None."""
+    profile = config.get("hardware_profile", "gated")
+    if profile == "gated":
+        enable_pin = config.get("power_enable_pin", 15)
+        if type(enable_pin) is not int or enable_pin != 15:
+            raise ValueError("gated profile requires power_enable_pin 15")
+    elif profile == "aa-demo":
+        enable_pin = config.get("power_enable_pin")
+        if enable_pin is not None:
+            raise ValueError("aa-demo requires power_enable_pin null; GP15 is unused")
+        if config.get("battery", {}).get("enabled", False) is not False:
+            raise ValueError("aa-demo has no battery ADC; battery.enabled must be false")
+        if config.get("transport", "direct") != "direct":
+            raise ValueError("aa-demo requires direct transport")
+    else:
+        raise ValueError("unknown hardware_profile")
+    channels = config.get("channels", [])
+    if not 1 <= len(channels) <= 2:
+        raise ValueError("configure one or two channels")
+    pins = []
+    for channel in channels:
+        validate_channel(channel)
+        pins.append(channel["pin"])
+    if len(set(pins)) != len(pins) or 15 in pins:
+        raise ValueError("GPIO assignments overlap or use reserved GP15")
+    if profile == "aa-demo" and any(pin not in (16, 17) for pin in pins):
+        raise ValueError("aa-demo servo signals use GP16 or GP17")
+    return enable_pin
+
+
 class Controller:
     def __init__(self, config, hardware, sleep=None):
         self.config = config
         self.hardware = hardware
-        if config.get("power_enable_pin", 15) != 15:
-            raise ValueError("this wiring revision requires power_enable_pin 15")
+        self.power_enable_pin = validate_hardware_config(config)
         self.channels = config.get("channels", [])
-        if not 1 <= len(self.channels) <= 2:
-            raise ValueError("configure one or two channels")
-        pins = []
-        for channel in self.channels:
-            validate_channel(channel)
-            pins.append(channel["pin"])
-        if len(set(pins)) != len(pins) or config.get("power_enable_pin", 15) in pins:
-            raise ValueError("GPIO assignments overlap")
         self.lock = asyncio.Lock()
         self.sleep = sleep or asyncio.sleep
         self.states = ["unknown"] * len(self.channels)
