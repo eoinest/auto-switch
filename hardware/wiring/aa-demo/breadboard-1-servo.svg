@@ -1595,10 +1595,10 @@
 </g>
 <rect x="1790" y="960" width="540" height="216" rx="15" fill="#ecf1e7" stroke="#ccd6c8"/>
 <text x="1818" y="1003" font-size="25" fill="#243e45" font-weight="600" text-anchor="start">Start with one unloaded servo</text>
-<text x="1818" y="1043" font-size="18" fill="#243e45" font-weight="400" text-anchor="start">The second channel is omitted in this image.</text>
+<text x="1818" y="1043" font-size="18" fill="#243e45" font-weight="400" text-anchor="start">This build uses one servo on Pico GP16.</text>
 <text x="1818" y="1078" font-size="18" fill="#243e45" font-weight="400" text-anchor="start">P5V port 5 and GROUND B port 4 stay empty.</text>
 <text x="1818" y="1113" font-size="18" fill="#243e45" font-weight="400" text-anchor="start">GP17 is unused. No extra resistor or wires.</text>
-<text x="1818" y="1148" font-size="18" fill="#243e45" font-weight="400" text-anchor="start">Switch to “2 servos” for the complete pair.</text>
+<text x="1818" y="1148" font-size="18" fill="#243e45" font-weight="400" text-anchor="start">Calibrate unloaded before pressing the switch.</text>
 <g data-component="D1" data-step="2">
 <path d="M1030,832 L1030,922" stroke="#9fa49b" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 <rect x="1022" y="857" width="16" height="41" rx="3" fill="#2d3439" stroke="#131d20"/>

@@ -1,10 +1,10 @@
 # Bill of materials — auto-switch
 
-**Current build: simplified AA demo, using your headered Pico.**
+**Current build: simplified AA demo with one servo, using your headered Pico.**
 
 - [Amazon-first shopping list with exact parts and quantities](docs/aa-demo-shopping.md)
 - [AA demo BOM CSV](hardware/aa-demo-bom.csv)
-- [Illustrated breadboard viewer](learn/aa-demo.html) · [One-servo SVG](hardware/wiring/aa-demo/breadboard-1-servo.svg) · [Two-servo SVG](hardware/wiring/aa-demo/breadboard-2-servo.svg)
+- [Illustrated breadboard viewer](learn/aa-demo.html) · [One-servo SVG](hardware/wiring/aa-demo/breadboard-1-servo.svg)
 - [Assembly guide and AA firmware profile](docs/aa-demo-plan.md)
 
 Use the AA-demo list for new bench purchases. The older BOM below describes the gated enclosure and its historical fit audit; it does not certify the new WAGO/breadboard assembly or add those parts to your current shopping list.

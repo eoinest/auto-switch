@@ -13,7 +13,7 @@ class AADemoBOMTests(unittest.TestCase):
         bom={r['id']:r for r in rows}
         self.assertEqual(len(rows),len(bom))
         layout=json.loads((ROOT/'hardware/wiring/aa-demo/layout.json').read_text())
-        for gangs,column in [(1,'quantity_one_servo'),(2,'quantity_two_servos')]:
+        for gangs,column in [(1,'quantity_one_servo')]:
             placements=[p for p in layout['placements'] if gangs==2 or not p.get('optional')]
             self.assertEqual(int(bom['R_PWM'][column]),sum(p['type']=='resistor' for p in placements))
             self.assertEqual(int(bom['D1'][column]),sum(p['type']=='diode' for p in placements))

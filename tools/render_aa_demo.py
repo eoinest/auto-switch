@@ -238,7 +238,7 @@ def render(gangs):
     if gangs==1:
         rect(1790,960,540,216,'#ecf1e7','#ccd6c8',15)
         text(1818,1003,'Start with one unloaded servo',25,weight=600)
-        for yy,s in [(1043,'The second channel is omitted in this image.'),(1078,'P5V port 5 and GROUND B port 4 stay empty.'),(1113,'GP17 is unused. No extra resistor or wires.'),(1148,'Switch to “2 servos” for the complete pair.')]:text(1818,yy,s,18)
+        for yy,s in [(1043,'This build uses one servo on Pico GP16.'),(1078,'P5V port 5 and GROUND B port 4 stay empty.'),(1113,'GP17 is unused. No extra resistor or wires.'),(1148,'Calibrate unloaded before pressing the switch.')]:text(1818,yy,s,18)
     # Resistors / diode occupy the exact hole endpoints; body centered on lead.
     for p in plan['placements']:
         add(f'<g data-component="{p["ref"]}" data-step="{p["step"]}">')

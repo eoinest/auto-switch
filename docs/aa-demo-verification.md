@@ -1,5 +1,11 @@
 # AA demo verification — 2026-09-05
 
+Current scope: **one servo only**. The viewer, shopping quantities and firmware example use this build. Two-servo generator outputs remain as prior design references, outside the current shopping/build instructions.
+
+One-servo update checks: 32 AA diagram/BOM tests passed; JavaScript syntax and learning-asset checks passed. Browser inspection confirmed one fixed build, four assembly steps, 24 BOM rows, and one-servo download targets. The PNG was regenerated from the updated SVG and visually inspected.
+
+Previous delivery checks (before narrowing the viewer to one servo):
+
 Delivered: Amazon-first bench BOM, one/two-servo component illustrations (SVG and PNG), exact-hole placement CSVs, a local viewer with shopping links, and an explicit ungated firmware profile. The prior gated circuit remains available and labeled as earlier work. No hardware was purchased or powered, and no STL enclosure changes were made.
 
 ## Checks completed
