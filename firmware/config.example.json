@@ -1,0 +1,20 @@
+{
+  "device": "auto-switch-office",
+  "transport": "direct",
+  "wifi": {"ssid": "", "password": ""},
+  "api_token": "REPLACE_WITH_RANDOM_32_BYTE_HEX_TOKEN",
+  "gateway": {"host": "192.168.1.10", "port": 8765, "token": "REPLACE_WITH_DEVICE_TOKEN_FROM_MAC_MINI"},
+  "power_enable_pin": 15,
+  "channels": [
+    {"name": "Left switch", "pin": 16, "enabled": false, "calibrated": false,
+     "neutral_us": 1500, "on_us": 1400, "off_us": 1600, "dwell_ms": 200, "return_ms": 200},
+    {"name": "Right switch", "pin": 17, "enabled": false, "calibrated": false,
+     "neutral_us": 1500, "on_us": 1400, "off_us": 1600, "dwell_ms": 200, "return_ms": 200}
+  ],
+  "battery": {"enabled": false, "divider_top_ohms": 100000, "divider_bottom_ohms": 47000,
+              "adc_reference_v": 3.3, "low_v": 4.4, "empty_v": null, "full_v": null},
+  "schedules_utc": [
+    {"enabled": false, "channel": 0, "state": "off", "hour": 23, "minute": 0,
+     "days": [0, 1, 2, 3, 4, 5, 6]}
+  ]
+}

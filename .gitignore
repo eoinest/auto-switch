@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+.env
+.env.*
+!.env.example
+firmware/config.json
+*.sqlite3
+*.sqlite3-*
+*.blend1
+*.blend2
+*.log
+gateway/local-*.plist

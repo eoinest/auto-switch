@@ -1,0 +1,22 @@
+{
+  "units": "mm",
+  "status": "PROVISIONAL — measure wallplate and your MG90S before printing",
+  "plate_height": 114.3,
+  "plate_widths": {"1": 69.85, "2": 115.9},
+  "gang_spacing": 46.0,
+  "plate_clearance_per_side": 0.7,
+  "frame_wall": 3.0,
+  "skirt_depth": 9.0,
+  "rocker_width": 31.5,
+  "rocker_height": 65.0,
+  "rocker_surface_z": 10.0,
+  "pivot_z": 30.0,
+  "pad_radius": 26.0,
+  "pad_post_height": 12.0,
+  "servo_body": [24.0, 22.8, 12.2],
+  "servo_axis_offset_y": 5.5,
+  "horn_fastener_radius": 7.0,
+  "pod_internal_width": 96.0,
+  "pod_internal_height": 116.0,
+  "pod_internal_depth": 34.0
+}

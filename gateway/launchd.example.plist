@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>dev.eoinest.auto-switch</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/ABSOLUTE/PATH/TO/python3</string>
+    <string>/ABSOLUTE/PATH/TO/auto-switch/gateway/server.py</string>
+    <string>--host</string><string>0.0.0.0</string>
+    <string>--port</string><string>8765</string>
+  </array>
+  <key>WorkingDirectory</key><string>/ABSOLUTE/PATH/TO/auto-switch</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>AUTO_SWITCH_CLIENT_TOKEN</key><string>REPLACE_WITH_DISTINCT_RANDOM_CLIENT_KEY</string>
+    <key>AUTO_SWITCH_DEVICE_TOKEN</key><string>REPLACE_WITH_DISTINCT_RANDOM_DEVICE_KEY</string>
+  </dict>
+  <key>RunAtLoad</key><true/>
+  <key>KeepAlive</key><true/>
+  <key>ThrottleInterval</key><integer>10</integer>
+  <key>StandardOutPath</key><string>/ABSOLUTE/PATH/TO/auto-switch/gateway/service.log</string>
+  <key>StandardErrorPath</key><string>/ABSOLUTE/PATH/TO/auto-switch/gateway/service-error.log</string>
+</dict>
+</plist>

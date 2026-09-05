@@ -1,0 +1,142 @@
+{
+  "configuration": {
+    "units": "mm",
+    "status": "PROVISIONAL \u2014 measure wallplate and your MG90S before printing",
+    "plate_height": 114.3,
+    "plate_widths": {
+      "1": 69.85,
+      "2": 115.9
+    },
+    "gang_spacing": 46.0,
+    "plate_clearance_per_side": 0.7,
+    "frame_wall": 3.0,
+    "skirt_depth": 9.0,
+    "rocker_width": 31.5,
+    "rocker_height": 65.0,
+    "rocker_surface_z": 10.0,
+    "pivot_z": 30.0,
+    "pad_radius": 26.0,
+    "pad_post_height": 12.0,
+    "servo_body": [
+      24.0,
+      22.8,
+      12.2
+    ],
+    "servo_axis_offset_y": 5.5,
+    "horn_fastener_radius": 7.0,
+    "pod_internal_width": 96.0,
+    "pod_internal_height": 116.0,
+    "pod_internal_depth": 34.0
+  },
+  "parts": [
+    {
+      "file": "1g_yoke_1.stl",
+      "dimensions_mm": [
+        22.1,
+        60.0,
+        15.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 5580.29,
+      "triangles": 876
+    },
+    {
+      "file": "1g_chassis.stl",
+      "dimensions_mm": [
+        111.25,
+        236.7,
+        38.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 113088.96,
+      "triangles": 2284
+    },
+    {
+      "file": "1g_electronics_lid.stl",
+      "dimensions_mm": [
+        100.0,
+        120.0,
+        3.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 35267.66,
+      "triangles": 896
+    },
+    {
+      "file": "1g_fit_ring.stl",
+      "dimensions_mm": [
+        77.25,
+        121.7,
+        2.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 2315.4,
+      "triangles": 32
+    },
+    {
+      "file": "2g_yoke_1.stl",
+      "dimensions_mm": [
+        22.1,
+        60.0,
+        15.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 5580.29,
+      "triangles": 876
+    },
+    {
+      "file": "2g_yoke_2.stl",
+      "dimensions_mm": [
+        22.1,
+        60.0,
+        15.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 5580.29,
+      "triangles": 876
+    },
+    {
+      "file": "2g_chassis.stl",
+      "dimensions_mm": [
+        157.3,
+        236.7,
+        38.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 126297.15,
+      "triangles": 2570
+    },
+    {
+      "file": "2g_electronics_lid.stl",
+      "dimensions_mm": [
+        100.0,
+        120.0,
+        3.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 35267.66,
+      "triangles": 896
+    },
+    {
+      "file": "2g_fit_ring.stl",
+      "dimensions_mm": [
+        123.3,
+        121.7,
+        2.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 2868.0,
+      "triangles": 32
+    }
+  ],
+  "limits": "Topology/dimensions checked digitally. Fit, torque, clearance through motion and adhesion require physical validation."
+}

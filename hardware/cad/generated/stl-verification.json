@@ -1,0 +1,119 @@
+[
+  {
+    "file": "1g_chassis.stl",
+    "triangles": 2284,
+    "dimensions_mm": [
+      111.25,
+      236.7,
+      38.0
+    ],
+    "manifold": true,
+    "positive_volume": true,
+    "on_bed": true,
+    "fits_A1": true
+  },
+  {
+    "file": "1g_electronics_lid.stl",
+    "triangles": 896,
+    "dimensions_mm": [
+      100.0,
+      120.0,
+      3.0
+    ],
+    "manifold": true,
+    "positive_volume": true,
+    "on_bed": true,
+    "fits_A1": true
+  },
+  {
+    "file": "1g_fit_ring.stl",
+    "triangles": 32,
+    "dimensions_mm": [
+      77.25,
+      121.7,
+      2.0
+    ],
+    "manifold": true,
+    "positive_volume": true,
+    "on_bed": true,
+    "fits_A1": true
+  },
+  {
+    "file": "1g_yoke_1.stl",
+    "triangles": 876,
+    "dimensions_mm": [
+      22.1,
+      60.0,
+      15.0
+    ],
+    "manifold": true,
+    "positive_volume": true,
+    "on_bed": true,
+    "fits_A1": true
+  },
+  {
+    "file": "2g_chassis.stl",
+    "triangles": 2570,
+    "dimensions_mm": [
+      157.3,
+      236.7,
+      38.0
+    ],
+    "manifold": true,
+    "positive_volume": true,
+    "on_bed": true,
+    "fits_A1": true
+  },
+  {
+    "file": "2g_electronics_lid.stl",
+    "triangles": 896,
+    "dimensions_mm": [
+      100.0,
+      120.0,
+      3.0
+    ],
+    "manifold": true,
+    "positive_volume": true,
+    "on_bed": true,
+    "fits_A1": true
+  },
+  {
+    "file": "2g_fit_ring.stl",
+    "triangles": 32,
+    "dimensions_mm": [
+      123.3,
+      121.7,
+      2.0
+    ],
+    "manifold": true,
+    "positive_volume": true,
+    "on_bed": true,
+    "fits_A1": true
+  },
+  {
+    "file": "2g_yoke_1.stl",
+    "triangles": 876,
+    "dimensions_mm": [
+      22.1,
+      60.0,
+      15.0
+    ],
+    "manifold": true,
+    "positive_volume": true,
+    "on_bed": true,
+    "fits_A1": true
+  },
+  {
+    "file": "2g_yoke_2.stl",
+    "triangles": 876,
+    "dimensions_mm": [
+      22.1,
+      60.0,
+      15.0
+    ],
+    "manifold": true,
+    "positive_volume": true,
+    "on_bed": true,
+    "fits_A1": true
+  }
+]
