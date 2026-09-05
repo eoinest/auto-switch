@@ -20,7 +20,7 @@
   <main id="main">
     <div class="intro"><p class="eyebrow">FROM YOUR FIRST CIRCUIT TO YOUR OWN DESIGN</p><h1>Understand every connection.</h1><p>Start with what powers the Pico. Then learn the parts, try the numbers, and design the circuit yourself.</p></div>
     <nav class="main-nav" aria-label="Learning sections">
-      <a href="#wiring" data-page="wiring">Connection map</a><a href="#power" data-page="power">Power explorer</a><a href="#lessons" data-page="lessons">Guided lessons <span id="lesson-count"></span></a><a href="#workbench" data-page="workbench">Workbench</a><a href="#parts" data-page="parts">Parts &amp; fit</a>
+      <a href="#wiring" data-page="wiring">Connection map</a><a href="#breadboard" data-page="breadboard">Breadboard</a><a href="#power" data-page="power">Power explorer</a><a href="#lessons" data-page="lessons">Guided lessons <span id="lesson-count"></span></a><a href="#workbench" data-page="workbench">Workbench</a><a href="#parts" data-page="parts">Parts &amp; fit</a>
     </nav>
     <section id="page-wiring" class="page" hidden aria-labelledby="wiring-heading">
       <div class="section-heading"><div><p class="eyebrow">THE ENTIRE CIRCUIT · ONE CONNECTED MAP</p><h2 id="wiring-heading">Follow every wire.</h2></div><a href="assets/connection-map.svg" target="_blank" rel="noopener">Open full-size SVG ↗</a></div>
@@ -29,6 +29,19 @@
       <div id="map-canvas" class="continuous-frame"><div id="wiring-svg" class="continuous-map"></div></div>
       <p class="subtle">This shows electrical connections, not the physical position of solder pads. The drawing includes both servos; omit Servo 1 and R_PWM1 for a single switch.</p>
       <p><a href="#power">Explore what changes with battery and USB power →</a></p>
+    </section>
+    <section id="page-breadboard" class="page" hidden aria-labelledby="bb-heading">
+      <div class="section-heading"><div><p class="eyebrow">BUILD IT ON THE BENCH</p><h2 id="bb-heading">A hole-by-hole breadboard layout.</h2></div><a href="assets/breadboard.svg" target="_blank" rel="noopener">Open full-size layout ↗</a></div>
+      <p class="lede">Use your Pico with soldered headers and a standard 830-point, 63-row breadboard. USB points up; headers occupy <strong>c3–c22 and h3–h22</strong>. Power rails stay unused. The motor power harness sits beside the board; its cards show named connections, not the physical locations of module pads.</p>
+      <div class="bb-controls"><label for="bb-gangs">Build <select id="bb-gangs"><option value="1">One servo first</option><option value="2">Two servos</option></select></label><label for="bb-step">Highlight <select id="bb-step"><option value="0">Complete layout</option></select></label></div>
+      <div id="bb-instruction" class="fit-summary" aria-live="polite"></div>
+      <div class="map-toolbar"><button id="bb-fit">Fit entire layout</button><button id="bb-out" aria-label="Zoom breadboard out">−</button><output id="bb-zoom">100%</output><button id="bb-in" aria-label="Zoom breadboard in">+</button><button id="bb-fullscreen">Full screen</button><span>Zoom to read the row numbers. J labels match the table below.</span></div>
+      <div id="bb-canvas" class="continuous-frame"><div id="bb-svg" class="continuous-map"></div></div>
+      <p class="subtle">Each jumper plugs into exactly its two named holes. Its drawn route may pass over other holes without connecting. Component lead bends and cable lengths are illustrative; the hole assignments are exact. Fit and powered operation still need bench checks.</p>
+      <h3>What to add for the bench</h3><p>One <a href="https://www.adafruit.com/product/239" target="_blank" rel="noopener">830-point breadboard</a> and one <a href="https://www.adafruit.com/product/1957" target="_blank" rel="noopener">20-pack of 150 mm male/male jumpers</a>. Reuse your headered Pico and the circuit components already in the BOM. Six jumper wires can become soldered leads to the external harness; keep the thicker motor wires already specified.</p>
+      <h3>Placement and jumper checklist</h3><p>Filtered to the selected build and highlight. <a href="assets/breadboard-placements.csv" download>Download every hole assignment (CSV) ↓</a> · <a href="assets/breadboard-guide.md" download>Save the build and voltage-check guide ↓</a></p>
+      <div class="table-wrap"><table><thead><tr><th>ID / part</th><th>From</th><th>To</th><th>Build note</th></tr></thead><tbody id="bb-table"></tbody></table></div>
+      <details><summary>Why these holes work, and fact-check sources</summary><p>A breadboard joins a–e across each numbered row and f–j across the same row separately. We deliberately avoid the side power rails and their possible midpoint breaks. The Pico’s two headers are 17.78 mm apart, matching c/h placement across the trench. An independent checker joins those copper strips and our jumpers, then compares the result with the project wiring nets.</p><div id="bb-sources"></div><p><a href="assets/breadboard-layout.json" target="_blank" rel="noopener">Machine-readable layout</a> · <a href="#wiring">Compare with the complete circuit</a></p></details>
     </section>
     <section id="page-power" class="page" aria-labelledby="power-heading">
       <div class="section-heading"><div><p class="eyebrow">01 / FOLLOW THE ENERGY</p><h2 id="power-heading">What is powering the Pico?</h2></div><a href="assets/power-map.svg" target="_blank" rel="noopener">Open full diagram ↗</a></div>

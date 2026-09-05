@@ -1,0 +1,22 @@
+id,kind,value,start,end,step,optional,note
+D1,component,1N5819,a30,a35,2,False,Stripe toward row 35 (VSYS).
+R_TOP,component,100 kΩ 1%,a40,a45,3,False,
+R_BOTTOM,component,47 kΩ 1%,b45,b50,3,False,
+C_ADC,component,100 nF,e45,e46,3,False,Non-polar ceramic; gently form leads to 2.54 mm spacing if required.
+R_EN,component,100 kΩ,a55,a60,4,False,
+R_PWM0,component,1 kΩ,f30,f35,4,False,
+R_PWM1,component,1 kΩ,f40,f45,5,True,
+J1,jumper,VSYS,b35,j4,2,False,Male/male jumper; plug only the endpoints.
+J2,jumper,GND,c50,j5,2,False,Male/male jumper; plug only the endpoints.
+J3,jumper,SERVO_ENABLE,b22,b55,4,False,Male/male jumper; plug only the endpoints.
+J4,jumper,PWM0_RAW,j22,j30,4,False,Male/male jumper; plug only the endpoints.
+J5,jumper,PWM1_RAW,j21,j40,5,True,Male/male jumper; plug only the endpoints.
+J6,jumper,ADC,d45,j12,3,False,Male/male jumper; plug only the endpoints.
+J7,jumper,GND,d46,d50,3,False,Male/male jumper; plug only the endpoints.
+J8,jumper,GND,b60,e50,4,False,Male/male jumper; plug only the endpoints.
+L1,external lead,5V,b30,P5V,2,False,Logic supply branch only; no servo current here.
+L2,external lead,GND,a50,PGND,2,False,Common ground branch to breadboard.
+L3,external lead,PACK_SW,b40,PACK,3,False,Raw battery after master; before regulator.
+L4,external lead,SERVO_ENABLE,c55,GATE.ON,4,False,Gate physical slider OFF.
+L5,external lead,PWM0,j35,SERVO0.signal,4,False,Only the servo signal lead touches breadboard.
+L6,external lead,PWM1,j45,SERVO1.signal,5,True,Optional second servo signal.

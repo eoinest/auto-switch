@@ -16,6 +16,8 @@ Then visit **http://127.0.0.1:8766**. There is no package installation, account,
 4. Complete **Design it yourself**. Its eight checks and six-step open design brief ask you to choose the connections and explain why they work.
 5. In **Parts & fit**, choose one or two switches. Search the complete BOM, inspect each STL mapping, and read the fit evidence before buying or printing.
 
+The **Breadboard** tab adds a matching bench layout for the existing headered Pico: choose one or two servos, highlight a build step, and follow the component/jumper table. The downloadable guide includes bench-only purchases and first-power checks.
+
 ## Sources and limits
 
 The curriculum and claim-level source registry are in [`docs/learn-content.json`](../docs/learn-content.json) and [`docs/learn-sources.md`](../docs/learn-sources.md). Core references are manufacturer documentation from Raspberry Pi, Pololu, Panasonic, SCHURTER, SparkFun and Adafruit, plus MicroPython documentation. Project-specific firmware behavior is labeled as a project claim, not independent manufacturer evidence.

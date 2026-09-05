@@ -2,6 +2,8 @@
 
 This is the assembly map for the headerless Pico revision. It replaces the first revision’s unspecified load-switch breakout with **two Pololu 2810 LV modules**: one master switch and one servo power gate. Component purchases and quantities are in the root [BOM](../BOM.md), with a searchable copy in the [learning module](../learn/index.html#parts). The Pico firmware pin assignments stay the same.
 
+For a first bench build with your existing headered Pico, use the [hole-by-hole breadboard guide](breadboard.md). It implements the same circuit with the motor power harness beside the breadboard.
+
 Start with the [interactive power map](../learn/index.html#power), which shows the on-board regulator and both supplies. The [diagram guide](diagram-guide.md) explains the symbols.
 
 ![How power reaches the Pico](../hardware/wiring/power-map.svg)

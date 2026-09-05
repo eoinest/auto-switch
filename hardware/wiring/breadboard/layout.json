@@ -1,0 +1,430 @@
+{
+  "revision": 1,
+  "harness_revision": 3,
+  "title": "Headered Pico W breadboard bench layout",
+  "board": {
+    "part": "Adafruit 239 or matching 830-point, 63-row board",
+    "rows": 63,
+    "columns": "abcdefghij",
+    "connected_groups": [
+      "abcde",
+      "fghij"
+    ],
+    "power_rails_used": false,
+    "pico_start_row": 3,
+    "pico_columns": [
+      "c",
+      "h"
+    ]
+  },
+  "pico_pins": {
+    "1": "c3",
+    "40": "h3",
+    "2": "c4",
+    "39": "h4",
+    "3": "c5",
+    "38": "h5",
+    "4": "c6",
+    "37": "h6",
+    "5": "c7",
+    "36": "h7",
+    "6": "c8",
+    "35": "h8",
+    "7": "c9",
+    "34": "h9",
+    "8": "c10",
+    "33": "h10",
+    "9": "c11",
+    "32": "h11",
+    "10": "c12",
+    "31": "h12",
+    "11": "c13",
+    "30": "h13",
+    "12": "c14",
+    "29": "h14",
+    "13": "c15",
+    "28": "h15",
+    "14": "c16",
+    "27": "h16",
+    "15": "c17",
+    "26": "h17",
+    "16": "c18",
+    "25": "h18",
+    "17": "c19",
+    "24": "h19",
+    "18": "c20",
+    "23": "h20",
+    "19": "c21",
+    "22": "h21",
+    "20": "c22",
+    "21": "h22"
+  },
+  "terminal_bindings": {
+    "PICO.pin39_VSYS": "h4",
+    "PICO.pin38_GND": "h5",
+    "PICO.pin20_GP15": "c22",
+    "PICO.pin21_GP16": "h22",
+    "PICO.pin22_GP17": "h21",
+    "PICO.pin31_GP26": "h12",
+    "D1.anode": "a30",
+    "D1.cathode": "a35",
+    "R_TOP.1": "a40",
+    "R_TOP.2": "a45",
+    "R_BOTTOM.1": "b45",
+    "R_BOTTOM.2": "b50",
+    "C_ADC.1": "e45",
+    "C_ADC.2": "e46",
+    "R_EN.1": "a55",
+    "R_EN.2": "a60",
+    "R_PWM0.1": "f30",
+    "R_PWM0.2": "f35",
+    "R_PWM1.1": "f40",
+    "R_PWM1.2": "f45"
+  },
+  "placements": [
+    {
+      "ref": "D1",
+      "value": "1N5819",
+      "type": "diode",
+      "terminals": {
+        "anode": "a30",
+        "cathode": "a35"
+      },
+      "step": 2,
+      "note": "Stripe toward row 35 (VSYS)."
+    },
+    {
+      "ref": "R_TOP",
+      "value": "100 k\u03a9 1%",
+      "type": "resistor",
+      "terminals": {
+        "1": "a40",
+        "2": "a45"
+      },
+      "step": 3
+    },
+    {
+      "ref": "R_BOTTOM",
+      "value": "47 k\u03a9 1%",
+      "type": "resistor",
+      "terminals": {
+        "1": "b45",
+        "2": "b50"
+      },
+      "step": 3
+    },
+    {
+      "ref": "C_ADC",
+      "value": "100 nF",
+      "type": "capacitor",
+      "terminals": {
+        "1": "e45",
+        "2": "e46"
+      },
+      "step": 3,
+      "note": "Non-polar ceramic; gently form leads to 2.54 mm spacing if required."
+    },
+    {
+      "ref": "R_EN",
+      "value": "100 k\u03a9",
+      "type": "resistor",
+      "terminals": {
+        "1": "a55",
+        "2": "a60"
+      },
+      "step": 4
+    },
+    {
+      "ref": "R_PWM0",
+      "value": "1 k\u03a9",
+      "type": "resistor",
+      "terminals": {
+        "1": "f30",
+        "2": "f35"
+      },
+      "step": 4
+    },
+    {
+      "ref": "R_PWM1",
+      "value": "1 k\u03a9",
+      "type": "resistor",
+      "terminals": {
+        "1": "f40",
+        "2": "f45"
+      },
+      "step": 5,
+      "optional": true
+    }
+  ],
+  "jumpers": [
+    {
+      "id": "J1",
+      "a": "b35",
+      "b": "j4",
+      "net": "VSYS",
+      "step": 2,
+      "optional": false
+    },
+    {
+      "id": "J2",
+      "a": "c50",
+      "b": "j5",
+      "net": "GND",
+      "step": 2,
+      "optional": false
+    },
+    {
+      "id": "J3",
+      "a": "b22",
+      "b": "b55",
+      "net": "SERVO_ENABLE",
+      "step": 4,
+      "optional": false
+    },
+    {
+      "id": "J4",
+      "a": "j22",
+      "b": "j30",
+      "net": "PWM0_RAW",
+      "step": 4,
+      "optional": false
+    },
+    {
+      "id": "J5",
+      "a": "j21",
+      "b": "j40",
+      "net": "PWM1_RAW",
+      "step": 5,
+      "optional": true
+    },
+    {
+      "id": "J6",
+      "a": "d45",
+      "b": "j12",
+      "net": "ADC",
+      "step": 3,
+      "optional": false
+    },
+    {
+      "id": "J7",
+      "a": "d46",
+      "b": "d50",
+      "net": "GND",
+      "step": 3,
+      "optional": false
+    },
+    {
+      "id": "J8",
+      "a": "b60",
+      "b": "e50",
+      "net": "GND",
+      "step": 4,
+      "optional": false
+    }
+  ],
+  "leads": [
+    {
+      "id": "L1",
+      "hole": "b30",
+      "node": "P5V",
+      "net": "5V",
+      "step": 2,
+      "note": "Logic supply branch only; no servo current here.",
+      "optional": false
+    },
+    {
+      "id": "L2",
+      "hole": "a50",
+      "node": "PGND",
+      "net": "GND",
+      "step": 2,
+      "note": "Common ground branch to breadboard.",
+      "optional": false
+    },
+    {
+      "id": "L3",
+      "hole": "b40",
+      "node": "PACK",
+      "net": "PACK_SW",
+      "step": 3,
+      "note": "Raw battery after master; before regulator.",
+      "optional": false
+    },
+    {
+      "id": "L4",
+      "hole": "c55",
+      "node": "GATE.ON",
+      "net": "SERVO_ENABLE",
+      "step": 4,
+      "note": "Gate physical slider OFF.",
+      "optional": false
+    },
+    {
+      "id": "L5",
+      "hole": "j35",
+      "node": "SERVO0.signal",
+      "net": "PWM0",
+      "step": 4,
+      "note": "Only the servo signal lead touches breadboard.",
+      "optional": false
+    },
+    {
+      "id": "L6",
+      "hole": "j45",
+      "node": "SERVO1.signal",
+      "net": "PWM1",
+      "step": 5,
+      "note": "Optional second servo signal.",
+      "optional": true
+    }
+  ],
+  "external_wires": [
+    [
+      "BAT.red",
+      "F1.in"
+    ],
+    [
+      "F1.out",
+      "MASTER.VIN"
+    ],
+    [
+      "MASTER.VOUT",
+      "PACK"
+    ],
+    [
+      "PACK",
+      "REG.VIN"
+    ],
+    [
+      "REG.VOUT",
+      "P5V"
+    ],
+    [
+      "P5V",
+      "GATE.VIN"
+    ],
+    [
+      "P5V",
+      "C1.positive"
+    ],
+    [
+      "GATE.VOUT",
+      "MOTOR"
+    ],
+    [
+      "MOTOR",
+      "SERVO0.power"
+    ],
+    [
+      "MOTOR",
+      "SERVO1.power"
+    ],
+    [
+      "MOTOR",
+      "D2.cathode"
+    ],
+    [
+      "MOTOR",
+      "R_BLEED.1"
+    ],
+    [
+      "PGND",
+      "BAT.black"
+    ],
+    [
+      "PGND",
+      "MASTER.GND"
+    ],
+    [
+      "PGND",
+      "REG.GND"
+    ],
+    [
+      "PGND",
+      "GATE.GND"
+    ],
+    [
+      "PGND",
+      "SERVO0.ground"
+    ],
+    [
+      "PGND",
+      "SERVO1.ground"
+    ],
+    [
+      "PGND",
+      "D2.anode"
+    ],
+    [
+      "PGND",
+      "C1.negative"
+    ],
+    [
+      "PGND",
+      "R_BLEED.2"
+    ]
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "title": "Place the headered Pico",
+      "text": "No batteries or USB yet. With the USB socket at the top, insert its left header into c3\u2013c22 and right header into h3\u2013h22. The board bridges the centre trench. Pin 1 is c3; pin 40 is h3. Keep all side power rails unused."
+    },
+    {
+      "id": 2,
+      "title": "Build the Pico supply and ground",
+      "text": "Fit D1 a30\u2192a35, stripe at a35. Add J1 b35\u2192j4 and J2 c50\u2192j5. Prepare L1 b30\u2192external 5 V and L2 a50\u2192external GND, but leave their source ends disconnected until voltage checks. These feed VSYS and GND; h3/VBUS stays unused."
+    },
+    {
+      "id": 3,
+      "title": "Add battery sensing",
+      "text": "Fit R_TOP a40\u2192a45, R_BOTTOM b45\u2192b50, C_ADC e45\u2192e46. Add J7 d46\u2192d50, J6 d45\u2192j12 and prepare L3 b40\u2192PACK_SW. The five holes a45\u2013e45 form the ADC junction. The capacitor bridges adjacent rows, not the same row."
+    },
+    {
+      "id": 4,
+      "title": "Add gate control and first servo signal",
+      "text": "Fit R_EN a55\u2192a60 and R_PWM0 f30\u2192f35. Add J8 b60\u2192e50, J3 b22\u2192b55 and J4 j22\u2192j30. Prepare L4 c55\u2192gate ON and L5 j35\u2192servo 0 signal. Keep servo power and ground on the separate power harness."
+    },
+    {
+      "id": 5,
+      "title": "Optional second servo",
+      "text": "For two switches, add R_PWM1 f40\u2192f45, J5 j21\u2192j40 and L6 j45\u2192servo 1 signal. Omit all three for the first one-servo build."
+    },
+    {
+      "id": 6,
+      "title": "Check, then connect power",
+      "text": "With all power removed, check every listed hole and jumper, then lift out the Pico for voltage checks. Connect the external harness and L1/L2/L3 with both servos unplugged. Check regulated 5 V at c30, the diode output at c35, and the ADC voltage at c45 relative to c60. The build guide gives the expected ranges. Switch off and unplug batteries before reinstalling the Pico; then test one unloaded servo with the gate slider OFF."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Pico W physical drawing",
+      "url": "https://datasheets.raspberrypi.com/picow/pico-w-product-brief.pdf"
+    },
+    {
+      "title": "Official Pico W pinout",
+      "url": "https://datasheets.raspberrypi.com/picow/PicoW-A4-Pinout.pdf"
+    },
+    {
+      "title": "Adafruit 239 full-size breadboard",
+      "url": "https://www.adafruit.com/product/239"
+    },
+    {
+      "title": "Breadboard connections and split rails",
+      "url": "https://learn.adafruit.com/breadboards-for-beginners/breadboard-tips-and-tricks"
+    },
+    {
+      "title": "Adafruit 1957 male/male jumpers",
+      "url": "https://www.adafruit.com/product/1957"
+    },
+    {
+      "title": "Pololu 2810 switch wiring",
+      "url": "https://www.pololu.com/product/2810"
+    },
+    {
+      "title": "Pololu 2574 regulator wiring",
+      "url": "https://www.pololu.com/product/2574"
+    }
+  ],
+  "physical_build_verified": false
+}

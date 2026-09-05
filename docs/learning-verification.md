@@ -15,3 +15,7 @@ The remaining physical measurements, unselected horn fasteners and textured-wall
 ## Continuous-map revision
 
 The former panel-based connection sheet is replaced by one continuous circuit and a dedicated default Connection map tab. All 46 visible terminals have the correct net assignments and lie on actual SVG wire segments. Each of 13 nets is one connected segment graph; no unrelated nets have collinear overlaps or junction dots on each other. Seven learning/bundle/diagram tests pass. Browser checks cover zoom, fit-to-view, fullscreen entry/exit and fitting the entire map at both desktop and phone viewport sizes.
+
+## Breadboard bench layout
+
+The added 63-row breadboard plan places a headered Pico W at c3–c22/h3–h22. Ten independent tests check conductive strips, one/two-servo net equivalence, all 40 header positions, unused-pin isolation, duplicate hole occupancy, deliberate wiring errors, and actual rendered insertion markers/CSV addresses. Both profiles pass: 40 terminals across 11 nets for one servo; 46 across 13 nets for two. Browser checks cover step highlighting, 18/21 checklist rows, profile switching, fit/zoom/fullscreen and phone-width overflow. Source references and unpowered/voltage-check procedures are in the breadboard guide. This is an electrically checked design, not a bench-tested circuit or a fit check for the printed enclosure.

@@ -21,13 +21,19 @@ def outputs():
         "bom": "hardware/bom.csv",
         "fit": "hardware/cad/generated/bom-fit-report.json",
         "written_bom": "BOM.md",
+        "breadboard": "hardware/wiring/breadboard/layout.svg",
+        "breadboard_plan": "hardware/wiring/breadboard/layout.json",
+        "breadboard_table": "hardware/wiring/breadboard/placements.csv",
+        "breadboard_guide": "docs/breadboard.md",
     }
     raw = {key: (ROOT / path).read_text() for key, path in paths.items()}
     payload = {
         "course": json.loads(raw["course"]),
-        "diagrams": {key: raw[key] for key in ("power", "wiring")},
+        "diagrams": {key: raw[key] for key in ("power", "wiring", "breadboard")},
         "bom": list(csv.DictReader(io.StringIO(raw["bom"]))),
         "fit": json.loads(raw["fit"]),
+        "breadboard": json.loads(raw["breadboard_plan"]),
+        "breadboard_rows": list(csv.DictReader(io.StringIO(raw["breadboard_table"]))),
         "source_sha256": {paths[key]: hashlib.sha256((ROOT / path).read_bytes()).hexdigest()
                           for key, path in paths.items()},
     }
@@ -40,6 +46,10 @@ def outputs():
         "learn/assets/bom.csv": raw["bom"],
         "learn/assets/bom-fit-report.json": raw["fit"],
         "learn/assets/BOM.md": raw["written_bom"],
+        "learn/assets/breadboard.svg": raw["breadboard"],
+        "learn/assets/breadboard-layout.json": raw["breadboard_plan"],
+        "learn/assets/breadboard-placements.csv": raw["breadboard_table"],
+        "learn/assets/breadboard-guide.md": raw["breadboard_guide"],
     }
 
 

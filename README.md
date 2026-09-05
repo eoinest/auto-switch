@@ -11,6 +11,7 @@ The current four-AA assembly is a spacious **174 × 300.7 × 47 mm** prototype, 
 ## Start here: diagram, lessons and BOM
 
 - **[Interactive circuit learning module](learn/index.html)** — a power-source simulator, 12 guided lessons, 24 questions, five calculation/signal experiments and a design challenge. Run `python3 -m http.server 8766 --bind 127.0.0.1 --directory learn`, then open **http://127.0.0.1:8766**. You can also open the HTML directly. [Learning guide](learn/README.md).
+- **[Breadboard bench layout](docs/breadboard.md)** — exact Pico/header placement, component holes and jumpers, with step highlighting in the module’s Breadboard tab. [SVG](hardware/wiring/breadboard/layout.svg) · [hole checklist CSV](hardware/wiring/breadboard/placements.csv).
 - **[Bill of materials](BOM.md)** — exact single-/double-switch quantities, selected parts, purchase links and fit status. Also available as [BOM.csv](hardware/bom.csv), with a searchable copy in the module’s Parts & Fit tab.
 - **[Power diagram](hardware/wiring/power-map.svg)** — explicitly follows external power through D1 into Pico VSYS, its on-board regulator and the chip. The [full connection sheet](hardware/wiring/connection-map.svg) includes every passive and terminal.
 - **[BOM-to-STL fit report](docs/bom-fit-report.md)** — actual digital checks and remaining physical measurements. Current exports target a **headerless Pico W**.

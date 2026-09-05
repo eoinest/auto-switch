@@ -1,0 +1,1494 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2150" height="1690" viewBox="0 0 2150 1690" role="img" data-breadboard="true" aria-labelledby="bb-title bb-desc"><title id="bb-title">Auto Switch — exact breadboard layout</title><desc id="bb-desc">Headered Pico W bridges c3 to c22 and h3 to h22, USB upward. Breadboard holes and jumper IDs match the placement table. Motor power harness remains beside the breadboard. Side power rails are unused.</desc><style>[data-breadboard] text{font-family:Arial,sans-serif;fill:#203b42}.bb-title{font-size:33px;font-weight:bold}.bb-body{font-size:19px}.bb-small{font-size:15px}.bb-tiny{font-size:12px}.bb-label{font-size:17px;font-weight:bold}.bb-pin{font-size:11px}.bb-dim{opacity:.15}.bb-focus{filter:drop-shadow(0 0 3px #98b342)}.bb-jumper{fill:none;stroke-width:5;stroke-linejoin:round;stroke-linecap:round}</style><rect width="2150" height="1690" fill="#f7f6f0"/>
+<text x="40" y="53" class="bb-title">Auto Switch · breadboard bench layout</text>
+<text x="40" y="87" class="bb-body">Exact hole addresses for your headered Pico. USB socket points UP. Components shown from above.</text>
+<text x="40" y="120" class="bb-body">Power OFF while wiring. Motor supply wiring stays beside the breadboard. Side + / − rails are NOT USED.</text>
+<text x="40" y="150" class="bb-small">J = male/male jumper on the breadboard. L = lead to the separate power harness. Crossing cables do not connect.</text>
+<rect x="40" y="200" width="470" height="320" rx="8" fill="#edf5ef" stroke="#b9c8ca"/>
+<text x="63" y="237" class="bb-label">READ THE HOLE LABELS</text>
+<text x="63" y="270" class="bb-body">a45 means column a, row 45.</text>
+<text x="63" y="301" class="bb-body">a45–e45 are one connected strip.</text>
+<text x="63" y="332" class="bb-body">f45–j45 are another strip.</text>
+<text x="63" y="363" class="bb-body">The centre trench separates those strips.</text>
+<text x="63" y="394" class="bb-body">Row 45 is NOT connected to row 46.</text>
+<text x="63" y="438" class="bb-small">Pico headers: c3–c22 and h3–h22.</text>
+<text x="63" y="469" class="bb-small">Keep columns a/b and i/j accessible.</text>
+<text x="63" y="500" class="bb-small">Do not use any side power rail.</text>
+<rect x="590" y="210" width="480" height="1360" rx="15" fill="#e5e5de" stroke="#b9c8ca"/>
+<rect x="686" y="226" width="124" height="1314" rx="5" fill="#fafaf6" stroke="#b9c8ca"/>
+<rect x="830" y="226" width="124" height="1314" rx="5" fill="#fafaf6" stroke="#b9c8ca"/>
+<rect x="813" y="238" width="14" height="1280" rx="2" fill="#cacdc6" stroke="#b9c8ca"/>
+<circle cx="624" cy="300" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="320" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="340" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="360" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="380" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="420" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="440" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="460" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="480" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="500" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="540" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="560" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="580" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="600" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="620" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="660" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="680" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="700" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="720" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="740" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="780" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="800" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="820" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="840" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="860" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="900" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="920" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="940" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="960" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="980" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="1020" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="1040" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="1060" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="1080" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="1100" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="1140" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="1160" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="1180" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="1200" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="1220" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="1260" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="1280" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="1300" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="1320" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="1340" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="1380" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="1400" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="1420" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="1440" r="3.5" fill="#bbbdb5"/>
+<circle cx="624" cy="1460" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="300" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="320" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="340" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="360" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="380" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="420" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="440" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="460" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="480" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="500" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="540" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="560" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="580" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="600" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="620" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="660" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="680" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="700" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="720" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="740" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="780" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="800" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="820" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="840" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="860" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="900" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="920" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="940" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="960" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="980" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="1020" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="1040" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="1060" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="1080" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="1100" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="1140" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="1160" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="1180" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="1200" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="1220" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="1260" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="1280" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="1300" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="1320" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="1340" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="1380" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="1400" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="1420" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="1440" r="3.5" fill="#bbbdb5"/>
+<circle cx="644" cy="1460" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="300" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="320" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="340" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="360" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="380" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="420" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="440" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="460" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="480" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="500" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="540" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="560" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="580" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="600" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="620" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="660" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="680" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="700" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="720" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="740" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="780" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="800" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="820" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="840" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="860" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="900" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="920" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="940" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="960" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="980" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="1020" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="1040" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="1060" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="1080" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="1100" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="1140" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="1160" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="1180" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="1200" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="1220" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="1260" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="1280" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="1300" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="1320" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="1340" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="1380" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="1400" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="1420" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="1440" r="3.5" fill="#bbbdb5"/>
+<circle cx="1000" cy="1460" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="300" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="320" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="340" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="360" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="380" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="420" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="440" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="460" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="480" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="500" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="540" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="560" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="580" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="600" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="620" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="660" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="680" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="700" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="720" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="740" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="780" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="800" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="820" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="840" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="860" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="900" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="920" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="940" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="960" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="980" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="1020" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="1040" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="1060" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="1080" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="1100" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="1140" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="1160" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="1180" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="1200" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="1220" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="1260" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="1280" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="1300" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="1320" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="1340" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="1380" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="1400" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="1420" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="1440" r="3.5" fill="#bbbdb5"/>
+<circle cx="1020" cy="1460" r="3.5" fill="#bbbdb5"/>
+<text x="612" y="243" class="bb-tiny">UNUSED</text>
+<text x="985" y="243" class="bb-tiny">UNUSED</text>
+<text x="706" y="241" class="bb-small">a</text>
+<text x="706" y="1559" class="bb-small">a</text>
+<text x="726" y="241" class="bb-small">b</text>
+<text x="726" y="1559" class="bb-small">b</text>
+<text x="746" y="241" class="bb-small">c</text>
+<text x="746" y="1559" class="bb-small">c</text>
+<text x="766" y="241" class="bb-small">d</text>
+<text x="766" y="1559" class="bb-small">d</text>
+<text x="786" y="241" class="bb-small">e</text>
+<text x="786" y="1559" class="bb-small">e</text>
+<text x="846" y="241" class="bb-small">f</text>
+<text x="846" y="1559" class="bb-small">f</text>
+<text x="866" y="241" class="bb-small">g</text>
+<text x="866" y="1559" class="bb-small">g</text>
+<text x="886" y="241" class="bb-small">h</text>
+<text x="886" y="1559" class="bb-small">h</text>
+<text x="906" y="241" class="bb-small">i</text>
+<text x="906" y="1559" class="bb-small">i</text>
+<text x="926" y="241" class="bb-small">j</text>
+<text x="926" y="1559" class="bb-small">j</text>
+<path d="M710 260H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 260H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a1" cx="710" cy="260" r="4.3" fill="#949d98"/>
+<circle data-hole="b1" cx="730" cy="260" r="4.3" fill="#949d98"/>
+<circle data-hole="c1" cx="750" cy="260" r="4.3" fill="#949d98"/>
+<circle data-hole="d1" cx="770" cy="260" r="4.3" fill="#949d98"/>
+<circle data-hole="e1" cx="790" cy="260" r="4.3" fill="#949d98"/>
+<circle data-hole="f1" cx="850" cy="260" r="4.3" fill="#949d98"/>
+<circle data-hole="g1" cx="870" cy="260" r="4.3" fill="#949d98"/>
+<circle data-hole="h1" cx="890" cy="260" r="4.3" fill="#949d98"/>
+<circle data-hole="i1" cx="910" cy="260" r="4.3" fill="#949d98"/>
+<circle data-hole="j1" cx="930" cy="260" r="4.3" fill="#949d98"/>
+<text x="665" y="264" class="bb-tiny">1</text>
+<text x="966" y="264" class="bb-tiny">1</text>
+<path d="M710 280H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 280H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a2" cx="710" cy="280" r="4.3" fill="#949d98"/>
+<circle data-hole="b2" cx="730" cy="280" r="4.3" fill="#949d98"/>
+<circle data-hole="c2" cx="750" cy="280" r="4.3" fill="#949d98"/>
+<circle data-hole="d2" cx="770" cy="280" r="4.3" fill="#949d98"/>
+<circle data-hole="e2" cx="790" cy="280" r="4.3" fill="#949d98"/>
+<circle data-hole="f2" cx="850" cy="280" r="4.3" fill="#949d98"/>
+<circle data-hole="g2" cx="870" cy="280" r="4.3" fill="#949d98"/>
+<circle data-hole="h2" cx="890" cy="280" r="4.3" fill="#949d98"/>
+<circle data-hole="i2" cx="910" cy="280" r="4.3" fill="#949d98"/>
+<circle data-hole="j2" cx="930" cy="280" r="4.3" fill="#949d98"/>
+<text x="665" y="284" class="bb-tiny">2</text>
+<text x="966" y="284" class="bb-tiny">2</text>
+<path d="M710 300H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 300H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a3" cx="710" cy="300" r="4.3" fill="#949d98"/>
+<circle data-hole="b3" cx="730" cy="300" r="4.3" fill="#949d98"/>
+<circle data-hole="c3" cx="750" cy="300" r="4.3" fill="#949d98"/>
+<circle data-hole="d3" cx="770" cy="300" r="4.3" fill="#949d98"/>
+<circle data-hole="e3" cx="790" cy="300" r="4.3" fill="#949d98"/>
+<circle data-hole="f3" cx="850" cy="300" r="4.3" fill="#949d98"/>
+<circle data-hole="g3" cx="870" cy="300" r="4.3" fill="#949d98"/>
+<circle data-hole="h3" cx="890" cy="300" r="4.3" fill="#949d98"/>
+<circle data-hole="i3" cx="910" cy="300" r="4.3" fill="#949d98"/>
+<circle data-hole="j3" cx="930" cy="300" r="4.3" fill="#949d98"/>
+<text x="665" y="304" class="bb-tiny">3</text>
+<text x="966" y="304" class="bb-tiny">3</text>
+<path d="M710 320H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 320H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a4" cx="710" cy="320" r="4.3" fill="#949d98"/>
+<circle data-hole="b4" cx="730" cy="320" r="4.3" fill="#949d98"/>
+<circle data-hole="c4" cx="750" cy="320" r="4.3" fill="#949d98"/>
+<circle data-hole="d4" cx="770" cy="320" r="4.3" fill="#949d98"/>
+<circle data-hole="e4" cx="790" cy="320" r="4.3" fill="#949d98"/>
+<circle data-hole="f4" cx="850" cy="320" r="4.3" fill="#949d98"/>
+<circle data-hole="g4" cx="870" cy="320" r="4.3" fill="#949d98"/>
+<circle data-hole="h4" cx="890" cy="320" r="4.3" fill="#949d98"/>
+<circle data-hole="i4" cx="910" cy="320" r="4.3" fill="#949d98"/>
+<circle data-hole="j4" cx="930" cy="320" r="4.3" fill="#949d98"/>
+<text x="665" y="324" class="bb-tiny">4</text>
+<text x="966" y="324" class="bb-tiny">4</text>
+<path d="M710 340H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 340H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a5" cx="710" cy="340" r="4.3" fill="#949d98"/>
+<circle data-hole="b5" cx="730" cy="340" r="4.3" fill="#949d98"/>
+<circle data-hole="c5" cx="750" cy="340" r="4.3" fill="#949d98"/>
+<circle data-hole="d5" cx="770" cy="340" r="4.3" fill="#949d98"/>
+<circle data-hole="e5" cx="790" cy="340" r="4.3" fill="#949d98"/>
+<circle data-hole="f5" cx="850" cy="340" r="4.3" fill="#949d98"/>
+<circle data-hole="g5" cx="870" cy="340" r="4.3" fill="#949d98"/>
+<circle data-hole="h5" cx="890" cy="340" r="4.3" fill="#949d98"/>
+<circle data-hole="i5" cx="910" cy="340" r="4.3" fill="#949d98"/>
+<circle data-hole="j5" cx="930" cy="340" r="4.3" fill="#949d98"/>
+<text x="665" y="344" class="bb-tiny">5</text>
+<text x="966" y="344" class="bb-tiny">5</text>
+<path d="M710 360H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 360H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a6" cx="710" cy="360" r="4.3" fill="#949d98"/>
+<circle data-hole="b6" cx="730" cy="360" r="4.3" fill="#949d98"/>
+<circle data-hole="c6" cx="750" cy="360" r="4.3" fill="#949d98"/>
+<circle data-hole="d6" cx="770" cy="360" r="4.3" fill="#949d98"/>
+<circle data-hole="e6" cx="790" cy="360" r="4.3" fill="#949d98"/>
+<circle data-hole="f6" cx="850" cy="360" r="4.3" fill="#949d98"/>
+<circle data-hole="g6" cx="870" cy="360" r="4.3" fill="#949d98"/>
+<circle data-hole="h6" cx="890" cy="360" r="4.3" fill="#949d98"/>
+<circle data-hole="i6" cx="910" cy="360" r="4.3" fill="#949d98"/>
+<circle data-hole="j6" cx="930" cy="360" r="4.3" fill="#949d98"/>
+<text x="665" y="364" class="bb-tiny">6</text>
+<text x="966" y="364" class="bb-tiny">6</text>
+<path d="M710 380H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 380H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a7" cx="710" cy="380" r="4.3" fill="#949d98"/>
+<circle data-hole="b7" cx="730" cy="380" r="4.3" fill="#949d98"/>
+<circle data-hole="c7" cx="750" cy="380" r="4.3" fill="#949d98"/>
+<circle data-hole="d7" cx="770" cy="380" r="4.3" fill="#949d98"/>
+<circle data-hole="e7" cx="790" cy="380" r="4.3" fill="#949d98"/>
+<circle data-hole="f7" cx="850" cy="380" r="4.3" fill="#949d98"/>
+<circle data-hole="g7" cx="870" cy="380" r="4.3" fill="#949d98"/>
+<circle data-hole="h7" cx="890" cy="380" r="4.3" fill="#949d98"/>
+<circle data-hole="i7" cx="910" cy="380" r="4.3" fill="#949d98"/>
+<circle data-hole="j7" cx="930" cy="380" r="4.3" fill="#949d98"/>
+<text x="665" y="384" class="bb-tiny">7</text>
+<text x="966" y="384" class="bb-tiny">7</text>
+<path d="M710 400H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 400H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a8" cx="710" cy="400" r="4.3" fill="#949d98"/>
+<circle data-hole="b8" cx="730" cy="400" r="4.3" fill="#949d98"/>
+<circle data-hole="c8" cx="750" cy="400" r="4.3" fill="#949d98"/>
+<circle data-hole="d8" cx="770" cy="400" r="4.3" fill="#949d98"/>
+<circle data-hole="e8" cx="790" cy="400" r="4.3" fill="#949d98"/>
+<circle data-hole="f8" cx="850" cy="400" r="4.3" fill="#949d98"/>
+<circle data-hole="g8" cx="870" cy="400" r="4.3" fill="#949d98"/>
+<circle data-hole="h8" cx="890" cy="400" r="4.3" fill="#949d98"/>
+<circle data-hole="i8" cx="910" cy="400" r="4.3" fill="#949d98"/>
+<circle data-hole="j8" cx="930" cy="400" r="4.3" fill="#949d98"/>
+<text x="665" y="404" class="bb-tiny">8</text>
+<text x="966" y="404" class="bb-tiny">8</text>
+<path d="M710 420H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 420H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a9" cx="710" cy="420" r="4.3" fill="#949d98"/>
+<circle data-hole="b9" cx="730" cy="420" r="4.3" fill="#949d98"/>
+<circle data-hole="c9" cx="750" cy="420" r="4.3" fill="#949d98"/>
+<circle data-hole="d9" cx="770" cy="420" r="4.3" fill="#949d98"/>
+<circle data-hole="e9" cx="790" cy="420" r="4.3" fill="#949d98"/>
+<circle data-hole="f9" cx="850" cy="420" r="4.3" fill="#949d98"/>
+<circle data-hole="g9" cx="870" cy="420" r="4.3" fill="#949d98"/>
+<circle data-hole="h9" cx="890" cy="420" r="4.3" fill="#949d98"/>
+<circle data-hole="i9" cx="910" cy="420" r="4.3" fill="#949d98"/>
+<circle data-hole="j9" cx="930" cy="420" r="4.3" fill="#949d98"/>
+<text x="665" y="424" class="bb-tiny">9</text>
+<text x="966" y="424" class="bb-tiny">9</text>
+<path d="M710 440H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 440H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a10" cx="710" cy="440" r="4.3" fill="#949d98"/>
+<circle data-hole="b10" cx="730" cy="440" r="4.3" fill="#949d98"/>
+<circle data-hole="c10" cx="750" cy="440" r="4.3" fill="#949d98"/>
+<circle data-hole="d10" cx="770" cy="440" r="4.3" fill="#949d98"/>
+<circle data-hole="e10" cx="790" cy="440" r="4.3" fill="#949d98"/>
+<circle data-hole="f10" cx="850" cy="440" r="4.3" fill="#949d98"/>
+<circle data-hole="g10" cx="870" cy="440" r="4.3" fill="#949d98"/>
+<circle data-hole="h10" cx="890" cy="440" r="4.3" fill="#949d98"/>
+<circle data-hole="i10" cx="910" cy="440" r="4.3" fill="#949d98"/>
+<circle data-hole="j10" cx="930" cy="440" r="4.3" fill="#949d98"/>
+<text x="665" y="444" class="bb-tiny">10</text>
+<text x="966" y="444" class="bb-tiny">10</text>
+<path d="M710 460H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 460H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a11" cx="710" cy="460" r="4.3" fill="#949d98"/>
+<circle data-hole="b11" cx="730" cy="460" r="4.3" fill="#949d98"/>
+<circle data-hole="c11" cx="750" cy="460" r="4.3" fill="#949d98"/>
+<circle data-hole="d11" cx="770" cy="460" r="4.3" fill="#949d98"/>
+<circle data-hole="e11" cx="790" cy="460" r="4.3" fill="#949d98"/>
+<circle data-hole="f11" cx="850" cy="460" r="4.3" fill="#949d98"/>
+<circle data-hole="g11" cx="870" cy="460" r="4.3" fill="#949d98"/>
+<circle data-hole="h11" cx="890" cy="460" r="4.3" fill="#949d98"/>
+<circle data-hole="i11" cx="910" cy="460" r="4.3" fill="#949d98"/>
+<circle data-hole="j11" cx="930" cy="460" r="4.3" fill="#949d98"/>
+<text x="665" y="464" class="bb-tiny">11</text>
+<text x="966" y="464" class="bb-tiny">11</text>
+<path d="M710 480H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 480H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a12" cx="710" cy="480" r="4.3" fill="#949d98"/>
+<circle data-hole="b12" cx="730" cy="480" r="4.3" fill="#949d98"/>
+<circle data-hole="c12" cx="750" cy="480" r="4.3" fill="#949d98"/>
+<circle data-hole="d12" cx="770" cy="480" r="4.3" fill="#949d98"/>
+<circle data-hole="e12" cx="790" cy="480" r="4.3" fill="#949d98"/>
+<circle data-hole="f12" cx="850" cy="480" r="4.3" fill="#949d98"/>
+<circle data-hole="g12" cx="870" cy="480" r="4.3" fill="#949d98"/>
+<circle data-hole="h12" cx="890" cy="480" r="4.3" fill="#949d98"/>
+<circle data-hole="i12" cx="910" cy="480" r="4.3" fill="#949d98"/>
+<circle data-hole="j12" cx="930" cy="480" r="4.3" fill="#949d98"/>
+<text x="665" y="484" class="bb-tiny">12</text>
+<text x="966" y="484" class="bb-tiny">12</text>
+<path d="M710 500H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 500H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a13" cx="710" cy="500" r="4.3" fill="#949d98"/>
+<circle data-hole="b13" cx="730" cy="500" r="4.3" fill="#949d98"/>
+<circle data-hole="c13" cx="750" cy="500" r="4.3" fill="#949d98"/>
+<circle data-hole="d13" cx="770" cy="500" r="4.3" fill="#949d98"/>
+<circle data-hole="e13" cx="790" cy="500" r="4.3" fill="#949d98"/>
+<circle data-hole="f13" cx="850" cy="500" r="4.3" fill="#949d98"/>
+<circle data-hole="g13" cx="870" cy="500" r="4.3" fill="#949d98"/>
+<circle data-hole="h13" cx="890" cy="500" r="4.3" fill="#949d98"/>
+<circle data-hole="i13" cx="910" cy="500" r="4.3" fill="#949d98"/>
+<circle data-hole="j13" cx="930" cy="500" r="4.3" fill="#949d98"/>
+<text x="665" y="504" class="bb-tiny">13</text>
+<text x="966" y="504" class="bb-tiny">13</text>
+<path d="M710 520H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 520H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a14" cx="710" cy="520" r="4.3" fill="#949d98"/>
+<circle data-hole="b14" cx="730" cy="520" r="4.3" fill="#949d98"/>
+<circle data-hole="c14" cx="750" cy="520" r="4.3" fill="#949d98"/>
+<circle data-hole="d14" cx="770" cy="520" r="4.3" fill="#949d98"/>
+<circle data-hole="e14" cx="790" cy="520" r="4.3" fill="#949d98"/>
+<circle data-hole="f14" cx="850" cy="520" r="4.3" fill="#949d98"/>
+<circle data-hole="g14" cx="870" cy="520" r="4.3" fill="#949d98"/>
+<circle data-hole="h14" cx="890" cy="520" r="4.3" fill="#949d98"/>
+<circle data-hole="i14" cx="910" cy="520" r="4.3" fill="#949d98"/>
+<circle data-hole="j14" cx="930" cy="520" r="4.3" fill="#949d98"/>
+<text x="665" y="524" class="bb-tiny">14</text>
+<text x="966" y="524" class="bb-tiny">14</text>
+<path d="M710 540H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 540H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a15" cx="710" cy="540" r="4.3" fill="#949d98"/>
+<circle data-hole="b15" cx="730" cy="540" r="4.3" fill="#949d98"/>
+<circle data-hole="c15" cx="750" cy="540" r="4.3" fill="#949d98"/>
+<circle data-hole="d15" cx="770" cy="540" r="4.3" fill="#949d98"/>
+<circle data-hole="e15" cx="790" cy="540" r="4.3" fill="#949d98"/>
+<circle data-hole="f15" cx="850" cy="540" r="4.3" fill="#949d98"/>
+<circle data-hole="g15" cx="870" cy="540" r="4.3" fill="#949d98"/>
+<circle data-hole="h15" cx="890" cy="540" r="4.3" fill="#949d98"/>
+<circle data-hole="i15" cx="910" cy="540" r="4.3" fill="#949d98"/>
+<circle data-hole="j15" cx="930" cy="540" r="4.3" fill="#949d98"/>
+<text x="665" y="544" class="bb-tiny">15</text>
+<text x="966" y="544" class="bb-tiny">15</text>
+<path d="M710 560H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 560H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a16" cx="710" cy="560" r="4.3" fill="#949d98"/>
+<circle data-hole="b16" cx="730" cy="560" r="4.3" fill="#949d98"/>
+<circle data-hole="c16" cx="750" cy="560" r="4.3" fill="#949d98"/>
+<circle data-hole="d16" cx="770" cy="560" r="4.3" fill="#949d98"/>
+<circle data-hole="e16" cx="790" cy="560" r="4.3" fill="#949d98"/>
+<circle data-hole="f16" cx="850" cy="560" r="4.3" fill="#949d98"/>
+<circle data-hole="g16" cx="870" cy="560" r="4.3" fill="#949d98"/>
+<circle data-hole="h16" cx="890" cy="560" r="4.3" fill="#949d98"/>
+<circle data-hole="i16" cx="910" cy="560" r="4.3" fill="#949d98"/>
+<circle data-hole="j16" cx="930" cy="560" r="4.3" fill="#949d98"/>
+<text x="665" y="564" class="bb-tiny">16</text>
+<text x="966" y="564" class="bb-tiny">16</text>
+<path d="M710 580H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 580H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a17" cx="710" cy="580" r="4.3" fill="#949d98"/>
+<circle data-hole="b17" cx="730" cy="580" r="4.3" fill="#949d98"/>
+<circle data-hole="c17" cx="750" cy="580" r="4.3" fill="#949d98"/>
+<circle data-hole="d17" cx="770" cy="580" r="4.3" fill="#949d98"/>
+<circle data-hole="e17" cx="790" cy="580" r="4.3" fill="#949d98"/>
+<circle data-hole="f17" cx="850" cy="580" r="4.3" fill="#949d98"/>
+<circle data-hole="g17" cx="870" cy="580" r="4.3" fill="#949d98"/>
+<circle data-hole="h17" cx="890" cy="580" r="4.3" fill="#949d98"/>
+<circle data-hole="i17" cx="910" cy="580" r="4.3" fill="#949d98"/>
+<circle data-hole="j17" cx="930" cy="580" r="4.3" fill="#949d98"/>
+<text x="665" y="584" class="bb-tiny">17</text>
+<text x="966" y="584" class="bb-tiny">17</text>
+<path d="M710 600H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 600H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a18" cx="710" cy="600" r="4.3" fill="#949d98"/>
+<circle data-hole="b18" cx="730" cy="600" r="4.3" fill="#949d98"/>
+<circle data-hole="c18" cx="750" cy="600" r="4.3" fill="#949d98"/>
+<circle data-hole="d18" cx="770" cy="600" r="4.3" fill="#949d98"/>
+<circle data-hole="e18" cx="790" cy="600" r="4.3" fill="#949d98"/>
+<circle data-hole="f18" cx="850" cy="600" r="4.3" fill="#949d98"/>
+<circle data-hole="g18" cx="870" cy="600" r="4.3" fill="#949d98"/>
+<circle data-hole="h18" cx="890" cy="600" r="4.3" fill="#949d98"/>
+<circle data-hole="i18" cx="910" cy="600" r="4.3" fill="#949d98"/>
+<circle data-hole="j18" cx="930" cy="600" r="4.3" fill="#949d98"/>
+<text x="665" y="604" class="bb-tiny">18</text>
+<text x="966" y="604" class="bb-tiny">18</text>
+<path d="M710 620H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 620H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a19" cx="710" cy="620" r="4.3" fill="#949d98"/>
+<circle data-hole="b19" cx="730" cy="620" r="4.3" fill="#949d98"/>
+<circle data-hole="c19" cx="750" cy="620" r="4.3" fill="#949d98"/>
+<circle data-hole="d19" cx="770" cy="620" r="4.3" fill="#949d98"/>
+<circle data-hole="e19" cx="790" cy="620" r="4.3" fill="#949d98"/>
+<circle data-hole="f19" cx="850" cy="620" r="4.3" fill="#949d98"/>
+<circle data-hole="g19" cx="870" cy="620" r="4.3" fill="#949d98"/>
+<circle data-hole="h19" cx="890" cy="620" r="4.3" fill="#949d98"/>
+<circle data-hole="i19" cx="910" cy="620" r="4.3" fill="#949d98"/>
+<circle data-hole="j19" cx="930" cy="620" r="4.3" fill="#949d98"/>
+<text x="665" y="624" class="bb-tiny">19</text>
+<text x="966" y="624" class="bb-tiny">19</text>
+<path d="M710 640H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 640H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a20" cx="710" cy="640" r="4.3" fill="#949d98"/>
+<circle data-hole="b20" cx="730" cy="640" r="4.3" fill="#949d98"/>
+<circle data-hole="c20" cx="750" cy="640" r="4.3" fill="#949d98"/>
+<circle data-hole="d20" cx="770" cy="640" r="4.3" fill="#949d98"/>
+<circle data-hole="e20" cx="790" cy="640" r="4.3" fill="#949d98"/>
+<circle data-hole="f20" cx="850" cy="640" r="4.3" fill="#949d98"/>
+<circle data-hole="g20" cx="870" cy="640" r="4.3" fill="#949d98"/>
+<circle data-hole="h20" cx="890" cy="640" r="4.3" fill="#949d98"/>
+<circle data-hole="i20" cx="910" cy="640" r="4.3" fill="#949d98"/>
+<circle data-hole="j20" cx="930" cy="640" r="4.3" fill="#949d98"/>
+<text x="665" y="644" class="bb-tiny">20</text>
+<text x="966" y="644" class="bb-tiny">20</text>
+<path d="M710 660H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 660H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a21" cx="710" cy="660" r="4.3" fill="#949d98"/>
+<circle data-hole="b21" cx="730" cy="660" r="4.3" fill="#949d98"/>
+<circle data-hole="c21" cx="750" cy="660" r="4.3" fill="#949d98"/>
+<circle data-hole="d21" cx="770" cy="660" r="4.3" fill="#949d98"/>
+<circle data-hole="e21" cx="790" cy="660" r="4.3" fill="#949d98"/>
+<circle data-hole="f21" cx="850" cy="660" r="4.3" fill="#949d98"/>
+<circle data-hole="g21" cx="870" cy="660" r="4.3" fill="#949d98"/>
+<circle data-hole="h21" cx="890" cy="660" r="4.3" fill="#949d98"/>
+<circle data-hole="i21" cx="910" cy="660" r="4.3" fill="#949d98"/>
+<circle data-hole="j21" cx="930" cy="660" r="4.3" fill="#949d98"/>
+<text x="665" y="664" class="bb-tiny">21</text>
+<text x="966" y="664" class="bb-tiny">21</text>
+<path d="M710 680H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 680H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a22" cx="710" cy="680" r="4.3" fill="#949d98"/>
+<circle data-hole="b22" cx="730" cy="680" r="4.3" fill="#949d98"/>
+<circle data-hole="c22" cx="750" cy="680" r="4.3" fill="#949d98"/>
+<circle data-hole="d22" cx="770" cy="680" r="4.3" fill="#949d98"/>
+<circle data-hole="e22" cx="790" cy="680" r="4.3" fill="#949d98"/>
+<circle data-hole="f22" cx="850" cy="680" r="4.3" fill="#949d98"/>
+<circle data-hole="g22" cx="870" cy="680" r="4.3" fill="#949d98"/>
+<circle data-hole="h22" cx="890" cy="680" r="4.3" fill="#949d98"/>
+<circle data-hole="i22" cx="910" cy="680" r="4.3" fill="#949d98"/>
+<circle data-hole="j22" cx="930" cy="680" r="4.3" fill="#949d98"/>
+<text x="665" y="684" class="bb-tiny">22</text>
+<text x="966" y="684" class="bb-tiny">22</text>
+<path d="M710 700H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 700H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a23" cx="710" cy="700" r="4.3" fill="#949d98"/>
+<circle data-hole="b23" cx="730" cy="700" r="4.3" fill="#949d98"/>
+<circle data-hole="c23" cx="750" cy="700" r="4.3" fill="#949d98"/>
+<circle data-hole="d23" cx="770" cy="700" r="4.3" fill="#949d98"/>
+<circle data-hole="e23" cx="790" cy="700" r="4.3" fill="#949d98"/>
+<circle data-hole="f23" cx="850" cy="700" r="4.3" fill="#949d98"/>
+<circle data-hole="g23" cx="870" cy="700" r="4.3" fill="#949d98"/>
+<circle data-hole="h23" cx="890" cy="700" r="4.3" fill="#949d98"/>
+<circle data-hole="i23" cx="910" cy="700" r="4.3" fill="#949d98"/>
+<circle data-hole="j23" cx="930" cy="700" r="4.3" fill="#949d98"/>
+<text x="665" y="704" class="bb-tiny">23</text>
+<text x="966" y="704" class="bb-tiny">23</text>
+<path d="M710 720H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 720H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a24" cx="710" cy="720" r="4.3" fill="#949d98"/>
+<circle data-hole="b24" cx="730" cy="720" r="4.3" fill="#949d98"/>
+<circle data-hole="c24" cx="750" cy="720" r="4.3" fill="#949d98"/>
+<circle data-hole="d24" cx="770" cy="720" r="4.3" fill="#949d98"/>
+<circle data-hole="e24" cx="790" cy="720" r="4.3" fill="#949d98"/>
+<circle data-hole="f24" cx="850" cy="720" r="4.3" fill="#949d98"/>
+<circle data-hole="g24" cx="870" cy="720" r="4.3" fill="#949d98"/>
+<circle data-hole="h24" cx="890" cy="720" r="4.3" fill="#949d98"/>
+<circle data-hole="i24" cx="910" cy="720" r="4.3" fill="#949d98"/>
+<circle data-hole="j24" cx="930" cy="720" r="4.3" fill="#949d98"/>
+<text x="665" y="724" class="bb-tiny">24</text>
+<text x="966" y="724" class="bb-tiny">24</text>
+<path d="M710 740H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 740H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a25" cx="710" cy="740" r="4.3" fill="#949d98"/>
+<circle data-hole="b25" cx="730" cy="740" r="4.3" fill="#949d98"/>
+<circle data-hole="c25" cx="750" cy="740" r="4.3" fill="#949d98"/>
+<circle data-hole="d25" cx="770" cy="740" r="4.3" fill="#949d98"/>
+<circle data-hole="e25" cx="790" cy="740" r="4.3" fill="#949d98"/>
+<circle data-hole="f25" cx="850" cy="740" r="4.3" fill="#949d98"/>
+<circle data-hole="g25" cx="870" cy="740" r="4.3" fill="#949d98"/>
+<circle data-hole="h25" cx="890" cy="740" r="4.3" fill="#949d98"/>
+<circle data-hole="i25" cx="910" cy="740" r="4.3" fill="#949d98"/>
+<circle data-hole="j25" cx="930" cy="740" r="4.3" fill="#949d98"/>
+<text x="665" y="744" class="bb-tiny">25</text>
+<text x="966" y="744" class="bb-tiny">25</text>
+<path d="M710 760H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 760H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a26" cx="710" cy="760" r="4.3" fill="#949d98"/>
+<circle data-hole="b26" cx="730" cy="760" r="4.3" fill="#949d98"/>
+<circle data-hole="c26" cx="750" cy="760" r="4.3" fill="#949d98"/>
+<circle data-hole="d26" cx="770" cy="760" r="4.3" fill="#949d98"/>
+<circle data-hole="e26" cx="790" cy="760" r="4.3" fill="#949d98"/>
+<circle data-hole="f26" cx="850" cy="760" r="4.3" fill="#949d98"/>
+<circle data-hole="g26" cx="870" cy="760" r="4.3" fill="#949d98"/>
+<circle data-hole="h26" cx="890" cy="760" r="4.3" fill="#949d98"/>
+<circle data-hole="i26" cx="910" cy="760" r="4.3" fill="#949d98"/>
+<circle data-hole="j26" cx="930" cy="760" r="4.3" fill="#949d98"/>
+<text x="665" y="764" class="bb-tiny">26</text>
+<text x="966" y="764" class="bb-tiny">26</text>
+<path d="M710 780H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 780H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a27" cx="710" cy="780" r="4.3" fill="#949d98"/>
+<circle data-hole="b27" cx="730" cy="780" r="4.3" fill="#949d98"/>
+<circle data-hole="c27" cx="750" cy="780" r="4.3" fill="#949d98"/>
+<circle data-hole="d27" cx="770" cy="780" r="4.3" fill="#949d98"/>
+<circle data-hole="e27" cx="790" cy="780" r="4.3" fill="#949d98"/>
+<circle data-hole="f27" cx="850" cy="780" r="4.3" fill="#949d98"/>
+<circle data-hole="g27" cx="870" cy="780" r="4.3" fill="#949d98"/>
+<circle data-hole="h27" cx="890" cy="780" r="4.3" fill="#949d98"/>
+<circle data-hole="i27" cx="910" cy="780" r="4.3" fill="#949d98"/>
+<circle data-hole="j27" cx="930" cy="780" r="4.3" fill="#949d98"/>
+<text x="665" y="784" class="bb-tiny">27</text>
+<text x="966" y="784" class="bb-tiny">27</text>
+<path d="M710 800H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 800H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a28" cx="710" cy="800" r="4.3" fill="#949d98"/>
+<circle data-hole="b28" cx="730" cy="800" r="4.3" fill="#949d98"/>
+<circle data-hole="c28" cx="750" cy="800" r="4.3" fill="#949d98"/>
+<circle data-hole="d28" cx="770" cy="800" r="4.3" fill="#949d98"/>
+<circle data-hole="e28" cx="790" cy="800" r="4.3" fill="#949d98"/>
+<circle data-hole="f28" cx="850" cy="800" r="4.3" fill="#949d98"/>
+<circle data-hole="g28" cx="870" cy="800" r="4.3" fill="#949d98"/>
+<circle data-hole="h28" cx="890" cy="800" r="4.3" fill="#949d98"/>
+<circle data-hole="i28" cx="910" cy="800" r="4.3" fill="#949d98"/>
+<circle data-hole="j28" cx="930" cy="800" r="4.3" fill="#949d98"/>
+<text x="665" y="804" class="bb-tiny">28</text>
+<text x="966" y="804" class="bb-tiny">28</text>
+<path d="M710 820H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 820H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a29" cx="710" cy="820" r="4.3" fill="#949d98"/>
+<circle data-hole="b29" cx="730" cy="820" r="4.3" fill="#949d98"/>
+<circle data-hole="c29" cx="750" cy="820" r="4.3" fill="#949d98"/>
+<circle data-hole="d29" cx="770" cy="820" r="4.3" fill="#949d98"/>
+<circle data-hole="e29" cx="790" cy="820" r="4.3" fill="#949d98"/>
+<circle data-hole="f29" cx="850" cy="820" r="4.3" fill="#949d98"/>
+<circle data-hole="g29" cx="870" cy="820" r="4.3" fill="#949d98"/>
+<circle data-hole="h29" cx="890" cy="820" r="4.3" fill="#949d98"/>
+<circle data-hole="i29" cx="910" cy="820" r="4.3" fill="#949d98"/>
+<circle data-hole="j29" cx="930" cy="820" r="4.3" fill="#949d98"/>
+<text x="665" y="824" class="bb-tiny">29</text>
+<text x="966" y="824" class="bb-tiny">29</text>
+<path d="M710 840H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 840H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a30" cx="710" cy="840" r="4.3" fill="#949d98"/>
+<circle data-hole="b30" cx="730" cy="840" r="4.3" fill="#949d98"/>
+<circle data-hole="c30" cx="750" cy="840" r="4.3" fill="#949d98"/>
+<circle data-hole="d30" cx="770" cy="840" r="4.3" fill="#949d98"/>
+<circle data-hole="e30" cx="790" cy="840" r="4.3" fill="#949d98"/>
+<circle data-hole="f30" cx="850" cy="840" r="4.3" fill="#949d98"/>
+<circle data-hole="g30" cx="870" cy="840" r="4.3" fill="#949d98"/>
+<circle data-hole="h30" cx="890" cy="840" r="4.3" fill="#949d98"/>
+<circle data-hole="i30" cx="910" cy="840" r="4.3" fill="#949d98"/>
+<circle data-hole="j30" cx="930" cy="840" r="4.3" fill="#949d98"/>
+<text x="665" y="844" class="bb-tiny">30</text>
+<text x="966" y="844" class="bb-tiny">30</text>
+<path d="M710 860H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 860H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a31" cx="710" cy="860" r="4.3" fill="#949d98"/>
+<circle data-hole="b31" cx="730" cy="860" r="4.3" fill="#949d98"/>
+<circle data-hole="c31" cx="750" cy="860" r="4.3" fill="#949d98"/>
+<circle data-hole="d31" cx="770" cy="860" r="4.3" fill="#949d98"/>
+<circle data-hole="e31" cx="790" cy="860" r="4.3" fill="#949d98"/>
+<circle data-hole="f31" cx="850" cy="860" r="4.3" fill="#949d98"/>
+<circle data-hole="g31" cx="870" cy="860" r="4.3" fill="#949d98"/>
+<circle data-hole="h31" cx="890" cy="860" r="4.3" fill="#949d98"/>
+<circle data-hole="i31" cx="910" cy="860" r="4.3" fill="#949d98"/>
+<circle data-hole="j31" cx="930" cy="860" r="4.3" fill="#949d98"/>
+<text x="665" y="864" class="bb-tiny">31</text>
+<text x="966" y="864" class="bb-tiny">31</text>
+<path d="M710 880H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 880H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a32" cx="710" cy="880" r="4.3" fill="#949d98"/>
+<circle data-hole="b32" cx="730" cy="880" r="4.3" fill="#949d98"/>
+<circle data-hole="c32" cx="750" cy="880" r="4.3" fill="#949d98"/>
+<circle data-hole="d32" cx="770" cy="880" r="4.3" fill="#949d98"/>
+<circle data-hole="e32" cx="790" cy="880" r="4.3" fill="#949d98"/>
+<circle data-hole="f32" cx="850" cy="880" r="4.3" fill="#949d98"/>
+<circle data-hole="g32" cx="870" cy="880" r="4.3" fill="#949d98"/>
+<circle data-hole="h32" cx="890" cy="880" r="4.3" fill="#949d98"/>
+<circle data-hole="i32" cx="910" cy="880" r="4.3" fill="#949d98"/>
+<circle data-hole="j32" cx="930" cy="880" r="4.3" fill="#949d98"/>
+<text x="665" y="884" class="bb-tiny">32</text>
+<text x="966" y="884" class="bb-tiny">32</text>
+<path d="M710 900H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 900H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a33" cx="710" cy="900" r="4.3" fill="#949d98"/>
+<circle data-hole="b33" cx="730" cy="900" r="4.3" fill="#949d98"/>
+<circle data-hole="c33" cx="750" cy="900" r="4.3" fill="#949d98"/>
+<circle data-hole="d33" cx="770" cy="900" r="4.3" fill="#949d98"/>
+<circle data-hole="e33" cx="790" cy="900" r="4.3" fill="#949d98"/>
+<circle data-hole="f33" cx="850" cy="900" r="4.3" fill="#949d98"/>
+<circle data-hole="g33" cx="870" cy="900" r="4.3" fill="#949d98"/>
+<circle data-hole="h33" cx="890" cy="900" r="4.3" fill="#949d98"/>
+<circle data-hole="i33" cx="910" cy="900" r="4.3" fill="#949d98"/>
+<circle data-hole="j33" cx="930" cy="900" r="4.3" fill="#949d98"/>
+<text x="665" y="904" class="bb-tiny">33</text>
+<text x="966" y="904" class="bb-tiny">33</text>
+<path d="M710 920H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 920H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a34" cx="710" cy="920" r="4.3" fill="#949d98"/>
+<circle data-hole="b34" cx="730" cy="920" r="4.3" fill="#949d98"/>
+<circle data-hole="c34" cx="750" cy="920" r="4.3" fill="#949d98"/>
+<circle data-hole="d34" cx="770" cy="920" r="4.3" fill="#949d98"/>
+<circle data-hole="e34" cx="790" cy="920" r="4.3" fill="#949d98"/>
+<circle data-hole="f34" cx="850" cy="920" r="4.3" fill="#949d98"/>
+<circle data-hole="g34" cx="870" cy="920" r="4.3" fill="#949d98"/>
+<circle data-hole="h34" cx="890" cy="920" r="4.3" fill="#949d98"/>
+<circle data-hole="i34" cx="910" cy="920" r="4.3" fill="#949d98"/>
+<circle data-hole="j34" cx="930" cy="920" r="4.3" fill="#949d98"/>
+<text x="665" y="924" class="bb-tiny">34</text>
+<text x="966" y="924" class="bb-tiny">34</text>
+<path d="M710 940H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 940H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a35" cx="710" cy="940" r="4.3" fill="#949d98"/>
+<circle data-hole="b35" cx="730" cy="940" r="4.3" fill="#949d98"/>
+<circle data-hole="c35" cx="750" cy="940" r="4.3" fill="#949d98"/>
+<circle data-hole="d35" cx="770" cy="940" r="4.3" fill="#949d98"/>
+<circle data-hole="e35" cx="790" cy="940" r="4.3" fill="#949d98"/>
+<circle data-hole="f35" cx="850" cy="940" r="4.3" fill="#949d98"/>
+<circle data-hole="g35" cx="870" cy="940" r="4.3" fill="#949d98"/>
+<circle data-hole="h35" cx="890" cy="940" r="4.3" fill="#949d98"/>
+<circle data-hole="i35" cx="910" cy="940" r="4.3" fill="#949d98"/>
+<circle data-hole="j35" cx="930" cy="940" r="4.3" fill="#949d98"/>
+<text x="665" y="944" class="bb-tiny">35</text>
+<text x="966" y="944" class="bb-tiny">35</text>
+<path d="M710 960H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 960H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a36" cx="710" cy="960" r="4.3" fill="#949d98"/>
+<circle data-hole="b36" cx="730" cy="960" r="4.3" fill="#949d98"/>
+<circle data-hole="c36" cx="750" cy="960" r="4.3" fill="#949d98"/>
+<circle data-hole="d36" cx="770" cy="960" r="4.3" fill="#949d98"/>
+<circle data-hole="e36" cx="790" cy="960" r="4.3" fill="#949d98"/>
+<circle data-hole="f36" cx="850" cy="960" r="4.3" fill="#949d98"/>
+<circle data-hole="g36" cx="870" cy="960" r="4.3" fill="#949d98"/>
+<circle data-hole="h36" cx="890" cy="960" r="4.3" fill="#949d98"/>
+<circle data-hole="i36" cx="910" cy="960" r="4.3" fill="#949d98"/>
+<circle data-hole="j36" cx="930" cy="960" r="4.3" fill="#949d98"/>
+<text x="665" y="964" class="bb-tiny">36</text>
+<text x="966" y="964" class="bb-tiny">36</text>
+<path d="M710 980H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 980H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a37" cx="710" cy="980" r="4.3" fill="#949d98"/>
+<circle data-hole="b37" cx="730" cy="980" r="4.3" fill="#949d98"/>
+<circle data-hole="c37" cx="750" cy="980" r="4.3" fill="#949d98"/>
+<circle data-hole="d37" cx="770" cy="980" r="4.3" fill="#949d98"/>
+<circle data-hole="e37" cx="790" cy="980" r="4.3" fill="#949d98"/>
+<circle data-hole="f37" cx="850" cy="980" r="4.3" fill="#949d98"/>
+<circle data-hole="g37" cx="870" cy="980" r="4.3" fill="#949d98"/>
+<circle data-hole="h37" cx="890" cy="980" r="4.3" fill="#949d98"/>
+<circle data-hole="i37" cx="910" cy="980" r="4.3" fill="#949d98"/>
+<circle data-hole="j37" cx="930" cy="980" r="4.3" fill="#949d98"/>
+<text x="665" y="984" class="bb-tiny">37</text>
+<text x="966" y="984" class="bb-tiny">37</text>
+<path d="M710 1000H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1000H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a38" cx="710" cy="1000" r="4.3" fill="#949d98"/>
+<circle data-hole="b38" cx="730" cy="1000" r="4.3" fill="#949d98"/>
+<circle data-hole="c38" cx="750" cy="1000" r="4.3" fill="#949d98"/>
+<circle data-hole="d38" cx="770" cy="1000" r="4.3" fill="#949d98"/>
+<circle data-hole="e38" cx="790" cy="1000" r="4.3" fill="#949d98"/>
+<circle data-hole="f38" cx="850" cy="1000" r="4.3" fill="#949d98"/>
+<circle data-hole="g38" cx="870" cy="1000" r="4.3" fill="#949d98"/>
+<circle data-hole="h38" cx="890" cy="1000" r="4.3" fill="#949d98"/>
+<circle data-hole="i38" cx="910" cy="1000" r="4.3" fill="#949d98"/>
+<circle data-hole="j38" cx="930" cy="1000" r="4.3" fill="#949d98"/>
+<text x="665" y="1004" class="bb-tiny">38</text>
+<text x="966" y="1004" class="bb-tiny">38</text>
+<path d="M710 1020H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1020H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a39" cx="710" cy="1020" r="4.3" fill="#949d98"/>
+<circle data-hole="b39" cx="730" cy="1020" r="4.3" fill="#949d98"/>
+<circle data-hole="c39" cx="750" cy="1020" r="4.3" fill="#949d98"/>
+<circle data-hole="d39" cx="770" cy="1020" r="4.3" fill="#949d98"/>
+<circle data-hole="e39" cx="790" cy="1020" r="4.3" fill="#949d98"/>
+<circle data-hole="f39" cx="850" cy="1020" r="4.3" fill="#949d98"/>
+<circle data-hole="g39" cx="870" cy="1020" r="4.3" fill="#949d98"/>
+<circle data-hole="h39" cx="890" cy="1020" r="4.3" fill="#949d98"/>
+<circle data-hole="i39" cx="910" cy="1020" r="4.3" fill="#949d98"/>
+<circle data-hole="j39" cx="930" cy="1020" r="4.3" fill="#949d98"/>
+<text x="665" y="1024" class="bb-tiny">39</text>
+<text x="966" y="1024" class="bb-tiny">39</text>
+<path d="M710 1040H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1040H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a40" cx="710" cy="1040" r="4.3" fill="#949d98"/>
+<circle data-hole="b40" cx="730" cy="1040" r="4.3" fill="#949d98"/>
+<circle data-hole="c40" cx="750" cy="1040" r="4.3" fill="#949d98"/>
+<circle data-hole="d40" cx="770" cy="1040" r="4.3" fill="#949d98"/>
+<circle data-hole="e40" cx="790" cy="1040" r="4.3" fill="#949d98"/>
+<circle data-hole="f40" cx="850" cy="1040" r="4.3" fill="#949d98"/>
+<circle data-hole="g40" cx="870" cy="1040" r="4.3" fill="#949d98"/>
+<circle data-hole="h40" cx="890" cy="1040" r="4.3" fill="#949d98"/>
+<circle data-hole="i40" cx="910" cy="1040" r="4.3" fill="#949d98"/>
+<circle data-hole="j40" cx="930" cy="1040" r="4.3" fill="#949d98"/>
+<text x="665" y="1044" class="bb-tiny">40</text>
+<text x="966" y="1044" class="bb-tiny">40</text>
+<path d="M710 1060H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1060H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a41" cx="710" cy="1060" r="4.3" fill="#949d98"/>
+<circle data-hole="b41" cx="730" cy="1060" r="4.3" fill="#949d98"/>
+<circle data-hole="c41" cx="750" cy="1060" r="4.3" fill="#949d98"/>
+<circle data-hole="d41" cx="770" cy="1060" r="4.3" fill="#949d98"/>
+<circle data-hole="e41" cx="790" cy="1060" r="4.3" fill="#949d98"/>
+<circle data-hole="f41" cx="850" cy="1060" r="4.3" fill="#949d98"/>
+<circle data-hole="g41" cx="870" cy="1060" r="4.3" fill="#949d98"/>
+<circle data-hole="h41" cx="890" cy="1060" r="4.3" fill="#949d98"/>
+<circle data-hole="i41" cx="910" cy="1060" r="4.3" fill="#949d98"/>
+<circle data-hole="j41" cx="930" cy="1060" r="4.3" fill="#949d98"/>
+<text x="665" y="1064" class="bb-tiny">41</text>
+<text x="966" y="1064" class="bb-tiny">41</text>
+<path d="M710 1080H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1080H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a42" cx="710" cy="1080" r="4.3" fill="#949d98"/>
+<circle data-hole="b42" cx="730" cy="1080" r="4.3" fill="#949d98"/>
+<circle data-hole="c42" cx="750" cy="1080" r="4.3" fill="#949d98"/>
+<circle data-hole="d42" cx="770" cy="1080" r="4.3" fill="#949d98"/>
+<circle data-hole="e42" cx="790" cy="1080" r="4.3" fill="#949d98"/>
+<circle data-hole="f42" cx="850" cy="1080" r="4.3" fill="#949d98"/>
+<circle data-hole="g42" cx="870" cy="1080" r="4.3" fill="#949d98"/>
+<circle data-hole="h42" cx="890" cy="1080" r="4.3" fill="#949d98"/>
+<circle data-hole="i42" cx="910" cy="1080" r="4.3" fill="#949d98"/>
+<circle data-hole="j42" cx="930" cy="1080" r="4.3" fill="#949d98"/>
+<text x="665" y="1084" class="bb-tiny">42</text>
+<text x="966" y="1084" class="bb-tiny">42</text>
+<path d="M710 1100H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1100H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a43" cx="710" cy="1100" r="4.3" fill="#949d98"/>
+<circle data-hole="b43" cx="730" cy="1100" r="4.3" fill="#949d98"/>
+<circle data-hole="c43" cx="750" cy="1100" r="4.3" fill="#949d98"/>
+<circle data-hole="d43" cx="770" cy="1100" r="4.3" fill="#949d98"/>
+<circle data-hole="e43" cx="790" cy="1100" r="4.3" fill="#949d98"/>
+<circle data-hole="f43" cx="850" cy="1100" r="4.3" fill="#949d98"/>
+<circle data-hole="g43" cx="870" cy="1100" r="4.3" fill="#949d98"/>
+<circle data-hole="h43" cx="890" cy="1100" r="4.3" fill="#949d98"/>
+<circle data-hole="i43" cx="910" cy="1100" r="4.3" fill="#949d98"/>
+<circle data-hole="j43" cx="930" cy="1100" r="4.3" fill="#949d98"/>
+<text x="665" y="1104" class="bb-tiny">43</text>
+<text x="966" y="1104" class="bb-tiny">43</text>
+<path d="M710 1120H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1120H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a44" cx="710" cy="1120" r="4.3" fill="#949d98"/>
+<circle data-hole="b44" cx="730" cy="1120" r="4.3" fill="#949d98"/>
+<circle data-hole="c44" cx="750" cy="1120" r="4.3" fill="#949d98"/>
+<circle data-hole="d44" cx="770" cy="1120" r="4.3" fill="#949d98"/>
+<circle data-hole="e44" cx="790" cy="1120" r="4.3" fill="#949d98"/>
+<circle data-hole="f44" cx="850" cy="1120" r="4.3" fill="#949d98"/>
+<circle data-hole="g44" cx="870" cy="1120" r="4.3" fill="#949d98"/>
+<circle data-hole="h44" cx="890" cy="1120" r="4.3" fill="#949d98"/>
+<circle data-hole="i44" cx="910" cy="1120" r="4.3" fill="#949d98"/>
+<circle data-hole="j44" cx="930" cy="1120" r="4.3" fill="#949d98"/>
+<text x="665" y="1124" class="bb-tiny">44</text>
+<text x="966" y="1124" class="bb-tiny">44</text>
+<path d="M710 1140H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1140H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a45" cx="710" cy="1140" r="4.3" fill="#949d98"/>
+<circle data-hole="b45" cx="730" cy="1140" r="4.3" fill="#949d98"/>
+<circle data-hole="c45" cx="750" cy="1140" r="4.3" fill="#949d98"/>
+<circle data-hole="d45" cx="770" cy="1140" r="4.3" fill="#949d98"/>
+<circle data-hole="e45" cx="790" cy="1140" r="4.3" fill="#949d98"/>
+<circle data-hole="f45" cx="850" cy="1140" r="4.3" fill="#949d98"/>
+<circle data-hole="g45" cx="870" cy="1140" r="4.3" fill="#949d98"/>
+<circle data-hole="h45" cx="890" cy="1140" r="4.3" fill="#949d98"/>
+<circle data-hole="i45" cx="910" cy="1140" r="4.3" fill="#949d98"/>
+<circle data-hole="j45" cx="930" cy="1140" r="4.3" fill="#949d98"/>
+<text x="665" y="1144" class="bb-tiny">45</text>
+<text x="966" y="1144" class="bb-tiny">45</text>
+<path d="M710 1160H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1160H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a46" cx="710" cy="1160" r="4.3" fill="#949d98"/>
+<circle data-hole="b46" cx="730" cy="1160" r="4.3" fill="#949d98"/>
+<circle data-hole="c46" cx="750" cy="1160" r="4.3" fill="#949d98"/>
+<circle data-hole="d46" cx="770" cy="1160" r="4.3" fill="#949d98"/>
+<circle data-hole="e46" cx="790" cy="1160" r="4.3" fill="#949d98"/>
+<circle data-hole="f46" cx="850" cy="1160" r="4.3" fill="#949d98"/>
+<circle data-hole="g46" cx="870" cy="1160" r="4.3" fill="#949d98"/>
+<circle data-hole="h46" cx="890" cy="1160" r="4.3" fill="#949d98"/>
+<circle data-hole="i46" cx="910" cy="1160" r="4.3" fill="#949d98"/>
+<circle data-hole="j46" cx="930" cy="1160" r="4.3" fill="#949d98"/>
+<text x="665" y="1164" class="bb-tiny">46</text>
+<text x="966" y="1164" class="bb-tiny">46</text>
+<path d="M710 1180H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1180H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a47" cx="710" cy="1180" r="4.3" fill="#949d98"/>
+<circle data-hole="b47" cx="730" cy="1180" r="4.3" fill="#949d98"/>
+<circle data-hole="c47" cx="750" cy="1180" r="4.3" fill="#949d98"/>
+<circle data-hole="d47" cx="770" cy="1180" r="4.3" fill="#949d98"/>
+<circle data-hole="e47" cx="790" cy="1180" r="4.3" fill="#949d98"/>
+<circle data-hole="f47" cx="850" cy="1180" r="4.3" fill="#949d98"/>
+<circle data-hole="g47" cx="870" cy="1180" r="4.3" fill="#949d98"/>
+<circle data-hole="h47" cx="890" cy="1180" r="4.3" fill="#949d98"/>
+<circle data-hole="i47" cx="910" cy="1180" r="4.3" fill="#949d98"/>
+<circle data-hole="j47" cx="930" cy="1180" r="4.3" fill="#949d98"/>
+<text x="665" y="1184" class="bb-tiny">47</text>
+<text x="966" y="1184" class="bb-tiny">47</text>
+<path d="M710 1200H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1200H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a48" cx="710" cy="1200" r="4.3" fill="#949d98"/>
+<circle data-hole="b48" cx="730" cy="1200" r="4.3" fill="#949d98"/>
+<circle data-hole="c48" cx="750" cy="1200" r="4.3" fill="#949d98"/>
+<circle data-hole="d48" cx="770" cy="1200" r="4.3" fill="#949d98"/>
+<circle data-hole="e48" cx="790" cy="1200" r="4.3" fill="#949d98"/>
+<circle data-hole="f48" cx="850" cy="1200" r="4.3" fill="#949d98"/>
+<circle data-hole="g48" cx="870" cy="1200" r="4.3" fill="#949d98"/>
+<circle data-hole="h48" cx="890" cy="1200" r="4.3" fill="#949d98"/>
+<circle data-hole="i48" cx="910" cy="1200" r="4.3" fill="#949d98"/>
+<circle data-hole="j48" cx="930" cy="1200" r="4.3" fill="#949d98"/>
+<text x="665" y="1204" class="bb-tiny">48</text>
+<text x="966" y="1204" class="bb-tiny">48</text>
+<path d="M710 1220H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1220H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a49" cx="710" cy="1220" r="4.3" fill="#949d98"/>
+<circle data-hole="b49" cx="730" cy="1220" r="4.3" fill="#949d98"/>
+<circle data-hole="c49" cx="750" cy="1220" r="4.3" fill="#949d98"/>
+<circle data-hole="d49" cx="770" cy="1220" r="4.3" fill="#949d98"/>
+<circle data-hole="e49" cx="790" cy="1220" r="4.3" fill="#949d98"/>
+<circle data-hole="f49" cx="850" cy="1220" r="4.3" fill="#949d98"/>
+<circle data-hole="g49" cx="870" cy="1220" r="4.3" fill="#949d98"/>
+<circle data-hole="h49" cx="890" cy="1220" r="4.3" fill="#949d98"/>
+<circle data-hole="i49" cx="910" cy="1220" r="4.3" fill="#949d98"/>
+<circle data-hole="j49" cx="930" cy="1220" r="4.3" fill="#949d98"/>
+<text x="665" y="1224" class="bb-tiny">49</text>
+<text x="966" y="1224" class="bb-tiny">49</text>
+<path d="M710 1240H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1240H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a50" cx="710" cy="1240" r="4.3" fill="#949d98"/>
+<circle data-hole="b50" cx="730" cy="1240" r="4.3" fill="#949d98"/>
+<circle data-hole="c50" cx="750" cy="1240" r="4.3" fill="#949d98"/>
+<circle data-hole="d50" cx="770" cy="1240" r="4.3" fill="#949d98"/>
+<circle data-hole="e50" cx="790" cy="1240" r="4.3" fill="#949d98"/>
+<circle data-hole="f50" cx="850" cy="1240" r="4.3" fill="#949d98"/>
+<circle data-hole="g50" cx="870" cy="1240" r="4.3" fill="#949d98"/>
+<circle data-hole="h50" cx="890" cy="1240" r="4.3" fill="#949d98"/>
+<circle data-hole="i50" cx="910" cy="1240" r="4.3" fill="#949d98"/>
+<circle data-hole="j50" cx="930" cy="1240" r="4.3" fill="#949d98"/>
+<text x="665" y="1244" class="bb-tiny">50</text>
+<text x="966" y="1244" class="bb-tiny">50</text>
+<path d="M710 1260H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1260H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a51" cx="710" cy="1260" r="4.3" fill="#949d98"/>
+<circle data-hole="b51" cx="730" cy="1260" r="4.3" fill="#949d98"/>
+<circle data-hole="c51" cx="750" cy="1260" r="4.3" fill="#949d98"/>
+<circle data-hole="d51" cx="770" cy="1260" r="4.3" fill="#949d98"/>
+<circle data-hole="e51" cx="790" cy="1260" r="4.3" fill="#949d98"/>
+<circle data-hole="f51" cx="850" cy="1260" r="4.3" fill="#949d98"/>
+<circle data-hole="g51" cx="870" cy="1260" r="4.3" fill="#949d98"/>
+<circle data-hole="h51" cx="890" cy="1260" r="4.3" fill="#949d98"/>
+<circle data-hole="i51" cx="910" cy="1260" r="4.3" fill="#949d98"/>
+<circle data-hole="j51" cx="930" cy="1260" r="4.3" fill="#949d98"/>
+<text x="665" y="1264" class="bb-tiny">51</text>
+<text x="966" y="1264" class="bb-tiny">51</text>
+<path d="M710 1280H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1280H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a52" cx="710" cy="1280" r="4.3" fill="#949d98"/>
+<circle data-hole="b52" cx="730" cy="1280" r="4.3" fill="#949d98"/>
+<circle data-hole="c52" cx="750" cy="1280" r="4.3" fill="#949d98"/>
+<circle data-hole="d52" cx="770" cy="1280" r="4.3" fill="#949d98"/>
+<circle data-hole="e52" cx="790" cy="1280" r="4.3" fill="#949d98"/>
+<circle data-hole="f52" cx="850" cy="1280" r="4.3" fill="#949d98"/>
+<circle data-hole="g52" cx="870" cy="1280" r="4.3" fill="#949d98"/>
+<circle data-hole="h52" cx="890" cy="1280" r="4.3" fill="#949d98"/>
+<circle data-hole="i52" cx="910" cy="1280" r="4.3" fill="#949d98"/>
+<circle data-hole="j52" cx="930" cy="1280" r="4.3" fill="#949d98"/>
+<text x="665" y="1284" class="bb-tiny">52</text>
+<text x="966" y="1284" class="bb-tiny">52</text>
+<path d="M710 1300H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1300H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a53" cx="710" cy="1300" r="4.3" fill="#949d98"/>
+<circle data-hole="b53" cx="730" cy="1300" r="4.3" fill="#949d98"/>
+<circle data-hole="c53" cx="750" cy="1300" r="4.3" fill="#949d98"/>
+<circle data-hole="d53" cx="770" cy="1300" r="4.3" fill="#949d98"/>
+<circle data-hole="e53" cx="790" cy="1300" r="4.3" fill="#949d98"/>
+<circle data-hole="f53" cx="850" cy="1300" r="4.3" fill="#949d98"/>
+<circle data-hole="g53" cx="870" cy="1300" r="4.3" fill="#949d98"/>
+<circle data-hole="h53" cx="890" cy="1300" r="4.3" fill="#949d98"/>
+<circle data-hole="i53" cx="910" cy="1300" r="4.3" fill="#949d98"/>
+<circle data-hole="j53" cx="930" cy="1300" r="4.3" fill="#949d98"/>
+<text x="665" y="1304" class="bb-tiny">53</text>
+<text x="966" y="1304" class="bb-tiny">53</text>
+<path d="M710 1320H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1320H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a54" cx="710" cy="1320" r="4.3" fill="#949d98"/>
+<circle data-hole="b54" cx="730" cy="1320" r="4.3" fill="#949d98"/>
+<circle data-hole="c54" cx="750" cy="1320" r="4.3" fill="#949d98"/>
+<circle data-hole="d54" cx="770" cy="1320" r="4.3" fill="#949d98"/>
+<circle data-hole="e54" cx="790" cy="1320" r="4.3" fill="#949d98"/>
+<circle data-hole="f54" cx="850" cy="1320" r="4.3" fill="#949d98"/>
+<circle data-hole="g54" cx="870" cy="1320" r="4.3" fill="#949d98"/>
+<circle data-hole="h54" cx="890" cy="1320" r="4.3" fill="#949d98"/>
+<circle data-hole="i54" cx="910" cy="1320" r="4.3" fill="#949d98"/>
+<circle data-hole="j54" cx="930" cy="1320" r="4.3" fill="#949d98"/>
+<text x="665" y="1324" class="bb-tiny">54</text>
+<text x="966" y="1324" class="bb-tiny">54</text>
+<path d="M710 1340H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1340H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a55" cx="710" cy="1340" r="4.3" fill="#949d98"/>
+<circle data-hole="b55" cx="730" cy="1340" r="4.3" fill="#949d98"/>
+<circle data-hole="c55" cx="750" cy="1340" r="4.3" fill="#949d98"/>
+<circle data-hole="d55" cx="770" cy="1340" r="4.3" fill="#949d98"/>
+<circle data-hole="e55" cx="790" cy="1340" r="4.3" fill="#949d98"/>
+<circle data-hole="f55" cx="850" cy="1340" r="4.3" fill="#949d98"/>
+<circle data-hole="g55" cx="870" cy="1340" r="4.3" fill="#949d98"/>
+<circle data-hole="h55" cx="890" cy="1340" r="4.3" fill="#949d98"/>
+<circle data-hole="i55" cx="910" cy="1340" r="4.3" fill="#949d98"/>
+<circle data-hole="j55" cx="930" cy="1340" r="4.3" fill="#949d98"/>
+<text x="665" y="1344" class="bb-tiny">55</text>
+<text x="966" y="1344" class="bb-tiny">55</text>
+<path d="M710 1360H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1360H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a56" cx="710" cy="1360" r="4.3" fill="#949d98"/>
+<circle data-hole="b56" cx="730" cy="1360" r="4.3" fill="#949d98"/>
+<circle data-hole="c56" cx="750" cy="1360" r="4.3" fill="#949d98"/>
+<circle data-hole="d56" cx="770" cy="1360" r="4.3" fill="#949d98"/>
+<circle data-hole="e56" cx="790" cy="1360" r="4.3" fill="#949d98"/>
+<circle data-hole="f56" cx="850" cy="1360" r="4.3" fill="#949d98"/>
+<circle data-hole="g56" cx="870" cy="1360" r="4.3" fill="#949d98"/>
+<circle data-hole="h56" cx="890" cy="1360" r="4.3" fill="#949d98"/>
+<circle data-hole="i56" cx="910" cy="1360" r="4.3" fill="#949d98"/>
+<circle data-hole="j56" cx="930" cy="1360" r="4.3" fill="#949d98"/>
+<text x="665" y="1364" class="bb-tiny">56</text>
+<text x="966" y="1364" class="bb-tiny">56</text>
+<path d="M710 1380H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1380H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a57" cx="710" cy="1380" r="4.3" fill="#949d98"/>
+<circle data-hole="b57" cx="730" cy="1380" r="4.3" fill="#949d98"/>
+<circle data-hole="c57" cx="750" cy="1380" r="4.3" fill="#949d98"/>
+<circle data-hole="d57" cx="770" cy="1380" r="4.3" fill="#949d98"/>
+<circle data-hole="e57" cx="790" cy="1380" r="4.3" fill="#949d98"/>
+<circle data-hole="f57" cx="850" cy="1380" r="4.3" fill="#949d98"/>
+<circle data-hole="g57" cx="870" cy="1380" r="4.3" fill="#949d98"/>
+<circle data-hole="h57" cx="890" cy="1380" r="4.3" fill="#949d98"/>
+<circle data-hole="i57" cx="910" cy="1380" r="4.3" fill="#949d98"/>
+<circle data-hole="j57" cx="930" cy="1380" r="4.3" fill="#949d98"/>
+<text x="665" y="1384" class="bb-tiny">57</text>
+<text x="966" y="1384" class="bb-tiny">57</text>
+<path d="M710 1400H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1400H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a58" cx="710" cy="1400" r="4.3" fill="#949d98"/>
+<circle data-hole="b58" cx="730" cy="1400" r="4.3" fill="#949d98"/>
+<circle data-hole="c58" cx="750" cy="1400" r="4.3" fill="#949d98"/>
+<circle data-hole="d58" cx="770" cy="1400" r="4.3" fill="#949d98"/>
+<circle data-hole="e58" cx="790" cy="1400" r="4.3" fill="#949d98"/>
+<circle data-hole="f58" cx="850" cy="1400" r="4.3" fill="#949d98"/>
+<circle data-hole="g58" cx="870" cy="1400" r="4.3" fill="#949d98"/>
+<circle data-hole="h58" cx="890" cy="1400" r="4.3" fill="#949d98"/>
+<circle data-hole="i58" cx="910" cy="1400" r="4.3" fill="#949d98"/>
+<circle data-hole="j58" cx="930" cy="1400" r="4.3" fill="#949d98"/>
+<text x="665" y="1404" class="bb-tiny">58</text>
+<text x="966" y="1404" class="bb-tiny">58</text>
+<path d="M710 1420H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1420H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a59" cx="710" cy="1420" r="4.3" fill="#949d98"/>
+<circle data-hole="b59" cx="730" cy="1420" r="4.3" fill="#949d98"/>
+<circle data-hole="c59" cx="750" cy="1420" r="4.3" fill="#949d98"/>
+<circle data-hole="d59" cx="770" cy="1420" r="4.3" fill="#949d98"/>
+<circle data-hole="e59" cx="790" cy="1420" r="4.3" fill="#949d98"/>
+<circle data-hole="f59" cx="850" cy="1420" r="4.3" fill="#949d98"/>
+<circle data-hole="g59" cx="870" cy="1420" r="4.3" fill="#949d98"/>
+<circle data-hole="h59" cx="890" cy="1420" r="4.3" fill="#949d98"/>
+<circle data-hole="i59" cx="910" cy="1420" r="4.3" fill="#949d98"/>
+<circle data-hole="j59" cx="930" cy="1420" r="4.3" fill="#949d98"/>
+<text x="665" y="1424" class="bb-tiny">59</text>
+<text x="966" y="1424" class="bb-tiny">59</text>
+<path d="M710 1440H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1440H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a60" cx="710" cy="1440" r="4.3" fill="#949d98"/>
+<circle data-hole="b60" cx="730" cy="1440" r="4.3" fill="#949d98"/>
+<circle data-hole="c60" cx="750" cy="1440" r="4.3" fill="#949d98"/>
+<circle data-hole="d60" cx="770" cy="1440" r="4.3" fill="#949d98"/>
+<circle data-hole="e60" cx="790" cy="1440" r="4.3" fill="#949d98"/>
+<circle data-hole="f60" cx="850" cy="1440" r="4.3" fill="#949d98"/>
+<circle data-hole="g60" cx="870" cy="1440" r="4.3" fill="#949d98"/>
+<circle data-hole="h60" cx="890" cy="1440" r="4.3" fill="#949d98"/>
+<circle data-hole="i60" cx="910" cy="1440" r="4.3" fill="#949d98"/>
+<circle data-hole="j60" cx="930" cy="1440" r="4.3" fill="#949d98"/>
+<text x="665" y="1444" class="bb-tiny">60</text>
+<text x="966" y="1444" class="bb-tiny">60</text>
+<path d="M710 1460H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1460H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a61" cx="710" cy="1460" r="4.3" fill="#949d98"/>
+<circle data-hole="b61" cx="730" cy="1460" r="4.3" fill="#949d98"/>
+<circle data-hole="c61" cx="750" cy="1460" r="4.3" fill="#949d98"/>
+<circle data-hole="d61" cx="770" cy="1460" r="4.3" fill="#949d98"/>
+<circle data-hole="e61" cx="790" cy="1460" r="4.3" fill="#949d98"/>
+<circle data-hole="f61" cx="850" cy="1460" r="4.3" fill="#949d98"/>
+<circle data-hole="g61" cx="870" cy="1460" r="4.3" fill="#949d98"/>
+<circle data-hole="h61" cx="890" cy="1460" r="4.3" fill="#949d98"/>
+<circle data-hole="i61" cx="910" cy="1460" r="4.3" fill="#949d98"/>
+<circle data-hole="j61" cx="930" cy="1460" r="4.3" fill="#949d98"/>
+<text x="665" y="1464" class="bb-tiny">61</text>
+<text x="966" y="1464" class="bb-tiny">61</text>
+<path d="M710 1480H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1480H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a62" cx="710" cy="1480" r="4.3" fill="#949d98"/>
+<circle data-hole="b62" cx="730" cy="1480" r="4.3" fill="#949d98"/>
+<circle data-hole="c62" cx="750" cy="1480" r="4.3" fill="#949d98"/>
+<circle data-hole="d62" cx="770" cy="1480" r="4.3" fill="#949d98"/>
+<circle data-hole="e62" cx="790" cy="1480" r="4.3" fill="#949d98"/>
+<circle data-hole="f62" cx="850" cy="1480" r="4.3" fill="#949d98"/>
+<circle data-hole="g62" cx="870" cy="1480" r="4.3" fill="#949d98"/>
+<circle data-hole="h62" cx="890" cy="1480" r="4.3" fill="#949d98"/>
+<circle data-hole="i62" cx="910" cy="1480" r="4.3" fill="#949d98"/>
+<circle data-hole="j62" cx="930" cy="1480" r="4.3" fill="#949d98"/>
+<text x="665" y="1484" class="bb-tiny">62</text>
+<text x="966" y="1484" class="bb-tiny">62</text>
+<path d="M710 1500H790" stroke="#e4e7df" stroke-width="10"/>
+<path d="M850 1500H930" stroke="#e4e7df" stroke-width="10"/>
+<circle data-hole="a63" cx="710" cy="1500" r="4.3" fill="#949d98"/>
+<circle data-hole="b63" cx="730" cy="1500" r="4.3" fill="#949d98"/>
+<circle data-hole="c63" cx="750" cy="1500" r="4.3" fill="#949d98"/>
+<circle data-hole="d63" cx="770" cy="1500" r="4.3" fill="#949d98"/>
+<circle data-hole="e63" cx="790" cy="1500" r="4.3" fill="#949d98"/>
+<circle data-hole="f63" cx="850" cy="1500" r="4.3" fill="#949d98"/>
+<circle data-hole="g63" cx="870" cy="1500" r="4.3" fill="#949d98"/>
+<circle data-hole="h63" cx="890" cy="1500" r="4.3" fill="#949d98"/>
+<circle data-hole="i63" cx="910" cy="1500" r="4.3" fill="#949d98"/>
+<circle data-hole="j63" cx="930" cy="1500" r="4.3" fill="#949d98"/>
+<text x="665" y="1504" class="bb-tiny">63</text>
+<text x="966" y="1504" class="bb-tiny">63</text>
+<g data-bb-step="2" data-bb-item="J1">
+<path d="M730,940L1095,940L1095,320L930,320" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:10px"/>
+<path d="M730,940L1095,940L1095,320L930,320" class="bb-jumper" stroke="#8454b5" style="stroke-width:5px"/>
+<circle data-bb-endpoint="b35" cx="730" cy="940" r="5" fill="#8454b5" stroke="#fff"/>
+<circle data-bb-endpoint="j4" cx="930" cy="320" r="5" fill="#8454b5" stroke="#fff"/>
+<rect x="1098" y="613.0" width="28" height="23" rx="4" fill="#fff" stroke="#8454b5"/>
+<text x="1103" y="630.0" class="bb-small" style="fill:#8454b5">J1</text>
+</g>
+<g data-bb-step="2" data-bb-item="J2">
+<path d="M750,1240L1125,1240L1125,340L930,340" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:10px"/>
+<path d="M750,1240L1125,1240L1125,340L930,340" class="bb-jumper" stroke="#344858" style="stroke-width:5px"/>
+<circle data-bb-endpoint="c50" cx="750" cy="1240" r="5" fill="#344858" stroke="#fff"/>
+<circle data-bb-endpoint="j5" cx="930" cy="340" r="5" fill="#344858" stroke="#fff"/>
+<rect x="1128" y="773.0" width="28" height="23" rx="4" fill="#fff" stroke="#344858"/>
+<text x="1133" y="790.0" class="bb-small" style="fill:#344858">J2</text>
+</g>
+<g data-bb-step="4" data-bb-item="J3">
+<path d="M730,680L555,680L555,1340L730,1340" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:10px"/>
+<path d="M730,680L555,680L555,1340L730,1340" class="bb-jumper" stroke="#b18b08" style="stroke-width:5px"/>
+<circle data-bb-endpoint="b22" cx="730" cy="680" r="5" fill="#b18b08" stroke="#fff"/>
+<circle data-bb-endpoint="b55" cx="730" cy="1340" r="5" fill="#b18b08" stroke="#fff"/>
+<rect x="558" y="993.0" width="28" height="23" rx="4" fill="#fff" stroke="#b18b08"/>
+<text x="563" y="1010.0" class="bb-small" style="fill:#b18b08">J3</text>
+</g>
+<g data-bb-step="4" data-bb-item="J4">
+<path d="M930,680L1160,680L1160,840L930,840" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:10px"/>
+<path d="M930,680L1160,680L1160,840L930,840" class="bb-jumper" stroke="#257bbe" style="stroke-width:5px"/>
+<circle data-bb-endpoint="j22" cx="930" cy="680" r="5" fill="#257bbe" stroke="#fff"/>
+<circle data-bb-endpoint="j30" cx="930" cy="840" r="5" fill="#257bbe" stroke="#fff"/>
+<rect x="1163" y="743.0" width="28" height="23" rx="4" fill="#fff" stroke="#257bbe"/>
+<text x="1168" y="760.0" class="bb-small" style="fill:#257bbe">J4</text>
+</g>
+<g data-bb-step="5" data-bb-item="J5">
+<path d="M930,660L1190,660L1190,1040L930,1040" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:10px"/>
+<path d="M930,660L1190,660L1190,1040L930,1040" class="bb-jumper" stroke="#b05199" style="stroke-width:5px"/>
+<circle data-bb-endpoint="j21" cx="930" cy="660" r="5" fill="#b05199" stroke="#fff"/>
+<circle data-bb-endpoint="j40" cx="930" cy="1040" r="5" fill="#b05199" stroke="#fff"/>
+<rect x="1193" y="833.0" width="28" height="23" rx="4" fill="#fff" stroke="#b05199"/>
+<text x="1198" y="850.0" class="bb-small" style="fill:#b05199">J5</text>
+</g>
+<g data-bb-step="3" data-bb-item="J6">
+<path d="M770,1140L1220,1140L1220,480L930,480" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:10px"/>
+<path d="M770,1140L1220,1140L1220,480L930,480" class="bb-jumper" stroke="#008582" style="stroke-width:5px"/>
+<circle data-bb-endpoint="d45" cx="770" cy="1140" r="5" fill="#008582" stroke="#fff"/>
+<circle data-bb-endpoint="j12" cx="930" cy="480" r="5" fill="#008582" stroke="#fff"/>
+<rect x="1223" y="793.0" width="28" height="23" rx="4" fill="#fff" stroke="#008582"/>
+<text x="1228" y="810.0" class="bb-small" style="fill:#008582">J6</text>
+</g>
+<g data-bb-step="3" data-bb-item="J7">
+<path d="M770,1160L778,1160L778,1240L770,1240" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:10px"/>
+<path d="M770,1160L778,1160L778,1240L770,1240" class="bb-jumper" stroke="#344858" style="stroke-width:5px"/>
+<circle data-bb-endpoint="d46" cx="770" cy="1160" r="5" fill="#344858" stroke="#fff"/>
+<circle data-bb-endpoint="d50" cx="770" cy="1240" r="5" fill="#344858" stroke="#fff"/>
+<rect x="781" y="1183.0" width="28" height="23" rx="4" fill="#fff" stroke="#344858"/>
+<text x="786" y="1200.0" class="bb-small" style="fill:#344858">J7</text>
+</g>
+<g data-bb-step="4" data-bb-item="J8">
+<path d="M730,1440L680,1440L680,1240L790,1240" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:10px"/>
+<path d="M730,1440L680,1440L680,1240L790,1240" class="bb-jumper" stroke="#344858" style="stroke-width:5px"/>
+<circle data-bb-endpoint="b60" cx="730" cy="1440" r="5" fill="#344858" stroke="#fff"/>
+<circle data-bb-endpoint="e50" cx="790" cy="1240" r="5" fill="#344858" stroke="#fff"/>
+<rect x="683" y="1323.0" width="28" height="23" rx="4" fill="#fff" stroke="#344858"/>
+<text x="688" y="1340.0" class="bb-small" style="fill:#344858">J8</text>
+</g>
+<g data-bb-step="1" data-bb-item="PICO">
+<rect x="737" y="286" width="166" height="406" rx="5" fill="#247756" stroke="#175540"/>
+<rect x="791" y="268" width="58" height="31" rx="3" fill="#c9d0d0" stroke="#b9c8ca"/>
+<text x="788" y="316" class="bb-small" style="fill:#fff">USB ↑</text>
+<rect x="797" y="405" width="47" height="59" rx="2" fill="#313c3a" stroke="#b9c8ca"/>
+<text x="789" y="493" class="bb-small" style="fill:#fff">PICO W</text>
+<text x="780" y="522" class="bb-tiny" style="fill:#fff">HEADERS</text>
+<text x="783" y="543" class="bb-tiny" style="fill:#fff">INSTALLED</text>
+<rect x="746" y="296" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="886" y="296" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<text x="842" y="304" class="bb-pin" style="fill:#fff">VBUS</text>
+<rect x="746" y="316" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="886" y="316" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<text x="842" y="324" class="bb-pin" style="fill:#fff">VSYS</text>
+<rect x="746" y="336" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="886" y="336" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<text x="842" y="344" class="bb-pin" style="fill:#fff">GND</text>
+<rect x="746" y="356" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="886" y="356" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="746" y="376" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="886" y="376" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="746" y="396" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="886" y="396" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="746" y="416" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="886" y="416" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="746" y="436" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="886" y="436" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="746" y="456" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="886" y="456" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="746" y="476" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="886" y="476" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<text x="842" y="484" class="bb-pin" style="fill:#fff">GP26</text>
+<rect x="746" y="496" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="886" y="496" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="746" y="516" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="886" y="516" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="746" y="536" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="886" y="536" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="746" y="556" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="886" y="556" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="746" y="576" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="886" y="576" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="746" y="596" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="886" y="596" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="746" y="616" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="886" y="616" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="746" y="636" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="886" y="636" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="746" y="656" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<rect x="886" y="656" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<text x="842" y="664" class="bb-pin" style="fill:#fff">GP17</text>
+<rect x="746" y="676" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<text x="759" y="684" class="bb-pin" style="fill:#fff">GP15</text>
+<rect x="886" y="676" width="8" height="8" rx="0" fill="#d8c27a" stroke="#b9c8ca"/>
+<text x="842" y="684" class="bb-pin" style="fill:#fff">GP16</text>
+<text x="752" y="281" class="bb-tiny">pin 1</text>
+<text x="872" y="281" class="bb-tiny">40</text>
+</g>
+<g data-bb-step="2" data-bb-item="D1">
+<path d="M710,840L710,940" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:8px"/>
+<path d="M710,840L710,940" class="bb-jumper" stroke="#8d928a" style="stroke-width:3px"/>
+<rect x="702" y="868" width="16" height="44" rx="3" fill="#303841" stroke="#b9c8ca"/>
+<rect x="702" y="901" width="16" height="7" rx="0" fill="#cbd3d9" stroke="#b9c8ca"/>
+<circle data-bb-endpoint="a30" cx="710" cy="840" r="5" fill="#6c6358" stroke="#fff"/>
+<circle data-bb-endpoint="a35" cx="710" cy="940" r="5" fill="#6c6358" stroke="#fff"/>
+<rect x="455" y="873.0" width="28" height="23" rx="4" fill="#fff" stroke="#384d4d"/>
+<text x="460" y="890.0" class="bb-small" style="fill:#384d4d">D1</text>
+</g>
+<g data-bb-step="3" data-bb-item="R_TOP">
+<path d="M710,1040L710,1140" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:8px"/>
+<path d="M710,1040L710,1140" class="bb-jumper" stroke="#8d928a" style="stroke-width:3px"/>
+<rect x="703" y="1069" width="14" height="42" rx="4" fill="#d6c79f" stroke="#b9c8ca"/>
+<rect x="703" y="1074" width="14" height="3" rx="0" fill="#78432b" stroke="#b9c8ca"/>
+<rect x="703" y="1081" width="14" height="3" rx="0" fill="#111" stroke="#b9c8ca"/>
+<rect x="703" y="1088" width="14" height="3" rx="0" fill="#111" stroke="#b9c8ca"/>
+<rect x="703" y="1095" width="14" height="3" rx="0" fill="#e47921" stroke="#b9c8ca"/>
+<rect x="703" y="1105" width="14" height="3" rx="0" fill="#78432b" stroke="#b9c8ca"/>
+<circle data-bb-endpoint="a40" cx="710" cy="1040" r="5" fill="#6c6358" stroke="#fff"/>
+<circle data-bb-endpoint="a45" cx="710" cy="1140" r="5" fill="#6c6358" stroke="#fff"/>
+<rect x="455" y="1073.0" width="55" height="23" rx="4" fill="#fff" stroke="#384d4d"/>
+<text x="460" y="1090.0" class="bb-small" style="fill:#384d4d">R_TOP</text>
+</g>
+<g data-bb-step="3" data-bb-item="R_BOTTOM">
+<path d="M730,1140L730,1240" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:8px"/>
+<path d="M730,1140L730,1240" class="bb-jumper" stroke="#8d928a" style="stroke-width:3px"/>
+<rect x="723" y="1169" width="14" height="42" rx="4" fill="#d6c79f" stroke="#b9c8ca"/>
+<rect x="723" y="1174" width="14" height="3" rx="0" fill="#efcd3c" stroke="#b9c8ca"/>
+<rect x="723" y="1181" width="14" height="3" rx="0" fill="#8646a0" stroke="#b9c8ca"/>
+<rect x="723" y="1188" width="14" height="3" rx="0" fill="#111" stroke="#b9c8ca"/>
+<rect x="723" y="1195" width="14" height="3" rx="0" fill="#b83228" stroke="#b9c8ca"/>
+<rect x="723" y="1205" width="14" height="3" rx="0" fill="#78432b" stroke="#b9c8ca"/>
+<circle data-bb-endpoint="b45" cx="730" cy="1140" r="5" fill="#6c6358" stroke="#fff"/>
+<circle data-bb-endpoint="b50" cx="730" cy="1240" r="5" fill="#6c6358" stroke="#fff"/>
+<rect x="460" y="1191.0" width="82" height="23" rx="4" fill="#fff" stroke="#384d4d"/>
+<text x="465" y="1208.0" class="bb-small" style="fill:#384d4d">R_BOTTOM</text>
+</g>
+<g data-bb-step="3" data-bb-item="C_ADC">
+<path d="M790,1140L790,1160" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:8px"/>
+<path d="M790,1140L790,1160" class="bb-jumper" stroke="#8d928a" style="stroke-width:3px"/>
+<ellipse cx="803" cy="1150.0" rx="13" ry="9" fill="#d89936" stroke="#8f5b18"/>
+<circle data-bb-endpoint="e45" cx="790" cy="1140" r="5" fill="#6c6358" stroke="#fff"/>
+<circle data-bb-endpoint="e46" cx="790" cy="1160" r="5" fill="#6c6358" stroke="#fff"/>
+<rect x="796" y="1111" width="55" height="23" rx="4" fill="#fff" stroke="#384d4d"/>
+<text x="801" y="1128" class="bb-small" style="fill:#384d4d">C_ADC</text>
+</g>
+<g data-bb-step="4" data-bb-item="R_EN">
+<path d="M710,1340L710,1440" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:8px"/>
+<path d="M710,1340L710,1440" class="bb-jumper" stroke="#8d928a" style="stroke-width:3px"/>
+<rect x="703" y="1369" width="14" height="42" rx="4" fill="#d6c79f" stroke="#b9c8ca"/>
+<rect x="703" y="1374" width="14" height="3" rx="0" fill="#78432b" stroke="#b9c8ca"/>
+<rect x="703" y="1381" width="14" height="3" rx="0" fill="#111" stroke="#b9c8ca"/>
+<rect x="703" y="1388" width="14" height="3" rx="0" fill="#111" stroke="#b9c8ca"/>
+<rect x="703" y="1395" width="14" height="3" rx="0" fill="#e47921" stroke="#b9c8ca"/>
+<rect x="703" y="1405" width="14" height="3" rx="0" fill="#78432b" stroke="#b9c8ca"/>
+<circle data-bb-endpoint="a55" cx="710" cy="1340" r="5" fill="#6c6358" stroke="#fff"/>
+<circle data-bb-endpoint="a60" cx="710" cy="1440" r="5" fill="#6c6358" stroke="#fff"/>
+<rect x="455" y="1373.0" width="46" height="23" rx="4" fill="#fff" stroke="#384d4d"/>
+<text x="460" y="1390.0" class="bb-small" style="fill:#384d4d">R_EN</text>
+</g>
+<g data-bb-step="4" data-bb-item="R_PWM0">
+<path d="M850,840L850,940" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:8px"/>
+<path d="M850,840L850,940" class="bb-jumper" stroke="#8d928a" style="stroke-width:3px"/>
+<rect x="843" y="869" width="14" height="42" rx="4" fill="#d6c79f" stroke="#b9c8ca"/>
+<rect x="843" y="874" width="14" height="3" rx="0" fill="#78432b" stroke="#b9c8ca"/>
+<rect x="843" y="881" width="14" height="3" rx="0" fill="#111" stroke="#b9c8ca"/>
+<rect x="843" y="888" width="14" height="3" rx="0" fill="#111" stroke="#b9c8ca"/>
+<rect x="843" y="895" width="14" height="3" rx="0" fill="#78432b" stroke="#b9c8ca"/>
+<rect x="843" y="905" width="14" height="3" rx="0" fill="#78432b" stroke="#b9c8ca"/>
+<circle data-bb-endpoint="f30" cx="850" cy="840" r="5" fill="#6c6358" stroke="#fff"/>
+<circle data-bb-endpoint="f35" cx="850" cy="940" r="5" fill="#6c6358" stroke="#fff"/>
+<rect x="933" y="880.0" width="64" height="23" rx="4" fill="#fff" stroke="#384d4d"/>
+<text x="938" y="897.0" class="bb-small" style="fill:#384d4d">R_PWM0</text>
+</g>
+<g data-bb-step="5" data-bb-item="R_PWM1">
+<path d="M850,1040L850,1140" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:8px"/>
+<path d="M850,1040L850,1140" class="bb-jumper" stroke="#8d928a" style="stroke-width:3px"/>
+<rect x="843" y="1069" width="14" height="42" rx="4" fill="#d6c79f" stroke="#b9c8ca"/>
+<rect x="843" y="1074" width="14" height="3" rx="0" fill="#78432b" stroke="#b9c8ca"/>
+<rect x="843" y="1081" width="14" height="3" rx="0" fill="#111" stroke="#b9c8ca"/>
+<rect x="843" y="1088" width="14" height="3" rx="0" fill="#111" stroke="#b9c8ca"/>
+<rect x="843" y="1095" width="14" height="3" rx="0" fill="#78432b" stroke="#b9c8ca"/>
+<rect x="843" y="1105" width="14" height="3" rx="0" fill="#78432b" stroke="#b9c8ca"/>
+<circle data-bb-endpoint="f40" cx="850" cy="1040" r="5" fill="#6c6358" stroke="#fff"/>
+<circle data-bb-endpoint="f45" cx="850" cy="1140" r="5" fill="#6c6358" stroke="#fff"/>
+<rect x="933" y="1080.0" width="64" height="23" rx="4" fill="#fff" stroke="#384d4d"/>
+<text x="938" y="1097.0" class="bb-small" style="fill:#384d4d">R_PWM1</text>
+</g>
+<g data-bb-step="2" data-bb-item="L1">
+<path d="M730,840L525,840L525,180L1305,180L1305,330L1370,330" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:9px"/>
+<path d="M730,840L525,840L525,180L1305,180L1305,330L1370,330" class="bb-jumper" stroke="#ca4225" style="stroke-width:4px"/>
+<circle data-bb-endpoint="b30" cx="730" cy="840" r="5" fill="#ca4225" stroke="#fff"/>
+<circle cx="1370" cy="330" r="5" fill="#ca4225" stroke="#fff"/>
+<rect x="1330" y="300" width="28" height="23" rx="4" fill="#fff" stroke="#ca4225"/>
+<text x="1335" y="317" class="bb-small" style="fill:#ca4225">L1</text>
+</g>
+<g data-bb-step="2" data-bb-item="L2">
+<path d="M710,1240L535,1240L535,1595L1330,1595L1330,1480L1370,1480" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:9px"/>
+<path d="M710,1240L535,1240L535,1595L1330,1595L1330,1480L1370,1480" class="bb-jumper" stroke="#344858" style="stroke-width:4px"/>
+<circle data-bb-endpoint="a50" cx="710" cy="1240" r="5" fill="#344858" stroke="#fff"/>
+<circle cx="1370" cy="1480" r="5" fill="#344858" stroke="#fff"/>
+<rect x="1330" y="1450" width="28" height="23" rx="4" fill="#fff" stroke="#344858"/>
+<text x="1335" y="1467" class="bb-small" style="fill:#344858">L2</text>
+</g>
+<g data-bb-step="3" data-bb-item="L3">
+<path d="M730,1040L545,1040L545,195L1305,195L1305,430L1370,430" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:9px"/>
+<path d="M730,1040L545,1040L545,195L1305,195L1305,430L1370,430" class="bb-jumper" stroke="#b37316" style="stroke-width:4px"/>
+<circle data-bb-endpoint="b40" cx="730" cy="1040" r="5" fill="#b37316" stroke="#fff"/>
+<circle cx="1370" cy="430" r="5" fill="#b37316" stroke="#fff"/>
+<rect x="1330" y="400" width="28" height="23" rx="4" fill="#fff" stroke="#b37316"/>
+<text x="1335" y="417" class="bb-small" style="fill:#b37316">L3</text>
+</g>
+<g data-bb-step="4" data-bb-item="L4">
+<path d="M750,1340L565,1340L565,1625L1310,1625L1310,660L1370,660" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:9px"/>
+<path d="M750,1340L565,1340L565,1625L1310,1625L1310,660L1370,660" class="bb-jumper" stroke="#b18b08" style="stroke-width:4px"/>
+<circle data-bb-endpoint="c55" cx="750" cy="1340" r="5" fill="#b18b08" stroke="#fff"/>
+<circle cx="1370" cy="660" r="5" fill="#b18b08" stroke="#fff"/>
+<rect x="1330" y="630" width="28" height="23" rx="4" fill="#fff" stroke="#b18b08"/>
+<text x="1335" y="647" class="bb-small" style="fill:#b18b08">L4</text>
+</g>
+<g data-bb-step="4" data-bb-item="L5">
+<path d="M930,940L1250,940L1250,880L1370,880" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:9px"/>
+<path d="M930,940L1250,940L1250,880L1370,880" class="bb-jumper" stroke="#257bbe" style="stroke-width:4px"/>
+<circle data-bb-endpoint="j35" cx="930" cy="940" r="5" fill="#257bbe" stroke="#fff"/>
+<circle cx="1370" cy="880" r="5" fill="#257bbe" stroke="#fff"/>
+<rect x="1330" y="850" width="28" height="23" rx="4" fill="#fff" stroke="#257bbe"/>
+<text x="1335" y="867" class="bb-small" style="fill:#257bbe">L5</text>
+</g>
+<g data-bb-step="5" data-bb-item="L6">
+<path d="M930,1140L1280,1140L1280,1080L1370,1080" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:9px"/>
+<path d="M930,1140L1280,1140L1280,1080L1370,1080" class="bb-jumper" stroke="#b05199" style="stroke-width:4px"/>
+<circle data-bb-endpoint="j45" cx="930" cy="1140" r="5" fill="#b05199" stroke="#fff"/>
+<circle cx="1370" cy="1080" r="5" fill="#b05199" stroke="#fff"/>
+<rect x="1330" y="1050" width="28" height="23" rx="4" fill="#fff" stroke="#b05199"/>
+<text x="1335" y="1067" class="bb-small" style="fill:#b05199">L6</text>
+</g>
+<rect x="1350" y="220" width="760" height="1320" rx="12" fill="#fffdf8" stroke="#b9c8ca"/>
+<text x="1372" y="257" class="bb-label">BESIDE THE BREADBOARD</text>
+<text x="1372" y="286" class="bb-small">Existing power harness · follow board silkscreen</text>
+<circle cx="1370" cy="330" r="5" fill="#ca4225" stroke="#fff"/>
+<text x="1384" y="328" class="bb-label" style="fill:#ca4225">L1 · 5V</text>
+<text x="1384" y="352" class="bb-small" style="fill:#ca4225">Breadboard b30</text>
+<circle cx="1370" cy="1480" r="5" fill="#344858" stroke="#fff"/>
+<text x="1384" y="1478" class="bb-label" style="fill:#344858">L2 · GND</text>
+<text x="1384" y="1502" class="bb-small" style="fill:#344858">Breadboard a50</text>
+<circle cx="1370" cy="430" r="5" fill="#b37316" stroke="#fff"/>
+<text x="1384" y="428" class="bb-label" style="fill:#b37316">L3 · PACK_SW</text>
+<text x="1384" y="452" class="bb-small" style="fill:#b37316">Breadboard b40</text>
+<circle cx="1370" cy="660" r="5" fill="#b18b08" stroke="#fff"/>
+<text x="1384" y="658" class="bb-label" style="fill:#b18b08">L4 · SERVO_ENABLE</text>
+<text x="1384" y="682" class="bb-small" style="fill:#b18b08">Breadboard c55</text>
+<circle cx="1370" cy="880" r="5" fill="#257bbe" stroke="#fff"/>
+<text x="1384" y="878" class="bb-label" style="fill:#257bbe">L5 · PWM0</text>
+<text x="1384" y="902" class="bb-small" style="fill:#257bbe">Breadboard j35</text>
+<circle cx="1370" cy="1080" r="5" fill="#b05199" stroke="#fff"/>
+<text x="1384" y="1078" class="bb-label" style="fill:#b05199">L6 · PWM1</text>
+<text x="1384" y="1102" class="bb-small" style="fill:#b05199">Breadboard j45</text>
+<rect x="1600" y="320" width="460" height="100" rx="8" fill="#fff1e5" stroke="#b9c8ca"/>
+<text x="1615" y="348" class="bb-label">Battery → fuse → RCY → MASTER</text>
+<text x="1615" y="380" class="bb-small">Master VIN receives fused battery positive.</text>
+<rect x="1600" y="470" width="460" height="100" rx="8" fill="#fff1e5" stroke="#b9c8ca"/>
+<text x="1615" y="498" class="bb-label">REGULATOR · Pololu 2574</text>
+<text x="1615" y="530" class="bb-small">VIN ← PACK_SW    VOUT → regulated 5 V</text>
+<rect x="1600" y="620" width="460" height="100" rx="8" fill="#fff1e5" stroke="#b9c8ca"/>
+<text x="1615" y="648" class="bb-label">SERVO GATE · Pololu 2810</text>
+<text x="1615" y="680" class="bb-small">VIN ← 5 V    VOUT → servo +    ON ← L4</text>
+<rect x="1600" y="810" width="460" height="120" rx="8" fill="#fff1e5" stroke="#b9c8ca"/>
+<text x="1615" y="838" class="bb-label">SERVO 0</text>
+<text x="1615" y="870" class="bb-small">Power → switched 5 V; ground → PGND</text>
+<text x="1615" y="895" class="bb-small">Only signal wire → L5 / breadboard j35</text>
+<g data-bb-step="5" data-bb-item="external_servo1">
+<rect x="1600" y="1010" width="460" height="120" rx="8" fill="#fff1e5" stroke="#b9c8ca"/>
+<text x="1615" y="1038" class="bb-label">SERVO 1 · optional</text>
+<text x="1615" y="1070" class="bb-small">Power → switched 5 V; ground → PGND</text>
+<text x="1615" y="1095" class="bb-small">Only signal wire → L6 / breadboard j45</text>
+</g>
+<path d="M1830,420L1830,470" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:10px"/>
+<path d="M1830,420L1830,470" class="bb-jumper" stroke="#b37316" style="stroke-width:5px"/>
+<text x="1845" y="451" class="bb-small">PACK_SW</text>
+<path d="M1830,570L1830,620" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:10px"/>
+<path d="M1830,570L1830,620" class="bb-jumper" stroke="#ca4225" style="stroke-width:5px"/>
+<text x="1845" y="600" class="bb-small">5 V</text>
+<path d="M1830,720L1830,810" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:10px"/>
+<path d="M1830,720L1830,810" class="bb-jumper" stroke="#ca4225" style="stroke-width:5px"/>
+<text x="1845" y="788" class="bb-small">SERVO_5V</text>
+<path d="M2078,755L2078,990L1830,990L1830,1010" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:10px"/>
+<path d="M2078,755L2078,990L1830,990L1830,1010" class="bb-jumper" stroke="#ca4225" style="stroke-width:5px"/>
+<path d="M1830,755L2078,755" class="bb-jumper" stroke="#f7f6f0" style="stroke-width:10px"/>
+<path d="M1830,755L2078,755" class="bb-jumper" stroke="#ca4225" style="stroke-width:5px"/>
+<circle cx="1830" cy="755" r="5" fill="#ca4225" stroke="#fff"/>
+<rect x="1590" y="1180" width="480" height="190" rx="8" fill="#edf1ec" stroke="#b9c8ca"/>
+<text x="1605" y="1210" class="bb-label">KEEP THESE ON THE POWER HARNESS</text>
+<text x="1605" y="1243" class="bb-small">C1 470 µF: + to 5 V, − stripe to PGND</text>
+<text x="1605" y="1273" class="bb-small">D2 1N5819: stripe to SERVO_5V; other to PGND</text>
+<text x="1605" y="1303" class="bb-small">R_BLEED 1 kΩ: SERVO_5V to PGND</text>
+<text x="1605" y="1339" class="bb-small">Short, insulated 22 AWG motor power wires.</text>
+<text x="1590" y="1420" class="bb-small">PGND joins battery −, both switches, regulator,</text>
+<text x="1590" y="1447" class="bb-small">both servos and the three passive returns above.</text>
+<text x="1590" y="1480" class="bb-small">MASTER ON unused · REG ENABLE unused</text>
+<text x="1590" y="1507" class="bb-small">Servo-gate physical slider stays OFF.</text>
+<text x="40" y="575" class="bb-label">COMPONENTS · TWO HOLES EACH</text>
+<text x="45" y="615" class="bb-label">D1 · 1N5819</text>
+<text x="45" y="641" class="bb-body">a30 → a35 · stripe at a35</text>
+<text x="45" y="683" class="bb-label">R_TOP · 100 kΩ 1%</text>
+<text x="45" y="709" class="bb-body">a40 → a45</text>
+<text x="45" y="751" class="bb-label">R_BOTTOM · 47 kΩ 1%</text>
+<text x="45" y="777" class="bb-body">b45 → b50</text>
+<text x="45" y="819" class="bb-label">C_ADC · 100 nF</text>
+<text x="45" y="845" class="bb-body">e45 → e46</text>
+<text x="45" y="887" class="bb-label">R_EN · 100 kΩ</text>
+<text x="45" y="913" class="bb-body">a55 → a60</text>
+<text x="45" y="955" class="bb-label">R_PWM0 · 1 kΩ</text>
+<text x="45" y="981" class="bb-body">f30 → f35</text>
+<text x="45" y="1023" class="bb-label">R_PWM1 · 1 kΩ</text>
+<text x="45" y="1049" class="bb-body">f40 → f45</text>
+<text x="40" y="1150" class="bb-label">PICO PINS USED</text>
+<text x="45" y="1187" class="bb-body">39 · VSYS         · h4</text>
+<text x="45" y="1221" class="bb-body">38 · GND          · h5</text>
+<text x="45" y="1255" class="bb-body">20 · GP15         · c22</text>
+<text x="45" y="1289" class="bb-body">21 · GP16         · h22</text>
+<text x="45" y="1323" class="bb-body">22 · GP17         · h21</text>
+<text x="45" y="1357" class="bb-body">31 · GP26 / ADC   · h12</text>
+<text x="40" y="1430" class="bb-small">Check that your board has the same row labels.</text>
+<text x="40" y="1456" class="bb-small">Do not mirror or rotate the Pico relative to this view.</text>
+<text x="40" y="1482" class="bb-small">Bands show nominal 1% parts; verify actual values.</text>
+<text x="40" y="1510" class="bb-small">Leads shown as routes, not pre-cut wire lengths.</text>
+<text x="40" y="1657" class="bb-body">Bench layout only. It is not the soldered Perma-Proto layout inside the printed enclosure. Verify continuity before applying power.</text>
+<metadata data-bb-terminal="PICO.pin39_VSYS" data-bb-hole="h4"/>
+<metadata data-bb-terminal="PICO.pin38_GND" data-bb-hole="h5"/>
+<metadata data-bb-terminal="PICO.pin20_GP15" data-bb-hole="c22"/>
+<metadata data-bb-terminal="PICO.pin21_GP16" data-bb-hole="h22"/>
+<metadata data-bb-terminal="PICO.pin22_GP17" data-bb-hole="h21"/>
+<metadata data-bb-terminal="PICO.pin31_GP26" data-bb-hole="h12"/>
+<metadata data-bb-terminal="D1.anode" data-bb-hole="a30"/>
+<metadata data-bb-terminal="D1.cathode" data-bb-hole="a35"/>
+<metadata data-bb-terminal="R_TOP.1" data-bb-hole="a40"/>
+<metadata data-bb-terminal="R_TOP.2" data-bb-hole="a45"/>
+<metadata data-bb-terminal="R_BOTTOM.1" data-bb-hole="b45"/>
+<metadata data-bb-terminal="R_BOTTOM.2" data-bb-hole="b50"/>
+<metadata data-bb-terminal="C_ADC.1" data-bb-hole="e45"/>
+<metadata data-bb-terminal="C_ADC.2" data-bb-hole="e46"/>
+<metadata data-bb-terminal="R_EN.1" data-bb-hole="a55"/>
+<metadata data-bb-terminal="R_EN.2" data-bb-hole="a60"/>
+<metadata data-bb-terminal="R_PWM0.1" data-bb-hole="f30"/>
+<metadata data-bb-terminal="R_PWM0.2" data-bb-hole="f35"/>
+<metadata data-bb-terminal="R_PWM1.1" data-bb-hole="f40"/>
+<metadata data-bb-terminal="R_PWM1.2" data-bb-hole="f45"/>
+</svg>

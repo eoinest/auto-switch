@@ -81,6 +81,33 @@
   document.addEventListener("fullscreenchange", () => { $("map-fullscreen").textContent = document.fullscreenElement ? "Exit full screen" : "Full screen"; requestAnimationFrame(() => zoomMap(mapZoom)); });
   window.addEventListener("resize", () => zoomMap(mapZoom));
   zoomMap(100);
+  $("bb-svg").innerHTML = scopedSvg(data.diagrams.breadboard, "bb-");
+  let bbZoom=100;
+  function zoomBreadboard(value) {
+    bbZoom=Math.max(100,Math.min(600,value));
+    const frame=$("bb-canvas"), width=Math.min(frame.clientWidth-2,(frame.clientHeight-2)*2150/1690);
+    if(width>0)$("bb-svg").style.width=width*bbZoom/100+"px";
+    $("bb-zoom").textContent=bbZoom+"%";$("bb-out").disabled=bbZoom===100;$("bb-in").disabled=bbZoom===600;
+    if(bbZoom===100)frame.scrollTo(0,0);
+  }
+  $("bb-fit").onclick=()=>zoomBreadboard(100);$("bb-out").onclick=()=>zoomBreadboard(bbZoom-50);$("bb-in").onclick=()=>zoomBreadboard(bbZoom+50);
+  $("bb-fullscreen").onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await $("page-breadboard").requestFullscreen();}catch(_){$("bb-zoom").textContent="Use the full-size layout link.";}};
+  document.addEventListener("fullscreenchange",()=>{$("bb-fullscreen").textContent=document.fullscreenElement?"Exit full screen":"Full screen";requestAnimationFrame(()=>zoomBreadboard(bbZoom));});
+  window.addEventListener("resize",()=>zoomBreadboard(bbZoom));
+  $("bb-step").insertAdjacentHTML("beforeend",data.breadboard.steps.map(s=>`<option value="${s.id}">${s.id}. ${esc(s.title)}</option>`).join(""));
+  function renderBreadboard() {
+    const gangs=Number($("bb-gangs").value);
+    $("bb-step").querySelector('option[value="5"]').disabled=gangs===1;
+    if(gangs===1&&$("bb-step").value==="5")$("bb-step").value="0";
+    const step=Number($("bb-step").value),info=data.breadboard.steps.find(s=>s.id===step);
+    $("bb-instruction").innerHTML=info?`<h3>${esc(info.title)}</h3><p>${esc(info.text)}</p>`:'<h3>Start with all power disconnected.</h3><p>Choose a numbered step to highlight just those parts and cables. Place the board with USB up; confirm its row labels. The guide includes unpowered continuity checks and voltage checks with the Pico removed before first power-up.</p>';
+    $("bb-svg").querySelectorAll("[data-bb-step]").forEach(el=>{const n=Number(el.dataset.bbStep);el.classList.toggle("bb-dim",(step!==0&&step!==6&&n!==step)||(gangs===1&&n===5));});
+    const rows=data.breadboard_rows.filter(r=>(gangs===2||r.optional!=="True")&&(step===0||step===6||Number(r.step)===step));
+    $("bb-table").innerHTML=rows.map(r=>`<tr><td><strong>${esc(r.id)}</strong><small>${esc(r.value)}</small></td><td>${esc(r.start)}</td><td>${esc(r.end)}</td><td>${esc(r.note)}</td></tr>`).join("");
+  }
+  $("bb-step").onchange=renderBreadboard;$("bb-gangs").onchange=renderBreadboard;
+  $("bb-sources").innerHTML=data.breadboard.sources.map(s=>`<p><a href="${safeUrl(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a></p>`).join("");
+  renderBreadboard();
   $("inspect-part").innerHTML = Object.entries(parts).map(([id, p]) => `<option value="${id}">${esc(p[0])}</option>`).join("");
   function inspectPart(id) {
     if (!parts[id]) return;
@@ -217,9 +244,10 @@
 
   function route() {
     const [section,id]=location.hash.slice(1).split("/");
-    const page=section==="lesson"?"lessons":["wiring","power","lessons","workbench","parts"].includes(section)?section:"wiring";
+    const page=section==="lesson"?"lessons":["wiring","breadboard","power","lessons","workbench","parts"].includes(section)?section:"wiring";
     document.querySelectorAll(".page").forEach(p=>{p.hidden=p.id!=="page-"+page;});
     document.querySelectorAll("[data-page]").forEach(a=>{if(a.dataset.page===page)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");});
+    if(page==="breadboard")requestAnimationFrame(()=>zoomBreadboard(bbZoom));
     if(page==="wiring")requestAnimationFrame(() => zoomMap(mapZoom));
     if(page==="lessons")renderLesson(id||currentLesson);
     if(page==="workbench")renderLab(id||currentLab);
