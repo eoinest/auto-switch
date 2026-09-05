@@ -14,14 +14,22 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <header class="site-header">
-    <a class="brand" href="#power"><span class="mark" aria-hidden="true">↯</span>auto switch <span class="brand-divider">/</span> <span class="brand-sub">circuit lab</span></a>
+    <a class="brand" href="#wiring"><span class="mark" aria-hidden="true">↯</span>auto switch <span class="brand-divider">/</span> <span class="brand-sub">circuit lab</span></a>
     <span class="local-label">LEARN LOCALLY · NO HARDWARE CONTROL</span>
   </header>
   <main id="main">
     <div class="intro"><p class="eyebrow">FROM YOUR FIRST CIRCUIT TO YOUR OWN DESIGN</p><h1>Understand every connection.</h1><p>Start with what powers the Pico. Then learn the parts, try the numbers, and design the circuit yourself.</p></div>
     <nav class="main-nav" aria-label="Learning sections">
-      <a href="#power" data-page="power">Power map</a><a href="#lessons" data-page="lessons">Guided lessons <span id="lesson-count"></span></a><a href="#workbench" data-page="workbench">Workbench</a><a href="#parts" data-page="parts">Parts &amp; fit</a>
+      <a href="#wiring" data-page="wiring">Connection map</a><a href="#power" data-page="power">Power explorer</a><a href="#lessons" data-page="lessons">Guided lessons <span id="lesson-count"></span></a><a href="#workbench" data-page="workbench">Workbench</a><a href="#parts" data-page="parts">Parts &amp; fit</a>
     </nav>
+    <section id="page-wiring" class="page" hidden aria-labelledby="wiring-heading">
+      <div class="section-heading"><div><p class="eyebrow">THE ENTIRE CIRCUIT · ONE CONNECTED MAP</p><h2 id="wiring-heading">Follow every wire.</h2></div><a href="assets/connection-map.svg" target="_blank" rel="noopener">Open full-size SVG ↗</a></div>
+      <p class="lede">All components connect on this one map, including the shared ground return. Filled dots join wires; a white gap at a crossing means they do not connect. The Pico’s internal power circuit is inside its green board outline.</p>
+      <div class="map-toolbar" aria-label="Diagram view controls"><button type="button" id="map-fit">Fit entire map</button><button type="button" id="map-out" aria-label="Zoom out">−</button><output id="map-zoom" aria-live="polite">100%</output><button type="button" id="map-in" aria-label="Zoom in">+</button><button type="button" id="map-fullscreen">Full screen</button><span>Zoom in, then scroll to inspect a connection.</span></div>
+      <div id="map-canvas" class="continuous-frame"><div id="wiring-svg" class="continuous-map"></div></div>
+      <p class="subtle">This shows electrical connections, not the physical position of solder pads. The drawing includes both servos; omit Servo 1 and R_PWM1 for a single switch.</p>
+      <p><a href="#power">Explore what changes with battery and USB power →</a></p>
+    </section>
     <section id="page-power" class="page" aria-labelledby="power-heading">
       <div class="section-heading"><div><p class="eyebrow">01 / FOLLOW THE ENERGY</p><h2 id="power-heading">What is powering the Pico?</h2></div><a href="assets/power-map.svg" target="_blank" rel="noopener">Open full diagram ↗</a></div>
       <p class="lede">These controls change an illustration. They never connect to your device. Highlighted paths show where supply voltage is available, not measured current. Readouts illustrate nominal steady states; real rails take time to rise and discharge.</p>
@@ -30,7 +38,7 @@
       <div id="power-trace" class="power-trace"></div>
       <div class="diagram-frame"><div id="power-svg" class="diagram"></div></div>
       <div class="part-inspector"><label for="inspect-part">Explore a part</label><select id="inspect-part"></select><div id="part-detail" aria-live="polite"></div></div>
-      <details class="wiring-details"><summary>Show the complete connection sheet, including every resistor and capacitor</summary><p>Each ground symbol connects to the same GND net. Physical pin numbers still identify the edge pads on a Pico without soldered headers.</p><p><a href="assets/connection-map.svg" target="_blank" rel="noopener">Open or save the full connection sheet ↗</a></p><div class="diagram-frame"><div id="wiring-svg" class="diagram"></div></div></details>
+      <p><a href="#wiring">See every connection together in the complete circuit →</a></p>
       <div class="next-step"><p>New to voltage, current or ground? The lessons build these ideas in order.</p><a class="button" href="#lessons">Start the guided lessons →</a></div>
     </section>
     <section id="page-lessons" class="page" hidden aria-labelledby="lessons-heading">

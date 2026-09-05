@@ -1,226 +1,334 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2083" viewBox="0 0 1800 2083" role="img" aria-labelledby="diagram-title diagram-desc">
-<title id="diagram-title">Auto Switch — complete external wiring sheet</title>
-<desc id="diagram-desc">Functional circuit panels with named electrical nets, Pico physical pad assignments, all passive components, and an automatically generated exhaustive terminal schedule from harness.json. Matching net names mean connected wires. Pico internal USB power path is shown separately in power-map.svg.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1400" viewBox="0 0 2200 1400" role="img" aria-labelledby="diagram-title diagram-desc">
+<title id="diagram-title">Auto Switch — one complete circuit</title>
+<desc id="diagram-desc">A continuous schematic of every external harness connection. All grounds join the bottom return bus. Wire crossings with a white gap are not connected; filled dots are junctions. The Pico internal USB and 3.3 volt power path is shown inside its board outline.</desc>
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="context-stroke"/></marker></defs>
 <style>
 text{font-family:Arial,Helvetica,sans-serif;fill:#233942}.title{font-size:34px;font-weight:700;letter-spacing:-.7px}.subtitle{font-size:19px;fill:#53636b}.name{font-size:22px;font-weight:700}.body{font-size:18px}.small{font-size:16px;fill:#53636b}.micro{font-size:14px;fill:#53636b}.net{font-size:17px;font-weight:700;letter-spacing:.3px}.mono{font-family:monospace;font-size:16px}.wire{fill:none;stroke-width:4;stroke-linejoin:round;stroke-linecap:round}.signal{stroke-dasharray:8 6;stroke-width:3}.is-off{opacity:.2} .component{cursor:pointer} .section{font-size:17px;font-weight:700;letter-spacing:1.4px;fill:#53636b}
 </style>
-<rect width="1800" height="2083" fill="#f7f6f0"/>
-<text x="40" y="55" class="title">Auto Switch · complete connection sheet</text>
-<text x="40" y="87" class="subtitle">Revision 3 electrical nets · direct-solder Pico preferred · exact per-hole prototype-board routing is not supplied</text>
-<rect x="40" y="110" width="1720" height="67" rx="14" fill="#eaf1f1" stroke="#b5c5c9" stroke-width="1.5"/>
-<text x="60" y="138" class="body">HOW TO READ THIS SHEET   Same net name = the same connected wire, wherever it appears.</text>
-<text x="60" y="163" class="small">Solid lines carry supply/return; blue dashes carry signals. A filled dot is a junction. No crossing wires imply a connection.</text>
-<text x="40" y="216" class="section">A   SOURCE AND PICO SUPPLY</text>
+<rect width="2200" height="1400" fill="#f7f6f0"/>
+<g data-net="GND"><title>GND: BAT.black, MASTER.GND, REG.GND, GATE.GND, PICO.pin38_GND, SERVO0.ground, SERVO1.ground, D2.anode, C1.negative, R_BOTTOM.2, C_ADC.2, R_EN.2, R_BLEED.2</title>
+<path d="M395 810L395 850L610 850L610 1115L725 1115" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="GND" data-points="[[395, 810], [395, 850], [610, 850], [610, 1115], [725, 1115]]" d="M395 810L395 850L610 850L610 1115L725 1115" fill="none" stroke="#344858" stroke-width="3" stroke-linejoin="round"/>
+<path d="M135 1240L2160 1240" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="GND" data-points="[[135, 1240], [2160, 1240]]" d="M135 1240L2160 1240" fill="none" stroke="#344858" stroke-width="3" stroke-linejoin="round"/>
+<path d="M135 365L135 1240" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="GND" data-points="[[135, 365], [135, 1240]]" d="M135 365L135 1240" fill="none" stroke="#344858" stroke-width="3" stroke-linejoin="round"/>
+<path d="M590 365L590 630L60 630L60 1240L135 1240" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="GND" data-points="[[590, 365], [590, 630], [60, 630], [60, 1240], [135, 1240]]" d="M590 365L590 630L60 630L60 1240L135 1240" fill="none" stroke="#344858" stroke-width="3" stroke-linejoin="round"/>
+<path d="M990 365L990 395L1165 395L1165 1240" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="GND" data-points="[[990, 365], [990, 395], [1165, 395], [1165, 1240]]" d="M990 365L990 395L1165 395L1165 1240" fill="none" stroke="#344858" stroke-width="3" stroke-linejoin="round"/>
+<path d="M1555 365L1605 365L1605 1240" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="GND" data-points="[[1555, 365], [1605, 365], [1605, 1240]]" d="M1555 365L1605 365L1605 1240" fill="none" stroke="#344858" stroke-width="3" stroke-linejoin="round"/>
+<path d="M725 1115L725 1240" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="GND" data-points="[[725, 1115], [725, 1240]]" d="M725 1115L725 1240" fill="none" stroke="#344858" stroke-width="3" stroke-linejoin="round"/>
+<path d="M2035 705L2070 705L2070 1240" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="GND" data-points="[[2035, 705], [2070, 705], [2070, 1240]]" d="M2035 705L2070 705L2070 1240" fill="none" stroke="#344858" stroke-width="3" stroke-linejoin="round"/>
+<path d="M2035 1035L2070 1035" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="GND" data-points="[[2035, 1035], [2070, 1035]]" d="M2035 1035L2070 1035" fill="none" stroke="#344858" stroke-width="3" stroke-linejoin="round"/>
+<path d="M1660 502L1660 1240" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="GND" data-points="[[1660, 502], [1660, 1240]]" d="M1660 502L1660 1240" fill="none" stroke="#344858" stroke-width="3" stroke-linejoin="round"/>
+<path d="M1230 537L1230 1240" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="GND" data-points="[[1230, 537], [1230, 1240]]" d="M1230 537L1230 1240" fill="none" stroke="#344858" stroke-width="3" stroke-linejoin="round"/>
+<path d="M260 1052L260 1240" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="GND" data-points="[[260, 1052], [260, 1240]]" d="M260 1052L260 1240" fill="none" stroke="#344858" stroke-width="3" stroke-linejoin="round"/>
+<path d="M465 1052L465 1240" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="GND" data-points="[[465, 1052], [465, 1240]]" d="M465 1052L465 1240" fill="none" stroke="#344858" stroke-width="3" stroke-linejoin="round"/>
+<path d="M1340 882L1340 1240" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="GND" data-points="[[1340, 882], [1340, 1240]]" d="M1340 882L1340 1240" fill="none" stroke="#344858" stroke-width="3" stroke-linejoin="round"/>
+<path d="M2110 502L2110 1240" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="GND" data-points="[[2110, 502], [2110, 1240]]" d="M2110 502L2110 1240" fill="none" stroke="#344858" stroke-width="3" stroke-linejoin="round"/>
+</g>
+<g data-net="BAT_POS"><title>BAT_POS: BAT.red, F1.in</title>
+<path d="M245 280L300 280" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="BAT_POS" data-points="[[245, 280], [300, 280]]" d="M245 280L300 280" fill="none" stroke="#ad5c12" stroke-width="3" stroke-linejoin="round"/>
+</g>
+<g data-net="FUSED_BAT"><title>FUSED_BAT: F1.out, MASTER.VIN</title>
+<path d="M420 280L520 280" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="FUSED_BAT" data-points="[[420, 280], [520, 280]]" d="M420 280L520 280" fill="none" stroke="#ad5c12" stroke-width="3" stroke-linejoin="round"/>
+</g>
+<g data-net="PACK_SW"><title>PACK_SW: MASTER.VOUT, REG.VIN, R_TOP.1</title>
+<path d="M770 280L875 280" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="PACK_SW" data-points="[[770, 280], [875, 280]]" d="M770 280L875 280" fill="none" stroke="#ad5c12" stroke-width="3" stroke-linejoin="round"/>
+<path d="M815 280L815 415L260 415L260 830" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="PACK_SW" data-points="[[815, 280], [815, 415], [260, 415], [260, 830]]" d="M815 280L815 415L260 415L260 830" fill="none" stroke="#ad5c12" stroke-width="3" stroke-linejoin="round"/>
+</g>
+<g data-net="5V"><title>5V: REG.VOUT, D1.anode, GATE.VIN, C1.positive</title>
+<path d="M1140 280L1340 280" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="5V" data-points="[[1140, 280], [1340, 280]]" d="M1140 280L1340 280" fill="none" stroke="#ba421f" stroke-width="3" stroke-linejoin="round"/>
+<path d="M1230 280L1230 425L850 425L850 495" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="5V" data-points="[[1230, 280], [1230, 425], [850, 425], [850, 495]]" d="M1230 280L1230 425L850 425L850 495" fill="none" stroke="#ba421f" stroke-width="3" stroke-linejoin="round"/>
+<path d="M1230 425L1230 465" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="5V" data-points="[[1230, 425], [1230, 465]]" d="M1230 425L1230 465" fill="none" stroke="#ba421f" stroke-width="3" stroke-linejoin="round"/>
+</g>
+<g data-net="VSYS"><title>VSYS: D1.cathode, PICO.pin39_VSYS</title>
+<path d="M850 567L850 605L1030 605L1030 665" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="VSYS" data-points="[[850, 567], [850, 605], [1030, 605], [1030, 665]]" d="M850 567L850 605L1030 605L1030 665" fill="none" stroke="#7354b3" stroke-width="3" stroke-linejoin="round"/>
+</g>
+<g data-net="SERVO_5V"><title>SERVO_5V: GATE.VOUT, SERVO0.power, SERVO1.power, D2.cathode, R_BLEED.1</title>
+<path d="M1595 280L2160 280L2160 845L1900 845L1900 875" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="SERVO_5V" data-points="[[1595, 280], [2160, 280], [2160, 845], [1900, 845], [1900, 875]]" d="M1595 280L2160 280L2160 845L1900 845L1900 875" fill="none" stroke="#ba421f" stroke-width="3" stroke-linejoin="round"/>
+<path d="M1900 280L1900 545" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="SERVO_5V" data-points="[[1900, 280], [1900, 545]]" d="M1900 280L1900 545" fill="none" stroke="#ba421f" stroke-width="3" stroke-linejoin="round"/>
+<path d="M1660 280L1660 430" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="SERVO_5V" data-points="[[1660, 280], [1660, 430]]" d="M1660 280L1660 430" fill="none" stroke="#ba421f" stroke-width="3" stroke-linejoin="round"/>
+<path d="M2110 280L2110 430" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="SERVO_5V" data-points="[[2110, 280], [2110, 430]]" d="M2110 280L2110 430" fill="none" stroke="#ba421f" stroke-width="3" stroke-linejoin="round"/>
+</g>
+<g data-net="ADC"><title>ADC: R_TOP.2, R_BOTTOM.1, C_ADC.1, PICO.pin31_GP26</title>
+<path d="M260 902L260 930L650 930" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="ADC" data-points="[[260, 902], [260, 930], [650, 930]]" d="M260 902L260 930L650 930" fill="none" stroke="#137b7d" stroke-width="3" stroke-linejoin="round"/>
+<path d="M260 930L260 980" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="ADC" data-points="[[260, 930], [260, 980]]" d="M260 930L260 980" fill="none" stroke="#137b7d" stroke-width="3" stroke-linejoin="round"/>
+<path d="M465 930L465 980" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="ADC" data-points="[[465, 930], [465, 980]]" d="M465 930L465 980" fill="none" stroke="#137b7d" stroke-width="3" stroke-linejoin="round"/>
+</g>
+<g data-net="SERVO_ENABLE"><title>SERVO_ENABLE: PICO.pin20_GP15, GATE.ON, R_EN.1</title>
+<path d="M1135 780L1435 780L1435 365" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="SERVO_ENABLE" data-points="[[1135, 780], [1435, 780], [1435, 365]]" d="M1135 780L1435 780L1435 365" fill="none" stroke="#176e99" stroke-width="3" stroke-linejoin="round"/>
+<path d="M1340 780L1340 810" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="SERVO_ENABLE" data-points="[[1340, 780], [1340, 810]]" d="M1340 780L1340 810" fill="none" stroke="#176e99" stroke-width="3" stroke-linejoin="round"/>
+</g>
+<g data-net="PWM0_RAW"><title>PWM0_RAW: PICO.pin21_GP16, R_PWM0.1</title>
+<path d="M1135 900L1490 900" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="PWM0_RAW" data-points="[[1135, 900], [1490, 900]]" d="M1135 900L1490 900" fill="none" stroke="#176e99" stroke-width="3" stroke-linejoin="round"/>
+</g>
+<g data-net="PWM0"><title>PWM0: R_PWM0.2, SERVO0.signal</title>
+<path d="M1572 900L1720 900L1720 640L1790 640" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="PWM0" data-points="[[1572, 900], [1720, 900], [1720, 640], [1790, 640]]" d="M1572 900L1720 900L1720 640L1790 640" fill="none" stroke="#176e99" stroke-width="3" stroke-linejoin="round"/>
+</g>
+<g data-net="PWM1_RAW"><title>PWM1_RAW: PICO.pin22_GP17, R_PWM1.1</title>
+<path d="M1135 1020L1490 1020" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="PWM1_RAW" data-points="[[1135, 1020], [1490, 1020]]" d="M1135 1020L1490 1020" fill="none" stroke="#176e99" stroke-width="3" stroke-linejoin="round"/>
+</g>
+<g data-net="PWM1"><title>PWM1: R_PWM1.2, SERVO1.signal</title>
+<path d="M1572 1020L1735 1020L1735 970L1790 970" fill="none" stroke="#f7f6f0" stroke-width="9" stroke-linejoin="round"/>
+<path data-wire="PWM1" data-points="[[1572, 1020], [1735, 1020], [1735, 970], [1790, 970]]" d="M1572 1020L1735 1020L1735 970L1790 970" fill="none" stroke="#176e99" stroke-width="3" stroke-linejoin="round"/>
+</g>
+<circle data-junction="GND" cx="725" cy="1115" r="5" fill="#344858"/>
+<circle data-junction="PACK_SW" cx="815" cy="280" r="5" fill="#ad5c12"/>
+<circle data-junction="5V" cx="1230" cy="280" r="5" fill="#ba421f"/>
+<circle data-junction="5V" cx="1230" cy="425" r="5" fill="#ba421f"/>
+<circle data-junction="SERVO_5V" cx="1660" cy="280" r="5" fill="#ba421f"/>
+<circle data-junction="SERVO_5V" cx="1900" cy="280" r="5" fill="#ba421f"/>
+<circle data-junction="SERVO_5V" cx="2110" cy="280" r="5" fill="#ba421f"/>
+<circle data-junction="ADC" cx="260" cy="930" r="5" fill="#137b7d"/>
+<circle data-junction="ADC" cx="465" cy="930" r="5" fill="#137b7d"/>
+<circle data-junction="SERVO_ENABLE" cx="1340" cy="780" r="5" fill="#176e99"/>
+<circle data-junction="GND" cx="135" cy="630" r="5" fill="#344858"/>
+<circle data-junction="GND" cx="135" cy="1240" r="5" fill="#344858"/>
+<circle data-junction="GND" cx="135" cy="1240" r="5" fill="#344858"/>
+<circle data-junction="GND" cx="1165" cy="1240" r="5" fill="#344858"/>
+<circle data-junction="GND" cx="1605" cy="1240" r="5" fill="#344858"/>
+<circle data-junction="GND" cx="725" cy="1240" r="5" fill="#344858"/>
+<circle data-junction="GND" cx="2070" cy="1240" r="5" fill="#344858"/>
+<circle data-junction="GND" cx="2070" cy="1035" r="5" fill="#344858"/>
+<circle data-junction="GND" cx="1660" cy="1240" r="5" fill="#344858"/>
+<circle data-junction="GND" cx="1230" cy="1240" r="5" fill="#344858"/>
+<circle data-junction="GND" cx="260" cy="1240" r="5" fill="#344858"/>
+<circle data-junction="GND" cx="465" cy="1240" r="5" fill="#344858"/>
+<circle data-junction="GND" cx="1340" cy="1240" r="5" fill="#344858"/>
+<circle data-junction="GND" cx="2110" cy="1240" r="5" fill="#344858"/>
+<style>.wire{stroke-width:3}.net{font-size:16px}.name{font-size:22px}.small{font-size:16px}.terminal{fill:#fff;stroke:#344858;stroke-width:2}</style>
+<text x="45" y="55" class="title">Auto Switch · the whole circuit</text>
+<text x="45" y="90" class="subtitle">Every wire drawn. Follow battery power across the top, signals through the middle, and the common return along the bottom.</text>
+<text x="45" y="125" class="body">● Joined wires       White gap at a crossing = not connected       Pad numbers are physical Pico pads, not GPIO numbers</text>
+<text x="45" y="157" class="small">Orange: raw battery · Red: regulated / motor power · Purple: Pico supply · Blue: control · Teal: sensing · Gray: ground</text>
 <g data-part="BAT" class="component">
-<rect x="40" y="237" width="260" height="145" rx="14" fill="#fff4df" stroke="#b5c5c9" stroke-width="1.5"/>
-<text x="58" y="269" class="name">BAT · 4 × AA NiMH</text>
-<text x="58" y="298" class="body">Pololu 1153 holder</text>
-<text x="58" y="323" class="body">Red → F1 input</text>
-<text x="58" y="348" class="body">Black → GND</text>
+<rect x="45" y="205" width="200" height="160" rx="14" fill="#fff4df" stroke="#b5c5c9" stroke-width="1.5"/>
+<text x="63" y="237" class="name">4 × AA NiMH</text>
+<text x="63" y="266" class="body">4.8 V nominal</text>
+<text x="63" y="291" class="body">Pololu 1153 holder</text>
+<text x="63" y="316" class="body">Recharge externally</text>
 </g>
-<g data-part="F1" class="component">
-<rect x="360" y="237" width="285" height="145" rx="14" fill="#fff4df" stroke="#b5c5c9" stroke-width="1.5"/>
-<text x="378" y="269" class="name">F1 + disconnect</text>
-<text x="378" y="298" class="body">01500274Z fuse holder</text>
-<text x="378" y="323" class="body">0001.2507 · 2 A time-delay</text>
-<text x="378" y="348" class="body">JST RCY 2180 + 2181</text>
-</g>
+<text x="308" y="228" class="net">F1 · 2 A time-delay</text>
+<text x="309" y="325" class="small">Fuse close to battery +</text>
+<rect x="325" y="266" width="70" height="28" rx="3" fill="#fff4df" stroke="#b5c5c9" stroke-width="1.5"/>
+<path d="M300 280H325M395 280H420" class="wire" stroke="#ad5c12"/>
 <g data-part="MASTER" class="component">
-<rect x="705" y="237" width="295" height="145" rx="14" fill="#fff4df" stroke="#b5c5c9" stroke-width="1.5"/>
-<text x="723" y="269" class="name">MASTER · Pololu 2810</text>
-<text x="723" y="298" class="body">VIN ← FUSED_BAT</text>
-<text x="723" y="323" class="body">VOUT → PACK_SW</text>
-<text x="723" y="348" class="body">GND → GND · ON unused</text>
+<rect x="520" y="205" width="250" height="160" rx="14" fill="#fff4df" stroke="#b5c5c9" stroke-width="1.5"/>
+<text x="538" y="237" class="name">Master switch</text>
+<text x="538" y="266" class="body">Pololu 2810 LV</text>
+<text x="538" y="291" class="body">Physical slide switch</text>
+<text x="538" y="316" class="body">ON: leave unconnected</text>
 </g>
+<text x="484" y="261" class="small">VIN</text>
+<text x="777" y="261" class="small">VOUT</text>
 <g data-part="REG" class="component">
-<rect x="1060" y="237" width="310" height="145" rx="14" fill="#ffece4" stroke="#b5c5c9" stroke-width="1.5"/>
-<text x="1078" y="269" class="name">REG · Pololu 2574</text>
-<text x="1078" y="298" class="body">VIN ← PACK_SW</text>
-<text x="1078" y="323" class="body">VOUT → 5V · GND → GND</text>
-<text x="1078" y="348" class="body">ENABLE left unconnected</text>
+<rect x="875" y="205" width="265" height="160" rx="14" fill="#ffece4" stroke="#b5c5c9" stroke-width="1.5"/>
+<text x="893" y="237" class="name">5 V regulator</text>
+<text x="893" y="266" class="body">Pololu S18V20F5</text>
+<text x="893" y="291" class="body">Buck-boost converter</text>
+<text x="893" y="316" class="body">ENABLE: unconnected</text>
 </g>
-<path d="M300 308H360" class="wire" stroke="#ad5c12" marker-end="url(#arrow)"/>
-<path d="M645 308H705" class="wire" stroke="#ad5c12" marker-end="url(#arrow)"/>
-<path d="M1000 308H1060" class="wire" stroke="#ad5c12" marker-end="url(#arrow)"/>
-<path d="M1370 308H1410" class="wire" stroke="#ba421f" marker-end="url(#arrow)"/>
-<g data-part="D1" class="component">
-<rect x="1410" y="237" width="350" height="145" rx="14" fill="#ffece4" stroke="#b5c5c9" stroke-width="1.5"/>
-<text x="1428" y="269" class="name">D1 · 1N5819</text>
-<text x="1428" y="298" class="body">Anode ← 5V</text>
-<text x="1428" y="323" class="body">Striped cathode → VSYS</text>
-<text x="1428" y="348" class="body">VSYS → Pico pad 39</text>
-</g>
-<text x="40" y="412" class="small">BAT_POS: holder + to fuse. FUSED_BAT passes through RCY to master VIN. RCY also disconnects the GND lead.</text>
-<text x="40" y="437" class="small">Pico USB/VBUS and its onboard diode are separate from D1. See power-map.svg for the complete internal power path.</text>
-<text x="40" y="485" class="section">B   CONTROLLER PADS</text>
-<g data-part="PICO" class="component">
-<rect x="40" y="506" width="505" height="339" rx="14" fill="#edf5ef" stroke="#b5c5c9" stroke-width="1.5"/>
-<text x="58" y="538" class="name">PICO W / PICO 2 W</text>
-<text x="58" y="567" class="body">39 · VSYS ← D1 cathode</text>
-<text x="58" y="592" class="body">38 · GND → common GND</text>
-<text x="58" y="617" class="body">20 · GP15 → SERVO_ENABLE (gate ON)</text>
-<text x="58" y="642" class="body">21 · GP16 → PWM0_RAW → R_PWM0</text>
-<text x="58" y="667" class="body">22 · GP17 → PWM1_RAW → R_PWM1</text>
-<text x="58" y="692" class="body">31 · GP26 / ADC0 ← ADC</text>
-<text x="58" y="717" class="body">40 · VBUS: no external wire</text>
-<text x="58" y="742" class="body">36 · 3V3 OUT: no external wire</text>
-</g>
-<text x="59" y="826" class="small">Numbers identify pads even without soldered headers.</text>
-<text x="590" y="485" class="section">C   MOTOR POWER AND LOGIC</text>
+<text x="838" y="261" class="small">VIN</text>
+<text x="1148" y="261" class="small">VOUT</text>
 <g data-part="GATE" class="component">
-<rect x="590" y="506" width="410" height="158" rx="14" fill="#ffece4" stroke="#b5c5c9" stroke-width="1.5"/>
-<text x="608" y="538" class="name">GATE · Pololu 2810 LV</text>
-<text x="608" y="567" class="body">VIN ← 5V · VOUT → SERVO_5V</text>
-<text x="608" y="592" class="body">ON ← SERVO_ENABLE · GND → GND</text>
-<text x="608" y="617" class="body">Keep physical slider OFF.</text>
-<text x="608" y="642" class="body">GP15 is 3.3 V logic, not motor power.</text>
+<rect x="1340" y="205" width="255" height="160" rx="14" fill="#ffece4" stroke="#b5c5c9" stroke-width="1.5"/>
+<text x="1358" y="237" class="name">Servo power gate</text>
+<text x="1358" y="266" class="body">Pololu 2810 LV</text>
+<text x="1358" y="291" class="body">Physical slider OFF</text>
+<text x="1358" y="316" class="body">GP15 controls ON</text>
 </g>
+<text x="1303" y="261" class="small">VIN</text>
+<text x="1603" y="261" class="small">VOUT</text>
+<text x="1392" y="351" class="net">ON</text>
+<text x="1520" y="351" class="small">GND</text>
+<rect x="650" y="665" width="485" height="450" rx="18" fill="#edf5ef" stroke="#68a184" stroke-width="1.5"/>
+<text x="675" y="701" class="name">HEADERLESS PICO W</text>
+<text x="675" y="729" class="small">Power components already on board</text>
+<text x="1050" y="653" class="net">39 · VSYS</text>
+<text x="738" y="1100" class="net">38 · GND</text>
+<text x="670" y="924" class="net">31 · GP26</text>
+<text x="990" y="809" class="net">20 · GP15</text>
+<text x="990" y="888" class="net">21 · GP16</text>
+<text x="990" y="1008" class="net">22 · GP17</text>
+<text x="680" y="1069" class="small">40 · VBUS and 36 · 3V3 OUT: no harness wire</text>
+<rect x="695" y="815" width="225" height="64" rx="14" fill="#fff" stroke="#b5c5c9" stroke-width="1.5"/>
+<text x="713" y="847" class="name">3.3 V regulator</text>
+<path d="M1030 665V756H808V815" class="wire" stroke="#7354b3" marker-end="url(#arrow)"/>
+<circle cx="1030" cy="756" r="6" fill="#7354b3"/>
+<path d="M808 879V969" class="wire" stroke="#187451" marker-end="url(#arrow)"/>
+<rect x="690" y="969" width="245" height="62" rx="14" fill="#dbedde" stroke="#b5c5c9" stroke-width="1.5"/>
+<text x="708" y="1001" class="name">Chip + Wi-Fi</text>
+<text x="818" y="952" class="net">3.3 V</text>
+<text x="680" y="759" class="small">VBUS</text>
+<path d="M650 780H748V756H770" class="wire" stroke="#7354b3"/>
+<path d="M770 743V769L788 756ZM791 741V771M791 756H1030" fill="white" stroke="#7354b3" stroke-width="3"/>
+<text x="677" y="806" class="small">USB diode</text>
+<g data-part="USB" class="component">
+<rect x="355" y="685" width="210" height="125" rx="14" fill="#f0eafa" stroke="#b5c5c9" stroke-width="1.5"/>
+<text x="373" y="717" class="name">Optional USB</text>
+<text x="373" y="746" class="body">USB cable → socket</text>
+<text x="373" y="771" class="body">Nominal 5 V</text>
+<text x="373" y="796" class="body">Socket is on Pico</text>
+</g>
+<path d="M565 750H605V780H650" class="wire" stroke="#7354b3"/>
+<text x="400" y="839" class="small">USB GND</text>
+<g transform="translate(850 495)" stroke="#ba421f" stroke-width="3" fill="none"><path d="M0 0V24M0 48V72M-17 24H17L0 44ZM-22 40V48H22V56"/></g>
+<text x="878" y="517" class="net">D1 · 1N5819</text>
+<text x="878" y="544" class="small">stripe ↓ to VSYS</text>
+<path d="M1230 465v26m0 14v32" class="wire" stroke="#344858"/>
+<path d="M1209 491h42m-42 14h42" class="wire" stroke="#344858"/>
+<text x="1259" y="490" class="net">C1</text>
+<text x="1259" y="518" class="small">470 µF / 10 V</text>
+<text x="1193" y="489" class="name">+</text>
+<text x="1259" y="542" class="small">− stripe</text>
+<g transform="translate(1660 430) translate(0 72) rotate(180)" stroke="#ba421f" stroke-width="3" fill="none"><path d="M0 0V24M0 48V72M-17 24H17L0 44ZM-22 40V48H22V56"/></g>
+<text x="1688" y="452" class="net">D2 · 1N5819</text>
+<text x="1688" y="479" class="small">stripe ↑ to servo +</text>
+<path d="M2110 430v15m0 42v15" class="wire" stroke="#176e99"/>
+<rect x="2102" y="445" width="16" height="42" rx="0" fill="#fff" stroke="#176e99" stroke-width="1.5"/>
+<text x="1955" y="462" class="net">R_BLEED</text>
+<text x="1955" y="485" class="small">1 kΩ · ¼ W</text>
+<path d="M1340 810v15m0 42v15" class="wire" stroke="#176e99"/>
+<rect x="1332" y="825" width="16" height="42" rx="0" fill="#fff" stroke="#176e99" stroke-width="1.5"/>
+<text x="1359" y="842" class="net">R_EN</text>
+<text x="1359" y="865" class="small">100 kΩ</text>
+<path d="M1490 900h15m52 0h15" class="wire" stroke="#176e99"/>
+<rect x="1505" y="891" width="52" height="18" rx="0" fill="#fff" stroke="#176e99" stroke-width="1.5"/>
+<text x="1493" y="875" class="net">R_PWM0</text>
+<text x="1497" y="938" class="small">1 kΩ</text>
+<path d="M1490 1020h15m52 0h15" class="wire" stroke="#176e99"/>
+<rect x="1505" y="1011" width="52" height="18" rx="0" fill="#fff" stroke="#176e99" stroke-width="1.5"/>
+<text x="1493" y="995" class="net">R_PWM1</text>
+<text x="1497" y="1058" class="small">1 kΩ</text>
+<path d="M260 830v15m0 42v15" class="wire" stroke="#137b7d"/>
+<rect x="252" y="845" width="16" height="42" rx="0" fill="#fff" stroke="#137b7d" stroke-width="1.5"/>
+<text x="279" y="862" class="net">R_TOP</text>
+<text x="279" y="885" class="small">100 kΩ · 1%</text>
+<path d="M260 980v15m0 42v15" class="wire" stroke="#137b7d"/>
+<rect x="252" y="995" width="16" height="42" rx="0" fill="#fff" stroke="#137b7d" stroke-width="1.5"/>
+<text x="279" y="1012" class="net">R_BOTTOM</text>
+<text x="279" y="1035" class="small">47 kΩ · 1%</text>
+<path d="M465 980v26m0 14v32" class="wire" stroke="#344858"/>
+<path d="M444 1006h42m-42 14h42" class="wire" stroke="#344858"/>
+<text x="494" y="1005" class="net">C_ADC</text>
+<text x="494" y="1033" class="small">100 nF</text>
+<text x="310" y="480" class="section">BATTERY SENSING</text>
+<text x="310" y="510" class="small">Raw pack after master,</text>
+<text x="310" y="537" class="small">before the 5 V regulator.</text>
+<text x="280" y="1143" class="small">ADC = pack × 47 / 147</text>
+<text x="280" y="1170" class="small">≈ 1.53 V at 4.8 V</text>
 <g data-part="SERVO0" class="component">
-<rect x="1055" y="506" width="335" height="158" rx="14" fill="#fff" stroke="#b5c5c9" stroke-width="1.5"/>
-<text x="1073" y="538" class="name">SERVO0 · MG90S</text>
-<text x="1073" y="567" class="body">Power ← SERVO_5V</text>
-<text x="1073" y="592" class="body">Ground → GND</text>
-<text x="1073" y="617" class="body">Signal ← PWM0</text>
-<text x="1073" y="642" class="body">Use original servo mating plug.</text>
+<rect x="1790" y="545" width="245" height="200" rx="14" fill="#fff" stroke="#b5c5c9" stroke-width="1.5"/>
+<text x="1808" y="577" class="name">Servo 0 · MG90S</text>
+<text x="1808" y="606" class="body">Power (red*)</text>
+<text x="1808" y="631" class="body">Signal (orange*)</text>
+<text x="1808" y="656" class="body">Ground (brown*)</text>
+<text x="1808" y="681" class="body">First switch</text>
 </g>
 <g data-part="SERVO1" class="component">
-<rect x="1430" y="506" width="330" height="158" rx="14" fill="#fff" stroke="#b5c5c9" stroke-width="1.5"/>
-<text x="1448" y="538" class="name">SERVO1 · MG90S</text>
-<text x="1448" y="567" class="body">Power ← SERVO_5V</text>
-<text x="1448" y="592" class="body">Ground → GND</text>
-<text x="1448" y="617" class="body">Signal ← PWM1</text>
-<text x="1448" y="642" class="body">Omit for one-gang version.</text>
+<rect x="1790" y="875" width="245" height="200" rx="14" fill="#fff" stroke="#b5c5c9" stroke-width="1.5"/>
+<text x="1808" y="907" class="name">Servo 1 · MG90S</text>
+<text x="1808" y="936" class="body">Power (red*)</text>
+<text x="1808" y="961" class="body">Signal (orange*)</text>
+<text x="1808" y="986" class="body">Ground (brown*)</text>
+<text x="1808" y="1011" class="body">Second switch only</text>
 </g>
-<path d="M1000 577H1055" class="wire" stroke="#ba421f" marker-end="url(#arrow)"/>
-<text x="1008" y="486" class="net" style="fill:#ba421f">SERVO_5V</text>
-<text x="590" y="704" class="net" style="fill:#176e99">PWM0_RAW</text>
-<path d="M725 698H760" class="wire signal" stroke="#176e99"/>
-<path d="M760 698h15m52 0h15" class="wire" stroke="#176e99"/>
-<rect x="775" y="689" width="52" height="18" rx="0" fill="#fff" stroke="#176e99" stroke-width="1.5"/>
-<text x="763" y="673" class="net">R_PWM0</text>
-<text x="767" y="736" class="small">1 kΩ</text>
-<path d="M842 698H973" class="wire signal" stroke="#176e99" marker-end="url(#arrow)"/>
-<text x="899" y="681" class="net" style="fill:#176e99">PWM0</text>
-<text x="1080" y="704" class="net" style="fill:#176e99">PWM1_RAW</text>
-<path d="M1215 698H1250" class="wire signal" stroke="#176e99"/>
-<path d="M1250 698h15m52 0h15" class="wire" stroke="#176e99"/>
-<rect x="1265" y="689" width="52" height="18" rx="0" fill="#fff" stroke="#176e99" stroke-width="1.5"/>
-<text x="1253" y="673" class="net">R_PWM1</text>
-<text x="1257" y="736" class="small">1 kΩ</text>
-<path d="M1332 698H1463" class="wire signal" stroke="#176e99" marker-end="url(#arrow)"/>
-<text x="1390" y="681" class="net" style="fill:#176e99">PWM1</text>
-<text x="590" y="791" class="body">Each servo has its own signal; both share power and ground.</text>
-<text x="590" y="819" class="small">Run motor + and return on direct power wiring. A Pico GPIO carries only the control signal.</text>
-<text x="40" y="890" class="section">D   PASSIVES · ADD ALL OF THESE TO THE NAMED NETS</text>
-<rect x="40" y="912" width="325" height="351" rx="14" fill="#fff" stroke="#b5c5c9" stroke-width="1.5"/>
-<text x="60" y="945" class="name">C1 · supply buffer</text>
-<text x="60" y="973" class="body">470 µF / 10 V</text>
-<text x="95" y="1014" class="net" style="fill:#ba421f">5V</text>
-<path d="M125 1030V1080" class="wire" stroke="#ba421f"/>
-<path d="M99 1080H151M99 1094H151" class="wire" stroke="#ba421f"/>
-<text x="159" y="1076" class="name">+</text>
-<text x="159" y="1111" class="small">− stripe</text>
-<path d="M125 1094V1175" class="wire" stroke="#344858"/>
-<path d="M125 1175v12m-15 0h30m-24 7h18m-12 7h6" class="wire" stroke="#344858"/>
-<text x="60" y="1231" class="small">Close to gate VIN and GND.</text>
-<rect x="385" y="912" width="335" height="351" rx="14" fill="#fff" stroke="#b5c5c9" stroke-width="1.5"/>
-<text x="405" y="945" class="name">R_EN · default off</text>
-<text x="405" y="981" class="net" style="fill:#176e99">SERVO_ENABLE</text>
-<path d="M440 1000v15m0 42v15" class="wire" stroke="#176e99"/>
-<rect x="432" y="1015" width="16" height="42" rx="0" fill="#fff" stroke="#176e99" stroke-width="1.5"/>
-<text x="459" y="1032" class="net">R_EN</text>
-<text x="459" y="1055" class="small">100 kΩ</text>
-<path d="M440 1072V1175" class="wire" stroke="#344858"/>
-<path d="M440 1175v12m-15 0h30m-24 7h18m-12 7h6" class="wire" stroke="#344858"/>
-<text x="405" y="1209" class="small">Pull gate ON toward GND</text>
-<text x="405" y="1231" class="small">while GPIO is not driving it.</text>
-<rect x="740" y="912" width="510" height="351" rx="14" fill="#fff" stroke="#b5c5c9" stroke-width="1.5"/>
-<text x="760" y="945" class="name">D2 + R_BLEED · shutoff</text>
-<text x="760" y="982" class="net" style="fill:#ba421f">SERVO_5V</text>
-<path d="M790 1002H1070" class="wire" stroke="#ba421f"/>
-<circle cx="850" cy="1002" r="6" fill="#ba421f"/>
-<circle cx="1070" cy="1002" r="6" fill="#ba421f"/>
-<path d="M850 1002V1040" class="wire" stroke="#ba421f"/>
-<g transform="translate(850 1112) rotate(-90)"><path d="M0 0H20M50 0H72M20 -14L46 0L20 14Z M48 -15V15" fill="white" stroke="#ba421f" stroke-width="3"/></g>
-<text x="874" y="1047" class="net">D2</text>
-<text x="874" y="1074" class="small">1N5819</text>
-<text x="874" y="1101" class="small">stripe ↑</text>
-<path d="M1070 1002v15m0 42v15" class="wire" stroke="#ba421f"/>
-<rect x="1062" y="1017" width="16" height="42" rx="0" fill="#fff" stroke="#ba421f" stroke-width="1.5"/>
-<text x="1089" y="1034" class="net">R_BLEED</text>
-<text x="1089" y="1057" class="small">1 kΩ, ¼ W</text>
-<path d="M850 1112V1175H1070V1074" class="wire" stroke="#344858"/>
-<path d="M965 1175v12m-15 0h30m-24 7h18m-12 7h6" class="wire" stroke="#344858"/>
-<text x="760" y="1210" class="small">D2: anode at GND, cathode at servo +.</text>
-<text x="760" y="1233" class="small">Bleeder discharges the switched rail.</text>
-<rect x="1270" y="912" width="490" height="351" rx="14" fill="#fff" stroke="#b5c5c9" stroke-width="1.5"/>
-<text x="1290" y="945" class="name">Battery divider + filter</text>
-<text x="1290" y="978" class="net" style="fill:#ad5c12">PACK_SW</text>
-<path d="M1320 989v15m0 42v15" class="wire" stroke="#137b7d"/>
-<rect x="1312" y="1004" width="16" height="42" rx="0" fill="#fff" stroke="#137b7d" stroke-width="1.5"/>
-<text x="1339" y="1021" class="net">R_TOP</text>
-<text x="1339" y="1044" class="small">100 kΩ, 1%</text>
-<circle cx="1320" cy="1061" r="6" fill="#137b7d"/>
-<path d="M1320 1061H1675" class="wire" stroke="#137b7d"/>
-<text x="1550" y="1044" class="net" style="fill:#137b7d">ADC → GP26</text>
-<path d="M1320 1061v15m0 42v15" class="wire" stroke="#137b7d"/>
-<rect x="1312" y="1076" width="16" height="42" rx="0" fill="#fff" stroke="#137b7d" stroke-width="1.5"/>
-<text x="1339" y="1093" class="net">R_BOTTOM</text>
-<text x="1339" y="1116" class="small">47 kΩ, 1%</text>
-<path d="M1320 1133V1175H1620V1127" class="wire" stroke="#344858"/>
-<path d="M1470 1175v12m-15 0h30m-24 7h18m-12 7h6" class="wire" stroke="#344858"/>
-<circle cx="1620" cy="1061" r="6" fill="#137b7d"/>
-<path d="M1620 1061V1114" class="wire" stroke="#137b7d"/>
-<path d="M1600 1114H1640M1600 1127H1640" class="wire" stroke="#137b7d"/>
-<text x="1469" y="1107" class="net">C_ADC</text>
-<text x="1469" y="1136" class="small">100 nF</text>
-<text x="1290" y="1210" class="small">V_ADC = V_PACK_SW × 47 / 147</text>
-<text x="1290" y="1233" class="small">At 4.8 V nominal: about 1.53 V.</text>
-<text x="40" y="1308" class="section">E   COMPLETE TERMINAL SCHEDULE · GENERATED FROM hardware/wiring/harness.json</text>
-<text x="40" y="1340" class="small">Use board silkscreen for the real pad layout. These are electrical connections, not cable colors or physical positions.</text>
-<rect x="40" y="1363" width="1720" height="42" rx="0" fill="#edf1ee" stroke="#dce3df" stroke-width="1.5"/>
-<text x="55" y="1390" class="net">BAT_POS</text>
-<text x="280" y="1390" class="mono">BAT.red  ·  F1.in</text>
-<rect x="40" y="1405" width="1720" height="42" rx="0" fill="#fff" stroke="#dce3df" stroke-width="1.5"/>
-<text x="55" y="1432" class="net">FUSED_BAT</text>
-<text x="280" y="1432" class="mono">F1.out  ·  MASTER.VIN</text>
-<rect x="40" y="1447" width="1720" height="42" rx="0" fill="#edf1ee" stroke="#dce3df" stroke-width="1.5"/>
-<text x="55" y="1474" class="net">PACK_SW</text>
-<text x="280" y="1474" class="mono">MASTER.VOUT  ·  REG.VIN  ·  R_TOP.1</text>
-<rect x="40" y="1489" width="1720" height="42" rx="0" fill="#fff" stroke="#dce3df" stroke-width="1.5"/>
-<text x="55" y="1516" class="net">5V</text>
-<text x="280" y="1516" class="mono">REG.VOUT  ·  D1.anode  ·  GATE.VIN  ·  C1.positive</text>
-<rect x="40" y="1531" width="1720" height="42" rx="0" fill="#edf1ee" stroke="#dce3df" stroke-width="1.5"/>
-<text x="55" y="1558" class="net">VSYS</text>
-<text x="280" y="1558" class="mono">D1.cathode  ·  PICO.pin39_VSYS</text>
-<rect x="40" y="1573" width="1720" height="42" rx="0" fill="#fff" stroke="#dce3df" stroke-width="1.5"/>
-<text x="55" y="1600" class="net">SERVO_5V</text>
-<text x="280" y="1600" class="mono">GATE.VOUT  ·  SERVO0.power  ·  SERVO1.power  ·  D2.cathode  ·  R_BLEED.1</text>
-<rect x="40" y="1615" width="1720" height="42" rx="0" fill="#edf1ee" stroke="#dce3df" stroke-width="1.5"/>
-<text x="55" y="1642" class="net">ADC</text>
-<text x="280" y="1642" class="mono">R_TOP.2  ·  R_BOTTOM.1  ·  C_ADC.1  ·  PICO.pin31_GP26</text>
-<rect x="40" y="1657" width="1720" height="42" rx="0" fill="#fff" stroke="#dce3df" stroke-width="1.5"/>
-<text x="55" y="1684" class="net">SERVO_ENABLE</text>
-<text x="280" y="1684" class="mono">PICO.pin20_GP15  ·  GATE.ON  ·  R_EN.1</text>
-<rect x="40" y="1699" width="1720" height="42" rx="0" fill="#edf1ee" stroke="#dce3df" stroke-width="1.5"/>
-<text x="55" y="1726" class="net">PWM0_RAW</text>
-<text x="280" y="1726" class="mono">PICO.pin21_GP16  ·  R_PWM0.1</text>
-<rect x="40" y="1741" width="1720" height="42" rx="0" fill="#fff" stroke="#dce3df" stroke-width="1.5"/>
-<text x="55" y="1768" class="net">PWM0</text>
-<text x="280" y="1768" class="mono">R_PWM0.2  ·  SERVO0.signal</text>
-<rect x="40" y="1783" width="1720" height="42" rx="0" fill="#edf1ee" stroke="#dce3df" stroke-width="1.5"/>
-<text x="55" y="1810" class="net">PWM1_RAW</text>
-<text x="280" y="1810" class="mono">PICO.pin22_GP17  ·  R_PWM1.1</text>
-<rect x="40" y="1825" width="1720" height="42" rx="0" fill="#fff" stroke="#dce3df" stroke-width="1.5"/>
-<text x="55" y="1852" class="net">PWM1</text>
-<text x="280" y="1852" class="mono">R_PWM1.2  ·  SERVO1.signal</text>
-<rect x="40" y="1867" width="1720" height="70" rx="0" fill="#edf1ee" stroke="#dce3df" stroke-width="1.5"/>
-<text x="55" y="1894" class="net">GND</text>
-<text x="280" y="1894" class="mono">BAT.black  ·  MASTER.GND  ·  REG.GND  ·  GATE.GND  ·  PICO.pin38_GND  ·  SERVO0.ground  ·  SERVO1.ground  ·  D2.anode  ·  C1.negative</text>
-<text x="280" y="1922" class="mono">R_BOTTOM.2  ·  C_ADC.2  ·  R_EN.2  ·  R_BLEED.2</text>
-<text x="40" y="1970" class="small">LEFT UNCONNECTED: PICO.pin40_VBUS, PICO.pin36_3V3_OUT, MASTER.ON, REG.ENABLE</text>
-<text x="40" y="1998" class="small">ONE-GANG BUILD: omit SERVO1 and R_PWM1. Only one motor moves at a time in firmware.</text>
-<text x="40" y="2026" class="small">Bench verification required: net continuity, polarity, regulated voltage, startup droop and actual servo current.</text>
-<text x="40" y="2054" class="small">Sources: Raspberry Pi Pico W datasheet §§3.4–3.5; Pololu 2810 and 2574 documentation; docs/wiring.md.</text>
+<text x="1790" y="1130" class="small">* Verify colors on your actual servo.</text>
+<text x="1790" y="1156" class="small">Servo 1 + R_PWM1 omitted for one switch.</text>
+<circle class="terminal" data-terminal="BAT.red" data-net="BAT_POS" cx="245" cy="280" r="4"><title>BAT.red</title></circle>
+<circle class="terminal" data-terminal="BAT.black" data-net="GND" cx="135" cy="365" r="4"><title>BAT.black</title></circle>
+<circle class="terminal" data-terminal="F1.in" data-net="BAT_POS" cx="300" cy="280" r="4"><title>F1.in</title></circle>
+<circle class="terminal" data-terminal="F1.out" data-net="FUSED_BAT" cx="420" cy="280" r="4"><title>F1.out</title></circle>
+<circle class="terminal" data-terminal="MASTER.VIN" data-net="FUSED_BAT" cx="520" cy="280" r="4"><title>MASTER.VIN</title></circle>
+<circle class="terminal" data-terminal="MASTER.VOUT" data-net="PACK_SW" cx="770" cy="280" r="4"><title>MASTER.VOUT</title></circle>
+<circle class="terminal" data-terminal="MASTER.GND" data-net="GND" cx="590" cy="365" r="4"><title>MASTER.GND</title></circle>
+<circle class="terminal" data-terminal="REG.VIN" data-net="PACK_SW" cx="875" cy="280" r="4"><title>REG.VIN</title></circle>
+<circle class="terminal" data-terminal="REG.VOUT" data-net="5V" cx="1140" cy="280" r="4"><title>REG.VOUT</title></circle>
+<circle class="terminal" data-terminal="REG.GND" data-net="GND" cx="990" cy="365" r="4"><title>REG.GND</title></circle>
+<circle class="terminal" data-terminal="GATE.VIN" data-net="5V" cx="1340" cy="280" r="4"><title>GATE.VIN</title></circle>
+<circle class="terminal" data-terminal="GATE.VOUT" data-net="SERVO_5V" cx="1595" cy="280" r="4"><title>GATE.VOUT</title></circle>
+<circle class="terminal" data-terminal="GATE.ON" data-net="SERVO_ENABLE" cx="1435" cy="365" r="4"><title>GATE.ON</title></circle>
+<circle class="terminal" data-terminal="GATE.GND" data-net="GND" cx="1555" cy="365" r="4"><title>GATE.GND</title></circle>
+<circle class="terminal" data-terminal="PICO.pin39_VSYS" data-net="VSYS" cx="1030" cy="665" r="4"><title>PICO.pin39_VSYS</title></circle>
+<circle class="terminal" data-terminal="PICO.pin38_GND" data-net="GND" cx="725" cy="1115" r="4"><title>PICO.pin38_GND</title></circle>
+<circle class="terminal" data-terminal="PICO.pin31_GP26" data-net="ADC" cx="650" cy="930" r="4"><title>PICO.pin31_GP26</title></circle>
+<circle class="terminal" data-terminal="PICO.pin20_GP15" data-net="SERVO_ENABLE" cx="1135" cy="780" r="4"><title>PICO.pin20_GP15</title></circle>
+<circle class="terminal" data-terminal="PICO.pin21_GP16" data-net="PWM0_RAW" cx="1135" cy="900" r="4"><title>PICO.pin21_GP16</title></circle>
+<circle class="terminal" data-terminal="PICO.pin22_GP17" data-net="PWM1_RAW" cx="1135" cy="1020" r="4"><title>PICO.pin22_GP17</title></circle>
+<circle class="terminal" data-terminal="D1.anode" data-net="5V" cx="850" cy="495" r="4"><title>D1.anode</title></circle>
+<circle class="terminal" data-terminal="D1.cathode" data-net="VSYS" cx="850" cy="567" r="4"><title>D1.cathode</title></circle>
+<circle class="terminal" data-terminal="C1.positive" data-net="5V" cx="1230" cy="465" r="4"><title>C1.positive</title></circle>
+<circle class="terminal" data-terminal="C1.negative" data-net="GND" cx="1230" cy="537" r="4"><title>C1.negative</title></circle>
+<circle class="terminal" data-terminal="D2.cathode" data-net="SERVO_5V" cx="1660" cy="430" r="4"><title>D2.cathode</title></circle>
+<circle class="terminal" data-terminal="D2.anode" data-net="GND" cx="1660" cy="502" r="4"><title>D2.anode</title></circle>
+<circle class="terminal" data-terminal="R_BLEED.1" data-net="SERVO_5V" cx="2110" cy="430" r="4"><title>R_BLEED.1</title></circle>
+<circle class="terminal" data-terminal="R_BLEED.2" data-net="GND" cx="2110" cy="502" r="4"><title>R_BLEED.2</title></circle>
+<circle class="terminal" data-terminal="R_EN.1" data-net="SERVO_ENABLE" cx="1340" cy="810" r="4"><title>R_EN.1</title></circle>
+<circle class="terminal" data-terminal="R_EN.2" data-net="GND" cx="1340" cy="882" r="4"><title>R_EN.2</title></circle>
+<circle class="terminal" data-terminal="R_PWM0.1" data-net="PWM0_RAW" cx="1490" cy="900" r="4"><title>R_PWM0.1</title></circle>
+<circle class="terminal" data-terminal="R_PWM0.2" data-net="PWM0" cx="1572" cy="900" r="4"><title>R_PWM0.2</title></circle>
+<circle class="terminal" data-terminal="R_PWM1.1" data-net="PWM1_RAW" cx="1490" cy="1020" r="4"><title>R_PWM1.1</title></circle>
+<circle class="terminal" data-terminal="R_PWM1.2" data-net="PWM1" cx="1572" cy="1020" r="4"><title>R_PWM1.2</title></circle>
+<circle class="terminal" data-terminal="R_TOP.1" data-net="PACK_SW" cx="260" cy="830" r="4"><title>R_TOP.1</title></circle>
+<circle class="terminal" data-terminal="R_TOP.2" data-net="ADC" cx="260" cy="902" r="4"><title>R_TOP.2</title></circle>
+<circle class="terminal" data-terminal="R_BOTTOM.1" data-net="ADC" cx="260" cy="980" r="4"><title>R_BOTTOM.1</title></circle>
+<circle class="terminal" data-terminal="R_BOTTOM.2" data-net="GND" cx="260" cy="1052" r="4"><title>R_BOTTOM.2</title></circle>
+<circle class="terminal" data-terminal="C_ADC.1" data-net="ADC" cx="465" cy="980" r="4"><title>C_ADC.1</title></circle>
+<circle class="terminal" data-terminal="C_ADC.2" data-net="GND" cx="465" cy="1052" r="4"><title>C_ADC.2</title></circle>
+<circle class="terminal" data-terminal="SERVO0.power" data-net="SERVO_5V" cx="1900" cy="545" r="4"><title>SERVO0.power</title></circle>
+<circle class="terminal" data-terminal="SERVO0.signal" data-net="PWM0" cx="1790" cy="640" r="4"><title>SERVO0.signal</title></circle>
+<circle class="terminal" data-terminal="SERVO0.ground" data-net="GND" cx="2035" cy="705" r="4"><title>SERVO0.ground</title></circle>
+<circle class="terminal" data-terminal="SERVO1.power" data-net="SERVO_5V" cx="1900" cy="875" r="4"><title>SERVO1.power</title></circle>
+<circle class="terminal" data-terminal="SERVO1.signal" data-net="PWM1" cx="1790" cy="970" r="4"><title>SERVO1.signal</title></circle>
+<circle class="terminal" data-terminal="SERVO1.ground" data-net="GND" cx="2035" cy="1035" r="4"><title>SERVO1.ground</title></circle>
+<metadata data-nc="PICO.pin40_VBUS">PICO.pin40_VBUS: no external harness connection</metadata>
+<metadata data-nc="PICO.pin36_3V3_OUT">PICO.pin36_3V3_OUT: no external harness connection</metadata>
+<metadata data-nc="MASTER.ON">MASTER.ON: no external harness connection</metadata>
+<metadata data-nc="REG.ENABLE">REG.ENABLE: no external harness connection</metadata>
+<path d="M475 270V385H115" fill="none" stroke="#8b9697" stroke-width="1.5" stroke-dasharray="4 5"/>
+<rect x="466" y="272" width="18" height="16" rx="1" fill="#fff4df" stroke="#b5c5c9" stroke-width="1.5"/>
+<path d="M466 280h18" class="wire" stroke="#ad5c12"/>
+<rect x="126" y="377" width="18" height="16" rx="1" fill="#fff4df" stroke="#b5c5c9" stroke-width="1.5"/>
+<path d="M126 385h18" class="wire" stroke="#344858"/>
+<text x="308" y="355" class="small">RCY disconnect · both poles</text>
+<text x="790" y="188" class="net">PACK_SW</text>
+<text x="1180" y="188" class="net">REGULATED 5 V</text>
+<text x="1760" y="188" class="net">SWITCHED SERVO_5V</text>
+<text x="500" y="916" class="net">ADC</text>
+<text x="47" y="1282" class="name">COMMON GND — one continuous return. Motor current returns here directly; it does not pass through the Pico.</text>
+<text x="47" y="1318" class="body">External D1 feeds VSYS. USB feeds VSYS through the Pico’s own diode. USB alone cannot power this servo branch.</text>
+<text x="47" y="1348" class="body">C1 is BEFORE the gate. D2 and R_BLEED are AFTER it. All values match harness revision 3.</text>
+<text x="47" y="1378" class="small">Electrical topology, not physical board placement. Check silkscreen, diode/capacitor polarity and continuity before powering the assembly.</text>
 </svg>

@@ -11,3 +11,7 @@ The learning module uses the claim/source registry in [learn-sources.md](learn-s
 - All 21 STL files passed independent manifold, positive-volume, print-bed and A1 build-volume checks. The [BOM fit report](bom-fit-report.md) records 13 checks against current exported meshes and component models. Hash checks bind that evidence to the current BOM, models and STL files.
 
 The remaining physical measurements, unselected horn fasteners and textured-wall attachment are explicit in the [BOM](../BOM.md). No hardware power, motion, battery-runtime or physical fit testing has been performed by these software checks.
+
+## Continuous-map revision
+
+The former panel-based connection sheet is replaced by one continuous circuit and a dedicated default Connection map tab. All 46 visible terminals have the correct net assignments and lie on actual SVG wire segments. Each of 13 nets is one connected segment graph; no unrelated nets have collinear overlaps or junction dots on each other. Seven learning/bundle/diagram tests pass. Browser checks cover zoom, fit-to-view, fullscreen entry/exit and fitting the entire map at both desktop and phone viewport sizes.

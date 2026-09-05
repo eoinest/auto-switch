@@ -1,8 +1,8 @@
 """Generate editable SVG learning and wiring diagrams from the project's netlist.
 
 Run from any directory. No runtime dependencies. The power map is an explanatory
-availability diagram; the wiring sheet's terminal schedule is sourced verbatim
-from harness.json and is the authoritative external connectivity on the sheet.
+availability diagram; the connection map draws every harness terminal in one
+continuous circuit. Geometry tests bind the drawn wires to harness.json.
 """
 from pathlib import Path
 from html import escape
@@ -145,85 +145,6 @@ s.text(60,1241,'Read the arrows as available power paths, not measured current. 
 s.text(60,1268,'USB alone powers the Pico, not the motors. With both sources: the higher post-diode voltage usually wins; near-equal sources can share.','small')
 s.save('power-map.svg')
 
-# Full wiring sheet: named nets avoid hidden junctions and crossed-wire ambiguity.
-s=SVG(1800,2100,'Auto Switch — complete external wiring sheet','Functional circuit panels with named electrical nets, Pico physical pad assignments, all passive components, and an automatically generated exhaustive terminal schedule from harness.json. Matching net names mean connected wires. Pico internal USB power path is shown separately in power-map.svg.')
-s.text(40,55,'Auto Switch · complete connection sheet','title')
-s.text(40,87,f'Revision {HARNESS["revision"]} electrical nets · direct-solder Pico preferred · exact per-hole prototype-board routing is not supplied','subtitle')
-s.rect(40,110,1720,67,'#eaf1f1')
-s.text(60,138,'HOW TO READ THIS SHEET   Same net name = the same connected wire, wherever it appears.','body')
-s.text(60,163,'Solid lines carry supply/return; blue dashes carry signals. A filled dot is a junction. No crossing wires imply a connection.','small')
-s.text(40,216,'A   SOURCE AND PICO SUPPLY','section')
-s.box(40,237,260,145,'BAT · 4 × AA NiMH',['Pololu 1153 holder','Red → F1 input','Black → GND'],'BAT','#fff4df')
-s.box(360,237,285,145,'F1 + disconnect',['01500274Z fuse holder','0001.2507 · 2 A time-delay','JST RCY 2180 + 2181'],'F1','#fff4df')
-s.box(705,237,295,145,'MASTER · Pololu 2810',['VIN ← FUSED_BAT','VOUT → PACK_SW','GND → GND · ON unused'],'MASTER','#fff4df')
-s.box(1060,237,310,145,'REG · Pololu 2574',['VIN ← PACK_SW','VOUT → 5V · GND → GND','ENABLE left unconnected'],'REG','#ffece4')
-s.path('M300 308H360','battery');s.path('M645 308H705','battery');s.path('M1000 308H1060','battery');s.path('M1370 308H1410')
-s.box(1410,237,350,145,'D1 · 1N5819',['Anode ← 5V','Striped cathode → VSYS','VSYS → Pico pad 39'],'D1','#ffece4')
-s.text(40,412,'BAT_POS: holder + to fuse. FUSED_BAT passes through RCY to master VIN. RCY also disconnects the GND lead.','small')
-s.text(40,437,'Pico USB/VBUS and its onboard diode are separate from D1. See power-map.svg for the complete internal power path.','small')
-s.text(40,485,'B   CONTROLLER PADS','section')
-s.box(40,506,505,339,'PICO W / PICO 2 W',['39 · VSYS ← D1 cathode','38 · GND → common GND','20 · GP15 → SERVO_ENABLE (gate ON)','21 · GP16 → PWM0_RAW → R_PWM0','22 · GP17 → PWM1_RAW → R_PWM1','31 · GP26 / ADC0 ← ADC','40 · VBUS: no external wire','36 · 3V3 OUT: no external wire'],'PICO','#edf5ef')
-s.text(59,826,'Numbers identify pads even without soldered headers.','small')
-s.text(590,485,'C   MOTOR POWER AND LOGIC','section')
-s.box(590,506,410,158,'GATE · Pololu 2810 LV',['VIN ← 5V · VOUT → SERVO_5V','ON ← SERVO_ENABLE · GND → GND','Keep physical slider OFF.','GP15 is 3.3 V logic, not motor power.'],'GATE','#ffece4')
-s.box(1055,506,335,158,'SERVO0 · MG90S',['Power ← SERVO_5V','Ground → GND','Signal ← PWM0','Use original servo mating plug.'],'SERVO0','#fff')
-s.box(1430,506,330,158,'SERVO1 · MG90S',['Power ← SERVO_5V','Ground → GND','Signal ← PWM1','Omit for one-gang version.'],'SERVO1','#fff')
-s.path('M1000 577H1055');s.text(1008,486,'SERVO_5V','net',COLORS['motor'])
-s.text(590,704,'PWM0_RAW','net',COLORS['signal']);s.path('M725 698H760','signal',True,False)
-s.resistor(760,698,'R_PWM0','1 kΩ');s.path('M842 698H973','signal',True);s.text(899,681,'PWM0','net',COLORS['signal'])
-s.text(1080,704,'PWM1_RAW','net',COLORS['signal']);s.path('M1215 698H1250','signal',True,False)
-s.resistor(1250,698,'R_PWM1','1 kΩ');s.path('M1332 698H1463','signal',True);s.text(1390,681,'PWM1','net',COLORS['signal'])
-s.text(590,791,'Each servo has its own signal; both share power and ground.','body')
-s.text(590,819,'Run motor + and return on direct power wiring. A Pico GPIO carries only the control signal.','small')
-s.text(40,890,'D   PASSIVES · ADD ALL OF THESE TO THE NAMED NETS','section')
-# Input capacitor.
-s.rect(40,912,325,351,'#fff')
-s.text(60,945,'C1 · supply buffer','name');s.text(60,973,'470 µF / 10 V','body')
-s.text(95,1014,'5V','net',COLORS['regulated']);s.path('M125 1030V1080',arrow=False)
-s.path('M99 1080H151M99 1094H151',arrow=False);s.text(159,1076,'+','name');s.text(159,1111,'− stripe','small')
-s.path('M125 1094V1175','ground',arrow=False);s.ground(125,1175)
-s.text(60,1231,'Close to gate VIN and GND.','small')
-# Gate enable pulldown.
-s.rect(385,912,335,351,'#fff');s.text(405,945,'R_EN · default off','name');s.text(405,981,'SERVO_ENABLE','net',COLORS['signal'])
-s.resistor(440,1000,'R_EN','100 kΩ',True);s.path('M440 1072V1175','ground',arrow=False);s.ground(440,1175)
-s.text(405,1209,'Pull gate ON toward GND','small');s.text(405,1231,'while GPIO is not driving it.','small')
-# Switched rail diode + bleeder.
-s.rect(740,912,510,351,'#fff');s.text(760,945,'D2 + R_BLEED · shutoff','name');s.text(760,982,'SERVO_5V','net',COLORS['motor'])
-s.path('M790 1002H1070',arrow=False);s.dot(850,1002);s.dot(1070,1002)
-s.path('M850 1002V1040',arrow=False);s.diode(850,1112,'',True,'regulated');s.text(874,1047,'D2','net');s.text(874,1074,'1N5819','small');s.text(874,1101,'stripe ↑','small')
-s.resistor(1070,1002,'R_BLEED','1 kΩ, ¼ W',True,'regulated')
-s.path('M850 1112V1175H1070V1074','ground',arrow=False);s.ground(965,1175)
-s.text(760,1210,'D2: anode at GND, cathode at servo +.','small');s.text(760,1233,'Bleeder discharges the switched rail.','small')
-# Divider.
-s.rect(1270,912,490,351,'#fff');s.text(1290,945,'Battery divider + filter','name');s.text(1290,978,'PACK_SW','net',COLORS['battery'])
-s.resistor(1320,989,'R_TOP','100 kΩ, 1%',True,'adc');s.dot(1320,1061,'adc');s.path('M1320 1061H1675','adc',False,False);s.text(1550,1044,'ADC → GP26','net',COLORS['adc'])
-s.resistor(1320,1061,'R_BOTTOM','47 kΩ, 1%',True,'adc');s.path('M1320 1133V1175H1620V1127','ground',arrow=False);s.ground(1470,1175)
-s.dot(1620,1061,'adc');s.path('M1620 1061V1114','adc',False,False);s.path('M1600 1114H1640M1600 1127H1640','adc',False,False);s.text(1469,1107,'C_ADC','net');s.text(1469,1136,'100 nF','small')
-s.text(1290,1210,'V_ADC = V_PACK_SW × 47 / 147','small');s.text(1290,1233,'At 4.8 V nominal: about 1.53 V.','small')
-s.text(40,1308,'E   COMPLETE TERMINAL SCHEDULE · GENERATED FROM hardware/wiring/harness.json','section')
-s.text(40,1340,'Use board silkscreen for the real pad layout. These are electrical connections, not cable colors or physical positions.','small')
-y=1363
-for i,(net,terminals) in enumerate(HARNESS['nets'].items()):
-    # Up to two wrapped lines; deliberately readable instead of shrinking type.
-    chunks=[]; current=''
-    for terminal in terminals:
-        proposed=current+('  ·  ' if current else '')+terminal
-        if len(proposed)>135:
-            chunks.append(current);current=terminal
-        else:current=proposed
-    chunks.append(current)
-    height=28*len(chunks)+14
-    s.rect(40,y,1720,height,'#edf1ee' if i%2==0 else '#fff','#dce3df',0)
-    s.text(55,y+27,net,'net')
-    for row,line in enumerate(chunks):s.text(280,y+27+28*row,line,'mono')
-    y+=height
-s.text(40,y+33,'LEFT UNCONNECTED: '+', '.join(HARNESS['leave_unconnected']),'small')
-s.text(40,y+61,'ONE-GANG BUILD: omit SERVO1 and R_PWM1. Only one motor moves at a time in firmware.','small')
-s.text(40,y+89,'Bench verification required: net continuity, polarity, regulated voltage, startup droop and actual servo current.','small')
-s.text(40,y+117,'Sources: Raspberry Pi Pico W datasheet §§3.4–3.5; Pololu 2810 and 2574 documentation; docs/wiring.md.','small')
-# Accommodate any future growth in the terminal schedule without cutting content.
-needed=y+146
-s.items[0]=s.items[0].replace('height="2100"','height="'+str(needed)+'"').replace('0 0 1800 2100','0 0 1800 '+str(needed))
-# Background dimensions update independent from construction ordering.
-s.items=[v.replace('<rect width="1800" height="2100"','<rect width="1800" height="'+str(needed)+'"') for v in s.items]
-s.save('connection-map.svg')
+# Complete circuit: every harness wire joins its actual endpoints on one map.
+from continuous_wiring import draw
+draw(SVG, HARNESS)

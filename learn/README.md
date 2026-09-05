@@ -10,7 +10,7 @@ Then visit **http://127.0.0.1:8766**. There is no package installation, account,
 
 ## Suggested path
 
-1. In **Power map**, compare Battery, USB and Both. Turn the battery master off while USB remains plugged in. Predict why the Pico is awake but the servo rail stays off.
+1. Start with **Connection map** to see the entire circuit. Use **Fit entire map**, zoom, or **Full screen**. Then in **Power explorer**, compare Battery, USB and Both. Turn the battery master off while USB remains plugged in. Predict why the Pico is awake but the servo rail stays off.
 2. Follow the **12 guided lessons** in order. Work the example before looking at its answer, then answer both questions. Explanations remain available after a wrong answer, and you can retry.
 3. Use the **Workbench** to vary resistance, design a battery voltage divider, inspect pulse timing, explore capacitor droop and estimate energy. Each experiment names its assumptions and source references.
 4. Complete **Design it yourself**. Its eight checks and six-step open design brief ask you to choose the connections and explain why they work.

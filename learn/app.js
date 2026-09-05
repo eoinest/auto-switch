@@ -58,6 +58,29 @@
     return new XMLSerializer().serializeToString(xml.documentElement);
   }
   $("wiring-svg").innerHTML = scopedSvg(data.diagrams.wiring, "sheet-");
+  let mapZoom = 100;
+  function zoomMap(value) {
+    mapZoom = Math.max(100, Math.min(600, value));
+    const frame = $("map-canvas");
+    const fitWidth = Math.min(frame.clientWidth - 2, (frame.clientHeight - 2) * 2200 / 1400);
+    if (fitWidth > 0) $("wiring-svg").style.width = fitWidth * mapZoom / 100 + "px";
+    $("map-zoom").textContent = mapZoom + "%";
+    $("map-out").disabled = mapZoom === 100;
+    $("map-in").disabled = mapZoom === 600;
+    if (mapZoom === 100) $("map-canvas").scrollTo(0, 0);
+  }
+  $("map-fit").onclick = () => zoomMap(100);
+  $("map-out").onclick = () => zoomMap(mapZoom - 25);
+  $("map-in").onclick = () => zoomMap(mapZoom + 25);
+  $("map-fullscreen").onclick = async () => {
+    try {
+      if (document.fullscreenElement) await document.exitFullscreen();
+      else await $("page-wiring").requestFullscreen();
+    } catch (_) { $("map-zoom").textContent = "Use the full-size SVG link in this browser."; }
+  };
+  document.addEventListener("fullscreenchange", () => { $("map-fullscreen").textContent = document.fullscreenElement ? "Exit full screen" : "Full screen"; requestAnimationFrame(() => zoomMap(mapZoom)); });
+  window.addEventListener("resize", () => zoomMap(mapZoom));
+  zoomMap(100);
   $("inspect-part").innerHTML = Object.entries(parts).map(([id, p]) => `<option value="${id}">${esc(p[0])}</option>`).join("");
   function inspectPart(id) {
     if (!parts[id]) return;
@@ -194,9 +217,10 @@
 
   function route() {
     const [section,id]=location.hash.slice(1).split("/");
-    const page=section==="lesson"?"lessons":["power","lessons","workbench","parts"].includes(section)?section:"power";
+    const page=section==="lesson"?"lessons":["wiring","power","lessons","workbench","parts"].includes(section)?section:"wiring";
     document.querySelectorAll(".page").forEach(p=>{p.hidden=p.id!=="page-"+page;});
     document.querySelectorAll("[data-page]").forEach(a=>{if(a.dataset.page===page)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");});
+    if(page==="wiring")requestAnimationFrame(() => zoomMap(mapZoom));
     if(page==="lessons")renderLesson(id||currentLesson);
     if(page==="workbench")renderLab(id||currentLab);
   }

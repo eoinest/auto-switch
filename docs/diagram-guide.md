@@ -1,8 +1,10 @@
 # Read the Auto Switch diagrams
 
-Start with the [power map](../hardware/wiring/power-map.svg). Follow the red supply branch **into VSYS pad 39**, across the boundary of the Pico board, through its onboard regulator, and into the chip at 3.3 V. This is the missing link between the battery assembly and the running Pico.
+Start with the [complete connection map](../hardware/wiring/connection-map.svg): one continuous drawing with every component, all supply and signal wires, and a shared ground return. The learning site opens this map first and provides fit, zoom and full-screen controls.
 
-The [complete connection sheet](../hardware/wiring/connection-map.svg) expands that overview into the controller pad map, every passive component, and a terminal schedule generated directly from [harness.json](../hardware/wiring/harness.json). Use the [assembly instructions](wiring.md) and [shopping list](shopping-list.md) alongside it. These diagrams are functional electrical drawings, not an exact per-hole soldering layout or a substitute for continuity checks.
+The [power explorer](../hardware/wiring/power-map.svg) remains an optional teaching view. Follow the red supply branch **into VSYS pad 39**, across the boundary of the Pico board, through its onboard regulator, and into the chip at 3.3 V. This is the missing link between the battery assembly and the running Pico.
+
+The connection map draws all 46 external terminals from [harness.json](../hardware/wiring/harness.json). Automated geometry checks verify that each terminal touches its assigned wire and that every named net is connected within the drawing. Labels identify wires; you do not need to jump between repeated labels or separate panels. Use the [assembly instructions](wiring.md) and [shopping list](shopping-list.md) alongside it. These diagrams are functional electrical drawings, not an exact per-hole soldering layout or a substitute for continuity checks.
 
 ## Two supplies meet inside the Pico
 
@@ -24,10 +26,10 @@ GP16 and GP17 carry servo position commands through their separate 1 kΩ resisto
 
 ## Grounds, junctions and symbols
 
-- **GND is one connected net:** battery negative, USB ground, Pico, regulator, both switch modules, servos and passive returns share it. Repeated ground symbols represent the same electrical connection. Ground is the circuit's reference voltage and return path; it need not be connected to the earth or the wall.
+- **GND is one connected net:** battery negative, USB ground, Pico, regulator, both switch modules, servos and passive returns share it. Every external ground wire is drawn back to one continuous bus along the bottom. Ground is the circuit's reference voltage and return path; it need not be connected to the earth or the wall.
 - **Motor return:** connect it at the power assembly, not by routing it through the Pico. The heavy supply line and its return together form the current loop.
 - **Named nets:** every appearance of `5V`, for example, refers to the same connected conductor. `5V` and `SERVO_5V` are different nets separated by the gate. `PACK_SW` is varying raw battery voltage after the master, not regulated 5 V.
-- **Filled dot:** wires join at that point. Lines merely crossing do not make a junction. The detailed drawing uses named nets to avoid crowded crossings.
+- **Filled dot:** wires join at that point. A white gap at an unrelated crossing shows that the wires do not join. All same-net branches are continuous and marked with junction dots.
 - **Resistor rectangle:** limits current or helps set a voltage. Value is in ohms (Ω); kΩ means thousands of ohms.
 - **Capacitor plates:** store a little electrical energy. C1 is polarized: its positive terminal faces 5 V and its negative stripe faces ground. C_ADC is a non-polar ceramic capacitor.
 - **Diode bar:** marks the cathode. On our two external 1N5819 parts, the physical stripe identifies that end. D2's cathode faces the switched servo supply; its anode faces ground.
@@ -44,7 +46,7 @@ At a 4.8 V pack, that gives about 1.53 V. Sensing the regulated 5 V line would m
 
 ## Interactive integration
 
-`tools/render_wiring.py` regenerates both SVGs without external libraries. The power map has stable group IDs:
+`tools/render_wiring.py` regenerates both SVGs without external libraries. `tools/continuous_wiring.py` lays out the complete circuit. Visible terminal circles carry `data-terminal` identifiers, while polylines carry `data-wire` net names and machine-checkable points; tests compare these with the harness. This checks drawn connectivity rather than relying only on text labels. The power map has stable group IDs:
 
 | ID | Meaning |
 | --- | --- |
