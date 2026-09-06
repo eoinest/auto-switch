@@ -1,0 +1,46 @@
+ONE-SERVO AA BREADBOARD POC -- conceptual wiring, not exact hole placement
+
+  4 x AA NiMH in a holder with a built-in ON/OFF switch
+  (battery voltage varies; this is NOT a fixed 5 V source)
+
+  Holder RED (+, switched) ---- F1 fuse ----> REG VIN
+  Holder BLACK (-) ------------------------> GND rail
+
+                 +---------------------------+
+                 | REG: fixed 5 V buck-boost  |
+                 | (e.g. existing S18V20F5)   |
+                 |                           |
+                 | VIN   GND           VOUT  |
+                 +--------|--------------|---+
+                          |              |
+                          v              v
+                       GND rail       +5 V rail
+
+  BREADBOARD +5 V RAIL ================================================
+                              |                         |
+                              |                         +----> MG90S RED (+)
+                              |
+                              +---- D1 Schottky ----> Pico VSYS (pin 39)
+                                    anode -> cathode       |
+                                             stripe       v
+                                                  onboard regulator
+                                                          |
+                                                    Pico's 3.3 V
+
+                                      Pico GP16 (pin 21) ----> MG90S SIGNAL
+                                                               orange/yellow
+                                                               (verify yours)
+
+  BREADBOARD GND RAIL =================================================
+                   |                 |                    |
+                   |                 |                    +----> MG90S GND
+                   |                 |                           brown/black
+                   |                 +----> Pico GND (pin 38)
+                   +----> REG GND and holder BLACK (-), as shown above
+
+  Optional USB data cable -----------------------> Pico micro-USB socket
+  VBUS (pin 40) and 3V3(OUT) (pin 36): no external wires in this POC.
+
+  Every connection marked '+5 V rail' joins the SAME regulated supply.
+  Every connection marked 'GND rail' joins the SAME ground return.
+  D1's stripe faces the Pico. F1 is in the positive battery lead.

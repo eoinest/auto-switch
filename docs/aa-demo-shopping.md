@@ -1,5 +1,7 @@
 # AA demo: shopping list and bench hardware
 
+**Current POC:** [Switched AA holder + breadboard rails, one servo](poc-wiring.md). The WAGO assembly below is an earlier reference; use the POC parts checklist for this build.
+
 Checked **2026-09-05**. This list implements the [four-AA demo plan](aa-demo-plan.md): four matched NiMH cells, a fixed 5 V regulator, one physical master switch, a continuously powered servo, and no servo power gate or battery ADC circuit. The current build uses **one servo only**.
 
 **Use the existing headered Pico and one MG90S servo.** This is a bench BOM. The old enclosure/STL fit report does not certify these new junction blocks, breadboard, connector routing, or assembly. Do not buy the old enclosure fasteners for this bench build.

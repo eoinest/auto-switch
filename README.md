@@ -2,7 +2,7 @@
 
 An open-source, externally mounted **Pico W + MG90S servo actuator for Decora-style paddle rocker switches**. The existing wallplate and electrical wiring stay intact. One servo operates each paddle; single- and double-gang prototypes are included.
 
-**Current bench build: [simplified four-AA demo](docs/aa-demo-plan.md)** — rechargeable NiMH, continuously connected Wi-Fi, and no servo power gate. Use the [Amazon-first AA BOM](docs/aa-demo-shopping.md), [illustrated breadboard viewer](learn/aa-demo.html), and [AA firmware profile](firmware/config.aa-demo.example.json). Run the learning server below and open **http://127.0.0.1:8766/aa-demo.html**. The current build uses one servo on GP16; its diagram has checked hole/connector connectivity. Physical operation is untested. Existing STL exports and the older circuit lessons below still represent the gated prototype; their fit audit does not certify the new bench assembly.
+**Current POC: [one servo on breadboard rails with a switched four-AA holder](docs/poc-wiring.md)** — [plain ASCII circuit](docs/poc-wiring.txt). Use the existing [one-channel AA firmware profile](firmware/config.aa-demo.example.json). The map retains a 5 V regulator, VSYS isolation diode and inline fuse. This is an untested, supervised bench plan; the earlier WAGO illustration/BOM and gated enclosure below are reference designs.
 
 **Prototype status:** code, editable Blender source and STL exports are included. The physical fit, switching force, adhesive retention, electrical assembly, MicroPython board behavior and battery runtime have **not** been verified on hardware. Measure and print the fit ring before the full enclosure; calibrate before enabling movement. The AA firmware example has one channel, disabled until calibrated.
 

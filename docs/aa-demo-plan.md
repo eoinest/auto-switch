@@ -1,5 +1,7 @@
 # Selected direction: simplified AA demo
 
+**Current POC:** [Switched AA holder + breadboard rails, one servo](poc-wiring.md). The WAGO assembly below is an earlier reference; use the POC parts checklist for this build.
+
 Decision recorded 2026-09-05: use **four rechargeable AA NiMH cells**, a ready-made regulated 5 V supply, continuous Wi-Fi, and no GPIO-controlled servo power gate. The current build uses **one servo only**, controlling one paddle. The Mac mini relay is optional for direct phone control on the same local network.
 
 The [Amazon-first shopping list](aa-demo-shopping.md) and [BOM CSV](../hardware/aa-demo-bom.csv) are now populated. Use the [illustrated breadboard viewer](../learn/aa-demo.html) or [one-servo image](../hardware/wiring/aa-demo/breadboard-1-servo.svg). Its wires, hole assignments, and connector ports pass an independent connectivity check. Physical operation remains untested.

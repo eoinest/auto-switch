@@ -1,5 +1,7 @@
 # Bill of materials — auto-switch
 
+**Current POC:** [One servo, switched AA holder and breadboard rails](docs/poc-wiring.md) · [ASCII circuit](docs/poc-wiring.txt). Use that parts checklist; the earlier WAGO and gated BOMs below are references.
+
 **Current build: simplified AA demo with one servo, using your headered Pico.**
 
 - [Amazon-first shopping list with exact parts and quantities](docs/aa-demo-shopping.md)
