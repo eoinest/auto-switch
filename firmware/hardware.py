@@ -1,4 +1,4 @@
-"""Pico hardware boundary with explicit gated and continuously powered profiles."""
+"""Pico/S2 hardware boundary with explicit gated and powered demo profiles."""
 from machine import ADC, Pin, PWM
 from control import battery_reading, validate_hardware_config
 

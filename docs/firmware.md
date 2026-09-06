@@ -1,10 +1,12 @@
 # Firmware and local control
 
-The firmware targets a **Pico W or Pico 2 W running the corresponding MicroPython UF2**. An ordinary Pico can run the USB bench helper, but it has no onboard Wi-Fi. No Raspberry Pi Linux image, cloud account, paid service, or third-party device library is required. The phone interface is a responsive website served by the Pico or the Mac mini gateway.
+The firmware supports **Pico W / Pico 2 W** and a dedicated **ESP32-S2 Mini** profile. See the [S2 setup and actual-board validation](s2-firmware.md); the Pico instructions below use the corresponding MicroPython UF2. An ordinary Pico can run the USB bench helper, but it has no onboard Wi-Fi. No Raspberry Pi Linux image, cloud account, paid service, or third-party device library is required. The phone interface is a responsive website served by the Pico or the Mac mini gateway.
 
-This is a prototype implementation with passing host tests. It has **not been flashed or tested against a physical board, servo, power circuit, or printed assembly**. The included angles are intentionally small starting points for calibration, not a known fit for your switch.
+This is a prototype implementation with passing host tests. The S2 profile has been flashed and its Wi-Fi/gateway communication checked on a physical S2 Mini. Servo, power circuit and printed-assembly operation remain untested. The included angles are intentionally small starting points for calibration, not a known fit for your switch.
 
 ## Choose the hardware profile
+
+For the **ESP32-S2 Mini**, use `config.s2-demo.example.json`: one disabled GPIO16 channel, no gate, no battery ADC, and direct or gateway transport. [S2 instructions](s2-firmware.md).
 
 For the **ungated AA demonstration circuit**, copy `firmware/config.aa-demo.example.json` as `firmware/config.json`. It explicitly selects `hardware_profile: "aa-demo"`, `power_enable_pin: null`, direct Wi-Fi control, and `battery.enabled: false`. GP15 is unused: startup, normal motion, cleanup and the bench helpers never configure it. The example contains one disabled, uncalibrated servo on GP16; a second channel may use GP17. It contains no schedules.
 

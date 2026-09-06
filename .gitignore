@@ -15,3 +15,5 @@ gateway/local-*.plist
 
 .playwright-cli/
 output/playwright/
+
+.local/

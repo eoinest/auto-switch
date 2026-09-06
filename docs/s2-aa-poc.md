@@ -1,6 +1,6 @@
 # ESP32-S2 Mini / four-AA / one-servo POC
 
-This is the current **bench wiring reference**. It supersedes the Pico-specific POC wiring for this build; the old diagrams remain historical references. It does not claim that the existing Pico firmware has been ported or tested on ESP32-S2.
+This is the current **bench wiring reference**. It supersedes the Pico-specific POC wiring for this build; the old diagrams remain historical references. The [S2 firmware profile](s2-firmware.md) now runs on the connected board; Wi-Fi and gateway check-ins were tested over USB power. The servo and battery circuit remain untested.
 
 Open [the interactive illustrated map](../learn/s2-aa-poc.html), [PNG](../hardware/wiring/s2-aa-poc/breadboard.png), [SVG](../hardware/wiring/s2-aa-poc/breadboard.svg), or [wire checklist](../hardware/wiring/s2-aa-poc/connections.csv). Every wire is shown in one view. Illustrations reconstruct the component appearance but are not dimension drawings.
 
@@ -58,7 +58,7 @@ P/G numbers count the 50 left rail holes from the top; these are drawing labels,
 
 The [official S2 Mini schematic](https://www.wemos.cc/en/latest/_static/files/sch_s2_mini_v1.0.0.pdf) ties the 5V/VBUS header directly to USB VBUS. **Disconnect the S2's three jumper leads before plugging in USB.** Turning the battery switch off, or unplugging only the battery, is insufficient: USB would otherwise power the servo rail and feed voltage into the converter output.
 
-After programming, unplug USB first, reconnect the three jumpers with battery power off, then switch the battery holder on. The existing Pico configuration must not be treated as tested S2 firmware. GPIO16 is an ordinary output-capable pin on ESP32-S2; PWM support is described in [Espressif's LEDC documentation](https://docs.espressif.com/projects/esp-idf/en/stable/esp32s2/api-reference/peripherals/ledc.html).
+After programming, unplug USB first, reconnect the three jumpers with battery power off, then switch the battery holder on. Use the dedicated `config.s2-demo.example.json`, not a Pico configuration. GPIO16 is an ordinary output-capable pin on ESP32-S2; PWM support is described in [Espressif's LEDC documentation](https://docs.espressif.com/projects/esp-idf/en/stable/esp32s2/api-reference/peripherals/ledc.html).
 
 ## Mechanical prototype
 
@@ -68,4 +68,4 @@ See [S2/AA mechanical notes](s2-aa-mechanical.md). Source-based S2 outline, hold
 
 `python3 tools/render_s2_demo.py` produces both SVG copies, wiring JSON and CSV. `python3 tools/verify_s2_demo.py` independently checks breadboard topology against the required nets. PNG is rasterized from that SVG using the open-source `sharp` package. The static learning page has no hardware API calls.
 
-Physical assembly, firmware on the actual S2, converter current capacity and mechanical fit remain untested.
+Physical assembly, servo operation, converter current capacity and mechanical fit remain untested. See [S2 firmware validation](s2-firmware.md) for the completed USB-only network checks.

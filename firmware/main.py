@@ -1,6 +1,7 @@
-"""Copy with companion modules to Pico/Pico W running MicroPython."""
+"""Copy with companion modules to Pico W or S2 Mini running MicroPython."""
 import json
 import time
+import sys
 import uasyncio as asyncio
 from control import Controller, Scheduler
 from hardware import Hardware
@@ -68,6 +69,8 @@ async def maintain_clock_and_schedules(clock, scheduler, controller):
 
 async def run(config):
     hardware = Hardware(config)
+    import machine
+    reset_cause = machine.reset_cause()
     scheduler_task = None
     try:
         controller = Controller(config, hardware)
@@ -90,6 +93,7 @@ async def run(config):
                     "uptime": clock.elapsed_ms // 1000, "clock_synced": clock.synced(),
                     "busy": controller.busy, "transport": transport,
                     "hardware_profile": config.get("hardware_profile", "gated"),
+                    "platform": sys.platform, "reset_cause": reset_cause,
                     "servo_power_gated": controller.power_enable_pin is not None}
 
         # Validate credentials before starting schedules or network operations.

@@ -102,6 +102,39 @@ class ProfileTests(unittest.IsolatedAsyncioTestCase):
         hardware.off()
         self.assertEqual(hardware.enable.level, 0)
 
+    async def test_s2_gateway_starts_disabled_without_adc_or_gate(self):
+        config = json.loads((ROOT / "firmware/config.s2-demo.example.json").read_text())
+        for transport in ("gateway", "direct"):
+            config["transport"] = transport
+            hardware = self.hardware_module.Hardware(config)
+            controller = Controller(config, hardware)
+            with self.assertRaisesRegex(ValueError, "uncalibrated"):
+                await controller.move(0, "on")
+            self.assertIsNone(hardware.battery())
+            self.assertIsNone(hardware.enable)
+            self.assertEqual(controller.states, ["unknown"])
+        self.assertEqual(self.events, [("pin", 16, 0), ("pin", 16, 0)])
+
+    def test_s2_invalid_wiring_is_rejected_before_gpio(self):
+        base = json.loads((ROOT / "firmware/config.s2-demo.example.json").read_text())
+        variants = []
+        for change in ({"power_enable_pin": 15}, {"battery": {"enabled": True}},
+                       {"transport": "typo"}):
+            config = copy.deepcopy(base)
+            config.update(change)
+            variants.append(config)
+        for pin in (0, 15, 17, 19, 20):
+            config = copy.deepcopy(base)
+            config["channels"][0]["pin"] = pin
+            variants.append(config)
+        config = copy.deepcopy(base)
+        config["channels"].append(dict(config["channels"][0], pin=17))
+        variants.append(config)
+        for config in variants:
+            with self.subTest(config=config), self.assertRaises(ValueError):
+                self.hardware_module.Hardware(config)
+        self.assertEqual(self.events, [])
+
     def test_invalid_profiles_reject_before_any_gpio(self):
         changes = [{"hardware_profile": "typo"}, {"power_enable_pin": 15},
                    {"battery": {"enabled": True}}, {"transport": "gateway"},

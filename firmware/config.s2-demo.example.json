@@ -1,0 +1,26 @@
+{
+  "device": "auto-switch-s2",
+  "hardware_profile": "s2-demo",
+  "transport": "gateway",
+  "wifi": {"ssid": "", "password": ""},
+  "gateway": {
+    "host": "192.168.1.100",
+    "port": 8768,
+    "token": "REPLACE_WITH_RANDOM_DEVICE_TOKEN"
+  },
+  "api_token": "REPLACE_WITH_RANDOM_CLIENT_TOKEN",
+  "power_enable_pin": null,
+  "channels": [{
+    "name": "Bedroom switch",
+    "pin": 16,
+    "enabled": false,
+    "calibrated": false,
+    "neutral_us": 1500,
+    "on_us": 1400,
+    "off_us": 1600,
+    "dwell_ms": 200,
+    "return_ms": 200
+  }],
+  "battery": {"enabled": false},
+  "schedules_utc": []
+}

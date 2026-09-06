@@ -41,6 +41,14 @@ def validate_hardware_config(config):
             raise ValueError("aa-demo has no battery ADC; battery.enabled must be false")
         if config.get("transport", "direct") != "direct":
             raise ValueError("aa-demo requires direct transport")
+    elif profile == "s2-demo":
+        enable_pin = config.get("power_enable_pin")
+        if enable_pin is not None:
+            raise ValueError("s2-demo requires power_enable_pin null")
+        if config.get("battery", {}).get("enabled", False) is not False:
+            raise ValueError("s2-demo has no battery ADC; battery.enabled must be false")
+        if config.get("transport", "direct") not in ("direct", "gateway"):
+            raise ValueError("s2-demo requires direct or gateway transport")
     else:
         raise ValueError("unknown hardware_profile")
     channels = config.get("channels", [])
@@ -54,6 +62,8 @@ def validate_hardware_config(config):
         raise ValueError("GPIO assignments overlap or use reserved GP15")
     if profile == "aa-demo" and any(pin not in (16, 17) for pin in pins):
         raise ValueError("aa-demo servo signals use GP16 or GP17")
+    if profile == "s2-demo" and pins != [16]:
+        raise ValueError("s2-demo requires exactly one servo signal on GPIO16")
     return enable_pin
 
 

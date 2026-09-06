@@ -219,7 +219,7 @@ class FirmwareTests(unittest.IsolatedAsyncioTestCase):
                 return {"mode": "demo", "poll_interval_s": 1, "commands": []}
         spec = importlib.util.spec_from_file_location("test_device_main", ROOT / "firmware/main.py")
         module = importlib.util.module_from_spec(spec)
-        replacements = {"machine": types.SimpleNamespace(Pin=Pin), "uasyncio": asyncio,
+        replacements = {"machine": types.SimpleNamespace(Pin=Pin, reset_cause=lambda: 2), "uasyncio": asyncio,
                         "hardware": types.SimpleNamespace(Hardware=lambda _: hardware),
                         "network": types.SimpleNamespace(WLAN=WLAN, STA_IF=0)}
         async def short_loop_sleep(seconds):
