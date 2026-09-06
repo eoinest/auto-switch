@@ -20,7 +20,7 @@ The double set has **five printed pieces**: frame, two screw-on saddles and two 
 
 ## Horn alignment revision
 
-A [recessed horn-seat prototype](../horn-pocket/README.md) is being developed to locate the stock horn before fastening. It includes small fit coupons; its outline is provisional until the supplied horn is confirmed. The master STLs above retain the reviewed flat horn interface.
+A [recessed horn-seat prototype](../horn-pocket/README.md) is being developed to locate the stock horn before fastening. It now models the photographed tapered horn and includes three fit coupons bracketing the photo-derived size estimate. Physical fit and thickness remain unverified. The master STLs above retain the reviewed flat horn interface.
 
 ## Attachment and printing
 

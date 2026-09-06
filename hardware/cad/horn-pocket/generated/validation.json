@@ -1,29 +1,25 @@
 {
-  "status": "PROVISIONAL: exact horn profile and hole layout pending user identification",
+  "status": "PHOTO-ESTIMATED: tapered double-arm identified; precise dimensions, depth and hole layout unconfirmed",
   "config": {
-    "status": "PROVISIONAL horn envelope: actual supplied horn identity and dimensions pending",
+    "status": "PHOTO-ESTIMATED tapered double-arm horn; depth and physical fit unconfirmed",
     "units": "mm",
     "horn": {
-      "arm_span": 22,
-      "arm_width": 5,
+      "arm_span": 31.5,
+      "arm_root_width": 5.3,
+      "arm_tip_width": 4.0,
       "arm_thickness": 2,
-      "hub_diameter": 7,
+      "hub_diameter": 7.4,
       "hub_depth": 4
     },
     "seat": {
       "contact_plane_x": 13,
       "flange_back_x": 9,
-      "flange_width": 26,
+      "flange_width": 36,
       "flange_height": 14,
       "rim_depth": 1.2,
       "rim_wall": 1.2,
       "clearance_per_side": 0.3
     },
-    "coupon_clearances": [
-      0.2,
-      0.3,
-      0.4
-    ],
     "center_access_diameter": 4.8,
     "horn_attachment_slot_centers_y": [
       -7,
@@ -32,87 +28,105 @@
     "horn_attachment_slot_straight_length": 4,
     "horn_attachment_slot_diameter": 2.2,
     "baseline_source": "../servo-command/config.json",
-    "production_dimensions_confirmed": false
+    "production_dimensions_confirmed": false,
+    "coupon_profile_scales": [
+      0.97,
+      1,
+      1.03
+    ],
+    "photo_estimate_range_mm": {
+      "span": [
+        31,
+        32
+      ],
+      "uncertainty_approx_mm": 1
+    }
   },
   "checks": [
     {
       "name": "EMPTY SEAT",
       "non_manifold_edges": 0,
       "components": 1,
-      "volume_mm3": 1372.5714118988599
+      "volume_mm3": 1950.5510180534245
     },
     {
       "name": "SEATED HORN",
       "non_manifold_edges": 0,
       "components": 1,
-      "volume_mm3": 1372.5714118988599
+      "volume_mm3": 1950.5510180534245
     },
     {
       "name": "LIFTED HORN",
       "non_manifold_edges": 0,
       "components": 1,
-      "volume_mm3": 1372.5714118988599
+      "volume_mm3": 1950.5510180534245
     },
     {
       "name": "Single / right normal",
       "non_manifold_edges": 0,
       "components": 1,
-      "volume_mm3": 6600.443465277812
+      "volume_mm3": 8217.332255820938
     },
     {
       "name": "Double left mirrored",
       "non_manifold_edges": 0,
       "components": 1,
-      "volume_mm3": 6600.4435752194895
+      "volume_mm3": 8217.332290986795
     },
     {
       "name": "Triple center raised",
       "non_manifold_edges": 0,
       "components": 1,
-      "volume_mm3": 10658.043423742825
+      "volume_mm3": 12274.932201088826
     }
   ],
   "coupons": [
     {
-      "name": "Coupon 0.2 mm per side",
+      "name": "Coupon 97% profile / 0.3 mm clearance",
       "non_manifold_edges": 0,
       "components": 1,
-      "volume_mm3": 1371.436318610953,
-      "file": "horn-fit-coupon-clearance-0.2mm-PROVISIONAL.stl",
-      "clearance_per_side_mm": 0.2,
-      "dimensions_mm": [
-        14.0,
-        26.0,
-        5.199999809265137
-      ],
-      "floor_thickness_mm": 4,
-      "bottom_z_mm": 0.0
-    },
-    {
-      "name": "Coupon 0.3 mm per side",
-      "non_manifold_edges": 0,
-      "components": 1,
-      "volume_mm3": 1372.5714118988599,
-      "file": "horn-fit-coupon-clearance-0.3mm-PROVISIONAL.stl",
+      "volume_mm3": 1947.5646737720876,
+      "file": "horn-fit-coupon-profile-97pct-PHOTO-ESTIMATE.stl",
       "clearance_per_side_mm": 0.3,
+      "profile_scale": 0.97,
+      "profile_span_mm": 30.555,
       "dimensions_mm": [
         14.0,
-        26.0,
+        36.0,
         5.199999809265137
       ],
       "floor_thickness_mm": 4,
       "bottom_z_mm": 0.0
     },
     {
-      "name": "Coupon 0.4 mm per side",
+      "name": "Coupon 100% profile / 0.3 mm clearance",
       "non_manifold_edges": 0,
       "components": 1,
-      "volume_mm3": 1373.7071336843426,
-      "file": "horn-fit-coupon-clearance-0.4mm-PROVISIONAL.stl",
-      "clearance_per_side_mm": 0.4,
+      "volume_mm3": 1950.5510180534245,
+      "file": "horn-fit-coupon-profile-100pct-PHOTO-ESTIMATE.stl",
+      "clearance_per_side_mm": 0.3,
+      "profile_scale": 1,
+      "profile_span_mm": 31.5,
       "dimensions_mm": [
         14.0,
-        26.0,
+        36.0,
+        5.199999809265137
+      ],
+      "floor_thickness_mm": 4,
+      "bottom_z_mm": 0.0
+    },
+    {
+      "name": "Coupon 103% profile / 0.3 mm clearance",
+      "non_manifold_edges": 0,
+      "components": 1,
+      "volume_mm3": 1953.5374026902314,
+      "file": "horn-fit-coupon-profile-103pct-PHOTO-ESTIMATE.stl",
+      "clearance_per_side_mm": 0.3,
+      "profile_scale": 1.03,
+      "profile_span_mm": 32.445,
+      "dimensions_mm": [
+        14.0,
+        36.0,
         5.199999809265137
       ],
       "floor_thickness_mm": 4,
@@ -123,8 +137,8 @@
   "baseline_contact_plane_preserved_mm": 13,
   "source_config_sha256": "6473e3bb27d42cdeb51e86a4a7b054d50674aa78b1069d62d4972778e60f163e",
   "limits": [
-    "Nominal22x5x2 double-arm/7mm hub is a project assumption, not a manufacturer drawing.",
-    "Actual taper, spokes, underside boss and hole sizes need matching to supplied horn.",
+    "Horn outline dimensions are estimated from a perspective photograph; thickness/depth remain provisional.",
+    "Actual seating face, underside boss, thickness and hole sizes need checking against the supplied horn.",
     "Locating rim is not a snap-fit or torque-retaining substitute for screws.",
     "Horn center screw and spline engagement remain the original servo parts."
   ]

@@ -1,13 +1,42 @@
 {
-  "status": "PROVISIONAL horn envelope: actual supplied horn identity and dimensions pending",
+  "status": "PHOTO-ESTIMATED tapered double-arm horn; depth and physical fit unconfirmed",
   "units": "mm",
-  "horn": {"arm_span": 22, "arm_width": 5, "arm_thickness": 2, "hub_diameter": 7, "hub_depth": 4},
-  "seat": {"contact_plane_x": 13, "flange_back_x": 9, "flange_width": 26, "flange_height": 14, "rim_depth": 1.2, "rim_wall": 1.2, "clearance_per_side": 0.3},
-  "coupon_clearances": [0.2, 0.3, 0.4],
+  "horn": {
+    "arm_span": 31.5,
+    "arm_root_width": 5.3,
+    "arm_tip_width": 4.0,
+    "arm_thickness": 2,
+    "hub_diameter": 7.4,
+    "hub_depth": 4
+  },
+  "seat": {
+    "contact_plane_x": 13,
+    "flange_back_x": 9,
+    "flange_width": 36,
+    "flange_height": 14,
+    "rim_depth": 1.2,
+    "rim_wall": 1.2,
+    "clearance_per_side": 0.3
+  },
   "center_access_diameter": 4.8,
-  "horn_attachment_slot_centers_y": [-7, 7],
+  "horn_attachment_slot_centers_y": [
+    -7,
+    7
+  ],
   "horn_attachment_slot_straight_length": 4,
   "horn_attachment_slot_diameter": 2.2,
   "baseline_source": "../servo-command/config.json",
-  "production_dimensions_confirmed": false
+  "production_dimensions_confirmed": false,
+  "coupon_profile_scales": [
+    0.97,
+    1,
+    1.03
+  ],
+  "photo_estimate_range_mm": {
+    "span": [
+      31,
+      32
+    ],
+    "uncertainty_approx_mm": 1
+  }
 }

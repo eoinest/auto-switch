@@ -2,33 +2,9 @@
   "status": "PASS: provisional coupon meshes and layout only; actual horn fit unknown",
   "parts": [
     {
-      "file": "horn-fit-coupon-clearance-0.2mm-PROVISIONAL.stl",
-      "sha256": "88b61c4532d8cfb451401d7142cdfd27eac6beb77e1bf2daa2430900325fc829",
-      "triangles": 1072,
-      "connected_solids": 1,
-      "closed_consistent_winding": true,
-      "bounds_mm": [
-        [
-          7.999999523162842,
-          22.0
-        ],
-        [
-          8.0,
-          34.0
-        ],
-        [
-          0.0,
-          5.199999809265137
-        ]
-      ],
-      "volume_mm3": 1371.4363740935166,
-      "bed_contact_area_mm2": 320.7751028333082,
-      "above_bed_downfacing_area_mm2": 0.0
-    },
-    {
-      "file": "horn-fit-coupon-clearance-0.3mm-PROVISIONAL.stl",
-      "sha256": "2630da2c14962a57447649c68e089d3a43073ff23d9abce2b2f782fc87215f6a",
-      "triangles": 1072,
+      "file": "horn-fit-coupon-profile-100pct-PHOTO-ESTIMATE.stl",
+      "sha256": "c2e408bbc314b2b56555fa9a60f9afc1a7b9d3f4170a669abf88247423bbd57a",
+      "triangles": 1438,
       "connected_solids": 1,
       "closed_consistent_winding": true,
       "bounds_mm": [
@@ -38,21 +14,21 @@
         ],
         [
           8.0,
-          34.0
+          44.0
         ],
         [
           0.0,
           5.199999809265137
         ]
       ],
-      "volume_mm3": 1372.571407326974,
-      "bed_contact_area_mm2": 320.77508663140907,
+      "volume_mm3": 1950.5510148300582,
+      "bed_contact_area_mm2": 460.77509432567604,
       "above_bed_downfacing_area_mm2": 0.0
     },
     {
-      "file": "horn-fit-coupon-clearance-0.4mm-PROVISIONAL.stl",
-      "sha256": "0a958ed76bd40d61643c35de0079b0b286a4ba438a50d6d7c59430b1ae64d9cb",
-      "triangles": 1072,
+      "file": "horn-fit-coupon-profile-103pct-PHOTO-ESTIMATE.stl",
+      "sha256": "bde2cfbcd95a67b6f2561023f75a2ed0b7aa1dcb205840489be1962ebbc9adee",
+      "triangles": 1438,
       "connected_solids": 1,
       "closed_consistent_winding": true,
       "bounds_mm": [
@@ -62,22 +38,46 @@
         ],
         [
           8.0,
-          34.0
+          44.0
         ],
         [
           0.0,
           5.199999809265137
         ]
       ],
-      "volume_mm3": 1373.7069695612781,
-      "bed_contact_area_mm2": 320.77508663140907,
+      "volume_mm3": 1953.537368720578,
+      "bed_contact_area_mm2": 460.7751022378907,
+      "above_bed_downfacing_area_mm2": 0.0
+    },
+    {
+      "file": "horn-fit-coupon-profile-97pct-PHOTO-ESTIMATE.stl",
+      "sha256": "ad0bb137b65d2e1ec1a095d9d3cbab18ff7197784df137e375fdfe3064e764b2",
+      "triangles": 1442,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          7.999999523162842,
+          22.0
+        ],
+        [
+          8.0,
+          44.0
+        ],
+        [
+          0.0,
+          5.199999809265137
+        ]
+      ],
+      "volume_mm3": 1947.5647255030833,
+      "bed_contact_area_mm2": 460.7751075809929,
       "above_bed_downfacing_area_mm2": 0.0
     }
   ],
   "master": {
-    "file": "horn-fit-coupons-ALL-THREE-PROVISIONAL.stl",
-    "sha256": "e9f71d507d4cc2b2b3e337ef53ca6d7d2399a65249499c9756f8a079789e5c73",
-    "triangles": 3216,
+    "file": "horn-fit-coupons-ALL-THREE-PHOTO-ESTIMATE.stl",
+    "sha256": "4b8e1c2f3c277d1461a27a99b199dc09d134fa1e3bec48e5b5c182d7ddfd06e9",
+    "triangles": 4318,
     "connected_solids": 3,
     "closed_consistent_winding": true,
     "bounds_mm": [
@@ -87,15 +87,15 @@
       ],
       [
         8.0,
-        34.0
+        44.0
       ],
       [
         0.0,
         5.199999809265137
       ]
     ],
-    "volume_mm3": 4117.714750981758,
-    "bed_contact_area_mm2": 962.3252760961263,
+    "volume_mm3": 5851.6531090537155,
+    "bed_contact_area_mm2": 1382.3253041445596,
     "above_bed_downfacing_area_mm2": 0.0
   },
   "individual_master_triangle_and_volume_match": true,

@@ -1,0 +1,99 @@
+{
+  "source_file_name": "IMG_3198.JPG",
+  "source_sha256": "a2e60c585935867101a4bbe47527b3a1baefa07e9a3975d7daab26f76ab0d973",
+  "oriented_image_pixels": [
+    4284,
+    5712
+  ],
+  "reference": "Existing single mount: 14.5 mm wide by 96 mm long printed pad, assumed printed at 100 percent scale",
+  "pad_corner_pixels": [
+    [
+      2473.0,
+      1876.0
+    ],
+    [
+      2757.0,
+      1876.0
+    ],
+    [
+      2797.0,
+      3816.0
+    ],
+    [
+      2495.0,
+      3816.0
+    ]
+  ],
+  "measurements": [
+    {
+      "dark_threshold": 85,
+      "bounds_display_pixels": [
+        821.3109243697478,
+        673.7815126050419,
+        867.9327731092436,
+        872.7226890756302
+      ],
+      "simple_span_mm": 30.80355620509073,
+      "homography_width_span_mm": [
+        7.3546271004503385,
+        31.647996969389958
+      ]
+    },
+    {
+      "dark_threshold": 110,
+      "bounds_display_pixels": [
+        820.9915966386554,
+        673.7815126050419,
+        868.2521008403361,
+        874.3193277310924
+      ],
+      "simple_span_mm": 31.050379572118697,
+      "homography_width_span_mm": [
+        7.44922643470967,
+        31.896925242155447
+      ]
+    },
+    {
+      "dark_threshold": 135,
+      "bounds_display_pixels": [
+        820.672268907563,
+        673.4621848739496,
+        868.2521008403361,
+        874.6386554621848
+      ],
+      "simple_span_mm": 31.14910891892989,
+      "homography_width_span_mm": [
+        7.497946262505836,
+        31.99852854222031
+      ]
+    },
+    {
+      "dark_threshold": 160,
+      "bounds_display_pixels": [
+        820.672268907563,
+        673.4621848739496,
+        868.2521008403361,
+        874.6386554621848
+      ],
+      "simple_span_mm": 31.14910891892989,
+      "homography_width_span_mm": [
+        7.502233534966635,
+        31.99852854222031
+      ]
+    }
+  ],
+  "selected_design_estimates_mm": {
+    "span": 31.5,
+    "hub_diameter": 7.4,
+    "near_hub_arm_width": 5.3,
+    "tip_width": 4.0
+  },
+  "span_uncertainty_mm_approx": 1.0,
+  "unknown": [
+    "arm thickness",
+    "underside boss",
+    "exact hole centers and diameters",
+    "printed scale/shrinkage"
+  ],
+  "limitations": "Manual corner picks, perspective, rounded edges, shadows and horn height above the pad limit precision. Planar homography does not remove height parallax. Symmetric tapered outline is an approximation, not a traced manufacturing drawing."
+}

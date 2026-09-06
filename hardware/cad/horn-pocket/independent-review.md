@@ -1,35 +1,30 @@
-# Independent horn-pocket interface review
+# Independent photo-based horn-pocket review
 
-Status: PASS for the final nominal interface and saved-mesh checks. This is a **provisional fit-coupon design**, not approval of the supplied horn's actual shape and not a replacement for production paddles.
+Status: PASS for the final photo-estimated interface and preview print-orientation checks. This is a **photo-estimated fit-coupon design**, not approval of the supplied horn's exact dimensions and not a replacement for production paddles.
 
-The assumed horn is a 22 × 5 × 2 mm double arm with a 7 mm hub. Its actual taper, boss, holes and face geometry have not been established by the existing project measurements or manufacturer outline. The supplied horn must remain the spline interface.
+The actual photograph establishes a tapered double-arm horn. Scaling against the printed frame suggests an overall span of 31–32 mm, hub diameter around 7.3–7.5 mm, visible arm-root width around 5.3 mm, and rounded-end width around 4 mm. The design uses 31.5/7.4/5.3/4.0 mm respectively. Perspective and pixel-edge selection leave roughly±1 mm uncertainty in overall span. The photograph does not establish arm thickness, underside boss or axial seating depth; the 2 mm arm and 4 mm hub depth remain assumptions. Apparent arm asymmetry is not reliable enough to encode.
 
-## Seat and screw access
+## Interface
 
-The design adds a raised locating rim rather than moving the horn inward. The seating face stays at X13, preserving the baseline horn/shaft engagement and paddle position. The flange spans X9–13: **4 mm of floor remains**. The rim rises another **1.2 mm**, to X14.2. A nominal 2 mm arm therefore projects 0.8 mm beyond the rim; the pocket locates it without covering it or creating a snap fit.
+The locating rim adds material around the horn while preserving the baseline seating plane at X13. The flange remains 4 mm thick, from X9 to X13. The rim rises 1.2 mm to X14.2. A nominal 2 mm arm projects 0.8 mm above the rim; screws provide retention, rather than a snap fit or printed spline.
 
-The default 0.3 mm per-side allowance gives a 22.6 × 5.6 mm arm pocket plus a 7.6 mm hub pocket. The outer contour adds 1.2 mm walls; the 26 × 14 mm flange supports the full rim. Coupons compare 0.2, 0.3 and 0.4 mm allowances, not three supposedly verified horn sizes.
+The pocket has 0.3 mm per-side clearance. Three coupons scale the estimated outline to 97%,100% and 103%; all retain the same clearance. The largest rim spans 35.445 mm, so the revised 36 mm-wide flange supports it with 0.2775 mm remaining at each end. This fixes the earlier 35 mm flange overhang.
 
-The 4.8 mm center access hole is preserved through the flange. It provides the existing axial screwdriver path, but actual center-screw head dimensions still govern fit. The outer slots retain a 4 mm straight section plus a 2.2 mm diameter end profile, giving a 6.2 mm overall slot length. At centers Y±7, their extreme ends are Y±10.1, still inside the default pocket ends Y±11.3. Actual horn attachment fasteners remain dependent on the supplied holes; the locating rim does not replace screws.
-
-A symmetric double-arm pocket aligns the paddle and horn during assembly but does not establish the servo's electrical neutral angle. Neutral calibration and stock-horn spline installation remain separate steps.
+Center access remains 4.8 mm diameter. The outer slots retain a 4 mm straight segment plus 2.2 mm rounded ends, for 6.2 mm total length. Actual stock-horn holes, center-screw head and attachment fasteners still govern physical assembly. The pocket aligns the horn and paddle but does not establish the servo's neutral angle.
 
 ## Printing and identification
 
-Only the small coupon STLs are exported. Full-paddle models remain labeled previews; existing production STLs are unchanged. Coupons print with the flange floor directly on the bed and the cavity facing upward.
+Only the three small coupon STLs are exported. Full paddles remain previews; existing production STLs are unchanged. Coupons print floor-down, cavity-up. In the master layout's top view, increasing world X gives **97%,100%,103% from left to right**. Labels are preview-only: mark each coupon before lifting it from the bed.
 
-In a top-down view of the master coupon layout, increasing world X runs **0.2, 0.3, 0.4 mm from left to right**. Text labels are preview-only. Mark each coupon before lifting it off the bed so the different allowances cannot be mixed up.
+The widened full-paddle preview uses a ramp from X−3 to X9 while growing from half-width 6 to 18 mm, preserving a 45° slope. Independent transformed-mesh checks find no above-bed downward faces steeper than 45° on any of the normal, mirrored or raised previews. This checks orientation and overhang geometry; it does not approve full production motion or physical fit.
 
-Use a coupon to establish easy seating without force. It cannot verify a differently shaped horn, a hidden center boss, hole diameters, axial engagement on a real servo, fastener lengths, or loaded torque behavior. No physical-fit claim is made by the nominal contour checks.
+## Saved-mesh checks
 
-## Final saved-mesh audit
+`review_interface_independent.py` loads the final Blender files independently of the generator's checks:
 
-`review_interface_independent.py` loads the final close-up Blender file and measures the actual meshes independently of the generator's report:
+- Nominal horn/seat intersection has a tiny coplanar-contact artifact, approximately 0.0013 mm³. Separating the horn by only 1 micrometre axially gives exactly 0 mm³, distinguishing numerical contact noise from rim interference.
+- A4.78 mm diameter center-access probe and both 2 mm outer-slot probes have no intersection with the printed seat. These checks do not assert that unknown stock-horn holes accept those fasteners.
+- Measured flange floor is 4.0 mm; rim depth is 1.2 mm.
+- All three preview print orientations pass the 45° face check.
 
-- Horn/seat intersection: approximately 0.00000067 mm³, below the 0.0001 mm³ numerical-contact tolerance.
-- Center access cylinder: no intersection for a 4.78 mm diameter probe.
-- Both outer slot paths: no intersection for 2 mm diameter probes at Y±7. This checks the printed slot paths, not the stock horn's unknown hole sizes.
-- Measured flange floor: exactly 4 mm.
-- Measured rim depth above preserved X13 seating plane: approximately 1.2 mm.
-
-The final close-up render was inspected. Results are saved in `generated/independent-interface-review.json`. The earlier preview flange-ramp ledge was corrected to a 7 mm run from X2 to X9 for the 7 mm increase in half-width. Full-paddle production geometry and motion remain outside this coupon-only approval.
+Results are recorded in `generated/independent-interface-review.json`. The root agent separately verifies closed coupon solids, Z=0, master/individual agreement and layout spacing. Physical horn fit, underside clearance, fasteners, loaded behavior and complete assembled motion with the widened flange remain unverified.

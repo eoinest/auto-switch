@@ -7,9 +7,9 @@ spec = importlib.util.spec_from_file_location('mesh_audit', ROOT.parent / 'elect
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 out = ROOT / 'generated'
-parts = [module.audit(p)[0] for p in sorted(out.glob('horn-fit-coupon-clearance-*.stl'))]
+parts = [module.audit(p)[0] for p in sorted(out.glob('horn-fit-coupon-profile-*pct-PHOTO-ESTIMATE.stl'))]
 assert len(parts) == 3 and all(p['connected_solids'] == 1 for p in parts)
-master, tris, components = module.audit(out / 'horn-fit-coupons-ALL-THREE-PROVISIONAL.stl')
+master, tris, components = module.audit(out / 'horn-fit-coupons-ALL-THREE-PHOTO-ESTIMATE.stl')
 assert len(components) == 3
 assert sum(p['triangles'] for p in parts) == master['triangles']
 assert abs(sum(p['volume_mm3'] for p in parts) - master['volume_mm3']) < .1
