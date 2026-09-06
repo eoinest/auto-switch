@@ -91,12 +91,13 @@ class QueueTests(unittest.TestCase):
             self.assertEqual(self.store.status()["channels"][0]["state"], "unknown")
 
 
-class HTTPTests(unittest.TestCase):
+class HTTPFixture:
     @classmethod
     def setUpClass(cls):
         cls.store = gateway.Store(":memory:")
         cls.store.update_status(status())
-        cls.server = gateway.ThreadingHTTPServer(("127.0.0.1", 0), gateway.handler_for(cls.store, "c" * 32, "d" * 32))
+        cls.server = gateway.ThreadingHTTPServer(("127.0.0.1", 0), gateway.handler_for(
+            cls.store, "c" * 32, "d" * 32, open_client=getattr(cls, "open_client", False)))
         cls.thread = threading.Thread(target=cls.server.serve_forever, daemon=True)
         cls.thread.start()
         cls.url = "http://127.0.0.1:%s" % cls.server.server_port
@@ -119,6 +120,12 @@ class HTTPTests(unittest.TestCase):
         except HTTPError as error:
             with error:
                 return error.code, error.read()
+
+class HTTPTests(HTTPFixture, unittest.TestCase):
+    def test_access_metadata_is_public_but_contains_no_device_status(self):
+        code, data = self.request("/api/access")
+        self.assertEqual(code, 200)
+        self.assertEqual(json.loads(data), {"open_client": False})
 
     def test_status_requires_client_key(self):
         self.assertEqual(self.request("/api/status")[0], 401)
@@ -165,6 +172,46 @@ class HTTPTests(unittest.TestCase):
         with raised.exception as error:
             self.assertEqual(error.code, 400)
         self.assertEqual(self.store.status()["mode"], previous_mode)
+
+
+class OpenClientHTTPTests(HTTPFixture, unittest.TestCase):
+    open_client = True
+
+    def test_access_metadata_enables_keyless_ui(self):
+        code, data = self.request("/api/access")
+        self.assertEqual(code, 200)
+        self.assertEqual(json.loads(data), {"open_client": True})
+
+    def test_status_and_mode_need_no_client_key(self):
+        code, data = self.request("/api/status")
+        self.assertEqual(code, 200)
+        self.assertTrue(json.loads(data)["open_client"])
+        self.assertEqual(self.request("/api/mode", body={"mode": "demo"})[0], 200)
+
+    def test_device_endpoints_still_require_the_device_key(self):
+        for path, body in (("/api/device/poll", {"status": status()}),
+                           ("/api/device/ack", {"id": "1", "success": True})):
+            for token in (None, "c" * 32, "incorrect"):
+                with self.subTest(path=path, token=token):
+                    self.assertEqual(self.request(path, token, body)[0], 401)
+
+    def test_open_phone_to_authenticated_device_round_trip(self):
+        code, data = self.request("/api/switch", body={"channel": 0, "state": "on"})
+        self.assertEqual(code, 202)
+        ident = json.loads(data)["id"]
+        code, poll = self.request("/api/device/poll", "d" * 32, {"status": status()})
+        self.assertEqual(code, 200)
+        self.assertEqual(json.loads(poll)["commands"][0]["id"], ident)
+        self.assertEqual(self.request("/api/device/ack", "d" * 32,
+            {"id": ident, "success": True, "status": status("on")})[0], 200)
+
+    def test_open_client_cannot_bypass_disabled_or_uncalibrated_channel(self):
+        for field in ("enabled", "calibrated"):
+            disabled = status()
+            disabled["channels"][0][field] = False
+            self.store.update_status(disabled)
+            self.assertEqual(self.request("/api/switch", body={"channel": 0, "state": "on"})[0], 400)
+        self.store.update_status(status())
 
 
 if __name__ == "__main__":

@@ -12,7 +12,7 @@
     try {
       const response = await fetch(path, {
         method: body === undefined ? 'GET' : 'POST',
-        headers: {Authorization: `Bearer ${token}`, ...(body === undefined ? {} : {'Content-Type':'application/json'})},
+        headers: {...(token ? {Authorization: `Bearer ${token}`} : {}), ...(body === undefined ? {} : {'Content-Type':'application/json'})},
         body: body === undefined ? undefined : JSON.stringify(body),
         signal: controller.signal, cache: 'no-store'
       });
@@ -27,6 +27,8 @@
 
   function render(data) {
     gateway = data.gateway === true;
+    $('open-lan').hidden = data.open_client !== true;
+    $('disconnect').hidden = data.open_client === true;
     currentMode = data.mode || 'daily';
     $('mode-panel').hidden = !gateway;
     if (data.preview) $('demo').hidden = false;
@@ -100,15 +102,19 @@
     }
   }
 
+  function showConnection(data) {
+    connected = true; generation++;
+    $('connect').hidden = true; $('intro').hidden = true; $('device').hidden = false; $('token').value = '';
+    render(data); $('message').textContent = '';
+    clearInterval(timer); timer = setInterval(refresh, 2000);
+  }
+
   $('connect-form').addEventListener('submit', async (event) => {
     event.preventDefault();
     const button = event.currentTarget.querySelector('button');
     button.disabled = true; token = $('token').value.trim(); $('message').textContent = 'Connecting…';
     try {
-      const data = await api('/api/status'); connected = true; generation++;
-      $('connect').hidden = true; $('intro').hidden = true; $('device').hidden = false; $('token').value = '';
-      render(data); $('message').textContent = '';
-      clearInterval(timer); timer = setInterval(refresh, 2000);
+      showConnection(await api('/api/status'));
     } catch (error) { token = ''; $('message').textContent = error.message; }
     finally { button.disabled = false; }
   });
@@ -134,4 +140,9 @@
   $('mode-daily').addEventListener('click', () => setMode('daily'));
   $('mode-demo').addEventListener('click', () => setMode('demo'));
   $('interval').addEventListener('change', () => setMode(currentMode));
+  // Only an explicitly open gateway opts into automatic connection. Authenticated
+  // gateways and direct board servers keep the existing key-entry flow.
+  if (!demo) api('/api/access').then(async (access) => {
+    if (access.open_client === true && !connected) showConnection(await api('/api/status'));
+  }).catch(() => {});
 })();

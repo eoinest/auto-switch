@@ -27,7 +27,7 @@ alone does not isolate the servo rail. See [wiring precautions](s2-aa-poc.md).
 
 1. Fill a private copy of the S2 example. For gateway transport, set `host`
    to the Mac's LAN IP, `port` to the gateway port and `token` to its device key.
-   The website uses the separate client key. Reserve the Mac's IP in the router
+   The website normally uses the separate client key. Reserve the Mac's IP in the router
    or update the board configuration if that address changes.
 2. Copy the six Python modules and the private configuration with `mpremote`:
 
@@ -43,15 +43,28 @@ it does not expose a second web server on the board.
 
 The local bring-up gateway uses port 8768. Its private restart helper is
 `python3 .local/s2/run-gateway.py`; stop the existing gateway before restarting.
-The website asks for the client token saved in `.local/s2/client-token.txt`.
+The local prototype helper currently selects `--open-client`: the website opens
+directly without asking for a key. Anyone who can reach this gateway can read
+status and send control requests. This is a local-network convenience mode;
+it does not create a public URL or change router settings. Device poll/ack
+requests still require the private device token, and disabled or uncalibrated
+channels still cannot move.
+
+The gateway defaults to authenticated browser access. Remove `--open-client`
+from the private helper and restart to restore the client-key prompt; the saved
+client token remains in `.local/s2/client-token.txt`. For other launchers, opt in
+explicitly with `python3 gateway/server.py --open-client --host 0.0.0.0` and supply
+`AUTO_SWITCH_DEVICE_TOKEN` through the environment. A client token is optional
+in this mode. Keep this prototype on the trusted LAN; do not forward its port.
 The Mac must remain running and reachable for gateway control.
 
 ## Validation scope
 
 The real board joined Wi-Fi, synchronized its clock and sent authenticated
 status with `hardware_profile: s2-demo`, `platform: esp32`, `battery: null`
-and `servo_power_gated: false`. The gateway rejects unauthenticated status
-requests and movement requests for the disabled channel. Status also includes
+and `servo_power_gated: false`. The default gateway rejects unauthenticated
+status requests; the opt-in open-client mode accepts them. Both modes reject
+movement requests for the disabled channel. Status also includes
 MicroPython's numeric `reset_cause` to diagnose restarts.
 
 Demo mode requests a one-second delay between completed polls; network overhead
@@ -67,7 +80,8 @@ the cause of the reset is not yet established. Daily mode is **not validated
 on this board**. The gateway was returned to demo mode. Check USB power/cable
 and the board's power behavior before using radio-off operation.
 
-The 26 firmware tests and 14 gateway tests pass on the host. The broader suite
+The firmware and gateway tests cover both authenticated and open-client access,
+including authenticated device check-ins and movement guards. The broader suite
 also reports a pre-existing stale BOM audit for the separately modified
 `hardware/cad/generated/auto-switch.blend`; that model was not changed by
 firmware provisioning.

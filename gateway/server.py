@@ -152,7 +152,7 @@ class Store:
         return {"ok": True}
 
 
-def handler_for(store, client_token, device_token):
+def handler_for(store, client_token, device_token, open_client=False):
     class Handler(BaseHTTPRequestHandler):
         def setup(self):
             super().setup()
@@ -174,16 +174,20 @@ def handler_for(store, client_token, device_token):
             self.wfile.write(raw)
 
         def authorized(self, device=False):
+            if open_client and not device:
+                return True
             expected = device_token if device else client_token
             actual = self.headers.get("Authorization", "")
             return hmac.compare_digest(actual.encode(), ("Bearer " + expected).encode())
 
         def do_GET(self):
             path = self.path.split("?", 1)[0]
+            if path == "/api/access":
+                return self.reply(200, {"open_client": open_client})
             if path == "/api/status":
                 if not self.authorized():
                     return self.reply(401, {"error": "Unauthorized"})
-                return self.reply(200, store.status())
+                return self.reply(200, {**store.status(), "open_client": open_client})
             static = {"/": ("index.html", "text/html; charset=utf-8"), "/app.js": ("app.js", "text/javascript; charset=utf-8"), "/style.css": ("style.css", "text/css; charset=utf-8")}
             if path not in static:
                 return self.reply(404, {"error": "Not found"})
@@ -227,19 +231,23 @@ def main():
     parser.add_argument("--port", type=int, default=8765)
     parser.add_argument("--db", type=Path, default=ROOT / "gateway" / "state.sqlite3")
     parser.add_argument("--demo", action="store_true", help="Simulate a device; loopback only; no GPIO")
+    parser.add_argument("--open-client", action="store_true", help="Allow browser control without a client key for a trusted LAN prototype; device authentication stays required")
     args = parser.parse_args()
     if args.demo and args.host not in ("127.0.0.1", "localhost", "::1"):
         parser.error("Preview mode is restricted to loopback")
     client_token = "preview-device-key-only" if args.demo else os.environ.get("AUTO_SWITCH_CLIENT_TOKEN", "")
     device_token = "preview-hardware-key-only" if args.demo else os.environ.get("AUTO_SWITCH_DEVICE_TOKEN", "")
+    required_keys = (device_token,) if args.open_client else (client_token, device_token)
     valid_keys = all(32 <= len(key) <= 128 and not key.startswith("REPLACE")
                      and all(33 <= ord(char) <= 126 for char in key)
-                     for key in (client_token, device_token))
-    if not args.demo and (not valid_keys or client_token == device_token):
-        parser.error("Set distinct AUTO_SWITCH_CLIENT_TOKEN and AUTO_SWITCH_DEVICE_TOKEN environment variables (32–128 printable characters; replace example placeholders)")
+                     for key in required_keys)
+    if not args.demo and (not valid_keys or (not args.open_client and client_token == device_token)):
+        parser.error("Set AUTO_SWITCH_DEVICE_TOKEN and, unless --open-client is set, a distinct AUTO_SWITCH_CLIENT_TOKEN (32–128 printable characters; replace example placeholders)")
     store = Store(":memory:" if args.demo else args.db, args.demo)
-    server = ThreadingHTTPServer((args.host, args.port), handler_for(store, client_token, device_token))
+    server = ThreadingHTTPServer((args.host, args.port), handler_for(store, client_token, device_token, args.open_client))
     print(f"Auto Switch {'PREVIEW' if args.demo else 'gateway'}: http://{args.host}:{args.port}/{'?demo' if args.demo else ''}", flush=True)
+    if args.open_client:
+        print("Open LAN prototype: browser control needs no key; device check-ins remain authenticated.", flush=True)
     try:
         server.serve_forever()
     except KeyboardInterrupt:
