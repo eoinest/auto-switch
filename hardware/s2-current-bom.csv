@@ -5,7 +5,7 @@ Amazon Basics 1.5 V alkaline AA,4,cell,User ordered,,Fit inside selected holder;
 Teyleten Robot 5 V buck-boost module,1,module,B0GCW44FDL; listing TPS63070 / photo XL63070,https://www.amazon.com/dp/B0GCW44FDL,Exact dimensions unknown; placeholder bay only
 MG90S 180 degree servo,1,servo,User-owned,,Separate approved actuator; actual ears/horn fit pending
 Stock servo horn and center screw,1,set,Supplied with servo,,Reuse original; printed paddle does not replace spline
-Command narrow 17207 interlocking strips,2,mating pair,Four individual strips for actuator sides,https://www.amazon.com/dp/B09XJDK6RS,Actuator only; verify smooth plate and paired thickness; not carrier attachment
+Command narrow 17207 interlocking strips,4,mating pair,Eight individual strips: two mating pairs on actuator and two on electronics bracket,https://www.amazon.com/dp/B09XJDK6RS,V4 electronics pads20 x144 mm; adhesive retention and actual smooth mounting surfaces unverified
 Soft contact pads,2,pad,SJ5302 reference or measured equivalent,,Actuator only; nominal 7.9 diameter x 2.2 mm
 Servo ear and horn-to-paddle fasteners,1,set,Exact size/length pending actual horn and ears,,Actuator only; do not buy guessed threads
 Solderless breadboard,1,board,User-owned model unknown,,Bench only; not housed in carrier
@@ -13,8 +13,8 @@ S2 direct-solder leads,3,lead,Male breadboard tips on bench end,,"Measure insula
 Converter output leads,2,lead,Male breadboard tips on bench end,,Measure actual exits; strain relief required
 Servo/rail male jumpers,5,lead,Three servo connections plus two split-rail bridges,,Bench wiring quantities; shorten/route final harness separately
 Solder and heat shrink,1,allowance,User-owned,,Insulate joints without obstructing mating surfaces
-Battery retaining bars and hardware,2,bar,V3 removable bars on hard-stop posts; M3 fasteners,,"Replaces v2 ties; case depth, switch and removal path need dry fit"
-Converter cassette and edge jaws,1,assembly,V3 design concept; M3 adjustment fasteners,,Actual PCB dimensions and bare edge/underside areas required before finalizing
-Independent carrier support,1,mounting solution,Not selected,,Wall attachment not verified; do not transfer battery load to servo mount
+Battery retaining bars and hardware,2,bar,V4 removable bars on hard-stop posts; M3 fasteners,,"Replaces v2 ties; case depth, switch and removal path need dry fit"
+Converter cassette and edge jaws,1,assembly,V4 design concept; M3 adjustment fasteners,,Actual PCB dimensions and bare edge/underside areas required before finalizing
+Independent carrier support,1,mounting solution,V4 separate screw-on wall bracket with two flat adhesive pads,,Four M3 x12 screws and four M3 nuts connect bracket to carrier; physical wall retention unverified
 USB-C data cable,1,shared bench cable,User-owned; programming/USB test only,,Actual plug body and bend clearance require dry fit
 S2 mounting screws and nuts,2,pair,M1.6 through fasteners for nominal 2 mm factory holes,,20.4 mm pitch; antenna-edge offset approximately3.3 mm drawing-derived; actual board fit pending

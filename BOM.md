@@ -18,11 +18,11 @@ The selected converter listing calls it TPS63070 while its pictured PCB says XL6
 ## Printed mechanism and retention
 
 - **Servo mount and paddle:** [approved STL exports and fit instructions](docs/servo-command-mount.md).
-- **Narrow Command strips:** [17207 listing](https://www.amazon.com/dp/B09XJDK6RS), two mating pairs (four individual strips), one pair on each side of the actuator. Check the actual smooth plate surface and strip thickness.
+- **Narrow Command strips:** [17207 listing](https://www.amazon.com/dp/B09XJDK6RS), four mating pairs (eight individual strips) total: two pairs for the actuator and two for the separate electronics wall bracket. Check the actual smooth mounting surface and strip thickness.
 - **Horn/servo fasteners and two soft contact pads:** select to fit the actual servo and printed mechanism; reuse the original spline screw.
-- **Electronics holder:** [v3 mounting review](docs/electronics-retention.md). Two M1.6 screws/nuts attach the S2 through its factory holes; M3 hardware secures removable battery bars and the converter jaws. Final hardware lengths and converter contact areas depend on the reviewed geometry and actual parts. The older v2 tie-slot tray is a layout fit test.
+- **Electronics holder:** [v4 mounting review](docs/electronics-retention.md). Two M1.6 screws/nuts attach the S2 through its factory holes; M3 hardware secures removable battery bars and the converter jaws. A separate screw-on bracket provides the two flat Command-strip pads. See the dimensioned fastener list in that guide.
 
-The electronics tray is separate from the actuator. Its mounting method and all physical fits remain unverified. Print the small fit tests before treating the full tray as ready.
+The electronics tray is separate from the actuator. Its wall bracket is modeled, but adhesive retention and component fits remain physically unverified. The converter still uses a placeholder envelope and must be measured before its fit can be approved.
 
 [Detailed quantities, wire checklist and fit status (CSV)](hardware/s2-current-bom.csv) · [Current wiring](docs/s2-aa-poc.md)
 

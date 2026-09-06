@@ -1,0 +1,201 @@
+{
+  "status": "PASS: mesh and layout checks; physical fit and slicer bridging unverified",
+  "parts": [
+    {
+      "file": "01_carrier_base_CONCEPT.stl",
+      "sha256": "f6174fbb09a85590ccee4c1bd1b62b336dc3b6c27af6620c94f1ffbb0000615e",
+      "triangles": 3376,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          -60.0,
+          60.0
+        ],
+        [
+          -80.0,
+          80.0
+        ],
+        [
+          0.0,
+          26.0
+        ]
+      ],
+      "volume_mm3": 74072.65712333676,
+      "bed_contact_area_mm2": 19045.485588906726,
+      "above_bed_downfacing_area_mm2": 0.0
+    },
+    {
+      "file": "02_battery_bar_1_CONCEPT.stl",
+      "sha256": "04e895921ec69ffc76f704bb860fc2d7db3a9866a33b69d6e7529d1d3de7da48",
+      "triangles": 404,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          -48.0,
+          48.0
+        ],
+        [
+          -5.0,
+          5.0
+        ],
+        [
+          0.0,
+          3.0
+        ]
+      ],
+      "volume_mm3": 2825.6802401994355,
+      "bed_contact_area_mm2": 941.8934133998118,
+      "above_bed_downfacing_area_mm2": 0.0
+    },
+    {
+      "file": "03_battery_bar_2_CONCEPT.stl",
+      "sha256": "20453b7af5e12f5c764edef2b682eb4a5127c152d5c5744190d8ca28687d8c9b",
+      "triangles": 404,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          -48.0,
+          48.0
+        ],
+        [
+          -5.0,
+          5.0
+        ],
+        [
+          0.0,
+          3.0
+        ]
+      ],
+      "volume_mm3": 2825.6802306145983,
+      "bed_contact_area_mm2": 941.8934102048661,
+      "above_bed_downfacing_area_mm2": 0.0
+    },
+    {
+      "file": "04_converter_floor_CONCEPT.stl",
+      "sha256": "3a6b0091befc9d239fc45565a52bf599b3525b85ee2dc4e7298ea629e2261207",
+      "triangles": 576,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          -13.0,
+          13.0
+        ],
+        [
+          -29.0,
+          29.0
+        ],
+        [
+          0.0,
+          8.0
+        ]
+      ],
+      "volume_mm3": 3116.634210997592,
+      "bed_contact_area_mm2": 1198.3171054987943,
+      "above_bed_downfacing_area_mm2": 0.0
+    },
+    {
+      "file": "05_converter_jaw_left_CONCEPT.stl",
+      "sha256": "6f252a705fe2b9eb9a9599102184656d35350f9a3ad807fd33342bf4863c0efc",
+      "triangles": 302,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          -8.5,
+          8.5
+        ],
+        [
+          -4.500000476837158,
+          4.500000476837158
+        ],
+        [
+          0.0,
+          12.0
+        ]
+      ],
+      "volume_mm3": 637.893426049109,
+      "bed_contact_area_mm2": 28.0,
+      "above_bed_downfacing_area_mm2": 37.33690109104113
+    },
+    {
+      "file": "06_converter_jaw_right_CONCEPT.stl",
+      "sha256": "05ee2e97045a000c5a7bce05b4c0afd1501ae6c30857da7bc2f4449a77a45ef7",
+      "triangles": 302,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          -8.5,
+          8.5
+        ],
+        [
+          -4.500000476837158,
+          4.500000476837158
+        ],
+        [
+          0.0,
+          12.0
+        ]
+      ],
+      "volume_mm3": 637.8934290379523,
+      "bed_contact_area_mm2": 28.0,
+      "above_bed_downfacing_area_mm2": 37.33689434540679
+    },
+    {
+      "file": "07_wall_bracket_CONCEPT.stl",
+      "sha256": "6121a4fd0bb3eb19ad95f36baaa63709d6cd7dcd1df2ef42ff4304193c34f554",
+      "triangles": 1748,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          -60.0,
+          60.0
+        ],
+        [
+          -72.0,
+          72.0
+        ],
+        [
+          0.0,
+          13.0
+        ]
+      ],
+      "volume_mm3": 25418.17181009824,
+      "bed_contact_area_mm2": 6560.0,
+      "above_bed_downfacing_area_mm2": 227.78682784282137
+    }
+  ],
+  "master": {
+    "file": "electronics-wall-mount-ALL-PIECES-v4-CONCEPT.stl",
+    "sha256": "2668db79d442050cecf9d23d620bb787271a43860d8b0a266dc63fb060d121df",
+    "triangles": 7112,
+    "connected_solids": 7,
+    "closed_consistent_winding": true,
+    "bounds_mm": [
+      [
+        5.0,
+        250.0
+      ],
+      [
+        5.0,
+        233.0
+      ],
+      [
+        0.0,
+        26.0
+      ]
+    ],
+    "volume_mm3": 109534.61094685194,
+    "bed_contact_area_mm2": 28743.589694895767,
+    "above_bed_downfacing_area_mm2": 302.46068323920474
+  },
+  "master_matches_individual_triangle_count_and_volume": true,
+  "each_part_on_bed": true,
+  "minimum_pairwise_bounding_box_gap_mm": 5.0,
+  "fits_256mm_bed": true
+}

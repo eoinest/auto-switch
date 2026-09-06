@@ -24,7 +24,7 @@ The USB-powered S2 joins Wi-Fi and serves the website directly. Both buttons ren
 4. **[Servo mechanism](docs/servo-command-mount.md)** — approved export, stock horn and two narrow Command-strip mounting pads.
 5. **[Electronics holder](docs/electronics-retention.md)** — mounting-hole fastenings, converter clamps and removable battery retention under review.
 
-![Electronics mounting concept: assembled and exploded views](hardware/cad/electronics-retention-v3/generated/electronics-retention-v3.png)
+![Electronics carrier and separate wall bracket laid flat for printing](hardware/cad/electronics-retention-v4/generated/print-layout-v4.png)
 
 *Mounting concept, not a physically validated assembly. The converter is an illustrative example; its actual dimensions are still needed.*
 
@@ -41,7 +41,7 @@ Keep the battery/servo harness disconnected during USB programming. Before enabl
 ```text
 firmware/                         MicroPython code and minimal switch website
 hardware/cad/servo-command/        Isolated servo mechanism
-hardware/cad/electronics-retention-v3/  Electronics mounting concept
+hardware/cad/electronics-retention-v4/  Flat carrier, screw-on wall bracket and master STL
 hardware/wiring/s2-aa-poc/         Current bench wiring diagram
 learn/s2-aa-poc.html               Interactive wiring viewer
 ```

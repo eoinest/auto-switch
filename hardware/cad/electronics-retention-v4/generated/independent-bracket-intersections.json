@@ -1,0 +1,193 @@
+{
+  "pad_face_checks": [
+    {
+      "pad_x_range_mm": [
+        -60,
+        -40
+      ],
+      "uninterrupted_rear_face_mm2": 2880.0,
+      "expected_face_mm2": 2880
+    },
+    {
+      "pad_x_range_mm": [
+        40,
+        60
+      ],
+      "uninterrupted_rear_face_mm2": 2880.0,
+      "expected_face_mm2": 2880
+    }
+  ],
+  "source": "generated/electronics-retention-v4.blend",
+  "method": "Independent Blender exact Boolean intersection of wall bracket with all assembled mesh references and printed parts. Contact at surfaces permitted.",
+  "intersections": [
+    {
+      "bracket_vs": "01 carrier base \u2022 120 x 160 x 3",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "02 battery removable bar 1",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 x 35 battery bolt",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 nut \u2014 accessible underside",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 x 35 battery bolt.001",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 nut \u2014 accessible underside.001",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "02 battery removable bar 2",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 x 35 battery bolt.002",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 nut \u2014 accessible underside.002",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 x 35 battery bolt.003",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 nut \u2014 accessible underside.003",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "AA holder nominal envelope \u2022 verify actual body",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "holder rear service cover \u2022 lift holder out",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "S2 Mini PCB reference \u2022 25.4 x 34.3",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M1.6 x 16 S2 bolt",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M1.6 nut \u2014 accessible underside",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M1.6 x 16 S2 bolt.001",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M1.6 nut \u2014 accessible underside.001",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "S2 USB-C reference envelope",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "S2 antenna region \u2022 keep clear",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "S2 component envelope \u2022 conceptual",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "03 converter recessed floor \u2022 placeholder",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 x 10 converter floor bolt",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 floor nut \u2014 accessible underside",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 x 10 converter floor bolt.001",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 floor nut \u2014 accessible underside.001",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "04 converter sliding edge jaw -1",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 x 10 converter jaw bolt",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 jaw nut \u2014 accessible underside",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "04 converter sliding edge jaw 1",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 x 10 converter jaw bolt.001",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 jaw nut \u2014 accessible underside.001",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "CONVERTER PLACEHOLDER PCB \u2014 not measured",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "CONVERTER PLACEHOLDER components",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 x 12 carrier attachment",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 attachment nut \u2014 side loaded",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 x 12 carrier attachment.001",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 attachment nut \u2014 side loaded.001",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 x 12 carrier attachment.002",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 attachment nut \u2014 side loaded.002",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 x 12 carrier attachment.003",
+      "intersection_mm3": 0.0
+    },
+    {
+      "bracket_vs": "M3 attachment nut \u2014 side loaded.003",
+      "intersection_mm3": 0.0
+    }
+  ],
+  "source_sha256": "b47cfa7ac7e48d12b45ad26a340f30ea1ffb240872847b1b354b0e83c62f4bda"
+}

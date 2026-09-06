@@ -1,0 +1,86 @@
+{
+  "status": "RETENTION CONCEPT \u2014 NOT FIT APPROVED",
+  "base_mm": [
+    120,
+    160,
+    3
+  ],
+  "s2_pcb_mm": [
+    25.4,
+    34.3,
+    1.6
+  ],
+  "s2_hole_diameter_mm": 2.0,
+  "s2_hole_pitch_mm": 20.4,
+  "s2_hole_antenna_end_offset_mm": 3.3,
+  "s2_underside_clearance_mm": 7,
+  "s2_note": "Thickness and antenna-end offset require physical confirmation; offset was inferred from official dimension drawing vectors, not explicitly dimensioned.",
+  "holder_nominal_mm": [
+    68.7,
+    64.2,
+    22.5
+  ],
+  "holder_cradle_inner_mm": [
+    70.1,
+    65.6
+  ],
+  "holder_top_gap_mm": 0.5,
+  "converter_placeholder_mm": [
+    40,
+    36,
+    18
+  ],
+  "converter_pcb_thickness_assumption_mm": 1.6,
+  "converter_bare_edge_required_mm": [
+    3,
+    10
+  ],
+  "converter_underside_clearance_mm": 3,
+  "converter_note": "Envelope is a placeholder, not a measured model of B0GCW44FDL. Requires two unobstructed opposing PCB edges; jaw concept may change.",
+  "wall_bracket": {
+    "pads_mm": [
+      20,
+      144,
+      3
+    ],
+    "pad_centers_x_mm": [
+      -50,
+      50
+    ],
+    "carrier_bottom_to_rear_face_mm": 13,
+    "attachment_centers_mm": [
+      [
+        -53,
+        -65
+      ],
+      [
+        53,
+        -65
+      ],
+      [
+        -53,
+        65
+      ],
+      [
+        53,
+        65
+      ]
+    ],
+    "attachment_screws": "4 x M3 x 12 socket/button head; 4 standard M3 nuts, no washers",
+    "nut_pocket_mm": [
+      14,
+      6,
+      2.8
+    ],
+    "nut_pocket_z_mm": [
+      -7.4,
+      -4.6
+    ],
+    "bridge_span_mm": 6,
+    "strip_outline_mm": [
+      12.65,
+      92.74
+    ],
+    "strip_pad_use": "One 17207 mating pair per pad; removal tabs face bottom edge and remain exposed"
+  }
+}
