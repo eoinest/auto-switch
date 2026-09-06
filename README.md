@@ -2,7 +2,7 @@
 
 A small Wi-Fi actuator that presses an existing **Decora-style paddle light switch**, using one MG90S servo and a 3D-printed mount.
 
-The current POC uses a **headerless ESP32-S2 Mini** running MicroPython. It hosts a minimal website with **On** and **Off** buttons. Open **http://auto-switch.local/** from a phone on the same Wi-Fi. The Mac is only needed for programming; it does not host the switch website.
+The current POC uses a **headerless ESP32-S2 Mini** running MicroPython. It hosts a minimal website with **On**, **Off**, and **Recalibrate** buttons. Center calibration uses small movement controls and saves with **Done**. Open **http://auto-switch.local/** from a phone on the same Wi-Fi. The Mac is only needed for programming; it does not host the switch website.
 
 ## What works today
 
@@ -39,9 +39,9 @@ Keep the battery/servo harness disconnected during USB programming. Before enabl
 ## Project files
 
 ```text
-firmware/                         MicroPython code and two-button website
+firmware/                         MicroPython code and minimal switch website
 hardware/cad/servo-command/        Isolated servo mechanism
-hardware/cad/electronics-carrier-v2/  Current electronics fit-test revision
+hardware/cad/electronics-retention-v3/  Electronics mounting concept
 hardware/wiring/s2-aa-poc/         Current bench wiring diagram
 learn/s2-aa-poc.html               Interactive wiring viewer
 ```

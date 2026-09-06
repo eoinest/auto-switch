@@ -17,3 +17,10 @@ p:empty{display:none}
 #connect-form{display:grid;gap:12px}
 input{min-width:0;width:100%;padding:12px;border:1px solid #d9d9d9;border-radius:8px;background:#fff}
 [hidden]{display:none!important}
+.recalibrate{display:block;margin:16px auto 0;padding:0 18px;background:transparent;border-color:transparent;color:#666}
+#calibration{margin-top:24px;border-top:1px solid #ddd;padding-top:20px}
+#calibration label{display:block;margin-bottom:8px}
+select{font:inherit;width:100%;padding:12px;border:1px solid #d9d9d9;border-radius:8px;background:#fff;color:inherit}
+.calibration-controls{display:flex;gap:10px;margin-top:16px}
+.calibration-controls button{flex:1}
+#calibration-test{flex:2}

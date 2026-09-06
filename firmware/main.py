@@ -4,6 +4,7 @@ import time
 import sys
 import uasyncio as asyncio
 from control import Controller, Scheduler
+from calibration import load_calibration, save_calibration
 from hardware import Hardware
 from http_api import API, client_access
 from gateway_client import GatewayClient, validate_poll, process_commands
@@ -100,7 +101,7 @@ async def run(config):
     reset_cause = machine.reset_cause()
     scheduler_task = None
     try:
-        controller = Controller(config, hardware)
+        controller = Controller(config, hardware, persist=save_calibration)
         scheduler = Scheduler(config.get("schedules_utc", []), len(controller.channels))
         clock = Clock()
         transport = config.get("transport", "direct")
@@ -120,6 +121,8 @@ async def run(config):
                     "channels": controller.status_channels(), "battery": hardware.battery(),
                     "uptime": clock.elapsed_ms // 1000, "clock_synced": clock.synced(),
                     "busy": controller.busy, "transport": transport,
+                    "calibration": controller.calibration_status(),
+                    "calibration_available": config.get("hardware_profile") == "s2-demo" and transport == "direct",
                     "hardware_profile": config.get("hardware_profile", "gated"),
                     "platform": sys.platform, "reset_cause": reset_cause,
                     "servo_power_gated": controller.power_enable_pin is not None}
@@ -193,6 +196,7 @@ def start():
     try:
         with open("config.json") as stream:
             config = json.load(stream)
+        load_calibration(config)
         asyncio.run(run(config))
     except OSError as error:
         print("Startup stopped. Copy/edit config.example.json as config.json:", str(error))

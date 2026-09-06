@@ -110,6 +110,21 @@ class API:
                 return 401, {"error": "unauthorized"}
             if method == "GET" and path == "/api/status":
                 return 200, self.status()
+            if method == "POST" and path == "/api/calibration":
+                if headers.get("content-type", "").split(";")[0] != "application/json":
+                    return 415, {"error": "application/json required"}
+                try:
+                    payload = json.loads(body)
+                    if not isinstance(payload, dict):
+                        raise ValueError("expected calibration object")
+                    await self.controller.calibrate(payload)
+                    return 200, self.status()
+                except ValueError as error:
+                    return 400, {"error": str(error)}
+                except RuntimeError as error:
+                    return 409, {"error": str(error)}
+                except Exception:
+                    return 503, {"error": "calibration failed; no new endpoint saved"}
             if method == "POST" and path == "/api/switch":
                 if headers.get("content-type", "").split(";")[0] != "application/json":
                     return 415, {"error": "application/json required"}
@@ -121,8 +136,8 @@ class API:
                     return 200, self.status()
                 except ValueError as error:
                     return 400, {"error": str(error)}
-                except RuntimeError:
-                    return 409, {"error": "actuator busy"}
+                except RuntimeError as error:
+                    return 409, {"error": str(error)}
                 except Exception:
                     return 503, {"error": "actuation failed; state unknown"}
             return 404, {"error": "not found"}

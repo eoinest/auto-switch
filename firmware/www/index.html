@@ -19,6 +19,20 @@
     </section>
     <section id="device" hidden aria-label="Switch controls">
       <div id="channels"></div>
+      <section id="calibration" hidden aria-label="Servo calibration">
+        <p>Set the center so the arm is clear of both ends of the switch. Use these buttons; moving it by hand cannot be measured. Stop if it binds.</p>
+        <div class="calibration-controls">
+          <button id="calibration-minus" aria-label="Nudge servo minus">−</button>
+          <button id="calibration-test">Move to center</button>
+          <button id="calibration-plus" aria-label="Nudge servo plus">+</button>
+        </div>
+        <p id="calibration-progress"></p>
+        <p>Done saves the center and enables On / Off, keeping the same travel on each side. Each movement lasts ¼ second. An idle session closes after 2 minutes.</p>
+        <div class="calibration-controls">
+          <button id="calibration-cancel">Cancel</button>
+          <button id="calibration-done">Done</button>
+        </div>
+      </section>
     </section>
     <p id="message" role="status" aria-live="polite"></p>
   </main>
@@ -28,6 +42,7 @@
         <button data-state="on">On</button>
         <button data-state="off">Off</button>
       </div>
+      <button class="recalibrate">Recalibrate</button>
       <p class="channel-note"></p>
     </div>
   </template>

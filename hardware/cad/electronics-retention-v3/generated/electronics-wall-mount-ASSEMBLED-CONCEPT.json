@@ -1,0 +1,308 @@
+{
+  "file": "electronics-wall-mount-ASSEMBLED-CONCEPT.stl",
+  "units": "mm",
+  "source": "electronics-retention-v3.blend",
+  "source_sha256": "08f045897ee57560d710621da660d819c15ec8bf2463a661de3eb18a0e542051",
+  "sha256": "6a94b467fd648476b7b5a1fb6ec435feee1c19a8f90e510c67d34978eee5d0bb",
+  "parts": [
+    {
+      "object": "01 carrier base \u2022 120 x 160 x 3",
+      "triangles": 2640,
+      "volume_mm3": 76981.29677539489,
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "closed_manifold": true
+    },
+    {
+      "object": "02 battery removable bar 1",
+      "triangles": 404,
+      "volume_mm3": 2825.6802401994355,
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -52.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          27.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "closed_manifold": true
+    },
+    {
+      "object": "02 battery removable bar 2",
+      "triangles": 404,
+      "volume_mm3": 2825.6802306145983,
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -12.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          27.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "closed_manifold": true
+    },
+    {
+      "object": "03 converter recessed floor \u2022 placeholder",
+      "triangles": 576,
+      "volume_mm3": 3116.6342109975894,
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          22.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          45.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          4.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "closed_manifold": true
+    },
+    {
+      "object": "04 converter sliding edge jaw -1",
+      "triangles": 302,
+      "volume_mm3": 637.8934104109683,
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -5.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          45.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          4.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "closed_manifold": true
+    },
+    {
+      "object": "04 converter sliding edge jaw 1",
+      "triangles": 302,
+      "volume_mm3": 637.8934133998117,
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          49.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          45.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          4.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "closed_manifold": true
+    }
+  ],
+  "bounds_mm": [
+    [
+      -60.0,
+      60.0
+    ],
+    [
+      -80.0,
+      80.0
+    ],
+    [
+      -7.0,
+      29.0
+    ]
+  ],
+  "dimensions_mm": [
+    120.0,
+    160.0,
+    36.0
+  ],
+  "triangle_count": 4628,
+  "pairwise_intersection_checks": [
+    {
+      "first": "01 carrier base \u2022 120 x 160 x 3",
+      "second": "02 battery removable bar 1",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "first": "01 carrier base \u2022 120 x 160 x 3",
+      "second": "02 battery removable bar 2",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "first": "01 carrier base \u2022 120 x 160 x 3",
+      "second": "03 converter recessed floor \u2022 placeholder",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "first": "01 carrier base \u2022 120 x 160 x 3",
+      "second": "04 converter sliding edge jaw -1",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "first": "01 carrier base \u2022 120 x 160 x 3",
+      "second": "04 converter sliding edge jaw 1",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "first": "02 battery removable bar 1",
+      "second": "02 battery removable bar 2",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "first": "02 battery removable bar 1",
+      "second": "03 converter recessed floor \u2022 placeholder",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "first": "02 battery removable bar 1",
+      "second": "04 converter sliding edge jaw -1",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "first": "02 battery removable bar 1",
+      "second": "04 converter sliding edge jaw 1",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "first": "02 battery removable bar 2",
+      "second": "03 converter recessed floor \u2022 placeholder",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "first": "02 battery removable bar 2",
+      "second": "04 converter sliding edge jaw -1",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "first": "02 battery removable bar 2",
+      "second": "04 converter sliding edge jaw 1",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "first": "03 converter recessed floor \u2022 placeholder",
+      "second": "04 converter sliding edge jaw -1",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "first": "03 converter recessed floor \u2022 placeholder",
+      "second": "04 converter sliding edge jaw 1",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "first": "04 converter sliding edge jaw -1",
+      "second": "04 converter sliding edge jaw 1",
+      "intersection_volume_mm3": 0.0
+    }
+  ],
+  "assembly_transforms_preserved": true,
+  "fused": false,
+  "purpose": "Assembled preview of six detachable pieces, NOT print-in-place. Face contacts may merge if a slicer repairs this assembly.",
+  "print_layout_file": "electronics-wall-mount-all-pieces-CONCEPT.stl",
+  "physical_component_fit_verified": false,
+  "binary_stl_audit": {
+    "all_six_parts_closed_consistent_winding": true,
+    "part_volume_matches_source_within_mm3": 0.02,
+    "byte_length_valid": true
+  }
+}

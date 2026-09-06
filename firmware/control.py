@@ -68,7 +68,7 @@ def validate_hardware_config(config):
 
 
 class Controller:
-    def __init__(self, config, hardware, sleep=None):
+    def __init__(self, config, hardware, sleep=None, persist=None, now=None):
         self.config = config
         self.hardware = hardware
         self.power_enable_pin = validate_hardware_config(config)
@@ -78,8 +78,101 @@ class Controller:
         self.states = ["unknown"] * len(self.channels)
         self.last_commands = [None] * len(self.channels)
         self.busy = False
+        self.calibration = None
+        self.calibration_revision = 0
+        self.persist = persist
+        self.now = now or (lambda: time.ticks_ms() if hasattr(time, "ticks_ms") else int(time.monotonic() * 1000))
+
+    def calibration_status(self):
+        draft = self.calibration
+        if draft is not None:
+            elapsed = (time.ticks_diff(self.now(), draft["updated_ms"]) if hasattr(time, "ticks_diff")
+                       else self.now() - draft["updated_ms"])
+            if elapsed >= 120000 and not self.busy:
+                self.calibration = None
+                return None
+            return {"channel": draft["channel"], "revision": self.calibration_revision,
+                    "values": {key: draft["cfg"][key + "_us"] for key in ("neutral", "off", "on")},
+                    "tested": draft["tested"], "expires_in_s": max(0, (120000 - elapsed) // 1000)}
+        return None
+
+    async def calibrate(self, payload):
+        if self.config.get("hardware_profile") != "s2-demo" or self.config.get("transport", "direct") != "direct":
+            raise ValueError("calibration requires the direct S2 demo")
+        if self.persist is None:
+            raise ValueError("calibration storage unavailable")
+        if self.lock.locked():
+            raise RuntimeError("actuator busy")
+        self.calibration_status()
+        action = payload.get("action")
+        expected = {"action", "channel"} if action == "start" else {"action", "revision"}
+        if action == "nudge":
+            expected.add("delta")
+        if action not in ("start", "nudge", "test", "done", "cancel") or set(payload) != expected:
+            raise ValueError("invalid calibration request")
+        async with self.lock:
+            if action == "start":
+                if self.calibration is not None:
+                    raise RuntimeError("calibration already active")
+                channel = integer(payload["channel"], 0, len(self.channels) - 1, "channel")
+                cfg = dict(self.channels[channel])
+                self.calibration = {"channel": channel, "cfg": cfg,
+                                    "tested": False, "updated_ms": self.now()}
+                self.calibration_revision += 1
+                return
+            draft = self.calibration
+            if draft is None:
+                raise ValueError("calibration expired; press Recalibrate")
+            if type(payload["revision"]) is not int or payload["revision"] != self.calibration_revision:
+                raise RuntimeError("calibration changed; refresh and try again")
+            if action == "cancel":
+                self.hardware.off()
+                self.calibration = None
+                return
+            if action == "done":
+                if not draft["tested"]:
+                    raise ValueError("move the servo to test its center before saving")
+                replacement = dict(draft["cfg"])
+                validate_channel(replacement)
+                replacement.update(enabled=True, calibrated=True)
+                saved = list(self.channels)
+                saved[draft["channel"]] = replacement
+                self.persist(saved)
+                # Commit memory only after durable storage succeeds.
+                self.channels[draft["channel"]] = replacement
+                self.states[draft["channel"]] = "unknown"
+                self.calibration = None
+                return
+            cfg = dict(draft["cfg"])
+            if action == "nudge":
+                delta = payload["delta"]
+                if type(delta) is not int or delta not in (-10, 10):
+                    raise ValueError("nudge must be -10 or 10 us")
+                for key in ("neutral_us", "on_us", "off_us"):
+                    cfg[key] += delta
+            validate_channel(cfg)
+            # Consume the revision even on failure, so duplicate POSTs cannot
+            # repeat a physical nudge after an uncertain network response.
+            self.calibration_revision += 1
+            self.busy = True
+            self.states[draft["channel"]] = "unknown"
+            try:
+                self.hardware.off()
+                self.hardware.power_on()
+                self.hardware.pulse(draft["channel"], cfg["neutral_us"])
+                await asyncio.wait_for(self.sleep(0.25), 1)
+                draft["cfg"] = cfg
+                draft["tested"] = True
+                draft["updated_ms"] = self.now()
+            finally:
+                try:
+                    self.hardware.off()
+                finally:
+                    self.busy = False
 
     async def move(self, channel, state):
+        if self.calibration_status() is not None:
+            raise RuntimeError("finish or cancel calibration first")
         integer(channel, 0, len(self.channels) - 1, "channel")
         if state not in ("on", "off"):
             raise ValueError("state must be on or off")

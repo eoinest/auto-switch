@@ -38,8 +38,12 @@
   function updateDisabled() {
     const unavailable = busy || !connected || !!connectionError;
     for (const channel of $('channels').children) {
-      for (const button of channel.querySelectorAll('button')) button.disabled = unavailable || channel.dataset.ready !== 'true';
+      for (const button of channel.querySelectorAll('[data-state]')) button.disabled = unavailable || !!lastData?.busy || !!lastData?.calibration || channel.dataset.ready !== 'true';
+      const recalibrate = channel.querySelector('.recalibrate');
+      if (recalibrate) recalibrate.disabled = unavailable || !!lastData?.busy || !!lastData?.calibration;
     }
+    for (const control of $('calibration').querySelectorAll('button, select')) control.disabled = unavailable || !!lastData?.busy;
+    $('calibration-done').disabled = unavailable || !!lastData?.busy || lastData?.calibration?.tested !== true;
   }
 
   function render(data) {
@@ -51,9 +55,12 @@
       $('channels').dataset.ids = ids;
       for (const channel of channels) {
         const element = $('channel-template').content.firstElementChild.cloneNode(true);
-        for (const button of element.querySelectorAll('button')) {
+        for (const button of element.querySelectorAll('[data-state]')) {
           button.addEventListener('click', () => command(channel.id, button.dataset.state));
         }
+        element.querySelector('.recalibrate').addEventListener('click', () => {
+          perform('/api/calibration', {action: 'start', channel: channel.id});
+        });
         $('channels').appendChild(element);
       }
     }
@@ -61,12 +68,18 @@
       const element = $('channels').children[index];
       const ready = channel.enabled === true && channel.calibrated === true && !data.battery?.low;
       element.dataset.ready = String(ready);
+      element.querySelector('.recalibrate').hidden = data.calibration_available !== true;
       element.querySelector('.controls').setAttribute('aria-label', channel.name || `Switch ${channel.id + 1}`);
-      element.querySelector('.channel-note').textContent = data.battery?.low ? 'Battery low. Replace or recharge it.' : ready ? '' : 'Controls disabled until the servo is calibrated and enabled.';
-      for (const button of element.querySelectorAll('button')) {
+      element.querySelector('.channel-note').textContent = data.battery?.low ? 'Battery low. Replace or recharge it.' : ready ? '' : 'Recalibrate to set up the servo.';
+      for (const button of element.querySelectorAll('[data-state]')) {
         button.setAttribute('aria-label', `Send ${button.dataset.state} command to ${channel.name || 'switch'}`);
       }
     });
+    $('calibration').hidden = !data.calibration;
+    if (data.calibration) {
+      const draft = data.calibration;
+      $('calibration-progress').textContent = `Center: ${draft.values.neutral} µs${draft.tested ? ' · Tested' : ' · Not moved yet'}`;
+    }
     if (!channels.length) {
       $('channels').textContent = 'Waiting for the switch to check in.';
       delete $('channels').dataset.ids;
@@ -130,6 +143,15 @@
   }
 
   function command(channel, state) { return perform('/api/switch', {channel, state}); }
+  function calibrationAction(action, extra = {}) {
+    if (!lastData?.calibration) return;
+    return perform('/api/calibration', {action, revision: lastData.calibration.revision, ...extra});
+  }
+  $('calibration-minus').addEventListener('click', () => calibrationAction('nudge', {delta: -10}));
+  $('calibration-plus').addEventListener('click', () => calibrationAction('nudge', {delta: 10}));
+  $('calibration-test').addEventListener('click', () => calibrationAction('test'));
+  $('calibration-cancel').addEventListener('click', () => calibrationAction('cancel'));
+  $('calibration-done').addEventListener('click', () => calibrationAction('done'));
   function showConnection(data) {
     connected = true;
     generation++;

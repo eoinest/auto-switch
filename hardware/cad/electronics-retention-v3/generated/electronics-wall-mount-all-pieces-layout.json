@@ -1,0 +1,154 @@
+{
+  "units": "mm",
+  "parts": [
+    {
+      "file": "01_carrier_base_CONCEPT.stl",
+      "source_sha256": "03bb27fb59d729731d5cfafafabeac9bf738b45c099204ef4eefa62b11c61ad9",
+      "translation_mm": [
+        70.0,
+        90.0,
+        -0.0
+      ],
+      "bounds_mm": [
+        [
+          10.0,
+          10.0,
+          0.0
+        ],
+        [
+          130.0,
+          170.0,
+          33.0
+        ]
+      ],
+      "triangles": 2640
+    },
+    {
+      "file": "02_battery_bar_1_CONCEPT.stl",
+      "source_sha256": "1c29a1e612b77d7b380fffbf873f2f730408e9df0d5e62c58eabc6a1da838713",
+      "translation_mm": [
+        58.0,
+        185.0,
+        -0.0
+      ],
+      "bounds_mm": [
+        [
+          10.0,
+          180.0,
+          0.0
+        ],
+        [
+          106.0,
+          190.0,
+          3.0
+        ]
+      ],
+      "triangles": 404
+    },
+    {
+      "file": "03_battery_bar_2_CONCEPT.stl",
+      "source_sha256": "edb771423e620328bbdba45e31f6456c8adbfd1f8c32ddfd29104384c05aeba2",
+      "translation_mm": [
+        58.0,
+        205.0,
+        -0.0
+      ],
+      "bounds_mm": [
+        [
+          10.0,
+          200.0,
+          0.0
+        ],
+        [
+          106.0,
+          210.0,
+          3.0
+        ]
+      ],
+      "triangles": 404
+    },
+    {
+      "file": "04_converter_floor_CONCEPT.stl",
+      "source_sha256": "d0b86083cc27c305b25369ef54f662eea2a4d63142f15da59a9a713017f56d81",
+      "translation_mm": [
+        153.0,
+        39.0,
+        -0.0
+      ],
+      "bounds_mm": [
+        [
+          140.0,
+          10.0,
+          0.0
+        ],
+        [
+          166.0,
+          68.0,
+          8.0
+        ]
+      ],
+      "triangles": 576
+    },
+    {
+      "file": "05_converter_jaw_left_CONCEPT.stl",
+      "source_sha256": "65580a0a774f5c496c5da06fe298d4315e247e7252bb67682eeaee542a932205",
+      "translation_mm": [
+        188.5,
+        14.500000476837158,
+        -0.0
+      ],
+      "bounds_mm": [
+        [
+          180.0,
+          10.0,
+          0.0
+        ],
+        [
+          197.0,
+          19.000000953674316,
+          12.0
+        ]
+      ],
+      "triangles": 302
+    },
+    {
+      "file": "06_converter_jaw_right_CONCEPT.stl",
+      "source_sha256": "4ae80376007ac0b2841930fce36db8db3e6a6b8fec7004bf72a30776934d6923",
+      "translation_mm": [
+        188.5,
+        39.50000047683716,
+        -0.0
+      ],
+      "bounds_mm": [
+        [
+          180.0,
+          35.0,
+          0.0
+        ],
+        [
+          197.0,
+          44.000000953674316,
+          12.0
+        ]
+      ],
+      "triangles": 302
+    }
+  ],
+  "triangles": 4628,
+  "bounds_mm": [
+    [
+      10,
+      10,
+      0
+    ],
+    [
+      197,
+      210,
+      33
+    ]
+  ],
+  "footprints_nonoverlapping": true,
+  "physical_fit": "unverified concept; same geometry as individual exports",
+  "supports": "Base raised floor needs support; inspect jaw recesses in slicer.",
+  "sha256": "3b7f208f1512c79b5c8135076c2f93a8a1686bae7893eca48814d24869c878b6"
+}
