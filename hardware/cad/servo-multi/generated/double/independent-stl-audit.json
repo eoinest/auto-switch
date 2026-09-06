@@ -1,0 +1,153 @@
+{
+  "status": "PASS: exported mesh and bed layout; physical fit and slicing unverified",
+  "parts": [
+    {
+      "file": "01_frame.stl",
+      "sha256": "c43e6f5c008c6c506eee1e25e80f126ca7423d6503ed42441e83d9eb35cd455d",
+      "triangles": 1034,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          8.0,
+          132.0
+        ],
+        [
+          8.0,
+          124.0
+        ],
+        [
+          0.0,
+          3.0
+        ]
+      ],
+      "volume_mm3": 14543.36050672589,
+      "bed_contact_area_mm2": 4847.786835635612,
+      "above_bed_downfacing_area_mm2": 0.0
+    },
+    {
+      "file": "02_saddle.stl",
+      "sha256": "14185007d9f4e4179a351c1b33b87a8f032f969f502ae207098ffb8635cd83ff",
+      "triangles": 844,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          8.0,
+          124.0
+        ],
+        [
+          130.0,
+          140.0
+        ],
+        [
+          0.0,
+          26.0
+        ]
+      ],
+      "volume_mm3": 5594.46875237706,
+      "bed_contact_area_mm2": 1141.893388156197,
+      "above_bed_downfacing_area_mm2": 33.26643090688742
+    },
+    {
+      "file": "03_saddle.stl",
+      "sha256": "0f45b5a8659c60c4dc744744ea184d0cbba3335a0cc6c3546bebf52b17a19309",
+      "triangles": 844,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          130.0,
+          246.0
+        ],
+        [
+          130.0,
+          140.0
+        ],
+        [
+          0.0,
+          26.0
+        ]
+      ],
+      "volume_mm3": 5594.467967089666,
+      "bed_contact_area_mm2": 1141.8934061848558,
+      "above_bed_downfacing_area_mm2": 33.266366861787276
+    },
+    {
+      "file": "04_paddle.stl",
+      "sha256": "b2a584b471dc07d88ad79eeae2dae8a0c2176bd0186d0fca5cc4ff392f44f3c3",
+      "triangles": 1172,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          8.0,
+          30.099998474121094
+        ],
+        [
+          146.00001525878906,
+          206.00001525878906
+        ],
+        [
+          0.0,
+          17.0000057220459
+        ]
+      ],
+      "volume_mm3": 6341.553944879387,
+      "bed_contact_area_mm2": 535.5561642886036,
+      "above_bed_downfacing_area_mm2": 39.66146815782145
+    },
+    {
+      "file": "05_paddle.stl",
+      "sha256": "8e564dba771e3dbac92edd586e6f9af01c0d07389fcc6a1cd8850a1a2037b534",
+      "triangles": 1172,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          36.099998474121094,
+          58.19999694824219
+        ],
+        [
+          146.00001525878906,
+          206.00001525878906
+        ],
+        [
+          0.0,
+          17.000001907348633
+        ]
+      ],
+      "volume_mm3": 6341.554054824611,
+      "bed_contact_area_mm2": 535.5560287002032,
+      "above_bed_downfacing_area_mm2": 63.64445710274174
+    }
+  ],
+  "master": {
+    "file": "double-ALL-PIECES-CONCEPT.stl",
+    "sha256": "486ae1287c3650f42cb99875910e49d3bea296c03fd04d77056da7e32cba350c",
+    "triangles": 5066,
+    "connected_solids": 5,
+    "closed_consistent_winding": true,
+    "bounds_mm": [
+      [
+        8.0,
+        246.0
+      ],
+      [
+        8.0,
+        206.00001525878906
+      ],
+      [
+        0.0,
+        26.0
+      ]
+    ],
+    "volume_mm3": 38415.40522589654,
+    "bed_contact_area_mm2": 8202.685822965472,
+    "above_bed_downfacing_area_mm2": 169.8387230292378
+  },
+  "master_matches_individual_triangle_count_and_volume": true,
+  "each_part_on_bed": true,
+  "fits_256mm_bed": true,
+  "minimum_pairwise_bounding_box_gap_mm": 6.0
+}

@@ -1,0 +1,145 @@
+{
+  "variant": "double",
+  "status": "CONCEPT \u2014 physical multi-gang fit and servo travel unverified",
+  "units": "mm",
+  "gang_pitch_mm": 46.0,
+  "plate_width_mm": 115.85,
+  "pad_size_mm": [
+    14.5,
+    116
+  ],
+  "strip_pair_count": 2,
+  "center_pivot_raise_mm": 0,
+  "moving_paddle_fixed_geometry_collisions": [],
+  "independent_paddle_pose_collisions": [],
+  "sampled_angles_degrees": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "source_single_config_sha256": "6473e3bb27d42cdeb51e86a4a7b054d50674aa78b1069d62d4972778e60f163e",
+  "saddle_fasteners": "4 M3x10 screws and 4 ordinary M3 nuts",
+  "servo_ear_fasteners": "4 M2x10 and 4 ordinary M2 nuts; reuse stock horn center screws",
+  "caveats": [
+    "Nominal gang spacing and plate width; single fit confirmation does not verify multi-gang plate.",
+    "Two outer strip pairs only; adhesive torque/peel capacity untested.",
+    "4mm mated strip thickness assumed.",
+    "Triple center actuator has longer contact legs; stiffness and movement must be tested.",
+    "Servo control electronics and multi-channel software are not included.",
+    "Paddle flange includes a 45-degree printable transition; horizontal M2 saddle holes bridge 2.2mm. Review slicer preview before printing."
+  ],
+  "print_parts": [
+    {
+      "name": "DOUBLE 01 flat adhesive frame",
+      "file": "01_frame.stl",
+      "bounds_min_mm": [
+        8,
+        8,
+        0
+      ],
+      "dimensions_mm": [
+        124.0,
+        116.0,
+        3.0
+      ],
+      "bed_contact_mm2": 4847.786881111562,
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 14543.360474289097
+    },
+    {
+      "name": "DOUBLE 02 servo saddle 1",
+      "file": "02_saddle.stl",
+      "bounds_min_mm": [
+        8,
+        130.0,
+        0
+      ],
+      "dimensions_mm": [
+        116.0,
+        10.000015258789062,
+        26.0
+      ],
+      "bed_contact_mm2": 1141.893413156271,
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 5594.468826679645
+    },
+    {
+      "name": "DOUBLE 03 servo saddle 2",
+      "file": "03_saddle.stl",
+      "bounds_min_mm": [
+        130.0,
+        130.0,
+        0
+      ],
+      "dimensions_mm": [
+        116.0,
+        10.000007629394531,
+        26.0
+      ],
+      "bed_contact_mm2": 1141.8934128284454,
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 5594.468858214468
+    },
+    {
+      "name": "DOUBLE 04 paddle 1",
+      "file": "04_paddle.stl",
+      "bounds_min_mm": [
+        8,
+        146.00001525878906,
+        0
+      ],
+      "dimensions_mm": [
+        22.099998474121094,
+        60.0,
+        17.0000057220459
+      ],
+      "bed_contact_mm2": 535.5561623573303,
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 6341.554028636702
+    },
+    {
+      "name": "DOUBLE 05 paddle 2",
+      "file": "05_paddle.stl",
+      "bounds_min_mm": [
+        36.099998474121094,
+        146.00001525878906,
+        0
+      ],
+      "dimensions_mm": [
+        22.099998474121094,
+        60.0,
+        17.000001907348633
+      ],
+      "bed_contact_mm2": 535.556028842926,
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 6341.553387962279
+    }
+  ],
+  "master_footprint_max_mm": [
+    246.0,
+    206.00001525878906
+  ]
+}

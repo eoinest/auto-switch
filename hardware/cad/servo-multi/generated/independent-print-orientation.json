@@ -1,0 +1,66 @@
+{
+  "double": [
+    {
+      "file": "01_frame.stl",
+      "horizontal_down_face_above_bed_mm2": 0,
+      "down_face_steeper_than_45deg_mm2": 0
+    },
+    {
+      "file": "02_saddle.stl",
+      "horizontal_down_face_above_bed_mm2": 15.99996566772461,
+      "down_face_steeper_than_45deg_mm2": 33.26643090688742
+    },
+    {
+      "file": "03_saddle.stl",
+      "horizontal_down_face_above_bed_mm2": 15.999908447265625,
+      "down_face_steeper_than_45deg_mm2": 33.266366861787276
+    },
+    {
+      "file": "04_paddle.stl",
+      "horizontal_down_face_above_bed_mm2": 0,
+      "down_face_steeper_than_45deg_mm2": 0
+    },
+    {
+      "file": "05_paddle.stl",
+      "horizontal_down_face_above_bed_mm2": 0,
+      "down_face_steeper_than_45deg_mm2": 0
+    }
+  ],
+  "triple": [
+    {
+      "file": "01_frame.stl",
+      "horizontal_down_face_above_bed_mm2": 0,
+      "down_face_steeper_than_45deg_mm2": 0
+    },
+    {
+      "file": "02_saddle.stl",
+      "horizontal_down_face_above_bed_mm2": 15.999975204467773,
+      "down_face_steeper_than_45deg_mm2": 33.266415941217666
+    },
+    {
+      "file": "03_saddle.stl",
+      "horizontal_down_face_above_bed_mm2": 15.999946594238281,
+      "down_face_steeper_than_45deg_mm2": 33.266397783734526
+    },
+    {
+      "file": "04_saddle.stl",
+      "horizontal_down_face_above_bed_mm2": 15.999994277954102,
+      "down_face_steeper_than_45deg_mm2": 33.266431115119424
+    },
+    {
+      "file": "05_paddle.stl",
+      "horizontal_down_face_above_bed_mm2": 0,
+      "down_face_steeper_than_45deg_mm2": 0
+    },
+    {
+      "file": "06_paddle.stl",
+      "horizontal_down_face_above_bed_mm2": 0,
+      "down_face_steeper_than_45deg_mm2": 0
+    },
+    {
+      "file": "07_paddle.stl",
+      "horizontal_down_face_above_bed_mm2": 0,
+      "down_face_steeper_than_45deg_mm2": 0
+    }
+  ]
+}

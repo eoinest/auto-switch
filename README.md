@@ -28,6 +28,10 @@ The USB-powered S2 joins Wi-Fi and serves the website directly. Both buttons ren
 
 *Mounting concept, not a physically validated assembly. The converter is an illustrative example; its actual dimensions are still needed.*
 
+## Double and triple switch concepts
+
+[Multi-switch CAD](hardware/cad/servo-multi/README.md) extends the confirmed single-switch baseline with one servo per rocker, separate screw-on servo saddles, and two outer Command-strip pads. Each variant includes a Blender assembly and a master STL with the detached printed parts arranged on an A1 bed. The triple raises its center servo to clear its neighbor. These new mechanisms need physical motion testing; multi-servo electronics and firmware are separate future work.
+
 ## Power and control
 
 Today, USB powers the ESP32. The planned portable version uses the holder's switch and a buck-boost converter to supply regulated **5 V to both the S2's VBUS pad and the servo**, with a shared ground. GPIO16 supplies the servo control signal.
@@ -40,7 +44,8 @@ Keep the battery/servo harness disconnected during USB programming. Before enabl
 
 ```text
 firmware/                         MicroPython code and minimal switch website
-hardware/cad/servo-command/        Isolated servo mechanism
+hardware/cad/servo-command/        Isolated single-servo mechanism
+hardware/cad/servo-multi/          Double/triple mechanical concepts and master STLs
 hardware/cad/electronics-retention-v4/  Flat carrier, screw-on wall bracket and master STL
 hardware/wiring/s2-aa-poc/         Current bench wiring diagram
 learn/s2-aa-poc.html               Interactive wiring viewer

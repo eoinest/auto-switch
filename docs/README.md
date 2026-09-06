@@ -14,6 +14,10 @@ Start with the [project overview](../README.md). The current POC is one headerle
 | [Previous carrier fit tests](electronics-carrier-v2.md) | Earlier v2 tray and small interface tests |
 | [Private configuration](private-configuration.md) | Keep credentials out of Git |
 
+## Mechanical extensions
+
+- [Double and triple switch mechanisms](../hardware/cad/servo-multi/README.md): Blender assemblies, master STLs, dimensions and independent checks. The operating POC remains one servo.
+
 ## Supporting detail
 
 - [Electronics component/source audit](s2-electronics-component-audit.md)
