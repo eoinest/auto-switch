@@ -3,33 +3,48 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#16251f">
+  <meta name="theme-color" content="#fafafa">
   <title>Auto Switch</title>
   <link rel="stylesheet" href="/style.css">
   <script src="/app.js" defer></script>
 </head>
 <body>
-  <main>
-    <header><a class="brand" href="/" aria-label="Auto Switch home"><span class="mark">↟</span> auto switch</a><span class="local">LOCAL CONTROL</span></header>
-    <section id="intro" class="intro"><p class="eyebrow">A LITTLE HELP WITH THE LIGHTS</p><h1>Your switches.<br>A little smarter.</h1><p>Press a paddle from your phone, on your own network.</p></section>
-    <aside id="demo" hidden>Preview mode · these controls simulate a device. No physical switch is connected.</aside>
-    <aside id="open-lan" hidden>Open LAN prototype · anyone who can reach this gateway can use these controls.</aside>
-    <section id="connect" class="panel">
-      <div class="section-title"><h2>Connect to your switch</h2><span class="badge">PRIVATE LAN</span></div>
-      <p>Enter the device key you set during setup. It stays in this tab until you disconnect or close it.</p>
-      <form id="connect-form"><label for="token">Device key</label><div class="input-row"><input id="token" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" required minlength="16" placeholder="Your device key"><button type="submit">Connect <span aria-hidden="true">↗</span></button></div></form>
+  <main aria-label="Auto Switch">
+    <section id="connect" hidden>
+      <form id="connect-form">
+        <label for="token">Device key</label>
+        <input id="token" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" required minlength="16">
+        <button type="submit">Connect</button>
+      </form>
     </section>
-    <section id="device" hidden>
-      <div class="device-heading"><div><p class="eyebrow">CONNECTED DEVICE</p><h2 id="device-name">Auto Switch</h2></div><button class="quiet" id="disconnect">Disconnect</button></div>
-      <div class="metrics"><div><span class="metric-label">Connection</span><strong id="connection">Connecting…</strong></div><div><span class="metric-label">Battery</span><strong id="battery">Not measured</strong></div></div>
-      <div id="channels" class="channels"></div>
-      <div class="footnote"><span aria-hidden="true">ⓘ</span><p>Shown states are the last commands sent. Moving the paddle by hand won’t update this view.</p></div>
-      <section id="mode-panel" class="mode-panel" hidden><div class="section-title"><h3>Make it last. Or make it quick.</h3><span class="badge" id="mode-badge">DAILY MODE</span></div><div class="mode-options"><button id="mode-daily" class="quiet">Daily · check in periodically</button><button id="mode-demo" class="quiet">Demo · respond quickly</button></div><label for="interval">Daily check-in interval</label><select id="interval"><option value="30">30 seconds</option><option value="60" selected>1 minute</option><option value="300">5 minutes</option><option value="900">15 minutes</option></select><p id="mode-note">Mode changes take effect at the next check-in.</p><p id="queue-note" aria-live="polite"></p></section>
-      <details><summary>Automatic schedules</summary><p id="schedule-status">Checking device clock…</p><p>Set recurring UTC times in the device’s <code>config.json</code>. Schedules run while the device is powered and its clock is synchronized. Setup instructions are in the repository.</p></details>
+    <section id="device" hidden aria-label="Switch controls">
+      <div id="mode-panel" hidden>
+        <div class="segmented" role="group" aria-label="Mode">
+          <button id="mode-demo" aria-pressed="false">Demo</button>
+          <button id="mode-daily" aria-pressed="false">Check-in</button>
+        </div>
+        <div class="interval-row">
+          <label for="interval">Check interval</label>
+          <select id="interval">
+            <option value="30">30 seconds</option>
+            <option value="60" selected>1 minute</option>
+            <option value="300">5 minutes</option>
+            <option value="900">15 minutes</option>
+          </select>
+        </div>
+      </div>
+      <div id="channels"></div>
     </section>
     <p id="message" role="status" aria-live="polite"></p>
-    <footer><span>Designed to leave your switches as they are.</span><a href="https://github.com/eoinest/auto-switch" target="_blank" rel="noopener noreferrer">Open source ↗</a></footer>
   </main>
-  <template id="channel-template"><article class="switch-card"><div class="switch-top"><span class="channel-number"></span><span class="state"></span></div><div class="paddle" aria-hidden="true"><span></span></div><h3></h3><p class="channel-note"></p><div class="controls"><button data-state="off">Off</button><button data-state="on">On</button></div></article></template>
+  <template id="channel-template">
+    <div class="channel">
+      <div class="controls" role="group" aria-label="Switch">
+        <button data-state="on">On</button>
+        <button data-state="off">Off</button>
+      </div>
+      <p class="channel-note"></p>
+    </div>
+  </template>
 </body>
 </html>
