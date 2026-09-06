@@ -1,5 +1,7 @@
 # Electronics carrier v2 — fit-test revision
 
+**Retention is being redesigned:** use the [v3 mounting review](electronics-retention.md) for S2 screw mounts, converter edge capture and battery retaining bars. This v2 tray is an earlier fit-test layout, not the final component mount.
+
 This revision is for the current **headerless ESP32-S2 Mini + DAIERTEK switched four-AA holder + Teyleten Robot B0GCW44FDL buck-boost module**. It is a separate carrier beside the approved one-servo actuator. The breadboard stays on the bench.
 
 **Full-carrier physical fit is not approved.** The selected converter has no verified mechanical drawing, and the actual holder, solder joints and USB plug have not been measured. An exported STL can be a valid printable solid without fitting those components. Start with the supplied fit-test pieces and keep the full carrier as a draft until the checks below pass.

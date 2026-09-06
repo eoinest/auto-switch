@@ -1,0 +1,32 @@
+[
+  {
+    "object": "01 carrier base \u2022 120 x 160 x 3",
+    "non_manifold_edges": 0,
+    "volume_mm3": 76981.297
+  },
+  {
+    "object": "02 battery removable bar 1",
+    "non_manifold_edges": 0,
+    "volume_mm3": 2825.68
+  },
+  {
+    "object": "02 battery removable bar 2",
+    "non_manifold_edges": 0,
+    "volume_mm3": 2825.68
+  },
+  {
+    "object": "03 converter recessed floor \u2022 placeholder",
+    "non_manifold_edges": 0,
+    "volume_mm3": 3116.634
+  },
+  {
+    "object": "04 converter sliding edge jaw -1",
+    "non_manifold_edges": 0,
+    "volume_mm3": 637.893
+  },
+  {
+    "object": "04 converter sliding edge jaw 1",
+    "non_manifold_edges": 0,
+    "volume_mm3": 637.893
+  }
+]

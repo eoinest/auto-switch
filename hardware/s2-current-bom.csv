@@ -13,8 +13,8 @@ S2 direct-solder leads,3,lead,Male breadboard tips on bench end,,"Measure insula
 Converter output leads,2,lead,Male breadboard tips on bench end,,Measure actual exits; strain relief required
 Servo/rail male jumpers,5,lead,Three servo connections plus two split-rail bridges,,Bench wiring quantities; shorten/route final harness separately
 Solder and heat shrink,1,allowance,User-owned,,Insulate joints without obstructing mating surfaces
-Narrow reusable battery ties,2,strap,Must fit 4.5 mm printed slots; actual tie width and length pending,,Two narrow ties; wide hook-and-loop straps will not fit these slots
-PCB/converter retention and insulation,1,set,Pending revised supports and actual component inspection,,Do not tighten ties across components/antenna
+Battery retaining bars and hardware,2,bar,V3 removable bars on hard-stop posts; M3 fasteners,,"Replaces v2 ties; case depth, switch and removal path need dry fit"
+Converter cassette and edge jaws,1,assembly,V3 design concept; M3 adjustment fasteners,,Actual PCB dimensions and bare edge/underside areas required before finalizing
 Independent carrier support,1,mounting solution,Not selected,,Wall attachment not verified; do not transfer battery load to servo mount
 USB-C data cable,1,shared bench cable,User-owned; programming/USB test only,,Actual plug body and bend clearance require dry fit
-Removable insulating converter spacer,1,spacer,Select/design after actual PCB underside inspection,,Required before fastening converter; not an exact finished mount
+S2 mounting screws and nuts,2,pair,M1.6 through fasteners for nominal 2 mm factory holes,,20.4 mm pitch; antenna-edge offset approximately3.3 mm drawing-derived; actual board fit pending

@@ -1,0 +1,18 @@
+{
+  "status": "RETENTION CONCEPT — NOT FIT APPROVED",
+  "base_mm": [120, 160, 3],
+  "s2_pcb_mm": [25.4, 34.3, 1.6],
+  "s2_hole_diameter_mm": 2.0,
+  "s2_hole_pitch_mm": 20.4,
+  "s2_hole_antenna_end_offset_mm": 3.3,
+  "s2_underside_clearance_mm": 7,
+  "s2_note": "Thickness and antenna-end offset require physical confirmation; offset was inferred from official dimension drawing vectors, not explicitly dimensioned.",
+  "holder_nominal_mm": [68.7, 64.2, 22.5],
+  "holder_cradle_inner_mm": [70.1, 65.6],
+  "holder_top_gap_mm": 0.5,
+  "converter_placeholder_mm": [40, 36, 18],
+  "converter_pcb_thickness_assumption_mm": 1.6,
+  "converter_bare_edge_required_mm": [3, 10],
+  "converter_underside_clearance_mm": 3,
+  "converter_note": "Envelope is a placeholder, not a measured model of B0GCW44FDL. Requires two unobstructed opposing PCB edges; jaw concept may change."
+}

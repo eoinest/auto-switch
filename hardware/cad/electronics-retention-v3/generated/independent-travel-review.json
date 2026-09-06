@@ -1,0 +1,213 @@
+{
+  "printed_mesh_topology": [
+    {
+      "object": "01 carrier base \u2022 120 x 160 x 3",
+      "connected_components": 1,
+      "non_manifold_edges": 0,
+      "positive_volume_mm3": 76981.296831
+    },
+    {
+      "object": "02 battery removable bar 1",
+      "connected_components": 1,
+      "non_manifold_edges": 0,
+      "positive_volume_mm3": 2825.680229
+    },
+    {
+      "object": "02 battery removable bar 2",
+      "connected_components": 1,
+      "non_manifold_edges": 0,
+      "positive_volume_mm3": 2825.680229
+    },
+    {
+      "object": "03 converter recessed floor \u2022 placeholder",
+      "connected_components": 1,
+      "non_manifold_edges": 0,
+      "positive_volume_mm3": 3116.634214
+    },
+    {
+      "object": "04 converter sliding edge jaw -1",
+      "connected_components": 1,
+      "non_manifold_edges": 0,
+      "positive_volume_mm3": 637.893406
+    },
+    {
+      "object": "04 converter sliding edge jaw 1",
+      "connected_components": 1,
+      "non_manifold_edges": 0,
+      "positive_volume_mm3": 637.893406
+    }
+  ],
+  "status": "Independent mesh travel audit passed; does not verify real component fit",
+  "physical_fit_verified": false,
+  "source_sha256": "7c4d38aae81c23a301ca6d85c1b90c263c8b4e2b43eaf5f6d9fe75dbb0ed0df7",
+  "checks": [
+    {
+      "jaw": "04 converter sliding edge jaw -1",
+      "x_offset_mm": -3,
+      "against": "03 converter recessed floor \u2022 placeholder",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw -1",
+      "x_offset_mm": -3,
+      "against": "01 carrier base \u2022 120 x 160 x 3",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw -1",
+      "x_offset_mm": -2,
+      "against": "03 converter recessed floor \u2022 placeholder",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw -1",
+      "x_offset_mm": -2,
+      "against": "01 carrier base \u2022 120 x 160 x 3",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw -1",
+      "x_offset_mm": -1,
+      "against": "03 converter recessed floor \u2022 placeholder",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw -1",
+      "x_offset_mm": -1,
+      "against": "01 carrier base \u2022 120 x 160 x 3",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw -1",
+      "x_offset_mm": 0,
+      "against": "03 converter recessed floor \u2022 placeholder",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw -1",
+      "x_offset_mm": 0,
+      "against": "01 carrier base \u2022 120 x 160 x 3",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw -1",
+      "x_offset_mm": 1,
+      "against": "03 converter recessed floor \u2022 placeholder",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw -1",
+      "x_offset_mm": 1,
+      "against": "01 carrier base \u2022 120 x 160 x 3",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw -1",
+      "x_offset_mm": 2,
+      "against": "03 converter recessed floor \u2022 placeholder",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw -1",
+      "x_offset_mm": 2,
+      "against": "01 carrier base \u2022 120 x 160 x 3",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw -1",
+      "x_offset_mm": 3,
+      "against": "03 converter recessed floor \u2022 placeholder",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw -1",
+      "x_offset_mm": 3,
+      "against": "01 carrier base \u2022 120 x 160 x 3",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw 1",
+      "x_offset_mm": -3,
+      "against": "03 converter recessed floor \u2022 placeholder",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw 1",
+      "x_offset_mm": -3,
+      "against": "01 carrier base \u2022 120 x 160 x 3",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw 1",
+      "x_offset_mm": -2,
+      "against": "03 converter recessed floor \u2022 placeholder",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw 1",
+      "x_offset_mm": -2,
+      "against": "01 carrier base \u2022 120 x 160 x 3",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw 1",
+      "x_offset_mm": -1,
+      "against": "03 converter recessed floor \u2022 placeholder",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw 1",
+      "x_offset_mm": -1,
+      "against": "01 carrier base \u2022 120 x 160 x 3",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw 1",
+      "x_offset_mm": 0,
+      "against": "03 converter recessed floor \u2022 placeholder",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw 1",
+      "x_offset_mm": 0,
+      "against": "01 carrier base \u2022 120 x 160 x 3",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw 1",
+      "x_offset_mm": 1,
+      "against": "03 converter recessed floor \u2022 placeholder",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw 1",
+      "x_offset_mm": 1,
+      "against": "01 carrier base \u2022 120 x 160 x 3",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw 1",
+      "x_offset_mm": 2,
+      "against": "03 converter recessed floor \u2022 placeholder",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw 1",
+      "x_offset_mm": 2,
+      "against": "01 carrier base \u2022 120 x 160 x 3",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw 1",
+      "x_offset_mm": 3,
+      "against": "03 converter recessed floor \u2022 placeholder",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "jaw": "04 converter sliding edge jaw 1",
+      "x_offset_mm": 3,
+      "against": "01 carrier base \u2022 120 x 160 x 3",
+      "intersection_volume_mm3": 0.0
+    }
+  ]
+}

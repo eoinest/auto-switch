@@ -10,7 +10,8 @@ Start with the [project overview](../README.md). The current POC is one headerle
 | [S2 wiring](s2-aa-poc.md) | Breadboard connections and power checks |
 | [S2 firmware](s2-firmware.md) | Wi-Fi setup, board-hosted website and updating files |
 | [Servo mechanism](servo-command-mount.md) | Mount, paddle and approved STL exports |
-| [Electronics carrier v2](electronics-carrier-v2.md) | Current draft tray and small fit tests |
+| [Electronics mounting](electronics-retention.md) | Screw mounts, converter jaws and removable battery retention; design review |
+| [Previous carrier fit tests](electronics-carrier-v2.md) | Earlier v2 tray and small interface tests |
 | [Private configuration](private-configuration.md) | Keep credentials out of Git |
 
 ## Supporting detail

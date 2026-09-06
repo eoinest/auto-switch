@@ -20,7 +20,7 @@ The selected converter listing calls it TPS63070 while its pictured PCB says XL6
 - **Servo mount and paddle:** [approved STL exports and fit instructions](docs/servo-command-mount.md).
 - **Narrow Command strips:** [17207 listing](https://www.amazon.com/dp/B09XJDK6RS), two mating pairs (four individual strips), one pair on each side of the actuator. Check the actual smooth plate surface and strip thickness.
 - **Horn/servo fasteners and two soft contact pads:** select to fit the actual servo and printed mechanism; reuse the original spline screw.
-- **Electronics holder:** [v2 fit-test package](docs/electronics-carrier-v2.md). Two narrow reusable battery ties must fit its 4.5 mm slots. Board retention and an insulating converter spacer still need actual component checks.
+- **Electronics holder:** [v3 mounting review](docs/electronics-retention.md). Two M1.6 screws/nuts attach the S2 through its factory holes; M3 hardware secures removable battery bars and the converter jaws. Final hardware lengths and converter contact areas depend on the reviewed geometry and actual parts. The older v2 tie-slot tray is a layout fit test.
 
 The electronics tray is separate from the actuator. Its mounting method and all physical fits remain unverified. Print the small fit tests before treating the full tray as ready.
 

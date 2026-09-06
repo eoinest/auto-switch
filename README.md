@@ -14,7 +14,7 @@ The USB-powered S2 joins Wi-Fi and serves the website directly. Both buttons ren
 | One MG90S servo operating the bedroom switch | Wiring, calibration and physical operation pending |
 | Four AA batteries with a 5 V buck-boost converter | Selected; battery circuit and runtime untested |
 | Printed servo mount and paddle | STL exported; physical fit and attachment unverified |
-| Separate electronics holder | Revised fit-test STLs; converter measurements and dry fit pending |
+| Separate electronics holder | Screw mounts and retaining jaws modeled; converter measurements and dry fit pending |
 
 ## Build this version
 
@@ -22,11 +22,11 @@ The USB-powered S2 joins Wi-Fi and serves the website directly. Both buttons ren
 2. **[Wiring](docs/s2-aa-poc.md)** — one servo, four AA cells, the 5 V converter and shared ground. Start on the breadboard.
 3. **[Firmware](docs/s2-firmware.md)** — install MicroPython files, enter Wi-Fi credentials privately and open the phone page.
 4. **[Servo mechanism](docs/servo-command-mount.md)** — approved export, stock horn and two narrow Command-strip mounting pads.
-5. **[Electronics holder](docs/electronics-carrier-v2.md)** — revised Blender assembly, small fit tests and outstanding measurements.
+5. **[Electronics holder](docs/electronics-retention.md)** — mounting-hole fastenings, converter clamps and removable battery retention under review.
 
-![Current assembly model: servo mechanism and separate draft electronics holder](hardware/cad/electronics-carrier-v2/generated/full-assembly-review.png)
+![Electronics mounting concept: assembled and exploded views](hardware/cad/electronics-retention-v3/generated/electronics-retention-v3.png)
 
-*CAD preview, not a physically validated assembly. The pink converter volume is an unmeasured placeholder.*
+*Mounting concept, not a physically validated assembly. The converter is an illustrative example; its actual dimensions are still needed.*
 
 ## Power and control
 
