@@ -1,0 +1,105 @@
+{
+  "status": "PASS: provisional coupon meshes and layout only; actual horn fit unknown",
+  "parts": [
+    {
+      "file": "horn-fit-coupon-clearance-0.2mm-PROVISIONAL.stl",
+      "sha256": "88b61c4532d8cfb451401d7142cdfd27eac6beb77e1bf2daa2430900325fc829",
+      "triangles": 1072,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          7.999999523162842,
+          22.0
+        ],
+        [
+          8.0,
+          34.0
+        ],
+        [
+          0.0,
+          5.199999809265137
+        ]
+      ],
+      "volume_mm3": 1371.4363740935166,
+      "bed_contact_area_mm2": 320.7751028333082,
+      "above_bed_downfacing_area_mm2": 0.0
+    },
+    {
+      "file": "horn-fit-coupon-clearance-0.3mm-PROVISIONAL.stl",
+      "sha256": "2630da2c14962a57447649c68e089d3a43073ff23d9abce2b2f782fc87215f6a",
+      "triangles": 1072,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          30.0,
+          44.0
+        ],
+        [
+          8.0,
+          34.0
+        ],
+        [
+          0.0,
+          5.199999809265137
+        ]
+      ],
+      "volume_mm3": 1372.571407326974,
+      "bed_contact_area_mm2": 320.77508663140907,
+      "above_bed_downfacing_area_mm2": 0.0
+    },
+    {
+      "file": "horn-fit-coupon-clearance-0.4mm-PROVISIONAL.stl",
+      "sha256": "0a958ed76bd40d61643c35de0079b0b286a4ba438a50d6d7c59430b1ae64d9cb",
+      "triangles": 1072,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          52.0,
+          66.0
+        ],
+        [
+          8.0,
+          34.0
+        ],
+        [
+          0.0,
+          5.199999809265137
+        ]
+      ],
+      "volume_mm3": 1373.7069695612781,
+      "bed_contact_area_mm2": 320.77508663140907,
+      "above_bed_downfacing_area_mm2": 0.0
+    }
+  ],
+  "master": {
+    "file": "horn-fit-coupons-ALL-THREE-PROVISIONAL.stl",
+    "sha256": "e9f71d507d4cc2b2b3e337ef53ca6d7d2399a65249499c9756f8a079789e5c73",
+    "triangles": 3216,
+    "connected_solids": 3,
+    "closed_consistent_winding": true,
+    "bounds_mm": [
+      [
+        7.999999523162842,
+        66.0
+      ],
+      [
+        8.0,
+        34.0
+      ],
+      [
+        0.0,
+        5.199999809265137
+      ]
+    ],
+    "volume_mm3": 4117.714750981758,
+    "bed_contact_area_mm2": 962.3252760961263,
+    "above_bed_downfacing_area_mm2": 0.0
+  },
+  "individual_master_triangle_and_volume_match": true,
+  "all_parts_on_bed": true,
+  "fits_A1": true,
+  "minimum_gap_mm": 8.0
+}

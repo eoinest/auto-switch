@@ -1,0 +1,18 @@
+{
+  "status": "PASS for nominal provisional reference only",
+  "checks": {
+    "nominal_horn_seat_intersection_mm3": 6.702704360428413e-07,
+    "center_tool_path_intersection_mm3": 0.0,
+    "outer_fastener_negative_path_intersection_mm3": 0.0,
+    "outer_fastener_positive_path_intersection_mm3": 0.0,
+    "floor_thickness_mm": 4.0,
+    "seat_front_extent_x_mm": 14.199999809265137,
+    "rim_depth_above_original_plane_mm": 1.1999998092651367
+  },
+  "not_verified": [
+    "Actual supplied horn outline and underside boss",
+    "Real horn hole sizes and fastener selection",
+    "Servo spline engagement and loaded behavior",
+    "Full production paddle motion and print geometry"
+  ]
+}

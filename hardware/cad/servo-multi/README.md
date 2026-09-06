@@ -18,6 +18,10 @@ See the [independent review](independent-review.md) and [dimension sources](sour
 
 The double set has **five printed pieces**: frame, two screw-on saddles and two paddles. Triple has **seven**: frame, three saddles and three paddles. These are separate objects in the master STL, not print-in-place assemblies.
 
+## Horn alignment revision
+
+A [recessed horn-seat prototype](../horn-pocket/README.md) is being developed to locate the stock horn before fastening. It includes small fit coupons; its outline is provisional until the supplied horn is confirmed. The master STLs above retain the reviewed flat horn interface.
+
 ## Attachment and printing
 
 The frame has two uninterrupted **14.5 × 116 mm rear landing pads**, one at each outside edge. Each accepts one mating pair of Command 17207 narrow strips. There are no inter-gang adhesive pads: the approximately 11 mm gap between assumed bezels is too narrow for the full strip outline. The centered strips sit behind the frame. To remove wall-side strips, first separate the interlocking pairs and lift away the frame, then stretch-release each wall-side tab according to the manufacturer instructions; do not glue the two halves together. Plastic projects 0.85 mm past each top/bottom edge of the nominal plate, while the centered 92.74 mm strip outline stays on the plate. Mated strip thickness remains an assumed 4 mm.
