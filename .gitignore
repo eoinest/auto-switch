@@ -17,3 +17,40 @@ gateway/local-*.plist
 output/playwright/
 
 .local/
+
+# Device provisioning, live configuration, and credential files.
+.secrets/
+secrets/
+private/
+credentials.*
+*.credentials.*
+secrets.*
+*.secret
+*.secrets.*
+wifi-password*
+client-token*
+device-token*
+gateway-keys*
+firmware/config.*.json
+!firmware/config.example.json
+!firmware/config.*.example.json
+gateway/*.plist
+!gateway/*.example.plist
+
+# Private keys, certificates with private keys, and device flash dumps.
+*.key
+*.pem
+*.p12
+*.pfx
+*.keystore
+*.bin
+*.uf2
+*.hex
+
+# Additional local databases and editor backups can retain credentials.
+*.db
+*.db-*
+*.bak
+*.swp
+*.swo
+*~
