@@ -1,0 +1,20 @@
+item,quantity,unit,selection,source_url,fit_status
+ESP32-S2 Mini,1,board,User-owned headerless; LOLIN outline reference,https://www.wemos.cc/en/latest/s2/s2_mini.html,25.4 x 34.3 mm PCB; actual clone/solder fit pending
+DAIERTEK switched four-AA holder,1,holder,B09N1GDWQ9; includes approximately 150 mm input leads,https://www.amazon.com/dp/B09N1GDWQ9,Seller nominal 68.7 x 64.2 x 22.5 mm; actual case/switch/lead fit pending; back switch and screw cover need access
+Amazon Basics 1.5 V alkaline AA,4,cell,User ordered,,Fit inside selected holder; loaded holder inspection pending
+Teyleten Robot 5 V buck-boost module,1,module,B0GCW44FDL; listing TPS63070 / photo XL63070,https://www.amazon.com/dp/B0GCW44FDL,Exact dimensions unknown; placeholder bay only
+MG90S 180 degree servo,1,servo,User-owned,,Separate approved actuator; actual ears/horn fit pending
+Stock servo horn and center screw,1,set,Supplied with servo,,Reuse original; printed paddle does not replace spline
+Command narrow 17207 interlocking strips,2,mating pair,Four individual strips for actuator sides,https://www.amazon.com/dp/B09XJDK6RS,Actuator only; verify smooth plate and paired thickness; not carrier attachment
+Soft contact pads,2,pad,SJ5302 reference or measured equivalent,,Actuator only; nominal 7.9 diameter x 2.2 mm
+Servo ear and horn-to-paddle fasteners,1,set,Exact size/length pending actual horn and ears,,Actuator only; do not buy guessed threads
+Solderless breadboard,1,board,User-owned model unknown,,Bench only; not housed in carrier
+S2 direct-solder leads,3,lead,Male breadboard tips on bench end,,"Measure insulated diameter, joint and bend envelope"
+Converter output leads,2,lead,Male breadboard tips on bench end,,Measure actual exits; strain relief required
+Servo/rail male jumpers,5,lead,Three servo connections plus two split-rail bridges,,Bench wiring quantities; shorten/route final harness separately
+Solder and heat shrink,1,allowance,User-owned,,Insulate joints without obstructing mating surfaces
+Narrow reusable battery ties,2,strap,Must fit 4.5 mm printed slots; actual tie width and length pending,,Two narrow ties; wide hook-and-loop straps will not fit these slots
+PCB/converter retention and insulation,1,set,Pending revised supports and actual component inspection,,Do not tighten ties across components/antenna
+Independent carrier support,1,mounting solution,Not selected,,Wall attachment not verified; do not transfer battery load to servo mount
+USB-C data cable,1,shared bench cable,User-owned; programming/USB test only,,Actual plug body and bend clearance require dry fit
+Removable insulating converter spacer,1,spacer,Select/design after actual PCB underside inspection,,Required before fastening converter; not an exact finished mount

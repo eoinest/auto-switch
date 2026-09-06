@@ -1,25 +1,23 @@
 # Bill of materials — auto-switch
 
-**Current POC:** [One servo, switched AA holder and breadboard rails](docs/poc-wiring.md) · [ASCII circuit](docs/poc-wiring.txt). Use that parts checklist; the earlier WAGO and gated BOMs below are references.
+**Current build: one MG90S servo, a headerless ESP32-S2 Mini, a switched four-AA holder, and the selected Teyleten Robot 5 V buck-boost module.**
 
-**Current build: simplified AA demo with one servo, using your headered Pico.**
+- [Current S2 parts and wiring](docs/s2-aa-poc.md)
+- [Current BOM CSV](hardware/s2-current-bom.csv)
+- [Electronics carrier revision and print status](docs/electronics-carrier-v2.md)
+- [Approved isolated servo mechanism](docs/servo-command-mount.md)
 
-- [Amazon-first shopping list with exact parts and quantities](docs/aa-demo-shopping.md)
-- [AA demo BOM CSV](hardware/aa-demo-bom.csv)
-- [Illustrated breadboard viewer](learn/aa-demo.html) · [One-servo SVG](hardware/wiring/aa-demo/breadboard-1-servo.svg)
-- [Assembly guide and AA firmware profile](docs/aa-demo-plan.md)
-
-Use the AA-demo list for new bench purchases. The older BOM below describes the gated enclosure and its historical fit audit; it does not certify the new WAGO/breadboard assembly or add those parts to your current shopping list.
+Use these references for this build. The Pico, Pololu regulator, WAGO and gated power designs below are historical. The electronics carrier is a fit-test prototype until delivered component dimensions and retention are verified; its converter bay is not an exact converter model. The breadboard is for bench testing and is not included in the wall carrier.
 
 ---
 
 ## Earlier gated prototype — reference BOM
 
-**Earlier gated assembly: headerless Raspberry Pi Pico W, direct-soldered wires, four rechargeable AA cells.** One-gang controls one paddle; two-gang controls two. Each room needs its own complete unit. The current design does **not** use a PiCowBell, male Pico headers or a separate header adapter. Your headered Pico remains useful for bench tests.
+**Earlier gated assembly: headerless Raspberry Pi Pico W, direct-soldered wires, four rechargeable AA cells.** One-gang controls one paddle; two-gang controls two. Each room needs its own complete unit. That earlier design does **not** use a PiCowBell, male Pico headers or a separate header adapter. Your headered Pico remains useful for bench tests.
 
 [Download the BOM CSV](hardware/bom.csv) · [Detailed purchasing notes](docs/shopping-list.md) · [Actual STL fit report](docs/bom-fit-report.md) · [Wiring guide](docs/wiring.md)
 
-Quantities below are **installed quantities per device**, except rows marked shared or allowance. Buy the smallest pack covering the count; the fuse purchase is three (one installed, two spares), and the 100 nF capacitor purchase is three (one installed, two spares). The Panasonic kit includes one external charger and the first four cells. Nothing has been purchased. Purchase links are selections, not live stock or price guarantees.
+Quantities below are **installed quantities per device**, except rows marked shared or allowance. Buy the smallest pack covering the count; the fuse purchase is three (one installed, two spares), and the 100 nF capacitor purchase is three (one installed, two spares). The Panasonic kit includes one external charger and the first four cells. The purchase status in this historical list is not the current inventory. Purchase links are selections, not live stock or price guarantees.
 
 **Fit status: nominal digital checks pass; physical fit is not certified.** The purchased-part meshes were checked against the actual STL triangles, not only compared with a dimensions list. The exact MG90S/horn, loaded holder, soldered harness, connectors and installed wallplate still require measurements and coupon tests. Horn-to-yoke fasteners and the mounting method for the textured wall remain unresolved. Do not order a full kit on the assumption that these two interfaces are finalized.
 

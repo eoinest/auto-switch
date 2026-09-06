@@ -1,6 +1,6 @@
 # ESP32-S2 Mini / four-AA / one-servo POC
 
-This is the current **bench wiring reference**. It supersedes the Pico-specific POC wiring for this build; the old diagrams remain historical references. The [S2 firmware profile](s2-firmware.md) now runs on the connected board; Wi-Fi and gateway check-ins were tested over USB power. The servo and battery circuit remain untested.
+This is the current **bench wiring reference**. It supersedes the Pico-specific POC wiring for this build; the old diagrams remain historical references. The [S2 firmware profile](s2-firmware.md) now runs on the connected board; Wi-Fi and the ESP32-hosted two-button website were tested over USB power. The servo and battery circuit remain untested.
 
 Open [the interactive illustrated map](../learn/s2-aa-poc.html), [PNG](../hardware/wiring/s2-aa-poc/breadboard.png), [SVG](../hardware/wiring/s2-aa-poc/breadboard.svg), or [wire checklist](../hardware/wiring/s2-aa-poc/connections.csv). Every wire is shown in one view. Illustrations reconstruct the component appearance but are not dimension drawings.
 
@@ -8,13 +8,13 @@ Open [the interactive illustrated map](../learn/s2-aa-poc.html), [PNG](../hardwa
 
 | Part | Quantity | Reference / status |
 |---|---:|---|
-| ESP32-S2 Mini | 1 | User-owned. Drawing uses [LOLIN S2 Mini V1.0.0](https://www.wemos.cc/en/latest/s2/s2_mini.html), 34.3 × 25.4 mm; exact clone/header configuration not yet photographed. |
+| ESP32-S2 Mini | 1 | User-owned. Drawing uses [LOLIN S2 Mini V1.0.0](https://www.wemos.cc/en/latest/s2/s2_mini.html), 34.3 × 25.4 mm; the user confirmed a headerless board; exact clone and soldered harness still require fit checks. |
 | DAIERTEK switched four-AA holder | 1 | User ordered [Amazon B09N1GDWQ9](https://www.amazon.com/dp/B09N1GDWQ9), nominal 68.7 × 64.2 × 22.5 mm. Integrated switch replaces the separate rocker. |
 | Amazon Basics AA alkaline cells, 1.5 V | 4 | User ordered. In series: 6 V nominal; raw battery never feeds the ESP32 directly. Do not recharge these cells. |
 | Teyleten Robot 5 V buck-boost module | 1 | Selected [Amazon B0GCW44FDL](https://www.amazon.com/dp/B0GCW44FDL). Title says TPS63070; product PCB photo says XL63070. Published board dimensions and authentic chip identity not established. Selection pads, not an adjustment screw. |
 | MG90S 180° servo | 1 | User-owned. Verify plug wire colors and orientation on actual servo. |
 | Solderless breadboard | 1 | User-owned; exact model unknown. Illustration uses generic 830-point topology with 63 five-hole rows and split 50-hole rails. Adapt to actual board, verified unpowered with continuity mode. |
-| Female-to-male jumper leads | 3 | S2 header to breadboard: 5 V, GND, GPIO16. If headers are unsoldered, solder correct headers or leads first. |
+| Direct-solder leads with male breadboard ends | 3 | Headerless S2 to breadboard: VBUS, GND, GPIO16. Insulate joints and add strain relief; no female header sockets are needed on this board. |
 | Male-to-male jumpers | 5 | Three into the servo female plug and two rail midpoint bridges. Use shortest practical power leads. |
 | Two converter-output leads with male breadboard tips | 2 | Solder stripped ends to converter output; use clean factory pins or 22 AWG solid ends at breadboard. |
 | Solder, suitable insulation and strain relief | As needed | User-owned tools/materials. No soldering directly to the breadboard. |
@@ -25,7 +25,7 @@ No external servo gate, signal resistor, extra capacitor, battery ADC, WAGO, sep
 
 Use the [WEMOS official pinout](https://www.wemos.cc/en/latest/_static/boards/s2_mini_v1.0.0_4_16x9.jpg): top/component side facing you, USB connector pointing **down**. On the **outermost right header**, the bottom three pins are, from bottom upward: **VBUS (often labelled 5V), GND, GPIO16**. Inner pins are different. The S2 Mini has no Pico-style VSYS pin.
 
-Keep the S2 beside the breadboard with three female-to-male jumpers. Do not insert both adjacent header rows into a standard breadboard's connected five-hole strips: that would short different pins together.
+Keep the headerless S2 beside the breadboard with three direct-solder leads ending in male breadboard pins. Do not insert both adjacent header rows into a standard breadboard's connected five-hole strips: that would short different pins together.
 
 On the selected converter's top-view photo with lettering upright: **VIN upper left, GND lower left, VOUT upper right, GND lower right**. Each power terminal has duplicate holes. Left/right ground pads share a ground net. Compare the actual received module before soldering. Leave EN, PS and ADJ unconnected; seller says EN is enabled and PS is PWM by default. Only the 5 V voltage-selection link should be selected; do not short other selections.
 

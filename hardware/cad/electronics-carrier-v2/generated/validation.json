@@ -1,0 +1,202 @@
+{
+  "status": "DRAFT FIT TEST ONLY; not physical fit approval",
+  "parts": [
+    {
+      "file": "electronics_carrier_v2_DRAFT_FIT_TEST.stl",
+      "dimensions_mm": [
+        120.0,
+        160.0,
+        10.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 62386.45,
+      "triangles": 2266
+    },
+    {
+      "file": "holder_fit_ring.stl",
+      "dimensions_mm": [
+        76.1,
+        71.6,
+        2.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 1700.4,
+      "triangles": 32
+    },
+    {
+      "file": "s2_corner_support_coupon.stl",
+      "dimensions_mm": [
+        35.4,
+        44.3,
+        10.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 4906.26,
+      "triangles": 78
+    }
+  ],
+  "physical_fit_verified": false,
+  "measured_component_dimensions": [],
+  "slot_center_rays_clear": true,
+  "slots": [
+    {
+      "center_mm": [
+        -39,
+        -71.1
+      ],
+      "width_mm": 4.5,
+      "straight_length_mm": 2,
+      "minimum_edge_ligament_mm": 5.65,
+      "purpose": "holder strap"
+    },
+    {
+      "center_mm": [
+        -39,
+        11.100000000000001
+      ],
+      "width_mm": 4.5,
+      "straight_length_mm": 2,
+      "minimum_edge_ligament_mm": 18.75,
+      "purpose": "holder strap"
+    },
+    {
+      "center_mm": [
+        5,
+        -71.1
+      ],
+      "width_mm": 4.5,
+      "straight_length_mm": 2,
+      "minimum_edge_ligament_mm": 5.65,
+      "purpose": "holder strap"
+    },
+    {
+      "center_mm": [
+        5,
+        11.100000000000001
+      ],
+      "width_mm": 4.5,
+      "straight_length_mm": 2,
+      "minimum_edge_ligament_mm": 52.75,
+      "purpose": "holder strap"
+    },
+    {
+      "center_mm": [
+        -50.7,
+        44
+      ],
+      "width_mm": 3.5,
+      "straight_length_mm": 14,
+      "minimum_edge_ligament_mm": 7.55,
+      "purpose": "S2 adjustable retention; inspect top components"
+    },
+    {
+      "center_mm": [
+        -15.3,
+        44
+      ],
+      "width_mm": 3.5,
+      "straight_length_mm": 14,
+      "minimum_edge_ligament_mm": 27.25,
+      "purpose": "S2 adjustable retention; inspect top components"
+    },
+    {
+      "center_mm": [
+        -8,
+        20
+      ],
+      "width_mm": 3.5,
+      "straight_length_mm": 2,
+      "minimum_edge_ligament_mm": 50.25,
+      "purpose": "solder harness strain relief"
+    },
+    {
+      "center_mm": [
+        -8,
+        30
+      ],
+      "width_mm": 3.5,
+      "straight_length_mm": 2,
+      "minimum_edge_ligament_mm": 47.25,
+      "purpose": "solder harness strain relief"
+    },
+    {
+      "center_mm": [
+        5.0,
+        44
+      ],
+      "width_mm": 3.5,
+      "straight_length_mm": 22,
+      "minimum_edge_ligament_mm": 23.25,
+      "purpose": "converter universal straps; insulating spacer pending"
+    },
+    {
+      "center_mm": [
+        55.0,
+        44
+      ],
+      "width_mm": 3.5,
+      "straight_length_mm": 22,
+      "minimum_edge_ligament_mm": 3.25,
+      "purpose": "converter universal straps; insulating spacer pending"
+    }
+  ],
+  "all_prints_single_closed_component": true,
+  "holder_clearance_each_side_mm": 0.7,
+  "holder_access": "Lift out after removing straps for back switch and screw cover",
+  "S2_underside_clearance_mm": 7,
+  "S2_solder_allowance_mm": 3,
+  "S2_corner_rest_footprints_mm": [
+    [
+      -44.2,
+      28.85,
+      2.4,
+      3
+    ],
+    [
+      -44.2,
+      59.15,
+      2.4,
+      3
+    ],
+    [
+      -21.8,
+      28.85,
+      2.4,
+      3
+    ],
+    [
+      -21.8,
+      59.15,
+      2.4,
+      3
+    ]
+  ],
+  "S2_corner_rests_clear_nominal_pad_rows": true,
+  "S2_to_holder_gap_mm": 24.75,
+  "USB_faces_outboard": "positive Y; reserved plug extends beyond tray into free space",
+  "USB_illustrative_keepout_XY_mm": [
+    -39,
+    -27,
+    62.15,
+    82.15
+  ],
+  "converter": {
+    "dimensions": null,
+    "reserve_mm": [
+      40,
+      36,
+      18
+    ],
+    "requires": "Measure actual board and underside components, choose insulating spacer and strap path. The flat floor is not a finished converter mount."
+  },
+  "retention_not_verified": [
+    "S2 top strap path and actual underside keepouts",
+    "converter spacer and strap path",
+    "holder switch/lid/lead location"
+  ],
+  "mounting": "Independent bench tray. No wall adhesive mounting or Command-strip compatibility claimed.",
+  "print_orientation": "Flat floor at Z0, supports rise vertically; through slots open on both faces."
+}

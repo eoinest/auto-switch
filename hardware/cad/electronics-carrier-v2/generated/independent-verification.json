@@ -1,0 +1,187 @@
+{
+  "status": "Independent exported-mesh audit passed; physical fit remains unverified",
+  "physical_fit_verified": false,
+  "parts": [
+    {
+      "file": "electronics_carrier_v2_DRAFT_FIT_TEST.stl",
+      "sha256": "f0ceb76cc82456f33cf559e41ab08b442014267486653683b6f23bd34acdcc25",
+      "triangles": 2266,
+      "connected_components": 1,
+      "closed_consistently_wound": true,
+      "zero_area_triangles": 0,
+      "positive_volume_mm3": 62386.447,
+      "dimensions_mm": [
+        120.0,
+        160.0,
+        10.0
+      ],
+      "bed_z_mm": 0.0,
+      "fits_A1_256_mm": true,
+      "bed_contact_area_mm2": 18777.002,
+      "downfacing_area_over_45_degrees_above_bed_mm2": 0.0
+    },
+    {
+      "file": "holder_fit_ring.stl",
+      "sha256": "966b641c77eef0ae48c2742a9ccd2780230935f9376ac55e9e043bc14ce962d6",
+      "triangles": 32,
+      "connected_components": 1,
+      "closed_consistently_wound": true,
+      "zero_area_triangles": 0,
+      "positive_volume_mm3": 1700.4,
+      "dimensions_mm": [
+        76.1,
+        71.6,
+        2.0
+      ],
+      "bed_z_mm": 0.0,
+      "fits_A1_256_mm": true,
+      "bed_contact_area_mm2": 850.2,
+      "downfacing_area_over_45_degrees_above_bed_mm2": 0.0
+    },
+    {
+      "file": "s2_corner_support_coupon.stl",
+      "sha256": "afc3b26d17c841f85f123a93d4e89bad4243b3fbf2dc834c312b9f1eba112a99",
+      "triangles": 78,
+      "connected_components": 1,
+      "closed_consistently_wound": true,
+      "zero_area_triangles": 0,
+      "positive_volume_mm3": 4906.26,
+      "dimensions_mm": [
+        35.4,
+        44.3,
+        10.0
+      ],
+      "bed_z_mm": 0.0,
+      "fits_A1_256_mm": true,
+      "bed_contact_area_mm2": 1568.22,
+      "downfacing_area_over_45_degrees_above_bed_mm2": 0.0
+    }
+  ],
+  "through_slot_sample_rays": 150,
+  "slots": [
+    {
+      "purpose": "holder",
+      "center_mm": [
+        -39,
+        -71.1
+      ],
+      "measured_width_mm": 4.5,
+      "clearance_for_2_5_mm_tie_mm": 2.0,
+      "edge_ligament_mm": 5.65
+    },
+    {
+      "purpose": "holder",
+      "center_mm": [
+        -39,
+        11.1
+      ],
+      "measured_width_mm": 4.5,
+      "clearance_for_2_5_mm_tie_mm": 2.0,
+      "edge_ligament_mm": 18.75
+    },
+    {
+      "purpose": "holder",
+      "center_mm": [
+        5,
+        -71.1
+      ],
+      "measured_width_mm": 4.5,
+      "clearance_for_2_5_mm_tie_mm": 2.0,
+      "edge_ligament_mm": 5.65
+    },
+    {
+      "purpose": "holder",
+      "center_mm": [
+        5,
+        11.1
+      ],
+      "measured_width_mm": 4.5,
+      "clearance_for_2_5_mm_tie_mm": 2.0,
+      "edge_ligament_mm": 52.75
+    },
+    {
+      "purpose": "S2",
+      "center_mm": [
+        -50.7,
+        44
+      ],
+      "measured_width_mm": 3.5,
+      "clearance_for_2_5_mm_tie_mm": 1.0,
+      "edge_ligament_mm": 7.55
+    },
+    {
+      "purpose": "S2",
+      "center_mm": [
+        -15.3,
+        44
+      ],
+      "measured_width_mm": 3.5,
+      "clearance_for_2_5_mm_tie_mm": 1.0,
+      "edge_ligament_mm": 27.25
+    },
+    {
+      "purpose": "wire",
+      "center_mm": [
+        -8,
+        20
+      ],
+      "measured_width_mm": 3.5,
+      "clearance_for_2_5_mm_tie_mm": 1.0,
+      "edge_ligament_mm": 50.25
+    },
+    {
+      "purpose": "wire",
+      "center_mm": [
+        -8,
+        30
+      ],
+      "measured_width_mm": 3.5,
+      "clearance_for_2_5_mm_tie_mm": 1.0,
+      "edge_ligament_mm": 47.25
+    },
+    {
+      "purpose": "converter",
+      "center_mm": [
+        5,
+        44
+      ],
+      "measured_width_mm": 3.5,
+      "clearance_for_2_5_mm_tie_mm": 1.0,
+      "edge_ligament_mm": 23.25
+    },
+    {
+      "purpose": "converter",
+      "center_mm": [
+        55,
+        44
+      ],
+      "measured_width_mm": 3.5,
+      "clearance_for_2_5_mm_tie_mm": 1.0,
+      "edge_ligament_mm": 3.25
+    }
+  ],
+  "converter_continuous_3_mm_floor_sample_points": 399,
+  "holder_nominal_envelope_clear_above_6_mm_sample_points": 1155,
+  "S2_rest_top_mm": 10,
+  "S2_floor_to_pcb_clearance_mm": 7,
+  "nominal_solder_allowance_mm": 3,
+  "remaining_clearance_away_from_corner_rests_mm": 4,
+  "S2_corner_rests_to_nominal_pad_rows_minimum_Y_gap_mm": 4.06,
+  "USB_route": "Illustrative plug keepout checked against actual tray mesh; positive Y outboard route clear. Actual cable unmeasured.",
+  "known_old_issues_fixed": [
+    "Blind/roofed slots",
+    "2 mm slots for 2.5 mm ties",
+    "Converter edge rails replaced with continuous under-board floor",
+    "USB directed at battery"
+  ],
+  "remaining_fit_blockers": [
+    "B0GCW44FDL converter actual length, width, height, underside parts, solder and lead exits unknown; reserved 40 \u00d7 36 \u00d7 18 mm is not a model.",
+    "Converter requires a suitable insulating spacer and retained strap path based on actual module; bare PCB is not ready to install.",
+    "User S2 Mini underside component keepouts and solder joints at four corner rests unverified; nominal pad-row clearance is not an underside audit.",
+    "S2 top-side strap path could load components; inspect and test retention without pressing components or antenna.",
+    "Holder 68.7 \u00d7 64.2 \u00d7 22.5 mm is seller nominal, not measured; switch, lid, lead exit and strap path require dry fit; switch/lid access requires removing holder.",
+    "Actual USB plug dimensions, wire bends and harness retention need fit check.",
+    "No slicer or physical print inspection performed; topology and axial surface checks do not prove print quality, strength or fit.",
+    "Tray is an independent bench prototype; wall/Command-strip mounting is not provided."
+  ]
+}
