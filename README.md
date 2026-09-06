@@ -36,7 +36,7 @@ The USB-powered S2 joins Wi-Fi and serves the website directly. Both buttons ren
 
 Today, USB powers the ESP32. The planned portable version uses the holder's switch and a buck-boost converter to supply regulated **5 V to both the S2's VBUS pad and the servo**, with a shared ground. GPIO16 supplies the servo control signal.
 
-The POC stays connected to Wi-Fi. It has no Daily/check-in selector, servo power gate or battery-level display. The On/Off buttons send commands; there is no sensor confirming the light's actual state. Servo PWM stopping does not disconnect servo power.
+The POC stays connected to Wi-Fi. It has no Daily/check-in selector, servo power gate or battery-level display. Each On/Off command briefly presses the requested end and returns to the calibrated neutral position so the rocker can be used by hand. Repeated commands still press; without a switch-position sensor, reported state stays unknown. Servo PWM stopping does not disconnect servo power.
 
 Keep the battery/servo harness disconnected during USB programming. Before enabling movement, verify the converter output and calibrate the servo away from the wall switch. Keep private Wi-Fi configuration out of Git: [credential handling](docs/private-configuration.md).
 

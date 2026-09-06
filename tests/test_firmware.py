@@ -64,7 +64,53 @@ class FirmwareTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual([e for e in self.hardware.events if e[0] == "pulse"],
                          [("pulse", 0, 1500), ("pulse", 0, 1400), ("pulse", 0, 1500)])
         self.assertFalse(self.hardware.powered)
-        self.assertEqual(self.controller.states[0], "on")
+        self.assertEqual(self.controller.states[0], "unknown")
+        self.assertEqual(self.controller.last_commands[0], "on")
+
+    async def test_s2_repeated_commands_press_return_and_never_infer_switch_state(self):
+        config = json.loads((ROOT / "firmware/config.s2-demo.example.json").read_text())
+        cfg = config["channels"][0]
+        cfg.update(enabled=True, calibrated=True, neutral_us=1520, on_us=1420, off_us=1620)
+        waits = []
+        async def record_sleep(seconds):
+            waits.append(seconds)
+        controller = Controller(config, self.hardware, record_sleep)
+        api = API(controller, lambda: {"channels": controller.status_channels()}, "", open_client=True)
+        # A person may change the rocker between any two requests. Repeated
+        # On/Off commands must still actuate, never short-circuit from history.
+        for state in ("on", "on", "off", "off"):
+            self.hardware.events.clear()
+            waits.clear()
+            code, result = await api.route("POST", "/api/switch",
+                {"content-type": "application/json"},
+                json.dumps({"channel": 0, "state": state}).encode())
+            self.assertEqual(code, 200)
+            self.assertEqual(self.hardware.events, [
+                ("off",), ("power",), ("pulse", 0, 1520),
+                ("pulse", 0, cfg[state + "_us"]), ("pulse", 0, 1520), ("off",)])
+            self.assertEqual(waits, [.05, cfg["return_ms"] / 1000,
+                                    cfg["dwell_ms"] / 1000, cfg["return_ms"] / 1000])
+            self.assertEqual(result["channels"][0]["state"], "unknown")
+            self.assertEqual(result["channels"][0]["last_command"], state)
+            self.assertFalse(controller.busy)
+
+    async def test_failure_returning_to_neutral_stops_output_without_claiming_success(self):
+        self.enable()
+        count = 0
+        pulse = self.hardware.pulse
+        def fail_on_return(channel, value):
+            nonlocal count
+            count += 1
+            if count == 3:
+                raise OSError("return failed")
+            pulse(channel, value)
+        self.hardware.pulse = fail_on_return
+        with self.assertRaisesRegex(OSError, "return failed"):
+            await self.controller.move(0, "on")
+        self.assertEqual(self.hardware.events[-1], ("off",))
+        self.assertEqual(self.controller.states[0], "unknown")
+        self.assertIsNone(self.controller.last_commands[0])
+        self.assertFalse(self.controller.busy)
 
     async def test_motor_failure_cuts_power_and_marks_unknown(self):
         self.enable()

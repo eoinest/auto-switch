@@ -188,7 +188,8 @@ class Controller:
             self.states[channel] = "unknown"
             try:
                 await asyncio.wait_for(self._cycle(channel, cfg, state), 2)
-                self.states[channel] = state
+                # No switch-position sensor: a completed press is a command,
+                # not evidence of the rocker state (which can change by hand).
                 self.last_commands[channel] = state
             finally:
                 try:
@@ -197,6 +198,8 @@ class Controller:
                     self.busy = False
 
     async def _cycle(self, channel, cfg, state):
+        # Every request is a fresh press, including repeats of the last command.
+        # Park clear of both rocker ends before stopping PWM in move().
         self.hardware.off()
         self.hardware.power_on()
         await self.sleep(0.05)

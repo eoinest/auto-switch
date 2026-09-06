@@ -16,6 +16,11 @@ Neutral calibration is installed on the board. Its entry/cancel flow was checked
 on the live website; saving and translating the targets passed simulated UI
 checks and 45 firmware tests. The physical servo still needs its first calibration.
 
+The command-status correction is also installed: completed presses leave physical
+state unknown. The uploaded controller checksum matched the source, and the
+board-hosted status endpoint responded after restart. Regression checks passed
+47 firmware/calibration tests; no live servo movement was commanded.
+
 ## Install or update
 
 Use official [LOLIN S2 Mini MicroPython](https://micropython.org/download/LOLIN_S2_MINI/)
@@ -63,6 +68,12 @@ local network without port forwarding.
 
 For a normal restart, tap **RST** once. Holding **BOOT/0** while resetting is
 for entering the firmware bootloader, not normal operation.
+
+## Press and return
+
+Every On or Off request moves to the calibrated neutral position, presses the requested end briefly, returns to neutral, then stops PWM. Repeated requests perform the same cycle even if they match the previous command. Calibrate neutral so the printed arm clears both ends of the rocker and leaves room for manual use.
+
+The device has no switch-position sensor. Status always reports `state: "unknown"`; `last_command` records only the last completed command, not the light's actual state. The buttons send explicit presses and never infer a toggle from history. A fault or loss of power can interrupt the return, so physical clearance still needs testing.
 
 ## Calibrate the center
 
