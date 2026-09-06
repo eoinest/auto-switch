@@ -83,5 +83,6 @@
   },
   "strip_margin_per_side_mm": 0.9253999999999998,
   "strip_margin_each_end_mm": 1.6323000000000008,
-  "caveat": "Dimensions only: no rating for servo peel load. Actual flat plate area, paired-strip thickness, MG90S ears and horn require dry fit."
+  "caveat": "Dimensions only: no rating for servo peel load. Actual flat plate area, paired-strip thickness, MG90S ears and horn require dry fit.",
+  "print_orientation_source": "print-layout-review.blend"
 }

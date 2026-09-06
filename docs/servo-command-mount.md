@@ -30,6 +30,8 @@ Follow the [3M installation/removal instructions](https://www.command.com/3M/en_
 
 [Blender assembly](../hardware/cad/servo-command/generated/servo-command.blend) · [front view](../hardware/cad/servo-command/generated/assembly.png) · [rear pads](../hardware/cad/servo-command/generated/rear-pads.png) · [parameters](../hardware/cad/servo-command/config.json).
 
+The user-approved print arrangement has now been exported: [STL print pack](../hardware/cad/servo-command/generated/servo-print-pack.zip) · [Blender print layout](../hardware/cad/servo-command/generated/print-layout-exported.blend) · [export record](../hardware/cad/servo-command/generated/approved-export.json). The mount's flat adhesive back rests on the bed. The paddle's broad outer side rests on the bed, with horn screw slots facing upward; inspect supports under its raised flange. The pack contains these two parts plus the unchanged plate-fit template. Reference objects and the illustrated build plate are excluded from the STLs.
+
 Import STL in **millimetres, at 100% scale**. The template lies flat and needs no supports. A 0.4 mm nozzle and 0.2 mm layers are a reasonable starting point; six layers make the 1.2 mm template. PLA is sufficient for checking fit. For the full mount, use your calibrated material profile, four walls and approximately 30% infill as a starting point. Inspect the slicer's preview around the horizontal servo screw slots and paddle flange; the paddle may need supports. These are starting settings, not a tested print profile. All three files fit the Bambu A1 envelope. No print job has been sent.
 
 ## Servo assembly and remaining checks
@@ -46,5 +48,7 @@ The Blender generator checks closed, single-piece printable meshes and samples p
 
 ```sh
 /Applications/Blender.app/Contents/MacOS/Blender -b --factory-startup --python hardware/cad/servo-command/generate.py
+/Applications/Blender.app/Contents/MacOS/Blender -b --factory-startup --python hardware/cad/servo-command/print_layout.py
+/Applications/Blender.app/Contents/MacOS/Blender -b --factory-startup --python hardware/cad/servo-command/export_approved.py
 python3 hardware/cad/servo-command/verify.py
 ```

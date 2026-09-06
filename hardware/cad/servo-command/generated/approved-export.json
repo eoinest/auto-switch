@@ -1,0 +1,41 @@
+{
+  "status": "User-approved STL export; physical fit still requires a dry fit",
+  "source": "print-layout-review.blend",
+  "source_sha256": "7903c9eeb968bc301d0a7ea27d0c890e9dd3fc116204df985315d2b6b37e4010",
+  "units": "mm",
+  "parts": [
+    {
+      "file": "02_servo_mount.stl",
+      "dimensions_mm": [
+        73.0,
+        96.0,
+        29.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 12375.9,
+      "triangles": 656
+    },
+    {
+      "file": "03_factory_horn_paddle.stl",
+      "dimensions_mm": [
+        22.1,
+        60.0,
+        17.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 5700.76,
+      "triangles": 858
+    }
+  ],
+  "stl_sha256": {
+    "02_servo_mount.stl": "063d32c7627b9983367cfe5adfa3c111726c0ba0be94fa531cc1af2635324d32",
+    "03_factory_horn_paddle.stl": "bec8bf1c55a1c68f658152f3d6e611ce369c09480be27ba08b04b62adc9c92d2"
+  },
+  "excluded": "Build plate, labels, camera, lights, electronics and servo reference",
+  "verified_stl_bed_contact_area_mm2": {
+    "02_servo_mount.stl": 3603.0,
+    "03_factory_horn_paddle.stl": 535.56
+  }
+}
