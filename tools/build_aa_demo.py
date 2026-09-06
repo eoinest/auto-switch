@@ -13,6 +13,7 @@ for p in (ROOT/'hardware/wiring/aa-demo').glob('*'):
         shutil.copyfile(p,OUT/p.name)
 for src,name in [('docs/aa-demo-shopping.md','shopping.md'),
                  ('docs/aa-demo-plan.md','guide.md'),
+                 ('docs/aa-demo-cost.md','aa-demo-cost.md'),
                  ('hardware/aa-demo-bom.csv','bom.csv'),
                  ('firmware/config.aa-demo.example.json','config.example.json')]:
     shutil.copyfile(ROOT/src,OUT/name)

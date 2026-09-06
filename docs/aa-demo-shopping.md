@@ -4,6 +4,8 @@ Checked **2026-09-05**. This list implements the [four-AA demo plan](aa-demo-pla
 
 **Use the existing headered Pico and one MG90S servo.** This is a bench BOM. The old enclosure/STL fit report does not certify these new junction blocks, breadboard, connector routing, or assembly. Do not buy the old enclosure fasteners for this bench build.
 
+**[Itemized price calculation](aa-demo-cost.md): about $160 before tax and shipping**, with a $147.79–181.79 planning range including new wire sets and retail packs. Missing Amazon prices are labeled allowances. Reuse and multimeter scenarios are included.
+
 Source inspection records: [aa-demo-source-checks.md](aa-demo-source-checks.md).
 
 Machine-readable quantities and purchasing notes: [aa-demo-bom.csv](../hardware/aa-demo-bom.csv). Quantities are installed parts, not packages: one battery kit already includes four cells and the charger. Nothing has been purchased.
