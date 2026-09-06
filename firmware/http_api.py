@@ -80,16 +80,33 @@ def validate_token(token):
         raise ValueError("set a random 24-128 character API token")
 
 
+def client_access(config):
+    """Unauthenticated browser access is an explicit S2 direct-demo choice."""
+    enabled = config.get("open_client", False)
+    if type(enabled) is not bool:
+        raise ValueError("open_client must be true or false")
+    if enabled and (config.get("hardware_profile") != "s2-demo"
+                    or config.get("transport", "direct") != "direct"):
+        raise ValueError("open_client requires s2-demo with direct transport")
+    return enabled
+
+
 class API:
-    def __init__(self, controller, status, token, static_root="www"):
-        validate_token(token)
+    def __init__(self, controller, status, token, static_root="www", open_client=False):
+        if type(open_client) is not bool:
+            raise ValueError("open_client must be true or false")
+        if not open_client:
+            validate_token(token)
+        self.open_client = open_client
         self.controller, self.status, self.token = controller, status, token
         self.static_root = static_root
         self.connections = 0
 
     async def route(self, method, path, headers, body):
+        if method == "GET" and path == "/api/access":
+            return 200, {"open_client": self.open_client}
         if path.startswith("/api/"):
-            if not token_matches(headers.get("authorization", ""), self.token):
+            if not self.open_client and not token_matches(headers.get("authorization", ""), self.token):
                 return 401, {"error": "unauthorized"}
             if method == "GET" and path == "/api/status":
                 return 200, self.status()

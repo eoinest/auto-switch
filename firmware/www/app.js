@@ -2,7 +2,7 @@
 (() => {
   const $ = (id) => document.getElementById(id);
   let token = '', timer = null, busy = false, refreshing = false, connected = false;
-  let generation = 0, gateway = false, currentMode = 'daily', lastData = null;
+  let generation = 0, lastData = null;
   let actionError = '', connectionError = '';
   const demo = new URLSearchParams(location.search).has('demo');
 
@@ -37,9 +37,6 @@
 
   function updateDisabled() {
     const unavailable = busy || !connected || !!connectionError;
-    $('mode-demo').disabled = unavailable;
-    $('mode-daily').disabled = unavailable;
-    $('interval').disabled = unavailable || currentMode === 'demo';
     for (const channel of $('channels').children) {
       for (const button of channel.querySelectorAll('button')) button.disabled = unavailable || channel.dataset.ready !== 'true';
     }
@@ -47,16 +44,6 @@
 
   function render(data) {
     lastData = data;
-    gateway = data.gateway === true;
-    currentMode = data.mode || 'daily';
-    $('mode-panel').hidden = !gateway;
-    if (gateway) {
-      $('mode-daily').setAttribute('aria-pressed', String(currentMode === 'daily'));
-      $('mode-demo').setAttribute('aria-pressed', String(currentMode === 'demo'));
-      const interval = String(data.poll_interval_s);
-      if (![...$('interval').options].some((option) => option.value === interval)) $('interval').add(new Option(`${interval} seconds`, interval));
-      if (document.activeElement !== $('interval')) $('interval').value = interval;
-    }
     const channels = data.channels || [];
     const ids = channels.map((channel) => String(channel.id)).join(',');
     if ($('channels').dataset.ids !== ids) {
@@ -143,10 +130,6 @@
   }
 
   function command(channel, state) { return perform('/api/switch', {channel, state}); }
-  function setMode(mode) {
-    if (gateway) return perform('/api/mode', {mode, poll_interval_s: Number($('interval').value)});
-  }
-
   function showConnection(data) {
     connected = true;
     generation++;
@@ -168,12 +151,8 @@
     catch (error) { token = ''; handleError(error); }
     finally { button.disabled = false; }
   });
-  $('mode-daily').addEventListener('click', () => setMode('daily'));
-  $('mode-demo').addEventListener('click', () => setMode('demo'));
-  $('interval').addEventListener('change', () => setMode(currentMode));
-
   async function connect() {
-    // Open gateways opt into automatic connection. Other servers retain key entry.
+    // Open servers opt into automatic connection. Other servers retain key entry.
     try {
       if (demo) token = 'preview-device-key-only';
       const access = demo ? {open_client: true} : await api('/api/access');
@@ -182,7 +161,7 @@
     } catch (error) {
       token = '';
       $('connect').hidden = false;
-      // Direct board servers do not expose /api/access; show their key form.
+      // Older board servers may not expose /api/access; show their key form.
       if (error.status !== 401 && error.status !== 404) handleError(error);
     }
   }

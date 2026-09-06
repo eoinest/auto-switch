@@ -4,7 +4,7 @@
 **First mechanical print:** [isolated servo mount with two narrow Command-strip pads](docs/servo-command-mount.md). Start with the plate/strip fit template; electronics stay separate.
 An open-source, externally mounted **microcontroller + MG90S servo actuator for Decora-style paddle rocker switches**. The existing wallplate and electrical wiring stay intact. One servo operates each paddle; single- and double-gang prototypes are included.
 
-**Current hardware POC: [ESP32-S2 Mini + four alkaline AAs + 5 V buck-boost + one servo](docs/s2-aa-poc.md).** Open [the illustrated breadboard page](learn/s2-aa-poc.html), [PNG](hardware/wiring/s2-aa-poc/breadboard.png), or [new Blender prototype and fit notes](docs/s2-aa-mechanical.md). The S2 stays beside the breadboard with jumpers. Disconnect its three jumpers before USB programming. The [S2 firmware profile](docs/s2-firmware.md) is installed on the USB-connected board; Wi-Fi and authenticated gateway check-ins have been verified. Servo and battery operation remain untested. Earlier Pico diagrams, [ASCII map](docs/poc-wiring.txt), WAGO BOM and gated enclosure below are historical references.
+**Current hardware POC: [ESP32-S2 Mini + four alkaline AAs + 5 V buck-boost + one servo](docs/s2-aa-poc.md).** Open [the illustrated breadboard page](learn/s2-aa-poc.html), [PNG](hardware/wiring/s2-aa-poc/breadboard.png), or [new Blender prototype and fit notes](docs/s2-aa-mechanical.md). The S2 stays beside the breadboard with jumpers. Disconnect its three jumpers before USB programming. The [S2 firmware profile](docs/s2-firmware.md) is installed on the USB-connected board; Wi-Fi and the ESP32-hosted direct HTTP API have been verified. The current website provides only On and Off; open `http://auto-switch.local/` on the same Wi-Fi, with no Mac gateway required. Servo and battery operation remain untested. Earlier Pico diagrams, [ASCII map](docs/poc-wiring.txt), WAGO BOM and gated enclosure below are historical references.
 
 **Prototype status:** code, editable Blender source and STL exports are included. The physical fit, switching force, adhesive retention, electrical assembly, servo behavior and battery runtime have **not** been verified on hardware. Measure and print the fit ring before the full enclosure; calibrate before enabling movement. The AA firmware example has one channel, disabled until calibrated.
 
@@ -26,13 +26,13 @@ The new S2 prototype separates a wall actuator from an electronics carrier; [six
 - Parameterized Blender designs, an animated assembly, modular STL parts, fit coupons, and independent mesh checks.
 - An official Pico W reference mesh, source-linked component dimensions, and explicit allowances for direct-solder wires and unmeasured servo details.
 - MicroPython servo control, brief calibrated press/neutral return, external servo power gating, optional battery measurement and UTC schedules.
-- A phone-friendly local website with one/two switch controls, command history, battery voltage/optional estimated percentage, and Daily/Demo mode selection.
+- A minimal phone-friendly local website with On and Off controls and conditional connection/calibration feedback.
 - A Python Mac mini relay with a persistent command queue. No cloud account or paid service is required.
 - A parts list, wiring guide, battery estimator and host tests.
 
 The switches pictured are **decorator/paddle rocker switches**, commonly called **Decora-style switches**. The office plate is **two gang**, the bedroom plate **one gang**. That describes the physical layout; it does not reveal single-pole versus three-way wiring. See [hardware identification and BOM](docs/hardware.md).
 
-## How it fits together
+## Earlier Pico/relay architecture
 
 ```mermaid
 flowchart LR
@@ -55,7 +55,7 @@ The Pico runs MicroPython, not Linux. In relay mode, the web server lives on the
 | **Daily** | Wi-Fi off between periodic check-ins; default 60 seconds | Commands and mode changes wait for the next check-in |
 | **Demo** | Wi-Fi stays connected; poll every second | Faster response, higher battery use |
 
-Switch these from the phone. Daily currently uses ordinary radio-off waiting; it is **not** an established ultra-low-power sleep implementation. Example assumptions model about **24 hours with four 1900 mAh AAs in Demo** or **3.4 days at 60-second Daily intervals**. These are calculations, not measurements. Four 750 mAh AAAs have about 39% as much nominal energy and also need pulse-current validation. Months of battery life will require a further sleep/power-gating revision and measured discharge testing. [Power design and full assumptions](docs/power.md).
+These are legacy gateway modes; the current S2 direct demo stays connected and has no mode selector. Daily currently uses ordinary radio-off waiting; it is **not** an established ultra-low-power sleep implementation. Example assumptions model about **24 hours with four 1900 mAh AAs in Demo** or **3.4 days at 60-second Daily intervals**. These are calculations, not measurements. Four 750 mAh AAAs have about 39% as much nominal energy and also need pulse-current validation. Months of battery life will require a further sleep/power-gating revision and measured discharge testing. [Power design and full assumptions](docs/power.md).
 
 The UI reports **last commanded position**, not confirmed light state. Manual switching and three-way circuits need position/light feedback for true on/off state. New Pico boots start with unknown state. No movement is automatically retried after ambiguous delivery.
 
@@ -67,7 +67,7 @@ Requires Python 3.10+; no packages to install:
 python3 gateway/server.py --demo
 ```
 
-Open **http://127.0.0.1:8765/?demo**, then click Connect. The key is prefilled, the page is clearly labeled as a simulation, and no GPIO is used. Preview is loopback-only. For a real phone on the LAN, follow [Mac mini setup](docs/gateway.md) with separate client/device keys.
+Open **http://127.0.0.1:8765/?demo** to try the two-button interface with simulated hardware; no GPIO is used. Preview is loopback-only. For a real phone on the LAN, follow [Mac mini setup](docs/gateway.md) with separate client/device keys.
 
 ## Build in small steps
 

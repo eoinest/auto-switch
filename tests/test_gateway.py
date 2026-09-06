@@ -91,10 +91,42 @@ class QueueTests(unittest.TestCase):
             self.assertEqual(self.store.status()["channels"][0]["state"], "unknown")
 
 
+class DemoOnlyTests(unittest.TestCase):
+    def test_existing_daily_mode_is_replaced_on_start_and_persisted(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "state.db"
+            previous = gateway.Store(path)
+            previous.mode({"mode": "daily", "poll_interval_s": 300})
+            previous.db.close()
+            store = gateway.Store(path, demo_only=True)
+            try:
+                self.assertEqual(store.status()["mode"], "demo")
+                self.assertFalse(store.status()["preview"])
+                self.assertEqual(store.poll({"status": status()})["mode"], "demo")
+            finally:
+                store.db.close()
+            reopened = gateway.Store(path)
+            try:
+                self.assertEqual(reopened.get("mode"), "demo")
+            finally:
+                reopened.db.close()
+
+    def test_disabled_channel_is_not_enabled_by_demo_only(self):
+        store = gateway.Store(":memory:", demo_only=True)
+        try:
+            disabled = status()
+            disabled["channels"][0]["enabled"] = False
+            store.poll({"status": disabled})
+            with self.assertRaises(ValueError):
+                store.queue({"channel": 0, "state": "on"})
+        finally:
+            store.db.close()
+
+
 class HTTPFixture:
     @classmethod
     def setUpClass(cls):
-        cls.store = gateway.Store(":memory:")
+        cls.store = gateway.Store(":memory:", demo_only=getattr(cls, "demo_only", False))
         cls.store.update_status(status())
         cls.server = gateway.ThreadingHTTPServer(("127.0.0.1", 0), gateway.handler_for(
             cls.store, "c" * 32, "d" * 32, open_client=getattr(cls, "open_client", False)))
@@ -212,6 +244,30 @@ class OpenClientHTTPTests(HTTPFixture, unittest.TestCase):
             self.store.update_status(disabled)
             self.assertEqual(self.request("/api/switch", body={"channel": 0, "state": "on"})[0], 400)
         self.store.update_status(status())
+
+
+class DemoOnlyHTTPTests(HTTPFixture, unittest.TestCase):
+    open_client = True
+    demo_only = True
+
+    def test_cannot_switch_real_gateway_to_daily(self):
+        code, body = self.request("/api/mode", body={"mode": "daily", "poll_interval_s": 30})
+        self.assertEqual(code, 400)
+        self.assertIn("demo-only", json.loads(body)["error"])
+        self.assertEqual(json.loads(self.request("/api/status")[1])["mode"], "demo")
+        code, body = self.request("/api/device/poll", "d" * 32, {"status": status()})
+        self.assertEqual(code, 200)
+        self.assertEqual(json.loads(body)["mode"], "demo")
+        self.assertEqual(self.request("/api/device/poll", body={"status": status()})[0], 401)
+
+    def test_on_command_is_queued_for_real_device_not_simulated(self):
+        code, body = self.request("/api/switch", body={"channel": 0, "state": "on"})
+        self.assertEqual(code, 202)
+        command = json.loads(body)
+        self.assertEqual(command["status"], "queued")
+        code, body = self.request("/api/device/poll", "d" * 32, {"status": status()})
+        self.assertEqual(code, 200)
+        self.assertEqual(json.loads(body)["commands"][0]["id"], command["id"])
 
 
 if __name__ == "__main__":

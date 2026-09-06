@@ -11,7 +11,7 @@ import types
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "firmware"))
 from control import Controller, Scheduler, battery_reading
-from http_api import API, read_request
+from http_api import API, read_request, client_access
 from gateway_client import process_commands, validate_poll
 
 
@@ -117,6 +117,48 @@ class FirmwareTests(unittest.IsolatedAsyncioTestCase):
         code, result = await self.api.route("GET", "/api/status", self.headers, b"")
         self.assertEqual(code, 200)
         self.assertEqual(result["channels"][0]["state"], "unknown")
+
+    async def test_access_discovery_never_exposes_token(self):
+        code, result = await self.api.route("GET", "/api/access", {}, b"")
+        self.assertEqual((code, result), (200, {"open_client": False}))
+
+    async def test_open_direct_access_preserves_calibration_and_payload_guards(self):
+        api = API(self.controller, lambda: {"channels": self.controller.status_channels()},
+                  "", open_client=True)
+        code, result = await api.route("GET", "/api/access", {}, b"")
+        self.assertEqual((code, result), (200, {"open_client": True}))
+        code, _ = await api.route("GET", "/api/status", {}, b"")
+        self.assertEqual(code, 200)
+        headers = {"content-type": "application/json"}
+        code, result = await api.route("POST", "/api/switch", headers,
+                                       b'{"channel":0,"state":"on"}')
+        self.assertEqual(code, 400)
+        self.assertIn("uncalibrated", result["error"])
+        self.assertEqual(self.hardware.events, [])
+        self.enable()
+        code, _ = await api.route("POST", "/api/switch", {}, b'{}')
+        self.assertEqual(code, 415)
+        code, _ = await api.route("POST", "/api/switch", headers,
+                                 b'{"channel":0,"state":"on","angle":180}')
+        self.assertEqual(code, 400)
+        code, result = await api.route("POST", "/api/switch", headers,
+                                       b'{"channel":0,"state":"off"}')
+        self.assertEqual(code, 200)
+        self.assertEqual(result["channels"][0]["last_command"], "off")
+        code, _ = await api.route("POST", "/api/mode", headers, b'{"mode":"daily"}')
+        self.assertEqual(code, 404)
+
+    def test_open_client_requires_explicit_s2_direct_configuration(self):
+        self.assertFalse(client_access({}))
+        self.assertTrue(client_access({"hardware_profile": "s2-demo",
+                                       "transport": "direct", "open_client": True}))
+        for config in ({"open_client": True},
+                       {"hardware_profile": "s2-demo", "transport": "gateway", "open_client": True},
+                       {"hardware_profile": "s2-demo", "open_client": "true"}):
+            with self.subTest(config=config), self.assertRaises(ValueError):
+                client_access(config)
+        with self.assertRaises(ValueError):
+            API(self.controller, lambda: {}, "")
 
     async def test_remote_payload_rejects_angles_extra_keys_bool_channel(self):
         self.enable()

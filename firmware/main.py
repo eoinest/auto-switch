@@ -5,8 +5,20 @@ import sys
 import uasyncio as asyncio
 from control import Controller, Scheduler
 from hardware import Hardware
-from http_api import API
+from http_api import API, client_access
 from gateway_client import GatewayClient, validate_poll, process_commands
+
+
+def configure_hostname(network, config):
+    """Set the optional local network name before Wi-Fi starts."""
+    hostname = config.get("hostname")
+    if hostname is None:
+        return
+    if (not isinstance(hostname, str) or not 1 <= len(hostname) <= 63
+            or hostname[0] == "-" or hostname[-1] == "-"
+            or any(c not in "abcdefghijklmnopqrstuvwxyz0123456789-" for c in hostname)):
+        raise ValueError("hostname must be 1-63 lowercase ASCII letters, digits or internal hyphens")
+    network.hostname(hostname)
 
 
 class Clock:
@@ -39,10 +51,25 @@ class Clock:
             print("NTP unavailable; schedules need a recent successful UTC sync")
 
 
+def wifi_txpower(wifi):
+    """Optional ESP32 radio diagnostic setting; retain platform defaults otherwise."""
+    if "txpower_dbm" not in wifi:
+        return None
+    value = wifi["txpower_dbm"]
+    if sys.platform != "esp32":
+        raise ValueError("wifi.txpower_dbm is only supported on ESP32")
+    if type(value) not in (int, float) or not 2 <= value <= 20:
+        raise ValueError("wifi.txpower_dbm must be a finite number from 2 to 20")
+    return value
+
+
 async def connect(wlan, wifi):
+    txpower = wifi_txpower(wifi)
     if wlan.isconnected():
         return
     wlan.active(True)
+    if txpower is not None:
+        wlan.config(txpower=txpower)
     wlan.connect(wifi["ssid"], wifi["password"])
     for _ in range(60):
         if wlan.isconnected():
@@ -81,6 +108,7 @@ async def run(config):
             raise ValueError("transport must be direct or gateway")
         try:
             import network
+            configure_hostname(network, config)
             wlan = network.WLAN(network.STA_IF)
         except (ImportError, AttributeError):
             print("No WiFi hardware: use USB REPL import bench; bench.move(0, 'on')")
@@ -97,8 +125,10 @@ async def run(config):
                     "servo_power_gated": controller.power_enable_pin is not None}
 
         # Validate credentials before starting schedules or network operations.
+        open_client = client_access(config)
         client = GatewayClient(config["gateway"]) if transport == "gateway" else None
-        api = API(controller, status, config.get("api_token", "")) if client is None else None
+        api = API(controller, status, config.get("api_token", ""),
+                  open_client=open_client) if client is None else None
         wifi = config["wifi"]
         if not wifi.get("ssid"):
             raise ValueError("set wifi.ssid in config.json")

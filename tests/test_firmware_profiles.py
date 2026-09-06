@@ -166,6 +166,58 @@ class ProfileTests(unittest.IsolatedAsyncioTestCase):
         self.assertIn("still powered", output.call_args.args[0])
         self.assert_no_gate()
 
+    async def test_optional_esp32_txpower_applies_after_activation_before_connect(self):
+        with patch.dict(sys.modules, {"machine": self.machine, "uasyncio": asyncio,
+                                    "hardware": self.hardware_module}):
+            main = load("profile_txpower_main", "main.py")
+        events = []
+        class WLAN:
+            connected = False
+            def isconnected(self):
+                return self.connected
+            def active(self, value):
+                events.append(("active", value))
+            def config(self, **values):
+                events.append(("config", values))
+            def connect(self, ssid, password):
+                events.append(("connect", ssid))
+                self.connected = True
+        wifi = {"ssid": "test", "password": "", "txpower_dbm": 8.5}
+        with patch.object(main.sys, "platform", "esp32"):
+            await main.connect(WLAN(), wifi)
+        self.assertEqual(events, [("active", True), ("config", {"txpower": 8.5}), ("connect", "test")])
+        events.clear()
+        await main.connect(WLAN(), {"ssid": "test", "password": ""})
+        self.assertEqual(events, [("active", True), ("connect", "test")])
+
+    async def test_invalid_txpower_rejected_before_wifi_operations(self):
+        with patch.dict(sys.modules, {"machine": self.machine, "uasyncio": asyncio,
+                                    "hardware": self.hardware_module}):
+            main = load("profile_invalid_txpower_main", "main.py")
+        with patch.object(main.sys, "platform", "esp32"):
+            for value in (None, True, "8.5", 1.9, 20.1, float("nan"), float("inf"), -float("inf")):
+                with self.subTest(value=value), self.assertRaises(ValueError):
+                    await main.connect(object(), {"txpower_dbm": value})
+            self.assertEqual(main.wifi_txpower({"txpower_dbm": 2}), 2)
+            self.assertEqual(main.wifi_txpower({"txpower_dbm": 20}), 20)
+        with patch.object(main.sys, "platform", "rp2"), self.assertRaises(ValueError):
+            await main.connect(object(), {"txpower_dbm": 8.5})
+
+    def test_direct_hostname_validation_and_optional_default(self):
+        with patch.dict(sys.modules, {"machine": self.machine, "uasyncio": asyncio,
+                                    "hardware": self.hardware_module}):
+            main = load("profile_hostname_main", "main.py")
+        names = []
+        network = types.SimpleNamespace(hostname=names.append)
+        main.configure_hostname(network, {})
+        self.assertEqual(names, [])
+        main.configure_hostname(network, {"hostname": "auto-switch"})
+        self.assertEqual(names, ["auto-switch"])
+        for value in ("", "a" * 64, "-switch", "switch-", "AutoSwitch", "a.local", "é", 1, True):
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                main.configure_hostname(network, {"hostname": value})
+        self.assertEqual(names, ["auto-switch"])
+
     def test_startup_failure_and_import_do_not_touch_gate(self):
         with patch.dict(sys.modules, {"machine": self.machine, "uasyncio": asyncio,
                                     "hardware": self.hardware_module}):

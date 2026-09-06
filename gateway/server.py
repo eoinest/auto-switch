@@ -19,11 +19,12 @@ MAX_BODY = 16384
 
 
 class Store:
-    def __init__(self, path, demo=False):
+    def __init__(self, path, demo=False, demo_only=False):
         self.lock = threading.RLock()
         self.db = sqlite3.connect(str(path), check_same_thread=False)
         self.db.row_factory = sqlite3.Row
         self.demo = demo
+        self.demo_only = demo_only
         self.db.executescript("""
           CREATE TABLE IF NOT EXISTS settings (key TEXT PRIMARY KEY, value TEXT NOT NULL);
           CREATE TABLE IF NOT EXISTS commands (id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -32,6 +33,8 @@ class Store:
         """)
         for key, value in [("mode", "daily"), ("poll_interval_s", 60), ("last_seen", None), ("status", None)]:
             self.db.execute("INSERT OR IGNORE INTO settings VALUES (?, ?)", (key, json.dumps(value)))
+        if demo_only:
+            self.put("mode", "demo")
         self.db.commit()
         if demo:
             self.update_status({"device": "Office · preview", "channels": [
@@ -82,7 +85,7 @@ class Store:
             data = self.get("status") or {"device": "Auto Switch", "channels": [], "battery": None, "clock_synced": False}
             seen = self.get("last_seen")
             recent = self.db.execute("SELECT id,channel,state,status,error FROM commands ORDER BY id DESC LIMIT 8").fetchall()
-            data.update({"gateway": True, "preview": self.demo, "mode": self.get("mode"),
+            data.update({"gateway": True, "preview": self.demo, "mode": "demo" if self.demo_only else self.get("mode"),
                 "poll_interval_s": self.get("poll_interval_s"), "last_seen": seen,
                 "last_seen_age_s": None if seen is None else max(0, round(time.time() - seen)),
                 "pending": self.db.execute("SELECT COUNT(*) FROM commands WHERE status IN ('queued','dispatched')").fetchone()[0],
@@ -114,6 +117,8 @@ class Store:
         mode, interval = body.get("mode"), body.get("poll_interval_s", 60)
         if mode not in ("daily", "demo") or type(interval) is not int or not 10 <= interval <= 3600:
             raise ValueError("Mode must be daily/demo, interval 10–3600 seconds")
+        if self.demo_only and mode != "demo":
+            raise ValueError("This gateway is demo-only; check-in mode is disabled")
         with self.lock, self.db:
             self.put("mode", mode)
             self.put("poll_interval_s", interval)
@@ -131,7 +136,7 @@ class Store:
             if row:
                 self.db.execute("UPDATE commands SET status='dispatched' WHERE id=?", (row["id"],))
                 commands = [{"id": str(row["id"]), "channel": row["channel"], "state": row["state"]}]
-            return {"commands": commands, "mode": self.get("mode"), "poll_interval_s": self.get("poll_interval_s")}
+            return {"commands": commands, "mode": "demo" if self.demo_only else self.get("mode"), "poll_interval_s": self.get("poll_interval_s")}
 
     def ack(self, body):
         ident = body.get("id")
@@ -231,6 +236,7 @@ def main():
     parser.add_argument("--port", type=int, default=8765)
     parser.add_argument("--db", type=Path, default=ROOT / "gateway" / "state.sqlite3")
     parser.add_argument("--demo", action="store_true", help="Simulate a device; loopback only; no GPIO")
+    parser.add_argument("--demo-only", action="store_true", help="Keep a real device in responsive demo mode; disable check-in mode (does not simulate hardware)")
     parser.add_argument("--open-client", action="store_true", help="Allow browser control without a client key for a trusted LAN prototype; device authentication stays required")
     args = parser.parse_args()
     if args.demo and args.host not in ("127.0.0.1", "localhost", "::1"):
@@ -243,7 +249,7 @@ def main():
                      for key in required_keys)
     if not args.demo and (not valid_keys or (not args.open_client and client_token == device_token)):
         parser.error("Set AUTO_SWITCH_DEVICE_TOKEN and, unless --open-client is set, a distinct AUTO_SWITCH_CLIENT_TOKEN (32–128 printable characters; replace example placeholders)")
-    store = Store(":memory:" if args.demo else args.db, args.demo)
+    store = Store(":memory:" if args.demo else args.db, args.demo, args.demo_only)
     server = ThreadingHTTPServer((args.host, args.port), handler_for(store, client_token, device_token, args.open_client))
     print(f"Auto Switch {'PREVIEW' if args.demo else 'gateway'}: http://{args.host}:{args.port}/{'?demo' if args.demo else ''}", flush=True)
     if args.open_client:
