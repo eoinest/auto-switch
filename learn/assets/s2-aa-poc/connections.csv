@@ -1,0 +1,13 @@
+id,from,to,net,note
+W1,BAT.red,REG.VIN,BAT+,Holder red → converter VIN; solder connection
+W2,BAT.black,REG.GND_IN,GND,Holder black → converter input GND; solder connection
+W3,REG.VOUT,P48,5V,Converter VOUT → left + rail hole 48
+W4,REG.GND_OUT,G50,GND,Converter output GND → left − rail hole 50
+B+,P25,P26,5V,Bridge positive rail midpoint: P25 → P26
+B−,G25,G26,GND,Bridge ground rail midpoint: G25 → G26
+W5,P8,S2.VBUS,5V,Left + rail hole 8 → S2 outer-right bottom pin 5V/VBUS
+W6,G10,S2.GND,GND,Left − rail hole 10 → S2 outer-right second pin from bottom GND
+W7,S2.GPIO16,j38,PWM,S2 GPIO16 → breadboard j38
+W8,i38,SERVO.S,PWM,Breadboard i38 → servo signal; i38 and j38 share the same strip
+W9,P35,SERVO.V+,5V,Left + rail hole 35 → servo red power pin
+W10,G38,SERVO.GND,GND,Left − rail hole 38 → servo brown/black ground pin

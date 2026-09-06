@@ -1,17 +1,18 @@
 # auto-switch
 
-An open-source, externally mounted **Pico W + MG90S servo actuator for Decora-style paddle rocker switches**. The existing wallplate and electrical wiring stay intact. One servo operates each paddle; single- and double-gang prototypes are included.
+An open-source, externally mounted **microcontroller + MG90S servo actuator for Decora-style paddle rocker switches**. The existing wallplate and electrical wiring stay intact. One servo operates each paddle; single- and double-gang prototypes are included.
 
-**Current POC: [one servo on breadboard rails with a switched four-AA holder](docs/poc-wiring.md)** — [plain ASCII circuit](docs/poc-wiring.txt). Use the existing [one-channel AA firmware profile](firmware/config.aa-demo.example.json). The map retains a 5 V regulator, VSYS isolation diode and inline fuse. This is an untested, supervised bench plan; the earlier WAGO illustration/BOM and gated enclosure below are reference designs.
+**Current hardware POC: [ESP32-S2 Mini + four alkaline AAs + 5 V buck-boost + one servo](docs/s2-aa-poc.md).** Open [the illustrated breadboard page](learn/s2-aa-poc.html), [PNG](hardware/wiring/s2-aa-poc/breadboard.png), or [new Blender prototype and fit notes](docs/s2-aa-mechanical.md). The S2 stays beside the breadboard with jumpers. Disconnect its three jumpers before USB programming. The existing firmware still targets Pico and has not been ported/tested on S2. Earlier Pico diagrams, [ASCII map](docs/poc-wiring.txt), WAGO BOM and gated enclosure below are historical references.
 
 **Prototype status:** code, editable Blender source and STL exports are included. The physical fit, switching force, adhesive retention, electrical assembly, MicroPython board behavior and battery runtime have **not** been verified on hardware. Measure and print the fit ring before the full enclosure; calibrate before enabling movement. The AA firmware example has one channel, disabled until calibrated.
 
-The current four-AA assembly is a spacious **174 × 300.7 × 47 mm** prototype, excluding adhesive and plug insertion space. Its pod is a separate print; it is not yet a compact cover confined to the wallplate outline.
+The new S2 prototype separates a wall actuator from an electronics carrier; [six STL parts and fit coupons](hardware/cad/s2-aa-poc/generated) accompany the Blender model. The converter bay is adjustable and unverified, not an exact purchased-component model. The older Pico assembly below is a spacious **174 × 300.7 × 47 mm** prototype, excluding adhesive and plug insertion space.
 
 ![One-gang and two-gang assembly design](hardware/cad/generated/assembly.png)
 
 ## Start here: diagram, lessons and BOM
 
+- **[Current S2 AA illustrated map](learn/s2-aa-poc.html)** — one continuous map, click-to-highlight wires, downloadable PNG/SVG/checklist, current parts list and Blender/STL preview. On the learning server: **http://127.0.0.1:8766/s2-aa-poc.html**.
 - **[Interactive circuit learning module](learn/index.html)** — a power-source simulator, 12 guided lessons, 24 questions, five calculation/signal experiments and a design challenge. Run `python3 -m http.server 8766 --bind 127.0.0.1 --directory learn`, then open **http://127.0.0.1:8766**. You can also open the HTML directly. [Learning guide](learn/README.md).
 - **[Breadboard bench layout](docs/breadboard.md)** — exact Pico/header placement, component holes and jumpers, with step highlighting in the module’s Breadboard tab. [SVG](hardware/wiring/breadboard/layout.svg) · [hole checklist CSV](hardware/wiring/breadboard/placements.csv).
 - **[Bill of materials](BOM.md)** — exact single-/double-switch quantities, selected parts, purchase links and fit status. Also available as [BOM.csv](hardware/bom.csv), with a searchable copy in the module’s Parts & Fit tab.

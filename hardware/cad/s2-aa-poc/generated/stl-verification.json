@@ -1,0 +1,74 @@
+[
+  {
+    "file": "01_plate_fit_ring.stl",
+    "closed_two_faces_per_edge": true,
+    "positive_volume_mm3": 2315.4,
+    "on_print_bed": true,
+    "fits_A1_256mm": true,
+    "dimensions_mm": [
+      77.25,
+      121.7,
+      2.0
+    ]
+  },
+  {
+    "file": "02_wall_chassis.stl",
+    "closed_two_faces_per_edge": true,
+    "positive_volume_mm3": 22606.7,
+    "on_print_bed": true,
+    "fits_A1_256mm": true,
+    "dimensions_mm": [
+      115.25,
+      121.7,
+      39.0
+    ]
+  },
+  {
+    "file": "03_factory_horn_paddle.stl",
+    "closed_two_faces_per_edge": true,
+    "positive_volume_mm3": 5700.76,
+    "on_print_bed": true,
+    "fits_A1_256mm": true,
+    "dimensions_mm": [
+      22.1,
+      60.0,
+      17.0
+    ]
+  },
+  {
+    "file": "04_electronics_carrier.stl",
+    "closed_two_faces_per_edge": true,
+    "positive_volume_mm3": 57381.1,
+    "on_print_bed": true,
+    "fits_A1_256mm": true,
+    "dimensions_mm": [
+      100.0,
+      123.0,
+      24.0
+    ]
+  },
+  {
+    "file": "05_battery_fit_ring.stl",
+    "closed_two_faces_per_edge": true,
+    "positive_volume_mm3": 1700.4,
+    "on_print_bed": true,
+    "fits_A1_256mm": true,
+    "dimensions_mm": [
+      76.1,
+      71.6,
+      2.0
+    ]
+  },
+  {
+    "file": "06_s2_outline_coupon.stl",
+    "closed_two_faces_per_edge": true,
+    "positive_volume_mm3": 822.0,
+    "on_print_bed": true,
+    "fits_A1_256mm": true,
+    "dimensions_mm": [
+      32.8,
+      41.7,
+      2.0
+    ]
+  }
+]

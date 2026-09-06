@@ -1,0 +1,115 @@
+{
+  "status": "prototype; physical fit NOT VERIFIED",
+  "parts": [
+    {
+      "file": "01_plate_fit_ring.stl",
+      "dimensions_mm": [
+        77.25,
+        121.7,
+        2.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 2315.4,
+      "triangles": 32
+    },
+    {
+      "file": "02_wall_chassis.stl",
+      "dimensions_mm": [
+        115.25,
+        121.7,
+        39.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 22606.7,
+      "triangles": 568
+    },
+    {
+      "file": "03_factory_horn_paddle.stl",
+      "dimensions_mm": [
+        22.1,
+        60.0,
+        17.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 5700.76,
+      "triangles": 858
+    },
+    {
+      "file": "04_electronics_carrier.stl",
+      "dimensions_mm": [
+        100.0,
+        123.0,
+        24.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 57381.1,
+      "triangles": 3334
+    },
+    {
+      "file": "05_battery_fit_ring.stl",
+      "dimensions_mm": [
+        76.1,
+        71.6,
+        2.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 1700.4,
+      "triangles": 32
+    },
+    {
+      "file": "06_s2_outline_coupon.stl",
+      "dimensions_mm": [
+        32.8,
+        41.7,
+        2.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 822.0,
+      "triangles": 32
+    }
+  ],
+  "servo_body_chassis_surface_intersections": 0,
+  "paddle_chassis_mesh_collision_angles": [],
+  "sampled_angles_degrees": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "contact_note": "Contact with unmeasured rocker is intentional and not a validated travel limit. Calibrate on actual switch.",
+  "component_fit": {
+    "battery_clearance_per_side_mm": 0.7,
+    "s2_outline_clearance_coupon_per_side_mm": 0.7,
+    "converter": "NO EXACT MODEL: bay40x36x18, awaiting module dimension",
+    "breadboard": "Bench only; unknown model"
+  },
+  "sources": {
+    "S2": "https://www.wemos.cc/en/latest/_static/files/dim_s2_mini_v1.0.0.pdf",
+    "holder": "https://www.amazon.com/dp/B09N1GDWQ9",
+    "servo": "https://towerpro.com.tw/product/mg90s-3/",
+    "converter": "https://www.amazon.com/dp/B0GCW44FDL"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "status": "MEASUREMENT PENDING: prototype, not final fit approval",
+  "units": "mm",
+  "plate": {"width": 69.85, "height": 114.3, "depth": 6, "clearance": 0.7, "measured": false},
+  "servo": {"case_length": 22.8, "case_width": 12.4, "case_height": 28.4, "base_to_shaft_tip": 32.5, "ear_span": 32.1, "base_to_ear_under": 18.5, "ear_thickness": 2.0, "ear_hole_pitch": 27.5, "shaft_offset_y": 5.2, "measured": false},
+  "horn": {"arm_span": 22, "arm_width": 5, "arm_thickness": 2, "hub_diameter": 7, "fastener_radius": 7, "measured": false},
+  "battery_holder": {"width": 68.7, "height": 64.2, "depth": 22.5, "source": "Amazon B09N1GDWQ9 seller dimensions", "measured": false},
+  "s2_mini": {"width": 25.4, "height": 34.3, "pcb_thickness": 1.6, "loaded_allowance": 18, "source": "LOLIN official outline; thickness/header envelope provisional", "measured": false},
+  "converter": {"width": null, "height": null, "depth": null, "bay_width": 40, "bay_height": 36, "bay_depth": 18, "source": "B0GCW44FDL actual dimensions unresolved; bay is a reserved design space, not a component model", "measured": false},
+  "paddle": {"pivot_z": 31, "pad_radius": 26, "sweep_degrees": 10, "rocker_width": 31.5, "rocker_height": 65, "rocker_surface_z": 10},
+  "fit_clearance": 0.7,
+  "breadboard": {"included_in_wall_carrier": false, "reason": "User breadboard model and dimensions unknown. Keep on bench for POC; PCB tray supports later move off breadboard."}
+}
