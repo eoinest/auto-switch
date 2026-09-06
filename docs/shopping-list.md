@@ -1,5 +1,7 @@
 # Detailed purchase notes — headerless Pico W revision
 
+**Historical reference — earlier Pico design; not the current build instructions.** For the current ESP32-S2 Mini POC, start with [S2 wiring](s2-aa-poc.md), [S2 firmware](s2-firmware.md) and the [current BOM](../BOM.md).
+
 **Start with the [BOM](../BOM.md)** for single- and two-gang installed quantities, printable quantities and fit status. [Download the CSV](../hardware/bom.csv). These notes explain the selections.
 
 This is a concrete set of parts for **one two-gang actuator**. The fitted default now uses a **headerless Raspberry Pi Pico W**, two existing MG90S servos, your soldering tools and printer. Your already-headered board remains useful for bench experiments; the current STLs no longer include its carrier. One-gang uses the same electronics but one servo, one extension, and one fewer 1k signal resistor. A second independent room unit needs another complete electronics set and four cells; charger, wire spools, USB cable, and tools can be shared. Nothing has been purchased.

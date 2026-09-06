@@ -1,6 +1,7 @@
 # AA demo: shopping list and bench hardware
 
-**Current POC:** [Switched AA holder + breadboard rails, one servo](poc-wiring.md). The WAGO assembly below is an earlier reference; use the POC parts checklist for this build.
+**Historical reference — earlier Pico design; not the current build instructions.** For the current ESP32-S2 Mini POC, start with [S2 wiring](s2-aa-poc.md), [S2 firmware](s2-firmware.md) and the [current BOM](../BOM.md).
+
 
 Checked **2026-09-05**. This list implements the [four-AA demo plan](aa-demo-plan.md): four matched NiMH cells, a fixed 5 V regulator, one physical master switch, a continuously powered servo, and no servo power gate or battery ADC circuit. The current build uses **one servo only**.
 

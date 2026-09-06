@@ -1,5 +1,7 @@
 # Hardware and fit
 
+**Historical reference — earlier Pico design; not the current build instructions.** For the current ESP32-S2 Mini POC, start with [S2 wiring](s2-aa-poc.md), [S2 firmware](s2-firmware.md) and the [current BOM](../BOM.md).
+
 ## What the switches are called
 
 The photo shows **decorator rocker switches**, also called **paddle switches** or **Decora-style switches**, in a **two-gang wallplate**. Decora is Leviton's brand name; the shape alone does not identify the manufacturer. The bedroom version is a one-gang decorator wallplate. “Gang” counts adjacent device positions; it does not identify whether the switch circuit is single-pole or three-way. [Leviton product terminology](https://leviton.com/content/dam/leviton/distribution-marketing/program-support/ED-G-00213%20MPG%20Growth%20Brochure.pdf).

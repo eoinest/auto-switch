@@ -1,6 +1,8 @@
-# Current POC: one servo, switched AA holder, breadboard rails
+# Earlier Pico POC: one servo, switched AA holder, breadboard rails
 
-Decision recorded 2026-09-05. This is the current proof-of-concept wiring plan: use existing materials where suitable, one Pico W / Pico 2 W and one MG90S. The earlier illustrated WAGO assembly and its shopping budget are reference designs, not the shopping requirements for this POC.
+**Historical reference — earlier Pico design; not the current build instructions.** For the current ESP32-S2 Mini POC, start with [S2 wiring](s2-aa-poc.md), [S2 firmware](s2-firmware.md) and the [current BOM](../BOM.md).
+
+Decision recorded 2026-09-05. This was the earlier Pico proof-of-concept wiring plan: use existing materials where suitable, one Pico W / Pico 2 W and one MG90S. The earlier illustrated WAGO assembly and its shopping budget are reference designs, not the shopping requirements for this POC.
 
 [Download the plain ASCII map](poc-wiring.txt).
 

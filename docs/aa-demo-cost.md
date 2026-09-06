@@ -1,6 +1,7 @@
 # One-servo AA demo — price calculation
 
-**Current POC:** [Switched AA holder + breadboard rails, one servo](poc-wiring.md). The WAGO assembly below is an earlier reference; use the POC parts checklist for this build.
+**Historical reference — earlier Pico design; not the current build instructions.** For the current ESP32-S2 Mini POC, start with [S2 wiring](s2-aa-poc.md), [S2 firmware](s2-firmware.md) and the [current BOM](../BOM.md).
+
 
 Researched **2026-09-05**, **USD**, for the current one-servo bench BOM. **Budget about $160 before tax and shipping**, with a working range of **$147.79–$181.79**. This is a purchase budget including retail packs and spares, not the value of only the pieces installed in one switch.
 

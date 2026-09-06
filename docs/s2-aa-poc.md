@@ -23,7 +23,7 @@ No external servo gate, signal resistor, extra capacitor, battery ADC, WAGO, sep
 
 ## Wiring and board orientation
 
-Use the [WEMOS official pinout](https://www.wemos.cc/en/latest/_static/boards/s2_mini_v1.0.0_4_16x9.jpg): top/component side facing you, USB connector pointing **down**. On the **outermost right header**, the bottom three pins are, from bottom upward: **VBUS (often labelled 5V), GND, GPIO16**. Inner pins are different. The S2 Mini has no Pico-style VSYS pin.
+Use the [WEMOS official pinout](https://www.wemos.cc/en/latest/_static/boards/s2_mini_v1.0.0_4_16x9.jpg): top/component side facing you, USB connector pointing **down**. On the **outermost right row of pads**, the bottom three pins are, from bottom upward: **VBUS (often labelled 5V), GND, GPIO16**. Inner pins are different. The S2 Mini has no Pico-style VSYS pin.
 
 Keep the headerless S2 beside the breadboard with three direct-solder leads ending in male breadboard pins. Do not insert both adjacent header rows into a standard breadboard's connected five-hole strips: that would short different pins together.
 
@@ -62,7 +62,7 @@ After programming, unplug USB first, reconnect the three jumpers with battery po
 
 ## Mechanical prototype
 
-See [S2/AA mechanical notes](s2-aa-mechanical.md). Source-based S2 outline, holder nominal case and MG90S reference dimensions are separate from unmeasured clone tolerances and assumed wallplate dimensions. Converter bay is adjustable and clearly labelled **fit pending**; no exact purchased converter model has been fabricated from guessed dimensions. Print the small fit coupons before full parts.
+Use the [isolated servo mechanism](servo-command-mount.md) and the [revised electronics carrier v2](electronics-carrier-v2.md). Source-based S2 outline, holder nominal case and MG90S reference dimensions are separate from unmeasured clone tolerances and assumed wallplate dimensions. The revised carrier uses a continuous floor and a clearly labelled **fit-pending** converter space. Its insulating spacer and retention still depend on the actual module; no exact converter model has been fabricated from guessed dimensions. Print the small fit coupons before full parts.
 
 ## Reproduce
 

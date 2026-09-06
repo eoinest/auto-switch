@@ -1,5 +1,7 @@
 # Component geometry and source confidence
 
+**Historical reference — earlier Pico design; not the current build instructions.** For the current ESP32-S2 Mini POC, start with [S2 wiring](s2-aa-poc.md), [S2 firmware](s2-firmware.md) and the [current BOM](../BOM.md).
+
 The Pico W reference now uses **Raspberry Pi's own 3D assembly**, rather than an invented board-shaped box. The repository includes the original STEP archive plus a Blender-importable OBJ with 11 named parts. An MG90S label, however, does not identify one guaranteed mechanical drawing: the original manufacturer's page omits several dimensions needed for a tight mount, and other manufacturers sell different MG90S geometries.
 
 Machine-readable values, source IDs, unresolved measurements, and checksums are in [board-servo.json](../hardware/components/board-servo.json). Final physical-fit approval still requires matching the actual purchased board, servo, solder joints and power components.

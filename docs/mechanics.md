@@ -1,5 +1,7 @@
 # Mechanical prototype: headerless Pico W revision
 
+**Historical reference — earlier Pico design; not the current build instructions.** For the current ESP32-S2 Mini POC, start with [S2 wiring](s2-aa-poc.md), [S2 firmware](s2-firmware.md) and the [current BOM](../BOM.md).
+
 The photo shows **Decora-style / decorator paddle rocker switches in a two-gang wallplate**. “Decora” is Leviton's trademark; “decorator rocker” is the generic search term. One gang is the matching single-switch arrangement. Gang count does not establish single-pole versus three-way wiring.
 
 This revision uses manufacturer dimensions and the official Pico W reference geometry, with explicit assembly clearances. **It is not yet a verified fit to your particular servo, soldered harness, battery holder or installed wallplate.** Print the small fit coupons and record the remaining measurements before printing the complete assembly. All parts stay outside the existing plate; this design does not require opening the switch or attaching anything behind it.

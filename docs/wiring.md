@@ -1,4 +1,6 @@
-# Wiring the selected parts
+# Earlier Pico wiring: gated power circuit
+
+**Historical reference — earlier Pico design; not the current build instructions.** For the current ESP32-S2 Mini POC, start with [S2 wiring](s2-aa-poc.md), [S2 firmware](s2-firmware.md) and the [current BOM](../BOM.md).
 
 This is the assembly map for the headerless Pico revision. It replaces the first revision’s unspecified load-switch breakout with **two Pololu 2810 LV modules**: one master switch and one servo power gate. Component purchases and quantities are in the root [BOM](../BOM.md), with a searchable copy in the [learning module](../learn/index.html#parts). The Pico firmware pin assignments stay the same.
 

@@ -1,5 +1,7 @@
 # Breadboard bench build
 
+**Historical reference — earlier Pico design; not the current build instructions.** For the current ESP32-S2 Mini POC, start with [S2 wiring](s2-aa-poc.md), [S2 firmware](s2-firmware.md) and the [current BOM](../BOM.md).
+
 Use the [interactive Breadboard tab](../learn/index.html#breadboard), [full layout](../hardware/wiring/breadboard/layout.svg) and [hole checklist CSV](../hardware/wiring/breadboard/placements.csv). This is a temporary bench version of the same circuit. The final enclosure still uses the headerless Pico and soldered wiring; this layout does not claim that the breadboard fits the STLs.
 
 ## What to add

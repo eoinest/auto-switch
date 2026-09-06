@@ -1,4 +1,6 @@
-# Power and battery life
+# Earlier Pico power design and battery estimates
+
+**Historical reference — earlier Pico design; not the current build instructions.** For the current ESP32-S2 Mini POC, start with [S2 wiring](s2-aa-poc.md), [S2 firmware](s2-firmware.md) and the [current BOM](../BOM.md).
 
 ## Recommended first build
 

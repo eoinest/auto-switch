@@ -1,4 +1,6 @@
-# Firmware and local control
+# Firmware reference: earlier Pico and optional transports
+
+**Historical reference — earlier Pico design; not the current build instructions.** For the current ESP32-S2 Mini POC, start with [S2 wiring](s2-aa-poc.md), [S2 firmware](s2-firmware.md) and the [current BOM](../BOM.md).
 
 The firmware supports **Pico W / Pico 2 W** and a dedicated **ESP32-S2 Mini** profile. See the [S2 setup and actual-board validation](s2-firmware.md); the Pico instructions below use the corresponding MicroPython UF2. An ordinary Pico can run the USB bench helper, but it has no onboard Wi-Fi. No Raspberry Pi Linux image, cloud account, paid service, or third-party device library is required. The phone interface is a responsive website served by the Pico or the Mac mini gateway.
 

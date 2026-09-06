@@ -1,5 +1,7 @@
 # Learn the Auto Switch circuit
 
+**Earlier Pico circuit course — educational reference, not the current POC wiring.** Use the [current S2 illustrated map](s2-aa-poc.html), [S2 wiring guide](../docs/s2-aa-poc.md) and [current BOM](../BOM.md) for this build.
+
 Open `index.html` directly in a browser, or serve this folder locally from the repository root:
 
 ```sh

@@ -1,4 +1,6 @@
-# Mac mini relay and phone control
+# Optional legacy Mac relay
+
+**Optional legacy reference — the current POC does not use a Mac relay.** The ESP32-S2 Mini serves its On / Off website directly. Start with [S2 firmware](s2-firmware.md) and [S2 wiring](s2-aa-poc.md).
 
 Use a Pico **W** or **2 W**. The Mac mini serves the phone page and holds a persistent command queue; the Pico makes outbound requests to it. One relay instance serves one controller with one or two servos. For bedroom and office, run two instances on different ports with separate database files and keys.
 

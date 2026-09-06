@@ -1,6 +1,7 @@
-# Selected direction: simplified AA demo
+# Earlier AA demo plan: Pico and rechargeable cells
 
-**Current POC:** [Switched AA holder + breadboard rails, one servo](poc-wiring.md). The WAGO assembly below is an earlier reference; use the POC parts checklist for this build.
+**Historical reference — earlier Pico design; not the current build instructions.** For the current ESP32-S2 Mini POC, start with [S2 wiring](s2-aa-poc.md), [S2 firmware](s2-firmware.md) and the [current BOM](../BOM.md).
+
 
 Decision recorded 2026-09-05: use **four rechargeable AA NiMH cells**, a ready-made regulated 5 V supply, continuous Wi-Fi, and no GPIO-controlled servo power gate. The current build uses **one servo only**, controlling one paddle. The Mac mini relay is optional for direct phone control on the same local network.
 

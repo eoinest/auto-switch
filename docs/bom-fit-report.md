@@ -1,5 +1,7 @@
 # BOM-to-STL fit evidence
 
+**Historical reference — earlier Pico design; not the current build instructions.** For the current ESP32-S2 Mini POC, start with [S2 wiring](s2-aa-poc.md), [S2 firmware](s2-firmware.md) and the [current BOM](../BOM.md).
+
 This is a **nominal digital fit audit**, not a report from a physically assembled unit. The current headerless Pico W build retains explicit measurement gates. See the [BOM](../BOM.md) and [machine-readable evidence](../hardware/cad/generated/bom-fit-report.json).
 
 `audit_fit.py` reads the exported STL triangles, reconstructs their assembly placement, and checks the modeled purchased parts against those meshes using exact Boolean intersection volumes. It also ray-probes actual mounting holes and access channels. Coplanar seating contact and intersections below 0.05 mm³ are not treated as interference. Actual component tolerances, unseen wire bends and full dynamic motion remain outside that test.

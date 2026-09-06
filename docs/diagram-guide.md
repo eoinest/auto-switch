@@ -1,5 +1,7 @@
 # Read the Auto Switch diagrams
 
+**Historical reference — earlier Pico design; not the current build instructions.** For the current ESP32-S2 Mini POC, start with [S2 wiring](s2-aa-poc.md), [S2 firmware](s2-firmware.md) and the [current BOM](../BOM.md).
+
 Start with the [complete connection map](../hardware/wiring/connection-map.svg): one continuous drawing with every component, all supply and signal wires, and a shared ground return. The learning site opens this map first and provides fit, zoom and full-screen controls.
 
 The [power explorer](../hardware/wiring/power-map.svg) remains an optional teaching view. Follow the red supply branch **into VSYS pad 39**, across the boundary of the Pico board, through its onboard regulator, and into the chip at 3.3 V. This is the missing link between the battery assembly and the running Pico.
