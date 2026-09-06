@@ -1,0 +1,38 @@
+[
+  {
+    "file": "01_plate_and_strip_fit_test.stl",
+    "closed_two_faces_per_edge": true,
+    "positive_volume_mm3": 4089.6,
+    "on_print_bed": true,
+    "fits_A1_256mm": true,
+    "dimensions_mm": [
+      68.0,
+      96.0,
+      1.2
+    ]
+  },
+  {
+    "file": "02_servo_mount.stl",
+    "closed_two_faces_per_edge": true,
+    "positive_volume_mm3": 12375.9,
+    "on_print_bed": true,
+    "fits_A1_256mm": true,
+    "dimensions_mm": [
+      73.0,
+      96.0,
+      29.0
+    ]
+  },
+  {
+    "file": "03_factory_horn_paddle.stl",
+    "closed_two_faces_per_edge": true,
+    "positive_volume_mm3": 5700.76,
+    "on_print_bed": true,
+    "fits_A1_256mm": true,
+    "dimensions_mm": [
+      22.1,
+      60.0,
+      17.0
+    ]
+  }
+]

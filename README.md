@@ -1,5 +1,7 @@
 # auto-switch
 
+
+**First mechanical print:** [isolated servo mount with two narrow Command-strip pads](docs/servo-command-mount.md). Start with the plate/strip fit template; electronics stay separate.
 An open-source, externally mounted **microcontroller + MG90S servo actuator for Decora-style paddle rocker switches**. The existing wallplate and electrical wiring stay intact. One servo operates each paddle; single- and double-gang prototypes are included.
 
 **Current hardware POC: [ESP32-S2 Mini + four alkaline AAs + 5 V buck-boost + one servo](docs/s2-aa-poc.md).** Open [the illustrated breadboard page](learn/s2-aa-poc.html), [PNG](hardware/wiring/s2-aa-poc/breadboard.png), or [new Blender prototype and fit notes](docs/s2-aa-mechanical.md). The S2 stays beside the breadboard with jumpers. Disconnect its three jumpers before USB programming. The existing firmware still targets Pico and has not been ported/tested on S2. Earlier Pico diagrams, [ASCII map](docs/poc-wiring.txt), WAGO BOM and gated enclosure below are historical references.

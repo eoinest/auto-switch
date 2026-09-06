@@ -1,0 +1,87 @@
+{
+  "status": "fit-test prototype; physical plate, horn and adhesive fit NOT VERIFIED",
+  "parts": [
+    {
+      "file": "01_plate_and_strip_fit_test.stl",
+      "dimensions_mm": [
+        68.0,
+        96.0,
+        1.2
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 4089.6,
+      "triangles": 136
+    },
+    {
+      "file": "02_servo_mount.stl",
+      "dimensions_mm": [
+        73.0,
+        96.0,
+        29.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 12375.9,
+      "triangles": 656
+    },
+    {
+      "file": "03_factory_horn_paddle.stl",
+      "dimensions_mm": [
+        22.1,
+        60.0,
+        17.0
+      ],
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 5700.76,
+      "triangles": 858
+    }
+  ],
+  "servo_body_chassis_surface_intersections": 0,
+  "paddle_chassis_mesh_collision_angles": [],
+  "sampled_angles_degrees": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "plate_chassis_surface_intersections": 0,
+  "bezel_chassis_surface_intersections": 0,
+  "mount": {
+    "pad_width": 14.5,
+    "pad_length": 96,
+    "pad_center_x": 26.75,
+    "base_thickness": 3,
+    "back_z": 10,
+    "strip_width": 12.6492,
+    "strip_length": 92.7354,
+    "mated_thickness_assumption": 4,
+    "bezel_width_assumption": 35,
+    "bezel_height_assumption": 70,
+    "strip_model": "Command 17207-12ES narrow",
+    "amazon": "https://www.amazon.com/dp/B09XJDK6RS",
+    "source": "https://www.command.com/3M/en_US/p/d/b5005604166/?bvstate=pg%3A3%2Fct%3Ar",
+    "measured": false
+  },
+  "strip_margin_per_side_mm": 0.9253999999999998,
+  "strip_margin_each_end_mm": 1.6323000000000008,
+  "caveat": "Dimensions only: no rating for servo peel load. Actual flat plate area, paired-strip thickness, MG90S ears and horn require dry fit."
+}

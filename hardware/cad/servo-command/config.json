@@ -1,0 +1,55 @@
+{
+  "status": "MEASUREMENT PENDING: prototype, not final fit approval",
+  "units": "mm",
+  "plate": {
+    "width": 69.85,
+    "height": 114.3,
+    "depth": 6,
+    "clearance": 0.7,
+    "measured": false
+  },
+  "servo": {
+    "case_length": 22.8,
+    "case_width": 12.4,
+    "case_height": 28.4,
+    "base_to_shaft_tip": 32.5,
+    "ear_span": 32.1,
+    "base_to_ear_under": 18.5,
+    "ear_thickness": 2.0,
+    "ear_hole_pitch": 27.5,
+    "shaft_offset_y": 5.2,
+    "measured": false
+  },
+  "horn": {
+    "arm_span": 22,
+    "arm_width": 5,
+    "arm_thickness": 2,
+    "hub_diameter": 7,
+    "fastener_radius": 7,
+    "measured": false
+  },
+  "paddle": {
+    "pivot_z": 31,
+    "pad_radius": 26,
+    "sweep_degrees": 10,
+    "rocker_width": 31.5,
+    "rocker_height": 65,
+    "rocker_surface_z": 10
+  },
+  "mount": {
+    "pad_width": 14.5,
+    "pad_length": 96,
+    "pad_center_x": 26.75,
+    "base_thickness": 3,
+    "back_z": 10,
+    "strip_width": 12.6492,
+    "strip_length": 92.7354,
+    "mated_thickness_assumption": 4,
+    "bezel_width_assumption": 35,
+    "bezel_height_assumption": 70,
+    "strip_model": "Command 17207-12ES narrow",
+    "amazon": "https://www.amazon.com/dp/B09XJDK6RS",
+    "source": "https://www.command.com/3M/en_US/p/d/b5005604166/?bvstate=pg%3A3%2Fct%3Ar",
+    "measured": false
+  }
+}
