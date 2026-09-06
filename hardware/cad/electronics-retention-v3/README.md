@@ -1,6 +1,6 @@
 # Electronics retention v3 — review concept
 
-This replaces the idea that a component merely occupying a bay is securely mounted. It is an **assembly concept, not a fit-approved print**. The existing approved servo mechanism and v2 files are unchanged. No STL release is generated here.
+This replaces the idea that a component merely occupying a bay is securely mounted. It is an **assembly concept, not a fit-approved print**. The existing approved servo mechanism and v2 geometry files are unchanged. A user-requested [concept STL export](generated/stl-concept/) is now available; it is not a final fit-approved release.
 
 Open `generated/electronics-retention-v3.blend`. The left collection is assembled; the right is exploded. Blue and orange are proposed printed parts. Green, black and metallic objects are references and purchased hardware, never printable components. `generated/electronics-retention-v3.png` shows both views. `generated/electronics-retention-v3-underside.png` exposes the accessible nuts and bolt tips from below.
 
@@ -45,3 +45,7 @@ Regenerate the Blender scene using:
 ```sh
 /Applications/Blender.app/Contents/MacOS/Blender --background --python hardware/cad/electronics-retention-v3/generate.py
 ```
+
+## Concept STL export
+
+Run Blender in background with `export_concept.py` to export only the six assembled printed meshes. Component/hardware references and exploded duplicates are excluded. The [export manifest](generated/stl-concept/export-manifest.json) records source hashes and orientations. All parts are individually placed at Z=0 in millimetres. Read [print notes](generated/stl-concept/READ-ME-FIRST.txt): the feet-down base needs support beneath its raised floor, and the side-oriented jaws may need support beneath their recessed faces. Import as separate objects and arrange, rather than combining at their shared origin.

@@ -1,6 +1,6 @@
 # Independent retention review
 
-Status: **review concept only; actual component fit is not approved. No release STL is supplied.**
+Status: **review concept only; actual component fit is not approved. A user-requested concept STL export is available in `generated/stl-concept/`; it does not change this physical-fit assessment.**
 
 This review independently checked the generator coordinates and the revised saved Blender assembly. It covers the nominal reference envelopes, not the purchased hardware. `generated/independent-travel-review.json` records 28 actual Boolean intersection-volume checks: both converter jaws at every 1 mm position from −3 to +3 mm against both the base and recessed floor. All had zero intersection volume at the report precision. Each of the six printable meshes also independently passed a connected-vertex traversal: one connected solid, zero non-manifold edges, and positive signed volume.
 

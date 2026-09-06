@@ -1,0 +1,165 @@
+{
+  "status": "Exported concept mesh checks passed; actual hardware fit NOT verified",
+  "physical_fit_verified": false,
+  "export_manifest_hashes_match": true,
+  "source_geometry_volume_multiset_matches_within_mm3": 0.015,
+  "parts": [
+    {
+      "file": "01_carrier_base_CONCEPT.stl",
+      "sha256": "03bb27fb59d729731d5cfafafabeac9bf738b45c099204ef4eefa62b11c61ad9",
+      "triangles": 2640,
+      "connected_components": 1,
+      "closed_consistently_wound": true,
+      "zero_area_triangles": 0,
+      "positive_volume_mm3": 76981.297,
+      "dimensions_mm": [
+        120.0,
+        160.0,
+        33.0
+      ],
+      "bed_z_mm": 0.0,
+      "fits_A1_256_mm": true,
+      "bed_contact_area_mm2": 400.0,
+      "downfacing_area_over_45_degrees_above_bed_mm2": 18681.69876,
+      "downward_area_by_Z_mm": {
+        "7.0": 18681.699
+      },
+      "slicer_support_review_required": true
+    },
+    {
+      "file": "02_battery_bar_1_CONCEPT.stl",
+      "sha256": "1c29a1e612b77d7b380fffbf873f2f730408e9df0d5e62c58eabc6a1da838713",
+      "triangles": 404,
+      "connected_components": 1,
+      "closed_consistently_wound": true,
+      "zero_area_triangles": 0,
+      "positive_volume_mm3": 2825.68,
+      "dimensions_mm": [
+        96.0,
+        10.0,
+        3.0
+      ],
+      "bed_z_mm": 0.0,
+      "fits_A1_256_mm": true,
+      "bed_contact_area_mm2": 941.893,
+      "downfacing_area_over_45_degrees_above_bed_mm2": 0.0,
+      "downward_area_by_Z_mm": {},
+      "slicer_support_review_required": false
+    },
+    {
+      "file": "03_battery_bar_2_CONCEPT.stl",
+      "sha256": "edb771423e620328bbdba45e31f6456c8adbfd1f8c32ddfd29104384c05aeba2",
+      "triangles": 404,
+      "connected_components": 1,
+      "closed_consistently_wound": true,
+      "zero_area_triangles": 0,
+      "positive_volume_mm3": 2825.68,
+      "dimensions_mm": [
+        96.0,
+        10.0,
+        3.0
+      ],
+      "bed_z_mm": 0.0,
+      "fits_A1_256_mm": true,
+      "bed_contact_area_mm2": 941.893,
+      "downfacing_area_over_45_degrees_above_bed_mm2": 0.0,
+      "downward_area_by_Z_mm": {},
+      "slicer_support_review_required": false
+    },
+    {
+      "file": "04_converter_floor_CONCEPT.stl",
+      "sha256": "d0b86083cc27c305b25369ef54f662eea2a4d63142f15da59a9a713017f56d81",
+      "triangles": 576,
+      "connected_components": 1,
+      "closed_consistently_wound": true,
+      "zero_area_triangles": 0,
+      "positive_volume_mm3": 3116.634,
+      "dimensions_mm": [
+        26.0,
+        58.0,
+        8.0
+      ],
+      "bed_z_mm": 0.0,
+      "fits_A1_256_mm": true,
+      "bed_contact_area_mm2": 1198.317,
+      "downfacing_area_over_45_degrees_above_bed_mm2": 0.0,
+      "downward_area_by_Z_mm": {},
+      "slicer_support_review_required": false
+    },
+    {
+      "file": "05_converter_jaw_left_CONCEPT.stl",
+      "sha256": "65580a0a774f5c496c5da06fe298d4315e247e7252bb67682eeaee542a932205",
+      "triangles": 302,
+      "connected_components": 1,
+      "closed_consistently_wound": true,
+      "zero_area_triangles": 0,
+      "positive_volume_mm3": 637.893,
+      "dimensions_mm": [
+        17.0,
+        9.0,
+        12.0
+      ],
+      "bed_z_mm": 0.0,
+      "fits_A1_256_mm": true,
+      "bed_contact_area_mm2": 28.0,
+      "downfacing_area_over_45_degrees_above_bed_mm2": 37.3369,
+      "downward_area_by_Z_mm": {
+        "1.0": 32.0,
+        "7.251": 0.445,
+        "7.3": 0.445,
+        "7.39": 0.445,
+        "7.431": 0.445,
+        "7.505": 0.445,
+        "7.538": 0.445,
+        "7.594": 0.445,
+        "7.618": 0.445,
+        "7.657": 0.445,
+        "7.671": 0.445,
+        "7.69": 0.445,
+        "7.695": 0.445
+      },
+      "slicer_support_review_required": true
+    },
+    {
+      "file": "06_converter_jaw_right_CONCEPT.stl",
+      "sha256": "4ae80376007ac0b2841930fce36db8db3e6a6b8fec7004bf72a30776934d6923",
+      "triangles": 302,
+      "connected_components": 1,
+      "closed_consistently_wound": true,
+      "zero_area_triangles": 0,
+      "positive_volume_mm3": 637.893,
+      "dimensions_mm": [
+        17.0,
+        9.0,
+        12.0
+      ],
+      "bed_z_mm": 0.0,
+      "fits_A1_256_mm": true,
+      "bed_contact_area_mm2": 28.0,
+      "downfacing_area_over_45_degrees_above_bed_mm2": 37.33689,
+      "downward_area_by_Z_mm": {
+        "1.0": 32.0,
+        "7.251": 0.445,
+        "7.3": 0.445,
+        "7.39": 0.445,
+        "7.431": 0.445,
+        "7.505": 0.445,
+        "7.538": 0.445,
+        "7.594": 0.445,
+        "7.618": 0.445,
+        "7.657": 0.445,
+        "7.671": 0.445,
+        "7.69": 0.445,
+        "7.695": 0.445
+      },
+      "slicer_support_review_required": true
+    }
+  ],
+  "limitations": [
+    "Closed meshes and matched volumes do not prove no self-intersections, strength, printer tolerances or component fit.",
+    "No slicer simulation or physical print was performed. Downward surface areas identify support concerns; slicer settings remain necessary.",
+    "Converter dimensions, unobstructed PCB edge lands and actual adjustment fit remain unverified.",
+    "Battery body/bar clearance and S2 mounting-hole placement/underside keepouts require measurements and dry fit.",
+    "These six STLs contain only printed concept parts. Actual screws, nuts and electronic components are separate hardware."
+  ]
+}

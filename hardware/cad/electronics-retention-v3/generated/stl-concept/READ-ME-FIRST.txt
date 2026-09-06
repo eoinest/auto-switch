@@ -1,0 +1,27 @@
+AUTO-SWITCH V3 — USER-REQUESTED CONCEPT STL EXPORT
+
+Six parts; print one of each numbered STL:
+01 carrier base, 02 +03 battery bars, 04 converter floor, 05 +06 converter jaws.
+
+These are the NEW screw-mounted concept, not the earlier v2 tie-slot tray.
+Units: millimetres. Scale: 100%. Each part is centered independently with its
+lowest surface on Z=0. Import as separate objects and arrange in the slicer;
+do not combine them at their shared origin as one assembled model.
+
+SUPPORTS:
+- Carrier base is feet-down. Enable supports under the raised floor; do not
+  attempt to bridge the entire base between its four feet unsupported.
+- Jaws lie on their sides. Their main faces are recessed 1 mm from the foot's
+  side, so inspect/add support beneath those regions.
+- Battery bars and converter floor have flat bottoms.
+Inspect every sliced layer before printing. No machine-specific slicer profile
+or G-code has been validated. All individual parts fit the 256 mm A1 envelope.
+
+FIT REMAINS UNVERIFIED:
+The converter mounting geometry uses a 40 x36 mm example board, NOT the measured
+B0GCW44FDL module. Actual board dimensions, component-free clamp lands, S2
+underside clearances and battery projections must be checked. This export is
+authorized for concept prototyping, not a guarantee that purchased parts fit.
+
+Hardware fasteners are separate purchased parts, not included as STL shapes.
+Keep the approved servo mechanism separate; it was not changed by this export.

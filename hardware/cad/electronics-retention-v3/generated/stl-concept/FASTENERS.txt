@@ -1,0 +1,11 @@
+CONCEPT HARDWARE — verify actual fit and screw engagement
+
+| Hardware | Quantity | Grip calculation / reason |
+|---|---:|---|
+| M1.6 × 16 mm machine screw | 2 | 1.6 mm PCB + 7 mm standoff + 3 mm carrier + ~1.3 mm nut = 12.9 mm; nominal 3.1 mm thread remains. Head bears around factory hole; do not tighten against components. |
+| M1.6 nut | 2 | Approximate 3.2 mm across flats, 1.3 mm thick. Fully accessible below base. |
+| M3 × 35 mm machine screw | 4 | 3 mm crossbar + 23 mm hard-stop tower + 3 mm carrier + ~2.4 mm nut = 31.4 mm; nominal 3.6 mm thread remains. Tip ends at Z = −6 mm, within the 7 mm feet. |
+| M3 × 10 mm machine screw | 4 | Two for floor ears, two for jaws. 2 mm part + 3 mm carrier + ~2.4 mm nut = 7.4 mm; nominal 2.6 mm thread remains. |
+| M3 nut | 8 | Approximate 5.5 mm across flats, 2.4 mm thick. |
+
+Lengths above assume no washers. If adding washers, include their thickness in the stack and verify useful thread engagement. Keep bolt ends within the underside clearance. Ordinary machine screws are shown; thumbscrews may be substituted only after checking head size and clearance.

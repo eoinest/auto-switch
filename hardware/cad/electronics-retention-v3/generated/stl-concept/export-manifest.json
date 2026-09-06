@@ -1,0 +1,83 @@
+{
+  "status": "User-requested concept STL export; physical fit UNVERIFIED",
+  "source": "generated/electronics-retention-v3.blend",
+  "source_sha256": "08f045897ee57560d710621da660d819c15ec8bf2463a661de3eb18a0e542051",
+  "units": "mm",
+  "parts": [
+    {
+      "file": "01_carrier_base_CONCEPT.stl",
+      "source_object": "01 carrier base \u2022 120 x 160 x 3",
+      "dimensions_mm": [
+        120.0,
+        160.0,
+        33.0
+      ],
+      "triangles": 2640,
+      "rotation_x_degrees": 0,
+      "sha256": "03bb27fb59d729731d5cfafafabeac9bf738b45c099204ef4eefa62b11c61ad9"
+    },
+    {
+      "file": "02_battery_bar_1_CONCEPT.stl",
+      "source_object": "02 battery removable bar 1",
+      "dimensions_mm": [
+        96.0,
+        10.0,
+        3.0
+      ],
+      "triangles": 404,
+      "rotation_x_degrees": 0,
+      "sha256": "1c29a1e612b77d7b380fffbf873f2f730408e9df0d5e62c58eabc6a1da838713"
+    },
+    {
+      "file": "03_battery_bar_2_CONCEPT.stl",
+      "source_object": "02 battery removable bar 2",
+      "dimensions_mm": [
+        96.0,
+        10.0,
+        3.0
+      ],
+      "triangles": 404,
+      "rotation_x_degrees": 0,
+      "sha256": "edb771423e620328bbdba45e31f6456c8adbfd1f8c32ddfd29104384c05aeba2"
+    },
+    {
+      "file": "04_converter_floor_CONCEPT.stl",
+      "source_object": "03 converter recessed floor \u2022 placeholder",
+      "dimensions_mm": [
+        26.0,
+        58.0,
+        8.0
+      ],
+      "triangles": 576,
+      "rotation_x_degrees": 0,
+      "sha256": "d0b86083cc27c305b25369ef54f662eea2a4d63142f15da59a9a713017f56d81"
+    },
+    {
+      "file": "05_converter_jaw_left_CONCEPT.stl",
+      "source_object": "04 converter sliding edge jaw -1",
+      "dimensions_mm": [
+        17.0,
+        9.0,
+        12.0
+      ],
+      "triangles": 302,
+      "rotation_x_degrees": 90,
+      "sha256": "65580a0a774f5c496c5da06fe298d4315e247e7252bb67682eeaee542a932205"
+    },
+    {
+      "file": "06_converter_jaw_right_CONCEPT.stl",
+      "source_object": "04 converter sliding edge jaw 1",
+      "dimensions_mm": [
+        17.0,
+        9.0,
+        12.0
+      ],
+      "triangles": 302,
+      "rotation_x_degrees": 90,
+      "sha256": "4ae80376007ac0b2841930fce36db8db3e6a6b8fec7004bf72a30776934d6923"
+    }
+  ],
+  "excludes": "All hardware/component references and exploded duplicates",
+  "supports": "Base feet-down requires supports below the raised floor; jaws lie on their side and may need support under 1 mm recessed faces. Inspect slicer preview.",
+  "fit_blocker": "Converter dimensions and edge lands, S2 underside, battery projections remain unverified."
+}

@@ -9,7 +9,7 @@ The earlier tray reserved space but did not finish the component fastenings. Thi
 - [Dimensioned mechanisms and example fastener BOM](../hardware/cad/electronics-retention-v3/README.md)
 - [Independent retention review](../hardware/cad/electronics-retention-v3/independent-review.md)
 
-The green/black component shapes and metal fasteners are reference objects. Blue/orange shapes are proposed printed parts. No new STL release is included: the example converter is 40 × 36 mm, not the measured selected module. Adjustments refine an already-sized mount; a smaller module requires regeneration rather than simply tightening the jaws further.
+The green/black component shapes and metal fasteners are reference objects. Blue/orange shapes are proposed printed parts. A [six-part concept STL export](../hardware/cad/electronics-retention-v3/generated/stl-concept/) is available at the user’s request. It remains fit-unverified: the example converter is 40 × 36 mm, not the measured selected module. Adjustments refine an already-sized mount; a smaller module requires regeneration rather than simply tightening the jaws further.
 
 ## S2 Mini: use its two mounting holes
 
