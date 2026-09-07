@@ -1,0 +1,24 @@
+{
+  "file": "battery-retention-v6-SINGLE-CROSSBAR-PREVIEW.stl",
+  "sha256": "1b3522ef266037abd6f861d8c569614e42824856b702944f3bae60d0cdd494ca",
+  "triangles": 428,
+  "connected_solids": 1,
+  "closed_consistent_winding": true,
+  "bounds_mm": [
+    [
+      -48.0,
+      48.0
+    ],
+    [
+      -5.000000953674316,
+      5.0
+    ],
+    [
+      0.0,
+      6.799999237060547
+    ]
+  ],
+  "volume_mm3": 5257.67941067271,
+  "bed_contact_area_mm2": 941.8933189134768,
+  "above_bed_downfacing_area_mm2": 0.0
+}

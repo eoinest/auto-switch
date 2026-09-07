@@ -1,0 +1,40 @@
+{
+  "status": "PREVIEW: nominal seller dimensions, physical fit unconfirmed",
+  "units": "mm",
+  "reuse_carrier": "../electronics-retention-v4/generated/electronics-retention-v4.blend",
+  "holder_body_mm": [
+    68.7,
+    64.2,
+    19.0
+  ],
+  "holder_center_xy": [
+    0,
+    -32
+  ],
+  "base_top_z": 3,
+  "support_tower_centers_xy": [
+    [
+      -43,
+      -12
+    ],
+    [
+      43,
+      -12
+    ]
+  ],
+  "support_tower_top_z": 26,
+  "bar_mm": [
+    96,
+    10,
+    3
+  ],
+  "contact_land_width_mm": 64,
+  "nominal_body_clearance_mm": 0.2,
+  "switch_center_xy": [
+    28.88,
+    -53.44
+  ],
+  "switch_peak_above_body_mm": 3.5,
+  "mount_hole_diameter_mm": 3.4,
+  "hardware": "Reuse 2 M3x35 screws and 2 ordinary M3 nuts on upper tower pair"
+}

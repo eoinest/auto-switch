@@ -1,0 +1,82 @@
+{
+  "status": "PASS nominal single-crossbar geometry",
+  "checks": [
+    {
+      "other": "EXISTING V4 CARRIER \u2014 upper towers reused, lower pair unused",
+      "intersection_mm3": 0.0
+    },
+    {
+      "other": "AA body \u2014 nominal19mm thickness",
+      "intersection_mm3": 0.0
+    },
+    {
+      "other": "Switch finger access window",
+      "intersection_mm3": 0.0
+    },
+    {
+      "other": "Illustrative wire corridor",
+      "intersection_mm3": 0.0
+    },
+    {
+      "other": "V6 SINGLE BATTERY CROSSBAR \u2014 PREVIEW",
+      "probe": "M3 mounting shaft",
+      "x_mm": -43,
+      "intersection_mm3": 0.0
+    },
+    {
+      "other": "EXISTING V4 CARRIER \u2014 upper towers reused, lower pair unused",
+      "probe": "M3 mounting shaft",
+      "x_mm": -43,
+      "intersection_mm3": 0.0
+    },
+    {
+      "other": "V6 SINGLE BATTERY CROSSBAR \u2014 PREVIEW",
+      "probe": "M3 mounting shaft",
+      "x_mm": 43,
+      "intersection_mm3": 0.0
+    },
+    {
+      "other": "EXISTING V4 CARRIER \u2014 upper towers reused, lower pair unused",
+      "probe": "M3 mounting shaft",
+      "x_mm": 43,
+      "intersection_mm3": 0.0
+    }
+  ],
+  "mounting_seats": [
+    {
+      "x_mm": -43,
+      "post_top_z_mm": 26.0,
+      "bar_seat_z_mm": 26.0,
+      "bar_front_z_mm": 29.0
+    },
+    {
+      "x_mm": 43,
+      "post_top_z_mm": 26.0,
+      "bar_seat_z_mm": 26.0,
+      "bar_front_z_mm": 29.0
+    }
+  ],
+  "land_bottom_z_mm": 22.200000762939453,
+  "nominal_case_top_z_mm": 21.999998092651367,
+  "nominal_vertical_clearance_mm": 0.20000267028808594,
+  "stl_bounds_mm": [
+    [
+      -48.0,
+      -5.000000953674316,
+      0.0
+    ],
+    [
+      48.0,
+      5.0,
+      6.799999237060547
+    ]
+  ],
+  "flat_bed_contact_area_mm2": 941.8933282099706,
+  "suspended_downward_facing_area_mm2": 0,
+  "limits": [
+    "Bearing contact separated by 0.001 mm for Boolean checks.",
+    "Seller nominal case dimensions, not physical measurement.",
+    "Existing lateral clearance remains; optional shims can address it.",
+    "No physical load or print-fit test."
+  ]
+}

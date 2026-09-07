@@ -26,7 +26,7 @@ The USB-powered S2 joins Wi-Fi and serves the website directly. Both buttons ren
 
 ![Electronics carrier and separate wall bracket laid flat for printing](hardware/cad/electronics-retention-v4/generated/print-layout-v4.png)
 
-*The v4 carrier and wall bracket above are retained. Replace its loose battery crossbars with the [v5 adjustable retainers](hardware/cad/battery-retention-v5/README.md), which leave the power switch accessible. Physical v5 fit is pending. The converter is an illustrative example; its actual dimensions are still needed.*
+*The v4 carrier and wall bracket above are retained. The latest [v6 single-crossbar preview](hardware/cad/battery-retention-v6/README.md) simplifies battery retention and leaves the switch accessible; physical fit is pending. The [converter clip audit](hardware/cad/battery-retention-v6/booster-fit-audit.md) identifies the unverified board thickness and dimensions that still need measuring.*
 
 ## Double and triple switch concepts
 
@@ -48,6 +48,7 @@ hardware/cad/servo-command/        Isolated single-servo mechanism
 hardware/cad/servo-multi/          Double/triple mechanical concepts and master STLs
 hardware/cad/electronics-retention-v4/  Flat carrier, screw-on wall bracket and master STL
 hardware/cad/battery-retention-v5/ Replacement battery rails, pressure pads and shims
+hardware/cad/battery-retention-v6/ Single-crossbar preview and booster clip fit audit
 hardware/wiring/s2-aa-poc/         Current bench wiring diagram
 learn/s2-aa-poc.html               Interactive wiring viewer
 ```

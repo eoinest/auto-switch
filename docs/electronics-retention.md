@@ -1,6 +1,8 @@
-# Electronics mounting — v4 carrier with v5 battery retainers
+# Electronics mounting — v4 carrier and battery-retainer revisions
 
-**Battery-fit update:** replace the old crossbars with the [v5 battery-retainer kit](../hardware/cad/battery-retention-v5/README.md). It keeps the existing carrier, posts and wall bracket, leaves the power switch exposed, and adds adjustable pressure pads plus side shims. The old seven-piece master below is preserved as a historical export; its battery bars are superseded.
+**Latest battery concept:** the [v6 single crossbar preview](../hardware/cad/battery-retention-v6/README.md) uses one existing pair of equal-height towers. Its lowered contact face accounts for the seller's 19 mm case body and leaves the switch exposed. It reuses two M3 × 35 screws/nuts; the unused lower towers can remain. This is a nominal fit preview, not a measurement of the delivered case. Optional v5 side shims still address horizontal play.
+
+The earlier [v5 adjustable-retainer kit](../hardware/cad/battery-retention-v5/README.md) remains available if height adjustment is needed. The old seven-piece v4 master below is preserved as a historical export; its original battery bars are superseded.
 
 The main mount prints as **two pieces**: a carrier with a flat underside and a separate H-shaped wall bracket. Four screws join them after printing. The bracket has two continuous **20 × 144 mm** rear pads for the narrow Command strips. The five removable component retainers remain separate, making seven printed pieces total.
 
@@ -36,11 +38,13 @@ Sources: [official dimension drawing](https://www.wemos.cc/en/latest/_static/fil
 
 ## Buck-boost module: insulated edge capture
 
+**Thickness audit:** the current clips have a 2.0 mm opening around an assumed 1.6 mm PCB. Neither that thickness nor the 40 × 36 mm board outline is verified for the received converter. The seller provides no dimensioned board drawing. See the [booster fit audit](../hardware/cad/battery-retention-v6/booster-fit-audit.md); do not treat these existing clips as a confirmed fit. Changing the old thickness config alone does not resize the hard-coded geometry.
+
 The selected B0GCW44FDL module has no mounting holes. The concept uses adjustable insulating jaws on a removable sled. Lower shelves support suitable bare PCB edges; upper lips capture those edges against lifting, and stops prevent sliding. The screws and nuts sit outside the PCB footprint.
 
 Jaw positions, underside clearance and capture height depend on the **actual PCB thickness, component placement, solder joints and clear edge areas**. No clamp should press on the inductor, capacitors or soldered wires. If the delivered board has no suitable bare edges, this concept must change to a component-specific cage. The old 40 × 36 × 18 mm reserved space is not a board specification.
 
-## Battery holder: v5 replacement retainers
+## Earlier battery option: v5 adjustable retainers
 
 The printed v4 bars were loose and covered the power switch. The seller's dimension photo distinguishes a **19 mm case body** from **22.5 mm including the switch projection**. The earlier solid 22.5 mm reference missed this distinction. The actual nominal case top is therefore Z22 on the 3 mm carrier, leaving 4 mm below the old bars. The cradle also has 1.4 mm total clearance on both horizontal axes.
 

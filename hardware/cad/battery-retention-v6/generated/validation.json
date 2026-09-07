@@ -1,0 +1,72 @@
+{
+  "status": "PREVIEW: nominal seller dimensions, physical fit unconfirmed",
+  "config": {
+    "status": "PREVIEW: nominal seller dimensions, physical fit unconfirmed",
+    "units": "mm",
+    "reuse_carrier": "../electronics-retention-v4/generated/electronics-retention-v4.blend",
+    "holder_body_mm": [
+      68.7,
+      64.2,
+      19.0
+    ],
+    "holder_center_xy": [
+      0,
+      -32
+    ],
+    "base_top_z": 3,
+    "support_tower_centers_xy": [
+      [
+        -43,
+        -12
+      ],
+      [
+        43,
+        -12
+      ]
+    ],
+    "support_tower_top_z": 26,
+    "bar_mm": [
+      96,
+      10,
+      3
+    ],
+    "contact_land_width_mm": 64,
+    "nominal_body_clearance_mm": 0.2,
+    "switch_center_xy": [
+      28.88,
+      -53.44
+    ],
+    "switch_peak_above_body_mm": 3.5,
+    "mount_hole_diameter_mm": 3.4,
+    "hardware": "Reuse 2 M3x35 screws and 2 ordinary M3 nuts on upper tower pair"
+  },
+  "preview_stl": "battery-retention-v6-SINGLE-CROSSBAR-PREVIEW.stl",
+  "dimensions_mm": [
+    96.0,
+    10.000000953674316,
+    6.799999237060547
+  ],
+  "non_manifold_edges": 0,
+  "connected_components": 1,
+  "volume_mm3": 5257.6797411136395,
+  "nominal_body_clearance_mm": 0.2,
+  "case_top_z_mm": 22.0,
+  "contact_land_bottom_z_mm": 22.2,
+  "tower_heights_equal": true,
+  "support_top_z_mm": [
+    26,
+    26
+  ],
+  "switch_access_surface_collisions": 0,
+  "wire_corridor_surface_collisions": 0,
+  "case_surface_collisions": 0,
+  "carrier_modified": false,
+  "carrier_source_sha256": "b47cfa7ac7e48d12b45ad26a340f30ea1ffb240872847b1b354b0e83c62f4bda",
+  "limits": [
+    "Body19mm is seller nominal, not exact physical measurement.",
+    "Nominal0.2mmclearance may still permit slight vertical movement.",
+    "This single bar does not remove lateral cradle clearance; existingV5 shims are optional.",
+    "Existing lower tower pair remains unused.",
+    "Wire exit height and moldedcorner fit remain physical checks."
+  ]
+}
