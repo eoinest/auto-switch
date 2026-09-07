@@ -6,7 +6,7 @@ The [v6 upper-bar preview](../hardware/cad/battery-retention-v6/README.md) and [
 
 The original v4 mounting structure printed as **two pieces**: a carrier with a flat underside and a separate H-shaped wall bracket. Four screws join them after printing. The bracket has two continuous **20 × 144 mm** rear pads for the narrow Command strips. The five removable component retainers remain separate, making seven printed pieces total.
 
-The mounting geometry has been checked; purchased-component fit and adhesive retention remain unverified. In particular, the converter still uses the earlier placeholder dimensions.
+The mounting geometry has been checked; purchased-component fit and adhesive retention remain unverified. The received XL63070 converter is visibly too small for the earlier placeholder mount; its old clips failed physical fit. See the [replacement mount study](../hardware/cad/booster-retention-study/fit-evidence.md).
 
 ## Current files
 

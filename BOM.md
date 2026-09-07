@@ -8,19 +8,19 @@ One bedroom paddle switch, one servo, and an **ESP32-S2 Mini hosting the On/Off 
 | MG90S 180° micro servo | 1 | User-owned; reuse its stock horn and centre screw |
 | [DAIERTEK switched four-AA holder](https://www.amazon.com/dp/B09N1GDWQ9) | 1 | Received; seller drawing shows 64.2 × 68.7 × 19 mm case, 22.5 mm including switch; approximately 150 mm leads |
 | Amazon Basics 1.5 V AA alkaline batteries | 4 | Ordered; go inside the holder |
-| [Teyleten Robot 5 V buck-boost module](https://www.amazon.com/dp/B0GCW44FDL) | 1 | Selected; exact physical dimensions still needed |
+| [Teyleten Robot 5 V buck-boost module](https://www.amazon.com/dp/B0GCW44FDL) | 1 | Received: PCB labeled XL63070; exact dimensions still needed |
 | Breadboard and jumper wires | 1 set | User-owned; bench assembly only |
 | USB-C data cable | 1 | User-owned; programming and USB-only tests |
 | Solder, heat shrink and wiring tools | As needed | User-owned |
 
-The selected converter listing calls it TPS63070 while its pictured PCB says XL63070. Match the received module to the [wiring guide](docs/s2-aa-poc.md) and verify its output with the multimeter. The older LM2596 buck-only board is not the selected AA converter.
+The received converter PCB is labeled XL63070 (confirmed in the user’s photos); the selected listing calls it TPS63070. Match the received module to the [wiring guide](docs/s2-aa-poc.md) and verify its output with the multimeter. The older LM2596 buck-only board is not the selected AA converter.
 
 ## Printed mechanism and retention
 
 - **Servo mount and paddle:** [approved STL exports and fit instructions](docs/servo-command-mount.md).
 - **Narrow Command strips:** [17207 listing](https://www.amazon.com/dp/B09XJDK6RS), four mating pairs (eight individual strips) total: two pairs for the actuator and two for the separate electronics wall bracket. Check the actual smooth mounting surface and strip thickness.
 - **Horn/servo fasteners and two soft contact pads:** select to fit the actual servo and printed mechanism; reuse the original spline screw.
-- **Electronics holder:** [mounting guide](docs/electronics-retention.md). Print the [v7 carrier and centered flat battery bar](hardware/cad/battery-retention-v7/README.md), and reuse the separate wall bracket. The battery bar uses two M3 × 30 screws/nuts. Optional v5 shims address sideways play. The [booster clips still need measured PCB dimensions](hardware/cad/battery-retention-v6/booster-fit-audit.md). Two M1.6 screws/nuts attach the S2 through its factory holes; its existing attachment geometry is retained.
+- **Electronics holder:** [mounting guide](docs/electronics-retention.md). Print the [v7 carrier and centered flat battery bar](hardware/cad/battery-retention-v7/README.md), and reuse the separate wall bracket. The battery bar uses two M3 × 30 screws/nuts. Optional v5 shims address sideways play. The old booster clips failed physical fit; a [replacement mount is under study](hardware/cad/booster-retention-study/fit-evidence.md). Two M1.6 screws/nuts attach the S2 through its factory holes; its existing attachment geometry is retained.
 
 The electronics tray is separate from the actuator. Its wall bracket is modeled, but adhesive retention and component fits remain physically unverified. The converter still uses a placeholder envelope and must be measured before its fit can be approved.
 

@@ -1,0 +1,14 @@
+{
+  "status": "CONCEPT STUDY ONLY — module dimensions and contact zones unverified",
+  "pcb_mm": [16, 30, 1.2],
+  "pcb_note": "16x30 is photo-supported provisional envelope; thickness1.2 is an assumption, not measured.",
+  "carrier_floor_z": 3,
+  "adapter_floor_thickness": 2,
+  "pcb_underside_z": 6.5,
+  "mount_hole_pitch_mm": 46,
+  "toe_width_mm": 2.8,
+  "toe_overlap_mm": 0.6,
+  "side_clearance_mm": 0.2,
+  "seat_height_shim_mm": 0.2,
+  "production_export": false
+}
