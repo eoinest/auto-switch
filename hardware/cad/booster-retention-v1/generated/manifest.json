@@ -1,0 +1,122 @@
+{
+  "status": "FIT-TEST ONLY \u2014 16x30x1.2mm PCB envelope and contact zones unmeasured",
+  "config": {
+    "status": "FIT-TEST ONLY \u2014 16x30x1.2mm PCB envelope and contact zones unmeasured",
+    "pcb_mm": [
+      16,
+      30,
+      1.2
+    ],
+    "pcb_note": "16x30 is photo-supported provisional envelope; thickness1.2 is an assumption, not measured.",
+    "carrier_floor_z": 3,
+    "adapter_floor_thickness": 2,
+    "pcb_underside_z": 6.5,
+    "mount_hole_pitch_mm": 46,
+    "toe_width_mm": 2.8,
+    "toe_overlap_mm": 0.6,
+    "side_clearance_mm": 0.2,
+    "seat_height_shim_mm": 0.4,
+    "production_export": false,
+    "mount_screw_length_mm": 16,
+    "fit_test_export": true,
+    "end_support_depth_mm": 1.6
+  },
+  "parts": [
+    {
+      "name": "01_adapter \u2014 FIT-TEST",
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 2103.1799985358275,
+      "file": "stl-fit-test/01_adapter-FIT-TEST.stl",
+      "quantity": 1,
+      "dimensions_mm": [
+        20.0,
+        58.0,
+        6.200000762939453
+      ],
+      "print_min_z": 0
+    },
+    {
+      "name": "02_lower_end_finger \u2014 FIT-TEST",
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 152.45339834741452,
+      "file": "stl-fit-test/02_lower_end_finger-FIT-TEST.stl",
+      "quantity": 1,
+      "dimensions_mm": [
+        8.199999809265137,
+        13.59999942779541,
+        2.0
+      ],
+      "print_min_z": 0
+    },
+    {
+      "name": "03_upper_end_finger \u2014 FIT-TEST",
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 152.45339835141658,
+      "file": "stl-fit-test/03_upper_end_finger-FIT-TEST.stl",
+      "quantity": 1,
+      "dimensions_mm": [
+        8.199999809265137,
+        13.59999942779541,
+        2.0
+      ],
+      "print_min_z": 0
+    },
+    {
+      "name": "04_lower_height_shim_0p4 \u2014 FIT-TEST",
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 30.69868253604038,
+      "file": "stl-fit-test/04_lower_height_shim_0p4-FIT-TEST.stl",
+      "quantity": 1,
+      "dimensions_mm": [
+        7.800000190734863,
+        11.0,
+        0.39999961853027344
+      ],
+      "print_min_z": 0
+    },
+    {
+      "name": "05_upper_height_shim_0p4 \u2014 FIT-TEST",
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "volume_mm3": 30.69868253604038,
+      "file": "stl-fit-test/05_upper_height_shim_0p4-FIT-TEST.stl",
+      "quantity": 1,
+      "dimensions_mm": [
+        7.800000190734863,
+        11.0,
+        0.39999961853027344
+      ],
+      "print_min_z": 0
+    }
+  ],
+  "master": "booster-retention-v1-ALL-FIVE-FIT-TEST.stl",
+  "hardware": "2 M3x16 screws + 2 ordinary M3 nuts; provisional16mm stack, measured fit still required",
+  "screw_underhead_z": 9.7,
+  "screw_tip_z": -6.300000000000001,
+  "nut_bottom_z": -2.4,
+  "existing_carrier_holes_world_xy": [
+    [
+      22,
+      22
+    ],
+    [
+      22,
+      68
+    ]
+  ],
+  "pcb_support_z": 6.5,
+  "pcb_top_and_toe_bottom_z": 7.7,
+  "fixed_seat_z": 7.3,
+  "shim_thickness": 0.4,
+  "no_stl_reference_objects": true,
+  "limits": [
+    "Board16x30x1.2 is assumed, not measured.",
+    "End-center2.8x0.6 contact patches and underside support zones remain unverified.",
+    "Print and dry-fit unpowered; do not force or bend PCB.",
+    "This export is a fit test, not production approval."
+  ]
+}

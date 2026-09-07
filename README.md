@@ -28,6 +28,8 @@ The USB-powered S2 joins Wi-Fi and serves the website directly. Both buttons ren
 
 *The [v7 carrier and crossbar](hardware/cad/battery-retention-v7/README.md) use two centered towers level with the nominal battery case, with zero designed vertical gap. Reprint the carrier and bar; reuse the separate wall bracket. Physical fit is pending. The [converter clip audit](hardware/cad/battery-retention-v6/booster-fit-audit.md) identifies the unverified board thickness and dimensions.*
 
+**Latest combined replacement print:** [V8 fit-test STL and instructions](hardware/cad/revision-print-v8/README.md) includes the revised battery carrier/bar and selected option C booster mount. Booster dimensions remain provisional; reuse the existing wall bracket.
+
 ## Double and triple switch concepts
 
 [Multi-switch CAD](hardware/cad/servo-multi/README.md) extends the confirmed single-switch baseline with one servo per rocker, separate screw-on servo saddles, and two outer Command-strip pads. Each variant includes a Blender assembly and a master STL with the detached printed parts arranged on an A1 bed. The triple raises its center servo to clear its neighbor. These new mechanisms need physical motion testing; multi-servo electronics and firmware are separate future work.

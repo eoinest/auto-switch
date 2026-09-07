@@ -10,7 +10,7 @@ The mounting geometry has been checked; purchased-component fit and adhesive ret
 
 ## Current files
 
-Use the [v7 carrier/bar master STL](../hardware/cad/battery-retention-v7/generated/battery-retention-v7-NEW-CARRIER-AND-BAR.stl) and [v7 assembly guide](../hardware/cad/battery-retention-v7/README.md). These contain only the revised carrier and battery bar. Physical fit still depends on the delivered case and print tolerances.
+Use the [V8 combined replacement fit-test STL](../hardware/cad/revision-print-v8/generated/auto-switch-ALL-NEW-PIECES-v8-FIT-TEST.stl) and [print/assembly instructions](../hardware/cad/revision-print-v8/README.md). It includes the V7 carrier/bar and five option C booster pieces. Reuse the separate wall bracket. The booster model assumes a 16 × 30 × 1.2 mm PCB; actual thickness and underside remain unmeasured. Physical fit is not approved.
 
 ## Archived v4 files
 
