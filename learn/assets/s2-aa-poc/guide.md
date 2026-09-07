@@ -1,6 +1,8 @@
 # ESP32-S2 Mini / four-AA / one-servo POC
 
-This is the current **bench wiring reference**. It supersedes the Pico-specific POC wiring for this build; the old diagrams remain historical references. It does not claim that the existing Pico firmware has been ported or tested on ESP32-S2.
+This is the current **bench wiring reference**. It supersedes the Pico-specific POC wiring for this build; the old diagrams remain historical references. The [S2 firmware profile](https://github.com/eoinest/auto-switch/blob/main/docs/s2-firmware.md) now runs on the connected board; Wi-Fi and the ESP32-hosted two-button website were tested over USB power. The servo and battery circuit remain untested.
+
+For the actual received XL63070 board and headerless S2, start with the **[solder-prep map](https://github.com/eoinest/auto-switch/blob/main/hardware/wiring/solder-prep/solder-prep.png)** and [pad checklist](https://github.com/eoinest/auto-switch/blob/main/docs/solder-prep.md). See the [minimum-demo electrical review](https://github.com/eoinest/auto-switch/blob/main/docs/poc-electrical-sanity-check.md).
 
 Open [the interactive illustrated map](https://github.com/eoinest/auto-switch/blob/main/learn/s2-aa-poc.html), [PNG](https://github.com/eoinest/auto-switch/blob/main/hardware/wiring/s2-aa-poc/breadboard.png), [SVG](https://github.com/eoinest/auto-switch/blob/main/hardware/wiring/s2-aa-poc/breadboard.svg), or [wire checklist](https://github.com/eoinest/auto-switch/blob/main/hardware/wiring/s2-aa-poc/connections.csv). Every wire is shown in one view. Illustrations reconstruct the component appearance but are not dimension drawings.
 
@@ -8,13 +10,13 @@ Open [the interactive illustrated map](https://github.com/eoinest/auto-switch/bl
 
 | Part | Quantity | Reference / status |
 |---|---:|---|
-| ESP32-S2 Mini | 1 | User-owned. Drawing uses [LOLIN S2 Mini V1.0.0](https://www.wemos.cc/en/latest/s2/s2_mini.html), 34.3 × 25.4 mm; exact clone/header configuration not yet photographed. |
+| ESP32-S2 Mini | 1 | User-owned. Drawing uses [LOLIN S2 Mini V1.0.0](https://www.wemos.cc/en/latest/s2/s2_mini.html), 34.3 × 25.4 mm; the user confirmed a headerless board; exact clone and soldered harness still require fit checks. |
 | DAIERTEK switched four-AA holder | 1 | User ordered [Amazon B09N1GDWQ9](https://www.amazon.com/dp/B09N1GDWQ9), nominal 68.7 × 64.2 × 22.5 mm. Integrated switch replaces the separate rocker. |
 | Amazon Basics AA alkaline cells, 1.5 V | 4 | User ordered. In series: 6 V nominal; raw battery never feeds the ESP32 directly. Do not recharge these cells. |
 | Teyleten Robot 5 V buck-boost module | 1 | Selected [Amazon B0GCW44FDL](https://www.amazon.com/dp/B0GCW44FDL). Title says TPS63070; product PCB photo says XL63070. Published board dimensions and authentic chip identity not established. Selection pads, not an adjustment screw. |
 | MG90S 180° servo | 1 | User-owned. Verify plug wire colors and orientation on actual servo. |
 | Solderless breadboard | 1 | User-owned; exact model unknown. Illustration uses generic 830-point topology with 63 five-hole rows and split 50-hole rails. Adapt to actual board, verified unpowered with continuity mode. |
-| Female-to-male jumper leads | 3 | S2 header to breadboard: 5 V, GND, GPIO16. If headers are unsoldered, solder correct headers or leads first. |
+| Direct-solder leads with male breadboard ends | 3 | Headerless S2 to breadboard: VBUS, GND, GPIO16. Insulate joints and add strain relief; no female header sockets are needed on this board. |
 | Male-to-male jumpers | 5 | Three into the servo female plug and two rail midpoint bridges. Use shortest practical power leads. |
 | Two converter-output leads with male breadboard tips | 2 | Solder stripped ends to converter output; use clean factory pins or 22 AWG solid ends at breadboard. |
 | Solder, suitable insulation and strain relief | As needed | User-owned tools/materials. No soldering directly to the breadboard. |
@@ -23,11 +25,11 @@ No external servo gate, signal resistor, extra capacitor, battery ADC, WAGO, sep
 
 ## Wiring and board orientation
 
-Use the [WEMOS official pinout](https://www.wemos.cc/en/latest/_static/boards/s2_mini_v1.0.0_4_16x9.jpg): top/component side facing you, USB connector pointing **down**. On the **outermost right header**, the bottom three pins are, from bottom upward: **VBUS (often labelled 5V), GND, GPIO16**. Inner pins are different. The S2 Mini has no Pico-style VSYS pin.
+Use the [WEMOS official pinout](https://www.wemos.cc/en/latest/_static/boards/s2_mini_v1.0.0_4_16x9.jpg): top/component side facing you, USB connector pointing **down**. On the **outermost right row of pads**, the bottom three pins are, from bottom upward: **VBUS (often labelled 5V), GND, GPIO16**. Inner pins are different. The S2 Mini has no Pico-style VSYS pin.
 
-Keep the S2 beside the breadboard with three female-to-male jumpers. Do not insert both adjacent header rows into a standard breadboard's connected five-hole strips: that would short different pins together.
+Keep the headerless S2 beside the breadboard with three direct-solder leads ending in male breadboard pins. Do not insert both adjacent header rows into a standard breadboard's connected five-hole strips: that would short different pins together.
 
-On the selected converter's top-view photo with lettering upright: **VIN upper left, GND lower left, VOUT upper right, GND lower right**. Each power terminal has duplicate holes. Left/right ground pads share a ground net. Compare the actual received module before soldering. Leave EN, PS and ADJ unconnected; seller says EN is enabled and PS is PWM by default. Only the 5 V voltage-selection link should be selected; do not short other selections.
+On your received converter, oriented like IMG_3222 with the **XL63070 text at the bottom and inductor on the left**: **VOUT top left, GND top right, VIN bottom left, GND bottom right**. The older breadboard illustration rotates this board 90 degrees; follow the printed terminal names. Each power terminal has duplicate holes. Left/right ground pads share a ground net. The received PCB is marked XL63070. Leave EN, PS, ADJ and the voltage-selection pads unchanged while preparing wires. Do not add solder to these small configuration pads. The selected setting must be checked and the output measured at about 5.0 V before connecting the S2 or servo; a product title or 5V marking is not a measurement.
 
 | Wire | From | To |
 |---|---|---|
@@ -58,14 +60,14 @@ P/G numbers count the 50 left rail holes from the top; these are drawing labels,
 
 The [official S2 Mini schematic](https://www.wemos.cc/en/latest/_static/files/sch_s2_mini_v1.0.0.pdf) ties the 5V/VBUS header directly to USB VBUS. **Disconnect the S2's three jumper leads before plugging in USB.** Turning the battery switch off, or unplugging only the battery, is insufficient: USB would otherwise power the servo rail and feed voltage into the converter output.
 
-After programming, unplug USB first, reconnect the three jumpers with battery power off, then switch the battery holder on. The existing Pico configuration must not be treated as tested S2 firmware. GPIO16 is an ordinary output-capable pin on ESP32-S2; PWM support is described in [Espressif's LEDC documentation](https://docs.espressif.com/projects/esp-idf/en/stable/esp32s2/api-reference/peripherals/ledc.html).
+After programming, unplug USB first, reconnect the three jumpers with battery power off, then switch the battery holder on. Use the dedicated `config.s2-demo.example.json`, not a Pico configuration. GPIO16 is an ordinary output-capable pin on ESP32-S2; PWM support is described in [Espressif's LEDC documentation](https://docs.espressif.com/projects/esp-idf/en/stable/esp32s2/api-reference/peripherals/ledc.html).
 
 ## Mechanical prototype
 
-See [S2/AA mechanical notes](https://github.com/eoinest/auto-switch/blob/main/docs/s2-aa-mechanical.md). Source-based S2 outline, holder nominal case and MG90S reference dimensions are separate from unmeasured clone tolerances and assumed wallplate dimensions. Converter bay is adjustable and clearly labelled **fit pending**; no exact purchased converter model has been fabricated from guessed dimensions. Print the small fit coupons before full parts.
+Use the [isolated servo mechanism](https://github.com/eoinest/auto-switch/blob/main/docs/servo-command-mount.md) and the [current combined electronics fit-test print](https://github.com/eoinest/auto-switch/blob/main/hardware/cad/revision-print-v8/README.md). The option C booster mount matches the received board’s approximate outline; bare PCB thickness and contact areas remain unmeasured. Keep solder and wire bends clear of its narrow retaining fingers.
 
 ## Reproduce
 
 `python3 tools/render_s2_demo.py` produces both SVG copies, wiring JSON and CSV. `python3 tools/verify_s2_demo.py` independently checks breadboard topology against the required nets. PNG is rasterized from that SVG using the open-source `sharp` package. The static learning page has no hardware API calls.
 
-Physical assembly, firmware on the actual S2, converter current capacity and mechanical fit remain untested.
+Physical assembly, servo operation, converter current capacity and mechanical fit remain untested. See [S2 firmware validation](https://github.com/eoinest/auto-switch/blob/main/docs/s2-firmware.md) for the completed USB-only network checks.

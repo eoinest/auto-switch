@@ -2,6 +2,8 @@
 
 This is the current **bench wiring reference**. It supersedes the Pico-specific POC wiring for this build; the old diagrams remain historical references. The [S2 firmware profile](s2-firmware.md) now runs on the connected board; Wi-Fi and the ESP32-hosted two-button website were tested over USB power. The servo and battery circuit remain untested.
 
+For the actual received XL63070 board and headerless S2, start with the **[solder-prep map](../hardware/wiring/solder-prep/solder-prep.png)** and [pad checklist](solder-prep.md). See the [minimum-demo electrical review](poc-electrical-sanity-check.md).
+
 Open [the interactive illustrated map](../learn/s2-aa-poc.html), [PNG](../hardware/wiring/s2-aa-poc/breadboard.png), [SVG](../hardware/wiring/s2-aa-poc/breadboard.svg), or [wire checklist](../hardware/wiring/s2-aa-poc/connections.csv). Every wire is shown in one view. Illustrations reconstruct the component appearance but are not dimension drawings.
 
 ## Selected components
@@ -27,7 +29,7 @@ Use the [WEMOS official pinout](https://www.wemos.cc/en/latest/_static/boards/s2
 
 Keep the headerless S2 beside the breadboard with three direct-solder leads ending in male breadboard pins. Do not insert both adjacent header rows into a standard breadboard's connected five-hole strips: that would short different pins together.
 
-On the selected converter's top-view photo with lettering upright: **VIN upper left, GND lower left, VOUT upper right, GND lower right**. Each power terminal has duplicate holes. Left/right ground pads share a ground net. Compare the actual received module before soldering. Leave EN, PS and ADJ unconnected; seller says EN is enabled and PS is PWM by default. Only the 5 V voltage-selection link should be selected; do not short other selections.
+On your received converter, oriented like IMG_3222 with the **XL63070 text at the bottom and inductor on the left**: **VOUT top left, GND top right, VIN bottom left, GND bottom right**. The older breadboard illustration rotates this board 90 degrees; follow the printed terminal names. Each power terminal has duplicate holes. Left/right ground pads share a ground net. The received PCB is marked XL63070. Leave EN, PS, ADJ and the voltage-selection pads unchanged while preparing wires. Do not add solder to these small configuration pads. The selected setting must be checked and the output measured at about 5.0 V before connecting the S2 or servo; a product title or 5V marking is not a measurement.
 
 | Wire | From | To |
 |---|---|---|
@@ -62,7 +64,7 @@ After programming, unplug USB first, reconnect the three jumpers with battery po
 
 ## Mechanical prototype
 
-Use the [isolated servo mechanism](servo-command-mount.md) and the [revised electronics carrier v2](electronics-carrier-v2.md). Source-based S2 outline, holder nominal case and MG90S reference dimensions are separate from unmeasured clone tolerances and assumed wallplate dimensions. The revised carrier uses a continuous floor and a clearly labelled **fit-pending** converter space. Its insulating spacer and retention still depend on the actual module; no exact converter model has been fabricated from guessed dimensions. Print the small fit coupons before full parts.
+Use the [isolated servo mechanism](servo-command-mount.md) and the [current combined electronics fit-test print](../hardware/cad/revision-print-v8/README.md). The option C booster mount matches the received board’s approximate outline; bare PCB thickness and contact areas remain unmeasured. Keep solder and wire bends clear of its narrow retaining fingers.
 
 ## Reproduce
 
