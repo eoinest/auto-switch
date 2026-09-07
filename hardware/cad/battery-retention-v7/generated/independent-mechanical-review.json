@@ -1,0 +1,222 @@
+{
+  "status": "PASS nominal V7 centered two-post carrier and flat bar",
+  "non_battery_geometry_preservation": {
+    "new_minus_original_outside_post_strips_mm3": 3.691962410812266e-05,
+    "original_minus_new_outside_post_strips_mm3": 0.00017040898512732383
+  },
+  "actual_base_sections": [
+    {
+      "xy_mm": [
+        0,
+        -72
+      ],
+      "bottom_z_mm": 0.0,
+      "top_z_mm": 3.0
+    },
+    {
+      "xy_mm": [
+        -55,
+        -40
+      ],
+      "bottom_z_mm": 9.5367431640625e-07,
+      "top_z_mm": 2.9999961853027344
+    },
+    {
+      "xy_mm": [
+        55,
+        -40
+      ],
+      "bottom_z_mm": 0.0,
+      "top_z_mm": 3.0
+    }
+  ],
+  "removed_old_posts_and_filled_holes": [
+    {
+      "center_xy_mm": [
+        -43,
+        -52
+      ],
+      "old_post_remaining_above_z3_mm3": 0.0,
+      "unfilled_old_hole_mm3": 0.0
+    },
+    {
+      "center_xy_mm": [
+        -43,
+        -12
+      ],
+      "old_post_remaining_above_z3_mm3": 0.0,
+      "unfilled_old_hole_mm3": 0.0
+    },
+    {
+      "center_xy_mm": [
+        43,
+        -52
+      ],
+      "old_post_remaining_above_z3_mm3": 0.0,
+      "unfilled_old_hole_mm3": 0.0
+    },
+    {
+      "center_xy_mm": [
+        43,
+        -12
+      ],
+      "old_post_remaining_above_z3_mm3": 0.0,
+      "unfilled_old_hole_mm3": 0.0
+    }
+  ],
+  "centered_mounting_seats": [
+    {
+      "x_mm": -43,
+      "y_mm": -32,
+      "post_top_z_mm": 22.0,
+      "bar_bottom_z_mm": 22.0,
+      "bar_top_z_mm": 25.0
+    },
+    {
+      "x_mm": 43,
+      "y_mm": -32,
+      "post_top_z_mm": 22.0,
+      "bar_bottom_z_mm": 22.0,
+      "bar_top_z_mm": 25.0
+    }
+  ],
+  "mounting_shafts": [
+    {
+      "x_mm": -43,
+      "other": "V7 FLAT BATTERY CROSSBAR",
+      "intersection_mm3": 0.0
+    },
+    {
+      "x_mm": -43,
+      "other": "V7 NEW CARRIER \u2014 ONLY TWO CENTERED TOWERS",
+      "intersection_mm3": 0.0
+    },
+    {
+      "x_mm": 43,
+      "other": "V7 FLAT BATTERY CROSSBAR",
+      "intersection_mm3": 0.0
+    },
+    {
+      "x_mm": 43,
+      "other": "V7 NEW CARRIER \u2014 ONLY TWO CENTERED TOWERS",
+      "intersection_mm3": 0.0
+    }
+  ],
+  "bar_underside_samples": [
+    {
+      "x_mm": -46,
+      "z_mm": 22.0
+    },
+    {
+      "x_mm": -35,
+      "z_mm": 22.0
+    },
+    {
+      "x_mm": -20,
+      "z_mm": 22.0
+    },
+    {
+      "x_mm": 0,
+      "z_mm": 22.0
+    },
+    {
+      "x_mm": 20,
+      "z_mm": 22.0
+    },
+    {
+      "x_mm": 35,
+      "z_mm": 22.0
+    },
+    {
+      "x_mm": 46,
+      "z_mm": 22.0
+    }
+  ],
+  "nominal_case_top_z_mm": 21.999998092651367,
+  "designed_vertical_gap_mm": 1.9073486328125e-06,
+  "bar_intersections": [
+    {
+      "other": "V7 NEW CARRIER \u2014 ONLY TWO CENTERED TOWERS",
+      "volume_mm3": 0.0
+    },
+    {
+      "other": "AA case body \u2014 seller nominal 19 mm",
+      "volume_mm3": 0.0
+    },
+    {
+      "other": "finger",
+      "volume_mm3": 0.0
+    },
+    {
+      "other": "wire",
+      "volume_mm3": 0.0
+    }
+  ],
+  "stl_print_orientation": [
+    {
+      "file": "01_NEW-CARRIER-v7.stl",
+      "bounds_mm": [
+        [
+          5.0,
+          5.0,
+          0.0
+        ],
+        [
+          125.0,
+          165.0,
+          22.0
+        ]
+      ],
+      "flat_bed_contact_mm2": 19063.592511633044,
+      "suspended_downward_area_mm2": 0
+    },
+    {
+      "file": "02_FLAT-CROSSBAR-v7.stl",
+      "bounds_mm": [
+        [
+          5.0,
+          175.0,
+          0.0
+        ],
+        [
+          101.0,
+          185.0,
+          3.0
+        ]
+      ],
+      "flat_bed_contact_mm2": 941.8934377569116,
+      "suspended_downward_area_mm2": 0
+    },
+    {
+      "file": "battery-retention-v7-NEW-CARRIER-AND-BAR.stl",
+      "bounds_mm": [
+        [
+          5.0,
+          5.0,
+          0.0
+        ],
+        [
+          125.0,
+          185.0,
+          22.0
+        ]
+      ],
+      "flat_bed_contact_mm2": 20005.48594938994,
+      "suspended_downward_area_mm2": 0
+    }
+  ],
+  "M3x30_stack": {
+    "head_bearing_z_mm": 25,
+    "tip_z_mm": -5,
+    "ordinary_nut_bottom_z_mm": -2.4,
+    "tip_projection_below_nut_mm": 2.6,
+    "existing_wall_pad_front_z_mm": -10,
+    "tip_to_pad_front_clearance_mm": 5
+  },
+  "limits": [
+    "Nominal seller 19 mm body, physical fit untested.",
+    "No designed vertical clearance; do not force an oversized case or compensate by overtightening.",
+    "Other component attachment fit not revalidated.",
+    "Coincident bearing contact separated by 0.001 mm for Boolean checks."
+  ]
+}

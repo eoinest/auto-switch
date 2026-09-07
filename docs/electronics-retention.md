@@ -1,14 +1,18 @@
 # Electronics mounting — v4 carrier and battery-retainer revisions
 
-**Latest battery concept:** the [v6 single crossbar preview](../hardware/cad/battery-retention-v6/README.md) uses one existing pair of equal-height towers. Its lowered contact face accounts for the seller's 19 mm case body and leaves the switch exposed. It reuses two M3 × 35 screws/nuts; the unused lower towers can remain. This is a nominal fit preview, not a measurement of the delivered case. Optional v5 side shims still address horizontal play.
+**Current battery layout:** [v7 carrier and flat crossbar](../hardware/cad/battery-retention-v7/README.md) replaces the carrier. All four old battery towers are removed. Two new towers sit at the middle of the holder, with their tops and the flat bar underside level with the nominal 19 mm case body. There is **zero designed vertical gap**. Print the new carrier and bar; reuse the separate wall bracket. The battery bar now uses **two M3 × 30 mm screws and two ordinary M3 nuts**.
 
-The earlier [v5 adjustable-retainer kit](../hardware/cad/battery-retention-v5/README.md) remains available if height adjustment is needed. The old seven-piece v4 master below is preserved as a historical export; its original battery bars are superseded.
+The [v6 upper-bar preview](../hardware/cad/battery-retention-v6/README.md) and [v5 adjustable retainers](../hardware/cad/battery-retention-v5/README.md) are historical alternatives. Optional v5 side shims can still address horizontal cradle play. The old seven-piece v4 master below is an archived export, not the current carrier/bar layout.
 
-The main mount prints as **two pieces**: a carrier with a flat underside and a separate H-shaped wall bracket. Four screws join them after printing. The bracket has two continuous **20 × 144 mm** rear pads for the narrow Command strips. The five removable component retainers remain separate, making seven printed pieces total.
+The original v4 mounting structure printed as **two pieces**: a carrier with a flat underside and a separate H-shaped wall bracket. Four screws join them after printing. The bracket has two continuous **20 × 144 mm** rear pads for the narrow Command strips. The five removable component retainers remain separate, making seven printed pieces total.
 
 The mounting geometry has been checked; purchased-component fit and adhesive retention remain unverified. In particular, the converter still uses the earlier placeholder dimensions.
 
-## Inspect the design
+## Current files
+
+Use the [v7 carrier/bar master STL](../hardware/cad/battery-retention-v7/generated/battery-retention-v7-NEW-CARRIER-AND-BAR.stl) and [v7 assembly guide](../hardware/cad/battery-retention-v7/README.md). These contain only the revised carrier and battery bar. Physical fit still depends on the delivered case and print tolerances.
+
+## Archived v4 files
 
 - **[Master STL: all seven pieces laid out for printing](../hardware/cad/electronics-retention-v4/generated/electronics-wall-mount-ALL-PIECES-v4-CONCEPT.stl)**
 - [Blender print layout](../hardware/cad/electronics-retention-v4/generated/electronics-print-layout-v4.blend) · [assembled Blender model](../hardware/cad/electronics-retention-v4/generated/electronics-retention-v4.blend)

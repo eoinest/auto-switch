@@ -1,0 +1,77 @@
+{
+  "status": "PASS: closed solids, flat bed contact, A1 bounds and master contents",
+  "parts": [
+    {
+      "file": "01_NEW-CARRIER-v7.stl",
+      "sha256": "d0a3356baccae32a753135d2eaec340610fa80120bc76ef7c399ba85ea2453c8",
+      "triangles": 2942,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          5.0,
+          125.0
+        ],
+        [
+          5.0,
+          165.0
+        ],
+        [
+          0.0,
+          22.0
+        ]
+      ],
+      "volume_mm3": 68145.45509939265,
+      "bed_contact_area_mm2": 19063.592303615893,
+      "above_bed_downfacing_area_mm2": 0.0
+    },
+    {
+      "file": "02_FLAT-CROSSBAR-v7.stl",
+      "sha256": "5e6d4757a4216217745950388677da9b4189febceac1ebd7f718efb67c465944",
+      "triangles": 404,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          5.0,
+          101.0
+        ],
+        [
+          175.0,
+          185.0
+        ],
+        [
+          0.0,
+          3.0
+        ]
+      ],
+      "volume_mm3": 2825.680277159787,
+      "bed_contact_area_mm2": 941.8934257199289,
+      "above_bed_downfacing_area_mm2": 0.0
+    },
+    {
+      "file": "battery-retention-v7-NEW-CARRIER-AND-BAR.stl",
+      "sha256": "1b014a1fb6ded30ae8cdf24f2437133538e787fea5161b35b654152058aa844d",
+      "triangles": 3346,
+      "connected_solids": 2,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          5.0,
+          125.0
+        ],
+        [
+          5.0,
+          185.0
+        ],
+        [
+          0.0,
+          22.0
+        ]
+      ],
+      "volume_mm3": 70971.13537655244,
+      "bed_contact_area_mm2": 20005.48572933582,
+      "above_bed_downfacing_area_mm2": 0.0
+    }
+  ]
+}

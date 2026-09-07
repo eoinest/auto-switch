@@ -1,0 +1,136 @@
+{
+  "status": "Nominal direct-contact design; delivered case fit unverified",
+  "config": {
+    "status": "Nominal direct-contact design; delivered case fit unverified",
+    "units": "mm",
+    "source_carrier": "../electronics-retention-v4/generated/electronics-retention-v4.blend",
+    "holder_body_mm": [
+      68.7,
+      64.2,
+      19
+    ],
+    "holder_center_xy": [
+      0,
+      -32
+    ],
+    "base_top_z": 3,
+    "old_post_centers_xy": [
+      [
+        -43,
+        -52
+      ],
+      [
+        43,
+        -52
+      ],
+      [
+        -43,
+        -12
+      ],
+      [
+        43,
+        -12
+      ]
+    ],
+    "post_centers_xy": [
+      [
+        -43,
+        -32
+      ],
+      [
+        43,
+        -32
+      ]
+    ],
+    "post_footprint_mm": [
+      10,
+      12
+    ],
+    "bar_mm": [
+      96,
+      10,
+      3
+    ],
+    "mount_hole_diameter_mm": 3.4,
+    "mount_screw_length_mm": 30,
+    "switch_center_xy": [
+      28.88,
+      -53.44
+    ],
+    "switch_peak_above_body_mm": 3.5,
+    "designed_vertical_clearance_mm": 0
+  },
+  "parts": [
+    {
+      "name": "V7 NEW CARRIER \u2014 ONLY TWO CENTERED TOWERS",
+      "non_manifold_edges": 0,
+      "components": 1,
+      "volume_mm3": 68145.45443259178
+    },
+    {
+      "name": "V7 FLAT BATTERY CROSSBAR",
+      "non_manifold_edges": 0,
+      "components": 1,
+      "volume_mm3": 2825.68022939489
+    }
+  ],
+  "old_tower_removal": [
+    {
+      "old_tower_xy": [
+        -43,
+        -52
+      ],
+      "remaining_above_base_mm3": 0.0
+    },
+    {
+      "old_tower_xy": [
+        43,
+        -52
+      ],
+      "remaining_above_base_mm3": 0.0
+    },
+    {
+      "old_tower_xy": [
+        -43,
+        -12
+      ],
+      "remaining_above_base_mm3": 0.0
+    },
+    {
+      "old_tower_xy": [
+        43,
+        -12
+      ],
+      "remaining_above_base_mm3": 0.0
+    }
+  ],
+  "new_tower_count": 2,
+  "tower_top_z_mm": 22,
+  "bar_bottom_z_mm": 22,
+  "bar_top_z_mm": 25,
+  "designed_vertical_clearance_mm": 0,
+  "screw_tip_z_mm": -5,
+  "print_master": "battery-retention-v7-NEW-CARRIER-AND-BAR.stl",
+  "print_bed_mm": [
+    256,
+    256
+  ],
+  "layout_bounds_mm": [
+    [
+      5,
+      5,
+      0
+    ],
+    [
+      125,
+      185,
+      22
+    ]
+  ],
+  "source_sha256": "b47cfa7ac7e48d12b45ad26a340f30ea1ffb240872847b1b354b0e83c62f4bda",
+  "limits": [
+    "19 mm case thickness is seller nominal; physical case and printed fit must be checked.",
+    "Existing S2 and converter attachment geometry is preserved, not newly validated against actual parts.",
+    "Original side clearance remains; optional shims can address lateral play."
+  ]
+}

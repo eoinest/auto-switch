@@ -1,0 +1,60 @@
+{
+  "status": "Nominal direct-contact design; delivered case fit unverified",
+  "units": "mm",
+  "source_carrier": "../electronics-retention-v4/generated/electronics-retention-v4.blend",
+  "holder_body_mm": [
+    68.7,
+    64.2,
+    19
+  ],
+  "holder_center_xy": [
+    0,
+    -32
+  ],
+  "base_top_z": 3,
+  "old_post_centers_xy": [
+    [
+      -43,
+      -52
+    ],
+    [
+      43,
+      -52
+    ],
+    [
+      -43,
+      -12
+    ],
+    [
+      43,
+      -12
+    ]
+  ],
+  "post_centers_xy": [
+    [
+      -43,
+      -32
+    ],
+    [
+      43,
+      -32
+    ]
+  ],
+  "post_footprint_mm": [
+    10,
+    12
+  ],
+  "bar_mm": [
+    96,
+    10,
+    3
+  ],
+  "mount_hole_diameter_mm": 3.4,
+  "mount_screw_length_mm": 30,
+  "switch_center_xy": [
+    28.88,
+    -53.44
+  ],
+  "switch_peak_above_body_mm": 3.5,
+  "designed_vertical_clearance_mm": 0
+}

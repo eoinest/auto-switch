@@ -24,9 +24,9 @@ The USB-powered S2 joins Wi-Fi and serves the website directly. Both buttons ren
 4. **[Servo mechanism](docs/servo-command-mount.md)** — approved export, stock horn and two narrow Command-strip mounting pads.
 5. **[Electronics holder](docs/electronics-retention.md)** — mounting-hole fastenings, converter clamps and removable battery retention under review.
 
-![Electronics carrier and separate wall bracket laid flat for printing](hardware/cad/electronics-retention-v4/generated/print-layout-v4.png)
+![Revised carrier with two centered battery towers and one flat bar](hardware/cad/battery-retention-v7/generated/battery-retention-v7-assembly.png)
 
-*The v4 carrier and wall bracket above are retained. The latest [v6 single-crossbar preview](hardware/cad/battery-retention-v6/README.md) simplifies battery retention and leaves the switch accessible; physical fit is pending. The [converter clip audit](hardware/cad/battery-retention-v6/booster-fit-audit.md) identifies the unverified board thickness and dimensions that still need measuring.*
+*The [v7 carrier and crossbar](hardware/cad/battery-retention-v7/README.md) use two centered towers level with the nominal battery case, with zero designed vertical gap. Reprint the carrier and bar; reuse the separate wall bracket. Physical fit is pending. The [converter clip audit](hardware/cad/battery-retention-v6/booster-fit-audit.md) identifies the unverified board thickness and dimensions.*
 
 ## Double and triple switch concepts
 
@@ -48,7 +48,8 @@ hardware/cad/servo-command/        Isolated single-servo mechanism
 hardware/cad/servo-multi/          Double/triple mechanical concepts and master STLs
 hardware/cad/electronics-retention-v4/  Flat carrier, screw-on wall bracket and master STL
 hardware/cad/battery-retention-v5/ Replacement battery rails, pressure pads and shims
-hardware/cad/battery-retention-v6/ Single-crossbar preview and booster clip fit audit
+hardware/cad/battery-retention-v6/ Archived upper-bar preview and booster clip fit audit
+hardware/cad/battery-retention-v7/ Current carrier: two centered towers and one flat bar
 hardware/wiring/s2-aa-poc/         Current bench wiring diagram
 learn/s2-aa-poc.html               Interactive wiring viewer
 ```
