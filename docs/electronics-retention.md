@@ -1,6 +1,8 @@
-# Electronics mounting — v4 flat carrier and wall bracket
+# Electronics mounting — v4 carrier with v5 battery retainers
 
-The main mount now prints as **two pieces**: a carrier with a flat underside and a separate H-shaped wall bracket. Four screws join them after printing. The bracket has two continuous **20 × 144 mm** rear pads for the narrow Command strips. The five removable component retainers remain separate, making seven printed pieces total.
+**Battery-fit update:** replace the old crossbars with the [v5 battery-retainer kit](../hardware/cad/battery-retention-v5/README.md). It keeps the existing carrier, posts and wall bracket, leaves the power switch exposed, and adds adjustable pressure pads plus side shims. The old seven-piece master below is preserved as a historical export; its battery bars are superseded.
+
+The main mount prints as **two pieces**: a carrier with a flat underside and a separate H-shaped wall bracket. Four screws join them after printing. The bracket has two continuous **20 × 144 mm** rear pads for the narrow Command strips. The five removable component retainers remain separate, making seven printed pieces total.
 
 The mounting geometry has been checked; purchased-component fit and adhesive retention remain unverified. In particular, the converter still uses the earlier placeholder dimensions.
 
@@ -38,11 +40,15 @@ The selected B0GCW44FDL module has no mounting holes. The concept uses adjustabl
 
 Jaw positions, underside clearance and capture height depend on the **actual PCB thickness, component placement, solder joints and clear edge areas**. No clamp should press on the inductor, capacitors or soldered wires. If the delivered board has no suitable bare edges, this concept must change to a component-specific cage. The old 40 × 36 × 18 mm reserved space is not a board specification.
 
-## Battery holder: removable retaining bars
+## Battery holder: v5 replacement retainers
 
-A shallow cradle locates the closed case sideways. Two removable bars prevent it lifting out. The bars bolt to outboard posts with mechanical stops so tightening the bolts does not squeeze the battery case. The nominal design leaves a small gap over the seller-sized case; actual depth and seam projections need checking.
+The printed v4 bars were loose and covered the power switch. The seller's dimension photo distinguishes a **19 mm case body** from **22.5 mm including the switch projection**. The earlier solid 22.5 mm reference missed this distinction. The actual nominal case top is therefore Z22 on the 3 mm carrier, leaving 4 mm below the old bars. The cradle also has 1.4 mm total clearance on both horizontal axes.
 
-Remove the bars and lift the holder to access its back switch and screw-secured battery cover. Do not drill the battery housing. Leave the wire exit free and provide enough lead slack to lift the case without pulling its soldered connections.
+Use the [v5 replacement kit and assembly instructions](../hardware/cad/battery-retention-v5/README.md). Two fixed side rails reuse the four existing posts and **four M3 × 35 mm screws/nuts**. Two central adjusters use **two additional M3 × 10 mm screws and two M3 nuts**, already included in the selected M3 assortment, to press through printed load-spreading pads. Select small shims to remove horizontal play. Tighten only until the case stops moving; do not squeeze or bow it.
+
+Install the holder with its switch facing outward. The photo-derived model places the switch near the lower-right corner and keeps the retaining contacts near the middle instead. The wire exits near the upper-right edge; the old bottom-center cradle notch does not align with this orientation. Follow the v5 routing clearance rather than pulling the wire through the wrong notch. Loosen the retainers and lift the case to reach its battery cover; leave enough wire slack for this.
+
+Sources: [selected holder](https://www.amazon.com/dp/B09N1GDWQ9), [seller dimension photo](https://m.media-amazon.com/images/I/61-SB+loQyL._AC_SL1500_.jpg), [reproducible pixel estimates](../hardware/cad/battery-retention-v5/photo-measurements.json). Switch features are photo estimates with at least ±1 mm allowance, not measured dimensions of the delivered case. The v5 physical fit remains to be checked after printing.
 
 ## Before approving physical fit
 

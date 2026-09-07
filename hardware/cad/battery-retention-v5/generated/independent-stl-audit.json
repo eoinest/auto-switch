@@ -1,0 +1,208 @@
+{
+  "status": "PASS: exported mesh topology and print layout; physical fit untested",
+  "parts": [
+    {
+      "file": "01_LEFT_fixed_battery_edge_rail.stl",
+      "sha256": "4902721d9547f191f1ee8807f214f15925de51cb38dbcc60c81951f989b57ef2",
+      "triangles": 1040,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          -10.0,
+          10.000003814697266
+        ],
+        [
+          -26.0,
+          26.0
+        ],
+        [
+          0.0,
+          5.000005722045898
+        ]
+      ],
+      "volume_mm3": 2657.9419702413234,
+      "bed_contact_area_mm2": 526.7904272704835,
+      "above_bed_downfacing_area_mm2": 46.04965319686943,
+      "master_quantity": 1
+    },
+    {
+      "file": "02_LEFT_captured_pressure_shoe.stl",
+      "sha256": "3bb0f5bebe51ee9c31ee0174c0573f228bedfbaed11b8a520dcefd9db121ca96",
+      "triangles": 316,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          -6.099996566772461,
+          6.099998474121094
+        ],
+        [
+          -5.600000381469727,
+          5.600000381469727
+        ],
+        [
+          0.0,
+          8.000003814697266
+        ]
+      ],
+      "volume_mm3": 384.84015615719113,
+      "bed_contact_area_mm2": 49.11999328613456,
+      "above_bed_downfacing_area_mm2": 2.2603311304417577,
+      "master_quantity": 1
+    },
+    {
+      "file": "03_RIGHT_fixed_battery_edge_rail.stl",
+      "sha256": "496424bd158991d1bfd63dd8cea542d86b85338c9cf82f21ff93778a16115e41",
+      "triangles": 1040,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          -10.0,
+          10.0
+        ],
+        [
+          -26.0,
+          26.0
+        ],
+        [
+          0.0,
+          5.000005722045898
+        ]
+      ],
+      "volume_mm3": 2657.9422511820317,
+      "bed_contact_area_mm2": 526.7904665271126,
+      "above_bed_downfacing_area_mm2": 46.049629049610466,
+      "master_quantity": 1
+    },
+    {
+      "file": "04_RIGHT_captured_pressure_shoe.stl",
+      "sha256": "d6d30e9de8707a7819d38c5c5afa7e2d124f4939dc61910af74f56b5f726115d",
+      "triangles": 316,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          -6.100000381469727,
+          6.099998474121094
+        ],
+        [
+          -5.600002288818359,
+          5.600000381469727
+        ],
+        [
+          0.0,
+          8.000001907348633
+        ]
+      ],
+      "volume_mm3": 384.84011370405676,
+      "bed_contact_area_mm2": 49.11998947143921,
+      "above_bed_downfacing_area_mm2": 2.260330061105108,
+      "master_quantity": 1
+    },
+    {
+      "file": "05_cradle_shim_0.4mm.stl",
+      "sha256": "ebefebb2f1703807eb4294cd3a2e1a9ce9697bc939cfa64b40c77a2530b516df",
+      "triangles": 38,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          -6.0,
+          6.0
+        ],
+        [
+          -4.799999713897705,
+          4.799999713897705
+        ],
+        [
+          0.0,
+          3.799999952316284
+        ]
+      ],
+      "volume_mm3": 103.19998220801372,
+      "bed_contact_area_mm2": 115.19999319612978,
+      "above_bed_downfacing_area_mm2": 0.0,
+      "master_quantity": 4
+    },
+    {
+      "file": "06_cradle_shim_0.6mm.stl",
+      "sha256": "d4bd5a0112e576acdca80250ec7d18da0777a678fe024df962cd8890a634b330",
+      "triangles": 36,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          -6.0,
+          6.0
+        ],
+        [
+          -4.799999713897705,
+          4.799999713897705
+        ],
+        [
+          0.0,
+          4.0
+        ]
+      ],
+      "volume_mm3": 126.23998226881042,
+      "bed_contact_area_mm2": 115.19999364018442,
+      "above_bed_downfacing_area_mm2": 0.0,
+      "master_quantity": 4
+    },
+    {
+      "file": "07_cradle_shim_0.8mm.stl",
+      "sha256": "2aabf14d41f3ef5030181f0325978df2e60cf31c5f892a87ae30ba40afcacbe0",
+      "triangles": 36,
+      "connected_solids": 1,
+      "closed_consistent_winding": true,
+      "bounds_mm": [
+        [
+          -6.0,
+          6.0
+        ],
+        [
+          -4.799999713897705,
+          4.799999713897705
+        ],
+        [
+          0.0,
+          4.199999809265137
+        ]
+      ],
+      "volume_mm3": 149.27997499823675,
+      "bed_contact_area_mm2": 115.19999314248562,
+      "above_bed_downfacing_area_mm2": 0.0,
+      "master_quantity": 4
+    }
+  ],
+  "master": {
+    "file": "battery-retention-v5-REPLACEMENT-ALL-PIECES.stl",
+    "sha256": "7ff196fe94e2be5e62a58de4da8d3b3a2ab03ab5e71e2af69dab715a096a3f70",
+    "triangles": 3152,
+    "connected_solids": 16,
+    "closed_consistent_winding": true,
+    "bounds_mm": [
+      [
+        8.0,
+        134.0
+      ],
+      [
+        8.0,
+        93.19999694824219
+      ],
+      [
+        0.0,
+        8.000003814697266
+      ]
+    ],
+    "volume_mm3": 7600.444999029403,
+    "bed_contact_area_mm2": 2534.2206974243245,
+    "above_bed_downfacing_area_mm2": 96.61991354525469
+  },
+  "minimum_part_spacing_mm": 7.0,
+  "all_parts_on_bed": true,
+  "all_parts_within_256mm_bed": true,
+  "master_matches_individuals_with_quantities": true
+}

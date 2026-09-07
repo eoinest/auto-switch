@@ -1,6 +1,6 @@
 item,quantity,unit,selection,source_url,fit_status
 ESP32-S2 Mini,1,board,User-owned headerless; LOLIN outline reference,https://www.wemos.cc/en/latest/s2/s2_mini.html,25.4 x 34.3 mm PCB; actual clone/solder fit pending
-DAIERTEK switched four-AA holder,1,holder,B09N1GDWQ9; includes approximately 150 mm input leads,https://www.amazon.com/dp/B09N1GDWQ9,Seller nominal 68.7 x 64.2 x 22.5 mm; actual case/switch/lead fit pending; back switch and screw cover need access
+DAIERTEK switched four-AA holder,1,holder,B09N1GDWQ9; includes approximately 150 mm input leads,https://www.amazon.com/dp/B09N1GDWQ9,Received; seller drawing 68.7 x 64.2 x 19 mm body and 22.5 mm including switch; v5 photo-derived retainers replace loose v4 bars; physical v5 fit pending
 Amazon Basics 1.5 V alkaline AA,4,cell,User ordered,,Fit inside selected holder; loaded holder inspection pending
 Teyleten Robot 5 V buck-boost module,1,module,B0GCW44FDL; listing TPS63070 / photo XL63070,https://www.amazon.com/dp/B0GCW44FDL,Exact dimensions unknown; placeholder bay only
 MG90S 180 degree servo,1,servo,User-owned,,Separate approved actuator; actual ears/horn fit pending

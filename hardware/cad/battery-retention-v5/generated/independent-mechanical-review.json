@@ -1,0 +1,425 @@
+{
+  "status": "PASS for nominal mechanical geometry and stated screw range",
+  "intersection_checks": [
+    {
+      "part": "LEFT fixed battery edge rail",
+      "other": "EXISTING V4 CARRIER \u2014 REUSE, DO NOT REPRINT",
+      "volume_mm3": 0.0
+    },
+    {
+      "part": "LEFT fixed battery edge rail",
+      "other": "FINGER ACCESS KEEP-OUT \u2014 display only",
+      "volume_mm3": 0.0
+    },
+    {
+      "part": "LEFT fixed battery edge rail",
+      "other": "WIRE ROUTE CORRIDOR \u2014 exit height unconfirmed",
+      "volume_mm3": 0.0
+    },
+    {
+      "part": "NEW M3 adjustment nut",
+      "other": "LEFT fixed battery edge rail",
+      "volume_mm3": 0.0
+    },
+    {
+      "part": "M3 mounting shaft probe",
+      "other": "LEFT fixed battery edge rail",
+      "volume_mm3": 0.0
+    },
+    {
+      "part": "M3 mounting shaft probe",
+      "other": "EXISTING V4 CARRIER \u2014 REUSE, DO NOT REPRINT",
+      "volume_mm3": 0.0
+    },
+    {
+      "part": "M3 mounting shaft probe",
+      "other": "LEFT fixed battery edge rail",
+      "volume_mm3": 0.0
+    },
+    {
+      "part": "M3 mounting shaft probe",
+      "other": "EXISTING V4 CARRIER \u2014 REUSE, DO NOT REPRINT",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 18.5,
+      "part": "LEFT captured pressure shoe",
+      "other": "LEFT fixed battery edge rail",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 18.5,
+      "part": "LEFT captured pressure shoe",
+      "other": "FINGER ACCESS KEEP-OUT \u2014 display only",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 18.5,
+      "part": "LEFT captured pressure shoe",
+      "other": "WIRE ROUTE CORRIDOR \u2014 exit height unconfirmed",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 18.5,
+      "part": "NEW M3x10 adjustment screw",
+      "other": "LEFT fixed battery edge rail",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 18.5,
+      "part": "NEW M3x10 adjustment screw",
+      "other": "LEFT captured pressure shoe",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 19,
+      "part": "LEFT captured pressure shoe",
+      "other": "LEFT fixed battery edge rail",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 19,
+      "part": "LEFT captured pressure shoe",
+      "other": "FINGER ACCESS KEEP-OUT \u2014 display only",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 19,
+      "part": "LEFT captured pressure shoe",
+      "other": "WIRE ROUTE CORRIDOR \u2014 exit height unconfirmed",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 19,
+      "part": "NEW M3x10 adjustment screw",
+      "other": "LEFT fixed battery edge rail",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 19,
+      "part": "NEW M3x10 adjustment screw",
+      "other": "LEFT captured pressure shoe",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 20.5,
+      "part": "LEFT captured pressure shoe",
+      "other": "LEFT fixed battery edge rail",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 20.5,
+      "part": "LEFT captured pressure shoe",
+      "other": "FINGER ACCESS KEEP-OUT \u2014 display only",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 20.5,
+      "part": "LEFT captured pressure shoe",
+      "other": "WIRE ROUTE CORRIDOR \u2014 exit height unconfirmed",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 20.5,
+      "part": "NEW M3x10 adjustment screw",
+      "other": "LEFT fixed battery edge rail",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 20.5,
+      "part": "NEW M3x10 adjustment screw",
+      "other": "LEFT captured pressure shoe",
+      "volume_mm3": 0.0
+    },
+    {
+      "part": "RIGHT fixed battery edge rail",
+      "other": "EXISTING V4 CARRIER \u2014 REUSE, DO NOT REPRINT",
+      "volume_mm3": 0.0
+    },
+    {
+      "part": "RIGHT fixed battery edge rail",
+      "other": "FINGER ACCESS KEEP-OUT \u2014 display only",
+      "volume_mm3": 0.0
+    },
+    {
+      "part": "RIGHT fixed battery edge rail",
+      "other": "WIRE ROUTE CORRIDOR \u2014 exit height unconfirmed",
+      "volume_mm3": 0.0
+    },
+    {
+      "part": "NEW M3 adjustment nut.001",
+      "other": "RIGHT fixed battery edge rail",
+      "volume_mm3": 0.0
+    },
+    {
+      "part": "M3 mounting shaft probe",
+      "other": "RIGHT fixed battery edge rail",
+      "volume_mm3": 0.0
+    },
+    {
+      "part": "M3 mounting shaft probe",
+      "other": "EXISTING V4 CARRIER \u2014 REUSE, DO NOT REPRINT",
+      "volume_mm3": 0.0
+    },
+    {
+      "part": "M3 mounting shaft probe",
+      "other": "RIGHT fixed battery edge rail",
+      "volume_mm3": 0.0
+    },
+    {
+      "part": "M3 mounting shaft probe",
+      "other": "EXISTING V4 CARRIER \u2014 REUSE, DO NOT REPRINT",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 18.5,
+      "part": "RIGHT captured pressure shoe",
+      "other": "RIGHT fixed battery edge rail",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 18.5,
+      "part": "RIGHT captured pressure shoe",
+      "other": "FINGER ACCESS KEEP-OUT \u2014 display only",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 18.5,
+      "part": "RIGHT captured pressure shoe",
+      "other": "WIRE ROUTE CORRIDOR \u2014 exit height unconfirmed",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 18.5,
+      "part": "NEW M3x10 adjustment screw.001",
+      "other": "RIGHT fixed battery edge rail",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 18.5,
+      "part": "NEW M3x10 adjustment screw.001",
+      "other": "RIGHT captured pressure shoe",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 19,
+      "part": "RIGHT captured pressure shoe",
+      "other": "RIGHT fixed battery edge rail",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 19,
+      "part": "RIGHT captured pressure shoe",
+      "other": "FINGER ACCESS KEEP-OUT \u2014 display only",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 19,
+      "part": "RIGHT captured pressure shoe",
+      "other": "WIRE ROUTE CORRIDOR \u2014 exit height unconfirmed",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 19,
+      "part": "NEW M3x10 adjustment screw.001",
+      "other": "RIGHT fixed battery edge rail",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 19,
+      "part": "NEW M3x10 adjustment screw.001",
+      "other": "RIGHT captured pressure shoe",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 20.5,
+      "part": "RIGHT captured pressure shoe",
+      "other": "RIGHT fixed battery edge rail",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 20.5,
+      "part": "RIGHT captured pressure shoe",
+      "other": "FINGER ACCESS KEEP-OUT \u2014 display only",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 20.5,
+      "part": "RIGHT captured pressure shoe",
+      "other": "WIRE ROUTE CORRIDOR \u2014 exit height unconfirmed",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 20.5,
+      "part": "NEW M3x10 adjustment screw.001",
+      "other": "RIGHT fixed battery edge rail",
+      "volume_mm3": 0.0
+    },
+    {
+      "case_height_mm": 20.5,
+      "part": "NEW M3x10 adjustment screw.001",
+      "other": "RIGHT captured pressure shoe",
+      "volume_mm3": 0.0
+    }
+  ],
+  "measured_sections": [
+    {
+      "side": -1,
+      "adjuster_roof": [
+        [
+          -34.20000076293945,
+          -32.0,
+          29.0
+        ],
+        [
+          -34.20000076293945,
+          -32.0,
+          31.0
+        ],
+        2.0
+      ],
+      "mounting_bearing_stack": [
+        [
+          -45.400001525878906,
+          -52.0,
+          26.0
+        ],
+        [
+          -45.400001525878906,
+          -52.0,
+          29.0
+        ],
+        3.0
+      ],
+      "shoe_cup_floor": [
+        [
+          -32.0,
+          -32.0,
+          22.0
+        ],
+        [
+          -32.0,
+          -32.0,
+          23.200000762939453
+        ],
+        1.2000007688996712
+      ]
+    },
+    {
+      "side": 1,
+      "adjuster_roof": [
+        [
+          34.20000076293945,
+          -32.0,
+          29.0
+        ],
+        [
+          34.20000076293945,
+          -32.0,
+          31.0
+        ],
+        2.0
+      ],
+      "mounting_bearing_stack": [
+        [
+          45.400001525878906,
+          -52.0,
+          26.0
+        ],
+        [
+          45.400001525878906,
+          -52.0,
+          29.0
+        ],
+        3.0
+      ],
+      "shoe_cup_floor": [
+        [
+          32.0,
+          -32.0,
+          22.0
+        ],
+        [
+          32.0,
+          -32.0,
+          23.200000762939453
+        ],
+        1.2000007688996712
+      ]
+    }
+  ],
+  "adjuster_range": [
+    {
+      "side": -1,
+      "body_height_mm": 18.5,
+      "head_under_z_mm": 32.7,
+      "tip_z_mm": 22.7,
+      "tip_projection_below_nut_mm": 3.900000000000002,
+      "head_clearance_above_rail_mm": 1.7000000000000028
+    },
+    {
+      "side": -1,
+      "body_height_mm": 19,
+      "head_under_z_mm": 33.2,
+      "tip_z_mm": 23.2,
+      "tip_projection_below_nut_mm": 3.400000000000002,
+      "head_clearance_above_rail_mm": 2.200000000000003
+    },
+    {
+      "side": -1,
+      "body_height_mm": 20.5,
+      "head_under_z_mm": 34.7,
+      "tip_z_mm": 24.7,
+      "tip_projection_below_nut_mm": 1.9000000000000021,
+      "head_clearance_above_rail_mm": 3.700000000000003
+    },
+    {
+      "side": 1,
+      "body_height_mm": 18.5,
+      "head_under_z_mm": 32.7,
+      "tip_z_mm": 22.7,
+      "tip_projection_below_nut_mm": 3.900000000000002,
+      "head_clearance_above_rail_mm": 1.7000000000000028
+    },
+    {
+      "side": 1,
+      "body_height_mm": 19,
+      "head_under_z_mm": 33.2,
+      "tip_z_mm": 23.2,
+      "tip_projection_below_nut_mm": 3.400000000000002,
+      "head_clearance_above_rail_mm": 2.200000000000003
+    },
+    {
+      "side": 1,
+      "body_height_mm": 20.5,
+      "head_under_z_mm": 34.7,
+      "tip_z_mm": 24.7,
+      "tip_projection_below_nut_mm": 1.9000000000000021,
+      "head_clearance_above_rail_mm": 3.700000000000003
+    }
+  ],
+  "illustrative_shim_checks": [
+    {
+      "name": "cradle shim 0.6mm.001",
+      "carrier_intersection_mm3": 0.0
+    },
+    {
+      "name": "cradle shim 0.6mm.002",
+      "carrier_intersection_mm3": 5.684341886080802e-14
+    },
+    {
+      "name": "cradle shim 0.6mm.003",
+      "carrier_intersection_mm3": 0.0
+    },
+    {
+      "name": "cradle shim 0.6mm.004",
+      "carrier_intersection_mm3": 5.72133035348088e-06
+    }
+  ],
+  "limitations": [
+    "Coplanar contacts separated by1 micrometre for Boolean audit",
+    "No force, creep or physical fit test",
+    "Cable exit height unmeasured",
+    "Pressure shoes remain axially removable when screw tips disengage from cups"
+  ]
+}

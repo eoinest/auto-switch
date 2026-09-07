@@ -1,0 +1,50 @@
+{
+  "product": "DAIERTEK 4 AA switched holder, B09N1GDWQ9",
+  "listing_url": "https://www.amazon.com/dp/B09N1GDWQ9",
+  "dimension_photo_url": "https://m.media-amazon.com/images/I/61-SB+loQyL._AC_SL1500_.jpg",
+  "switch_photo_url": "https://m.media-amazon.com/images/I/61zgOzS8JaL._AC_SL1500_.jpg",
+  "cover_wire_photo_url": "https://m.media-amazon.com/images/I/714VLim1EKL._AC_SL1500_.jpg",
+  "accessed": "2026-09-06",
+  "image_size_px": [
+    1500,
+    1500
+  ],
+  "face_box_px_left_top_right_bottom": [
+    182,
+    712,
+    724,
+    1296
+  ],
+  "switch_box_px_left_top_right_bottom": [
+    596,
+    742,
+    672,
+    775
+  ],
+  "seller_dimensioned_face_width_height_mm": [
+    64.2,
+    68.7
+  ],
+  "seller_dimensioned_case_depth_mm": 19,
+  "seller_dimensioned_depth_including_switch_mm": 22.5,
+  "mm_per_pixel_xy": [
+    0.11845018450184502,
+    0.11763698630136987
+  ],
+  "estimated_switch_center_from_face_left_top_mm": [
+    53.54,
+    5.47
+  ],
+  "estimated_switch_opening_width_height_mm": [
+    9.0,
+    3.88
+  ],
+  "carrier_transform": "X=34.35-v; Y=-32+32.1-u; Z=3+case depth (switch face outward)",
+  "estimated_switch_center_carrier_xy_mm": [
+    28.88,
+    -53.44
+  ],
+  "uncertainty": "Allow at least +/-1 mm for photographic feature estimates, plus unquantified product variation. Seller dimensions are nominal; physical fit remains untested.",
+  "wire": "Switch-face photo shows exit on top edge near left corner. After rotation, it exits the carrier's right case edge near its upper end. Existing bottom-center cradle notch is not aligned. Exit height is not dimensioned.",
+  "interpretation": "The former 22.5 mm solid case reference included switch projection; a 19 mm case sits at Z22, leaving 4 mm below old bars at Z26. Keep the switch and finger approach free; do not clamp its protrusion."
+}

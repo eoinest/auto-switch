@@ -1,0 +1,60 @@
+{
+  "status": "Replacement battery retainers; seller-photo dimensions, physical fit pending",
+  "units": "mm",
+  "reuse_carrier": "../electronics-retention-v4/generated/electronics-retention-v4.blend",
+  "holder_body_mm": [
+    68.7,
+    64.2,
+    19.0
+  ],
+  "holder_center_xy": [
+    0,
+    -32
+  ],
+  "holder_bottom_z": 3,
+  "switch_peak_above_body_mm": 3.5,
+  "switch_center_xy": [
+    28.88,
+    -53.44
+  ],
+  "switch_opening_xy_mm": [
+    3.882,
+    8.999
+  ],
+  "finger_keepout_xy_mm": [
+    18,
+    22
+  ],
+  "wire_corridor": "Positive X edge, Y approximately -5..0; route insulated leads above low cradle wall; exit height unconfirmed",
+  "body_height_adjustment_mm": [
+    18.5,
+    20.5
+  ],
+  "post_centers_x": [
+    -43,
+    43
+  ],
+  "post_centers_y": [
+    -52,
+    -12
+  ],
+  "post_top_z": 26,
+  "retained_mount_screw_underhead_z": 29,
+  "rail_front_z": 31,
+  "adjuster_center_xy": [
+    32,
+    -32
+  ],
+  "adjuster_nut_bottom_z": 26.6,
+  "adjuster_nut_thickness": 2.4,
+  "adjuster_screw_length": 10,
+  "pressure_pad_thickness": 2,
+  "tip_seat_depth": 0.8,
+  "shim_thicknesses_mm": [
+    0.4,
+    0.6,
+    0.8
+  ],
+  "shim_copies_per_size": 4,
+  "hardware": "Reuse 4 M3x35 screws and 4 M3 nuts; add 2 M3x10 adjuster screws and 2 ordinary M3 nuts"
+}

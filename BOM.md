@@ -6,7 +6,7 @@ One bedroom paddle switch, one servo, and an **ESP32-S2 Mini hosting the On/Off 
 |---|---:|---|
 | Headerless ESP32-S2 Mini | 1 | User-owned, running MicroPython; direct-solder connections |
 | MG90S 180° micro servo | 1 | User-owned; reuse its stock horn and centre screw |
-| [DAIERTEK switched four-AA holder](https://www.amazon.com/dp/B09N1GDWQ9) | 1 | Ordered; switch and approximately 150 mm leads included |
+| [DAIERTEK switched four-AA holder](https://www.amazon.com/dp/B09N1GDWQ9) | 1 | Received; seller drawing shows 64.2 × 68.7 × 19 mm case, 22.5 mm including switch; approximately 150 mm leads |
 | Amazon Basics 1.5 V AA alkaline batteries | 4 | Ordered; go inside the holder |
 | [Teyleten Robot 5 V buck-boost module](https://www.amazon.com/dp/B0GCW44FDL) | 1 | Selected; exact physical dimensions still needed |
 | Breadboard and jumper wires | 1 set | User-owned; bench assembly only |
@@ -20,7 +20,7 @@ The selected converter listing calls it TPS63070 while its pictured PCB says XL6
 - **Servo mount and paddle:** [approved STL exports and fit instructions](docs/servo-command-mount.md).
 - **Narrow Command strips:** [17207 listing](https://www.amazon.com/dp/B09XJDK6RS), four mating pairs (eight individual strips) total: two pairs for the actuator and two for the separate electronics wall bracket. Check the actual smooth mounting surface and strip thickness.
 - **Horn/servo fasteners and two soft contact pads:** select to fit the actual servo and printed mechanism; reuse the original spline screw.
-- **Electronics holder:** [v4 mounting review](docs/electronics-retention.md). Two M1.6 screws/nuts attach the S2 through its factory holes; M3 hardware secures removable battery bars and the converter jaws. A separate screw-on bracket provides the two flat Command-strip pads. See the dimensioned fastener list in that guide.
+- **Electronics holder:** [mounting guide](docs/electronics-retention.md). Keep the v4 carrier and wall bracket; use the [v5 battery-retainer replacement](hardware/cad/battery-retention-v5/README.md) after the reported loose fit and blocked switch. Two M1.6 screws/nuts attach the S2 through its factory holes; M3 hardware secures the battery retainers and converter jaws. See the dimensioned fastener list in the mounting guide.
 
 The electronics tray is separate from the actuator. Its wall bracket is modeled, but adhesive retention and component fits remain physically unverified. The converter still uses a placeholder envelope and must be measured before its fit can be approved.
 
