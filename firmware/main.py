@@ -147,8 +147,6 @@ async def run(config, hardware=None):
                     print(str(error))
                     await asyncio.sleep(15)
             server = await asyncio.start_server(api.handle, "0.0.0.0", 80, backlog=2)
-            from wireless_updates import start as start_wireless_updates
-            start_wireless_updates(config)
             print("auto-switch UI: http://" + wlan.ifconfig()[0])
             try:
                 while True:
@@ -194,6 +192,50 @@ async def run(config, hardware=None):
         hardware.off()
 
 
+async def supervise(config, hardware):
+    if config.get("hardware_profile") != "s2-demo" or config.get("transport", "direct") != "direct":
+        return await run(config, hardware)
+    import machine
+    import maintenance
+    button = machine.Pin(0, machine.Pin.IN, machine.Pin.PULL_UP)
+    hold = maintenance.BootHold()
+    task = asyncio.create_task(run(config, hardware))
+    try:
+        while True:
+            if hold.update(button.value(), time.ticks_ms()):
+                hardware.inhibit()
+                if task is not None:
+                    task.cancel()
+                    try:
+                        await task
+                    except BaseException:
+                        pass
+                    task = None
+                hardware.off()
+                # Remove a legacy WebREPL listener if an older boot.py started it.
+                if "webrepl" in sys.modules:
+                    sys.modules["webrepl"].stop()
+                await maintenance.run(config, connect)
+                return
+            if task is not None and task.done():
+                try:
+                    await task
+                except Exception:
+                    print("Application stopped; hold BOOT/0 for update recovery")
+                task = None
+                hardware.off()
+            await asyncio.sleep(0.05)
+    finally:
+        hardware.inhibit()
+        if task is not None:
+            task.cancel()
+            try:
+                await task
+            except BaseException:
+                pass
+        hardware.off()
+
+
 def start():
     hardware = None
     try:
@@ -201,7 +243,7 @@ def start():
             config = json.load(stream)
         load_calibration(config)
         hardware = Hardware(config)
-        asyncio.run(run(config, hardware))
+        asyncio.run(supervise(config, hardware))
     except OSError as error:
         print("Startup stopped. Copy/edit config.example.json as config.json:", str(error))
     except Exception as error:

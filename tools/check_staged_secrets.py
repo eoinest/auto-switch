@@ -13,7 +13,7 @@ def git(*args, **kwargs):
 def known_secrets(root):
     values = set()
     private = root / ".local" / "s2"
-    for name in ("wifi-password.txt", "webrepl-password.txt"):
+    for name in ("wifi-password.txt", "webrepl-password.txt", "update-password.txt"):
         password = private / name
         if password.exists():
             value = password.read_text().rstrip("\r\n")

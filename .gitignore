@@ -30,6 +30,8 @@ secrets.*
 wifi-password*
 webrepl_cfg.py
 webrepl-password*
+maintenance_cfg.py
+update-password*
 client-token*
 device-token*
 gateway-keys*
@@ -48,6 +50,7 @@ gateway/*.plist
 *.bin
 *.uf2
 *.hex
+*.asupdate
 
 # Additional local databases and editor backups can retain credentials.
 *.db

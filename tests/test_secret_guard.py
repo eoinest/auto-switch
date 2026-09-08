@@ -49,6 +49,7 @@ class SecretGuardTests(unittest.TestCase):
         private = ["firmware/config.json", "firmware/config.office.json",
                    "gateway/launchd.plist", ".env.production", "credentials.json",
                    "wifi-password.txt", "webrepl-password.txt", "firmware/webrepl_cfg.py",
+                   "update-password.txt", "firmware/maintenance_cfg.py", "output/auto-switch.asupdate",
                    "device.key", "original-flash.bin"]
         for name in private:
             self.assertEqual(subprocess.run(["git", "check-ignore", "-q", name],
@@ -62,6 +63,15 @@ class SecretGuardTests(unittest.TestCase):
     def test_wireless_password_copied_into_tracked_file_is_blocked(self):
         secret = "testOTA99"
         self.write(".local/s2/webrepl-password.txt", secret + "\n")
+        self.write("notes.txt", "password=" + secret)
+        self.git("add", "notes.txt")
+        result = self.check()
+        self.assertEqual(result.returncode, 1)
+        self.assertNotIn(secret, result.stdout + result.stderr)
+
+    def test_browser_update_password_copied_into_tracked_file_is_blocked(self):
+        secret = "synthetic-update-password-only"
+        self.write(".local/s2/update-password.txt", secret + "\n")
         self.write("notes.txt", "password=" + secret)
         self.git("add", "notes.txt")
         result = self.check()
