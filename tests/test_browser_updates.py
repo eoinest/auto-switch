@@ -97,23 +97,10 @@ class TemporaryDirectoryTest(unittest.IsolatedAsyncioTestCase):
         self.assertFalse(api.busy)
         api.reset.assert_not_called()
 
-    def test_wifi_save_preserves_other_fields_and_does_not_echo_secrets(self):
-        config = {'wifi': {'ssid': 'Old', 'password': 'old password', 'txpower_dbm': 10}, 'channels': [16], 'open_client': True}
-        Path('config.json').write_text(json.dumps(config))
-        with contextlib.redirect_stdout(io.StringIO()) as output:
-            m.save_wifi({'ssid': 'New WiFi', 'password': 'new-password'})
-        saved = json.loads(Path('config.json').read_text())
-        self.assertEqual(saved['channels'], config['channels'])
-        self.assertEqual(saved['wifi']['txpower_dbm'], 10)
-        self.assertEqual(saved['wifi']['ssid'], 'New WiFi')
-        self.assertEqual(output.getvalue(), '')
-
-    def test_invalid_wifi_never_changes_config(self):
-        Path('config.json').write_text('{}')
-        for data in ({'ssid': 'x' * 33, 'password': '12345678'}, {'ssid': 'Home', 'password': 'short'}, {'ssid': 'Home', 'password': '12345678', 'extra': 1}):
-            with self.assertRaises(ValueError):
-                m.save_wifi(data)
-            self.assertEqual(Path('config.json').read_text(), '{}')
+    async def test_wifi_credentials_cannot_be_changed_over_device_http(self):
+        api = m.UpdateAPI('a' * 24, Mock())
+        response = await api.dispatch(reader(('POST /update/wifi HTTP/1.1\r\nAuthorization: Bearer %s\r\nContent-Length: 0\r\n\r\n' % ('a' * 24)).encode()))
+        self.assertEqual(response[0], 404)
 
     async def test_real_http_upload_and_page(self):
         api = m.UpdateAPI('a' * 24, Mock(), static_path=str(ROOT / 'firmware/www/update.html'))
@@ -145,41 +132,6 @@ class TemporaryDirectoryTest(unittest.IsolatedAsyncioTestCase):
         finally:
             server.close()
             await server.wait_closed()
-
-
-class NetworkTests(unittest.IsolatedAsyncioTestCase):
-    async def test_connect_timeout_that_stops_wifi_still_starts_ap(self):
-        sta, ap = Mock(), Mock()
-        sta.active.return_value = False
-        sta.disconnect.side_effect = OSError('Wifi Not Started')
-        factory = Mock(side_effect=lambda interface: sta if interface == 0 else ap)
-        factory.IF_STA, factory.IF_AP, factory.SEC_WPA2 = 0, 1, 3
-        async def connect(wlan, wifi):
-            wlan.active(False)
-            raise OSError('WiFi connection timed out')
-        with patch.dict(sys.modules, {'network': types.SimpleNamespace(WLAN=factory)}):
-            await m.choose_network({'wifi': {}}, connect, 'a' * 24)
-        sta.disconnect.assert_not_called()
-        ap.active.assert_called_with(True)
-
-    async def test_home_first_or_protected_ap(self):
-        for available in (True, False):
-            sta, ap = Mock(), Mock()
-            sta.isconnected.return_value = available
-            factory = Mock(side_effect=lambda interface: sta if interface == 0 else ap)
-            factory.IF_STA, factory.IF_AP, factory.SEC_WPA2 = 0, 1, 3
-            async def connect(wlan, wifi):
-                if not available:
-                    raise OSError()
-            with patch.dict(sys.modules, {'network': types.SimpleNamespace(WLAN=factory)}):
-                await m.choose_network({'wifi': {}}, connect, 'a' * 24)
-            if available:
-                ap.config.assert_not_called()
-                sta.active.assert_not_called()
-            else:
-                sta.active.assert_called_with(False)
-                ap.config.assert_called_once_with(ssid='AutoSwitch-Update', security=3, key='a' * 24, max_clients=1)
-                ap.ifconfig.assert_called_once_with(('192.168.4.1', '255.255.255.0', '192.168.4.1', '192.168.4.1'))
 
 
 class ProvisionTests(unittest.TestCase):

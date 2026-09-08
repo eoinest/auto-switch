@@ -1,5 +1,7 @@
 # ESP32-S2 Mini / four-AA / one-servo POC
 
+**Latest revision:** the [USB setup wiring map](usb-wifi-setup.md) adds a dedicated switch in the booster → ESP32 VBUS branch. Earlier images below do not yet depict that switch.
+
 This is the current **bench wiring reference**. It supersedes the Pico-specific POC wiring for this build; the old diagrams remain historical references. The [S2 firmware profile](s2-firmware.md) now runs on the connected board; Wi-Fi and the ESP32-hosted two-button website were tested over USB power. The servo and battery circuit remain untested.
 
 For the actual received XL63070 board and headerless S2, start with the **[solder-prep map](../hardware/wiring/solder-prep/solder-prep.png)** and [pad checklist](solder-prep.md). See the [latest three-critic electrical review](reviews/wiring-decision-2026-09-08.md).

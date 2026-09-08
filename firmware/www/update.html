@@ -13,14 +13,13 @@
     label{display:block;font-size:14px;margin:20px 0 8px}input,button{font:inherit;width:100%;min-height:46px;border:1px solid #d5d5d5;border-radius:8px;background:#fff;padding:11px;color:inherit}
     input[type=file]{font-size:14px}button{margin-top:20px;cursor:pointer}button:hover:not(:disabled){background:#eee}button:disabled,input:disabled{opacity:.5;cursor:default}
     input:focus-visible,button:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid #555;outline-offset:3px}
-    details{border-top:1px solid #ddd;margin-top:30px;padding-top:22px}summary{cursor:pointer;font-size:15px}details p{margin-top:12px}
     #status{margin-top:24px;color:#333;white-space:pre-line}#status[data-error=true]{color:#9b382e}a{color:inherit}small{display:block;color:#777;line-height:1.5;margin-top:8px}[hidden]{display:none!important}
   </style>
 </head>
 <body>
 <main>
   <h1>Update Auto Switch</h1>
-  <p>Maintenance mode. Keep power connected until the device confirms the update and restarts. The device’s recovery Wi-Fi has no internet access.</p>
+  <p>Update mode on your home Wi-Fi. Keep power connected until the device confirms the update and restarts.</p>
   <form id="update-form">
     <label for="maintenance-password">Maintenance password</label>
     <input id="maintenance-password" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" required>
@@ -29,18 +28,6 @@
     <small>Choose an .asupdate file, up to 512 KiB. Wi-Fi settings and calibration are separate from the bundle.</small>
     <button id="upload" type="submit">Upload and restart</button>
   </form>
-  <details id="wifi-settings">
-    <summary>Change Wi-Fi</summary>
-    <p>This saves Wi-Fi settings separately and restarts the device. It does not upload a bundle.</p>
-    <form id="wifi-form">
-      <label for="ssid">Network name (SSID)</label>
-      <input id="ssid" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" required>
-      <label for="wifi-password">Wi-Fi password</label>
-      <input id="wifi-password" type="password" autocomplete="new-password" autocapitalize="none" spellcheck="false" minlength="8" maxlength="63" required>
-      <small>Personal Wi-Fi networks only: 8–63 printable ASCII characters.</small>
-      <button id="save-wifi" type="submit">Save Wi-Fi and restart</button>
-    </form>
-  </details>
   <p id="status" role="status" aria-live="polite"></p>
   <p id="return-link" hidden><a href="http://auto-switch.local/">Open Auto Switch</a></p>
   <noscript><p>Enable JavaScript to upload a bundle from this page.</p></noscript>
@@ -72,10 +59,10 @@
     }
     return auth.value;
   }
-  async function submit(path, body, contentType, secret, wifi = false) {
+  async function submit(path, body, contentType, secret) {
     lock(true);
     returnLink.hidden = true;
-    message(wifi ? 'Saving Wi-Fi settings… Keep power connected.' : 'Uploading and verifying… Keep power connected.');
+    message('Uploading and verifying… Keep power connected.');
     try {
       const response = await fetch(path, {
         method: 'POST', cache: 'no-store', credentials: 'omit', redirect: 'error',
@@ -95,13 +82,8 @@
       }
       restarted = true;
       auth.value = '';
-      document.getElementById('wifi-password').value = '';
-      if (wifi) {
-        message('Wi-Fi settings saved. The device is restarting on the new network. Connect your phone to that network and use the device’s address there.');
-      } else {
-        message('Update accepted. The device is restarting. If you joined its recovery Wi-Fi, reconnect your phone to your home Wi-Fi. Then open auto-switch.local (or the device’s address on that network).');
-        returnLink.hidden = false;
-      }
+      message('Update accepted. The device is restarting on your home Wi-Fi. Wait for it to reconnect, then open Auto Switch.');
+      returnLink.hidden = false;
     } catch (_) {
       message('Connection lost before confirmation. The request may have reached the device. Wait for it to restart, then check it before retrying.', true);
     } finally {
@@ -135,22 +117,6 @@
     await submit('/update', file, 'application/octet-stream', secret);
   });
 
-  document.getElementById('wifi-form').addEventListener('submit', async event => {
-    event.preventDefault();
-    if (busy || restarted) return;
-    const secret = password();
-    if (!secret) return;
-    const ssid = document.getElementById('ssid').value;
-    if (!ssid || ssid.includes('\0') || new TextEncoder().encode(ssid).length > 32) {
-      message('The network name must contain 1–32 bytes.', true); return;
-    }
-    const wifiPassword = document.getElementById('wifi-password').value;
-    if (!/^[\x20-\x7e]{8,63}$/.test(wifiPassword)) {
-      message('Use a personal Wi-Fi password of 8–63 printable ASCII characters.', true); return;
-    }
-    const body = JSON.stringify({ ssid, password: wifiPassword });
-    await submit('/update/wifi', body, 'application/json', secret, true);
-  });
 })();
 </script>
 </body>

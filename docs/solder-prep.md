@@ -1,5 +1,7 @@
 # Solder preparation — headerless S2 Mini and received XL63070
 
+**Latest revision:** the [USB setup wiring map](usb-wifi-setup.md) adds a dedicated switch in the booster → ESP32 VBUS branch. Earlier images below do not yet depict that switch.
+
 [One-page diagram](../hardware/wiring/solder-prep/solder-prep.png) · [Scalable SVG](../hardware/wiring/solder-prep/solder-prep.svg) · [Latest three-critic wiring review](reviews/wiring-decision-2026-09-08.md)
 
 ## Seven terminal groups to prepare

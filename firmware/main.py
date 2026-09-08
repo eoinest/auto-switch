@@ -110,6 +110,8 @@ async def run(config, hardware=None):
         try:
             import network
             configure_hostname(network, config)
+            if config.get("hardware_profile") == "s2-demo":
+                network.WLAN(network.WLAN.IF_AP).active(False)
             wlan = network.WLAN(network.STA_IF)
         except (ImportError, AttributeError):
             print("No WiFi hardware: use USB REPL import bench; bench.move(0, 'on')")

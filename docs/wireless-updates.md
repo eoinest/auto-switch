@@ -1,108 +1,74 @@
-# Browser updates and Wi-Fi recovery
+# Wireless updates on home Wi-Fi
 
-Auto Switch normally joins saved home Wi-Fi and serves the switch controls at
-**http://auto-switch.local/**. It does not expose an updater during ordinary use.
+Auto Switch uses your saved home Wi-Fi for both the light controls and application
+updates. **It does not create an access point.** Use the
+[USB setup companion](usb-wifi-setup.md) when moving to another Wi-Fi network.
 
-**Implementation status:** code and host tests complete; one-time installation,
-BOOT-button timing, AP behavior and an actual wireless upload on the S2 Mini are
-still pending. The board was not detected over USB during this change.
+**Status:** implementation and host tests complete; installation and a real
+wireless upload on the S2 Mini remain pending. The board was not detected over USB.
 
-## Enter update mode
+## Update the application
 
-1. Power on normally. Do not hold BOOT/0 during reset or plugging in power: that
-   selects the ESP32 ROM bootloader. Let the button be released after startup.
-2. Hold **BOOT/0 for three seconds**, then release it. Servo control is stopped
-   and locked out until reboot. This works even while home Wi-Fi is unavailable.
-3. If home Wi-Fi is connected (or connects within about 15 seconds), open
-   **http://auto-switch.local/update**. Your computer keeps its normal Internet.
-4. Otherwise join the protected **AutoSwitch-Update** network, using your private
-   update password, and open **http://192.168.4.1/update**. This network provides
-   local access only; your computer will normally lose Internet while joined.
+1. Power on normally and let the S2 join home Wi-Fi. Leave USB unplugged.
+2. After startup, hold **BOOT/0 for three seconds**, then release it. Servo control
+   stops and is locked out until reboot. Do not hold BOOT through reset, because
+   that selects the ROM bootloader.
+3. On the same Wi-Fi, open **http://auto-switch.local/update**.
+4. Build the current application bundle from the repository root:
 
-The same private password authorizes uploads on the page. It is stored locally
-in `.local/s2/update-password.txt` and on the board in `maintenance_cfg.py`.
-The update page has no external assets and works without Internet. If home Wi-Fi
-vanishes after entering update mode, the device attempts recovery after ten
-seconds, followed by a bounded reconnect attempt, before starting its own AP.
-It waits until any active upload finishes before switching networks.
+   ```sh
+   python3 tools/build_update_bundle.py
+   ```
 
-## Upload an application update
+5. Select `output/auto-switch.asupdate`, enter the private update password and
+   choose **Upload and restart**. Keep battery power stable throughout.
+6. After reboot, reopen **http://auto-switch.local/** for the light controls.
 
-Build the current application bundle on the Mac:
+Your phone and computer stay on home Wi-Fi throughout. If the router drops, the
+S2 retries that same network; it never creates another one. Changed credentials
+must be saved through USB. If you entered update mode accidentally, release BOOT
+and tap RST to return to normal operation (do not reset during an active upload).
 
-```sh
-python3 tools/build_update_bundle.py
-```
+## One-time installation
 
-Select `output/auto-switch.asupdate` on the update page, enter the private update
-password, then choose **Upload and restart**. Keep battery power stable throughout.
-The device verifies file names, lengths, SHA-256 hashes and Python syntax before
-installing any files, then reboots. It waits for BOOT/0 to be released before
-resetting so it does not accidentally enter the USB bootloader.
-
-If you joined AutoSwitch-Update, reconnect to home Wi-Fi afterward and reopen
-http://auto-switch.local/. No USB connection is needed for this routine workflow.
-
-This updates the MicroPython application and website, not the underlying
-MicroPython interpreter. Interpreter replacement still uses USB flashing.
-The browser updater replaces the earlier WebREPL proposal; no always-on REPL or
-second update service is started by the current application.
-
-## Change home networks
-
-In update mode, expand **Change Wi-Fi**, enter the new network name and personal
-Wi-Fi password, then choose **Save Wi-Fi and restart**. The device saves those
-settings separately and reboots. Join the same new network on your phone.
-This supports a 1–32 byte SSID and an 8–63 character ASCII personal Wi-Fi password;
-enterprise and open networks are outside this POC.
-
-If the credentials are wrong, hold BOOT/0 again after startup and recover through
-AutoSwitch-Update. You do not need to put Wi-Fi passwords into source code or
-application bundles. Uploads preserve `config.json`, `calibration.json`,
-`maintenance_cfg.py` and `boot.py`. Changing Wi-Fi preserves other configuration.
-
-## One-time USB installation
-
-On the already configured S2 Mini, disconnect the battery/servo harness before
-plugging in USB. From the repository root run:
+The current firmware must be installed over USB once before browser updates are
+available. Follow [USB isolation and setup](usb-wifi-setup.md), then run:
 
 ```sh
 python3 tools/wireless_update.py provision --port /dev/cu.YOUR_DEVICE
 ```
 
-This copies the complete application plus a separate randomly generated update
-password. It preserves existing Wi-Fi settings and calibration. It needs
-`mpremote` in `.venv/bin/mpremote` or on PATH. A fresh board first needs the
-[normal MicroPython setup](s2-firmware.md), including its private `config.json`
-and `www/` directory. Provisioning is not a flash erase.
+This copies the application and generates a separate update password, stored
+privately in `.local/s2/update-password.txt` and the board's `maintenance_cfg.py`.
+It preserves existing Wi-Fi credentials and calibration. It needs `mpremote`
+in `.venv/bin/mpremote` or PATH and an existing application configuration and
+`www/` directory. It does not erase flash or replace MicroPython.
 
-The generated password is not printed or passed as a process argument. The
-local password and configuration have owner-only permissions, are Git-ignored,
-and the precommit check rejects known update passwords copied into tracked files.
-Open the local password file privately when you need to enter it in the browser.
+Open the local password file privately when entering it in the update page.
+It is never printed or passed as a process argument, and is Git-ignored with
+owner-only file permissions. The precommit check also rejects this known secret
+if accidentally copied into another tracked file.
 
-## Limits and recovery
+## What is preserved and verified
 
-Update mode stops PWM and prevents even previously accepted control requests from
-restarting it. It does not disconnect servo power or guarantee a servo releases
-holding torque. Enter after a normal press has returned to neutral. Stop and
-reposition the mechanism safely if a fault interrupted its motion.
+Bundles contain only the explicit application-file allowlist. The device checks
+file names, sizes, SHA-256 hashes and Python syntax before installing any files.
+Uploads preserve `config.json`, `calibration.json`, `maintenance_cfg.py` and
+`boot.py`. Wi-Fi credentials are not part of the application bundle.
 
-A bad or interrupted upload before activation leaves active files unchanged and
-the servo disabled. Retry the upload in update mode. Each file replacement uses
-LittleFS rename, but the complete bundle is **not atomic and has no automatic
-rollback**. Power loss during activation may leave mixed versions requiring USB
-recovery. A program that fails before the maintenance supervisor loads may also
-require USB; AP recovery is not a replacement for the ROM bootloader.
+The app stops PWM and prevents previously accepted commands from restarting it
+in update mode. This does not cut servo power or guarantee loss of holding torque.
+Enter update mode after the arm returns to neutral.
 
-Retain the removable power connection and access to USB. Disconnect the
-battery/servo harness before recovery over USB; OTA does not electrically isolate
-VBUS. No additional circuit components are needed for the update feature.
+An interrupted or invalid upload before activation leaves active files unchanged
+and servo control disabled. Retry in update mode. Individual file replacements
+use LittleFS rename, but the complete bundle is **not atomic and has no automatic
+rollback**. Power loss during activation can leave mixed versions requiring USB
+recovery. Updating the MicroPython interpreter also still requires USB.
 
-The AP uses WPA2. The upload page uses password authentication over HTTP, without
-TLS, so use this only on your trusted home network or protected recovery AP,
-without port forwarding. Credentials are never returned by the server.
+The authenticated update page uses HTTP without TLS; keep it on a trusted LAN
+without port forwarding. The normal On/Off page remains deliberately open to
+that LAN. Retain access to USB and the power-isolation switch for recovery.
 
 Sources: [MicroPython v1.29 WLAN](https://docs.micropython.org/en/v1.29.0/library/network.WLAN.html),
-[WEMOS S2 Mini](https://www.wemos.cc/en/latest/s2/s2_mini.html),
-[MicroPython ESP32 Wi-Fi implementation](https://github.com/micropython/micropython/blob/v1.29.0/ports/esp32/network_wlan.c).
+[WEMOS S2 Mini](https://www.wemos.cc/en/latest/s2/s2_mini.html).

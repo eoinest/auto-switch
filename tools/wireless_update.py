@@ -41,7 +41,7 @@ def provision(port):
     assets = [str(ROOT / 'firmware' / name) for name in ALLOWED_PATHS if name.startswith('www/')]
     subprocess.run(base + ['fs', 'cp'] + assets + [':www/'], check=True)
     subprocess.run(base + ['reset'], check=True)
-    print('Browser updater installed. Update/AP password is in .local/s2/update-password.txt (not printed).')
+    print('Browser updater installed. Update password is in .local/s2/update-password.txt (not printed).')
 
 
 def main():

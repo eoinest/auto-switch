@@ -21,7 +21,7 @@ The USB-powered S2 joins Wi-Fi and serves the website directly. Both buttons ren
 1. **[Parts list](BOM.md)** — selected components and what is already available.
 2. **[Solder pads and wiring](docs/solder-prep.md)** — three S2 pads, four converter terminal groups and one servo. [Latest three-critic sanity check](docs/reviews/wiring-decision-2026-09-08.md); [detailed breadboard map](docs/s2-aa-poc.md).
 3. **[Firmware](docs/s2-firmware.md)** — install MicroPython files, enter Wi-Fi credentials privately and open the phone page.
-   **[Wireless updates](docs/wireless-updates.md)** — hold BOOT/0 for browser updates on home Wi-Fi, with a recovery access point; one-time USB install and board verification pending.
+   **[Wireless updates](docs/wireless-updates.md)** — hold BOOT/0 for browser updates on home Wi-Fi; no recovery access point. [USB setup companion](docs/usb-wifi-setup.md) saves Wi-Fi credentials. Board verification pending.
 4. **[Servo mechanism](docs/servo-command-mount.md)** — approved export, stock horn and two narrow Command-strip mounting pads.
 5. **[Electronics holder](docs/electronics-retention.md)** — mounting-hole fastenings, converter clamps and removable battery retention under review.
 
@@ -41,7 +41,7 @@ Today, USB powers the ESP32. The planned portable version uses the holder's swit
 
 The POC stays connected to Wi-Fi. It has no Daily/check-in selector, servo power gate or battery-level display. Each On/Off command briefly presses the requested end and returns to the calibrated neutral position so the rocker can be used by hand. Repeated commands still press; without a switch-position sensor, reported state stays unknown. Servo PWM stopping does not disconnect servo power.
 
-Keep the battery/servo harness disconnected during USB programming. Before enabling movement, verify the converter output and calibrate the servo away from the wall switch. Keep private Wi-Fi configuration out of Git: [credential handling](docs/private-configuration.md).
+For USB setup, open the dedicated booster-to-VBUS isolation switch, turn the battery holder off and unplug the servo connector; see the [USB setup and wiring map](docs/usb-wifi-setup.md). Before enabling movement, verify the converter output and calibrate the servo away from the wall switch. Keep private Wi-Fi configuration out of Git: [credential handling](docs/private-configuration.md).
 
 ## Project files
 

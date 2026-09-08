@@ -1,4 +1,4 @@
-"""BOOT-held browser updates, saved Wi-Fi first and protected AP recovery."""
+"""BOOT-held browser updates on saved home Wi-Fi only."""
 import binascii
 import gc
 import hashlib
@@ -9,7 +9,7 @@ try:
     import uasyncio as asyncio
 except ImportError:
     import asyncio
-from http_api import read_headers, read_body, token_matches
+from http_api import read_headers, token_matches
 
 FILES = ('control.py', 'calibration.py', 'hardware.py', 'http_api.py',
          'gateway_client.py', 'bench.py', 'main.py', 'maintenance.py',
@@ -17,7 +17,6 @@ FILES = ('control.py', 'calibration.py', 'hardware.py', 'http_api.py',
 MAGIC = b'AUTOSWITCH1\n'
 MAX_BUNDLE = 512 * 1024
 MAX_FILE = 64 * 1024
-AP_NAME = 'AutoSwitch-Update'
 
 
 class BootHold:
@@ -48,31 +47,18 @@ def credentials():
     return value
 
 
-async def choose_network(config, connect, password):
+async def choose_network(config, connect):
     import network
+    # Explicitly disable AP mode even if an older firmware left it active.
+    network.WLAN(network.WLAN.IF_AP).active(False)
     sta = network.WLAN(network.WLAN.IF_STA)
-    ap = network.WLAN(network.WLAN.IF_AP)
-    ap.active(False)
     try:
         await asyncio.wait_for(connect(sta, config['wifi']), 15)
         if sta.isconnected():
-            return sta, ap
+            return sta
     except (OSError, ValueError, asyncio.TimeoutError):
         pass
-    # main.connect turns STA off on timeout; disconnecting stopped ESP-IDF
-    # Wi-Fi can raise "Wifi Not Started". That must not prevent AP recovery.
-    try:
-        if sta.active():
-            sta.disconnect()
-    except OSError:
-        pass
-    sta.active(False)
-    ap.config(ssid=AP_NAME, security=network.WLAN.SEC_WPA2,
-              key=password, max_clients=1)
-    ap.active(True)
-    ap.ifconfig(('192.168.4.1', '255.255.255.0', '192.168.4.1', '192.168.4.1'))
-    print('Join ' + AP_NAME + '; update at http://192.168.4.1/update')
-    return sta, ap
+    return None
 
 
 class BundleStream:
@@ -166,23 +152,6 @@ def activate():
         os.rename(stage_path(FILES.index(name)), name)
 
 
-def save_wifi(payload, config_path='config.json'):
-    if not isinstance(payload, dict) or set(payload) != {'ssid', 'password'}:
-        raise ValueError('expected Wi-Fi settings')
-    ssid, password = payload['ssid'], payload['password']
-    if not isinstance(ssid, str) or not 1 <= len(ssid.encode()) <= 32 or '\0' in ssid:
-        raise ValueError('invalid network name')
-    if not isinstance(password, str) or not 8 <= len(password) <= 63 or any(not 32 <= ord(c) <= 126 for c in password):
-        raise ValueError('expected personal Wi-Fi password of 8-63 ASCII characters')
-    with open(config_path) as stream:
-        config = json.load(stream)
-    config['wifi'] = dict(config.get('wifi', {}))
-    config['wifi'].update(ssid=ssid, password=password)
-    with open(config_path + '.tmp', 'w') as stream:
-        json.dump(config, stream)
-    os.rename(config_path + '.tmp', config_path)
-
-
 class UpdateAPI:
     def __init__(self, password, reset, static_path='www/update.html'):
         self.password, self.reset, self.static_path = password, reset, static_path
@@ -211,7 +180,7 @@ class UpdateAPI:
             if len(body) > MAX_FILE:
                 raise ValueError('oversized page')
             return 200, ('text/html; charset=utf-8', body)
-        if method != 'POST' or path not in ('/update', '/update/wifi'):
+        if method != 'POST' or path != '/update':
             return 404, {'error': 'not found in update mode'}
         if not token_matches(headers.get('authorization', ''), self.password):
             return 401, {'error': 'incorrect update password'}
@@ -220,22 +189,16 @@ class UpdateAPI:
         self.busy = True
         try:
             media = headers.get('content-type', '').split(';')[0]
-            if path == '/update':
-                value = headers.get('content-length', '')
-                if media != 'application/octet-stream' or not value.isdigit() or len(value) > 6:
-                    raise ValueError('invalid upload headers')
-                # Verify replacement behavior before any live file is touched.
-                open('.update-probe-a', 'wb').close()
-                open('.update-probe-b', 'wb').close()
-                os.rename('.update-probe-a', '.update-probe-b')
-                os.remove('.update-probe-b')
-                await asyncio.wait_for(stage_bundle(reader, int(value)), 120)
-                activate()
-            else:
-                if media != 'application/json':
-                    raise ValueError('expected JSON')
-                body = await asyncio.wait_for(read_body(reader, headers, 512), 5)
-                save_wifi(json.loads(body))
+            value = headers.get('content-length', '')
+            if media != 'application/octet-stream' or not value.isdigit() or len(value) > 6:
+                raise ValueError('invalid upload headers')
+            # Verify replacement behavior before any live file is touched.
+            open('.update-probe-a', 'wb').close()
+            open('.update-probe-b', 'wb').close()
+            os.rename('.update-probe-a', '.update-probe-b')
+            os.remove('.update-probe-b')
+            await asyncio.wait_for(stage_bundle(reader, int(value)), 120)
+            activate()
             self.rebooting = True
             return 200, {'ok': True, 'rebooting': True}
         finally:
@@ -278,23 +241,20 @@ async def run(config, connect):
         print('Update mode needs private provisioning over USB. Servo remains disabled.')
         while True:
             await asyncio.sleep(1)
-    sta, ap = await choose_network(config, connect, password)
+    sta = await choose_network(config, connect)
+    if sta is None:
+        print('Home Wi-Fi unavailable. Use USB companion to change credentials; no access point is created.')
+    while sta is None:
+        await asyncio.sleep(5)
+        sta = await choose_network(config, connect)
     api = UpdateAPI(password, machine.reset)
     server = await asyncio.start_server(api.handle, '0.0.0.0', 80, backlog=2)
-    print('Update mode: http://' + (ap.ifconfig()[0] if ap.active() else sta.ifconfig()[0]) + '/update')
+    print('Update mode: http://' + sta.ifconfig()[0] + '/update')
     try:
-        # If home Wi-Fi disappears during maintenance, retain the endpoint and
-        # bring up recovery AP. Never switch networks mid-upload or activation.
-        missing = 0
         while True:
-            await asyncio.sleep(1)
-            if not ap.active() and not sta.isconnected() and not api.busy and not api.rebooting:
-                missing += 1
-                if missing >= 10:
-                    sta, ap = await choose_network(config, connect, password)
-                    missing = 0
-            else:
-                missing = 0
+            await asyncio.sleep(5)
+            if not sta.isconnected() and not api.busy and not api.rebooting:
+                await choose_network(config, connect)
     finally:
         server.close()
         await server.wait_closed()

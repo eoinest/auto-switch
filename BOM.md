@@ -10,6 +10,7 @@ One bedroom paddle switch, one servo, and an **ESP32-S2 Mini hosting the On/Off 
 | Amazon Basics 1.5 V AA alkaline batteries | 4 | Ordered; go inside the holder |
 | [Teyleten Robot 5 V buck-boost module](https://www.amazon.com/dp/B0GCW44FDL) | 1 | Received: PCB labeled XL63070; exact dimensions still needed |
 | Breadboard and jumper wires | 1 set | User-owned; bench assembly only |
+| Dedicated SPST ESP32 power-isolation switch | 1 | User-owned rocker switch candidate; placed only in booster 5 V → ESP32 VBUS branch. Verify its DC rating and actual terminal labels; see [USB wiring](docs/usb-wifi-setup.md) |
 | USB-C data cable | 1 | User-owned; programming and USB-only tests |
 | Solder, heat shrink and wiring tools | As needed | User-owned |
 

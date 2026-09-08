@@ -23,7 +23,8 @@ board-hosted status endpoint responded after restart. Regression checks passed
 
 ## Install or update
 
-For routine changes without unplugging battery wiring, use
+To change Wi-Fi credentials, use the [USB setup companion](usb-wifi-setup.md).
+For routine application changes without unplugging battery wiring, use
 [wireless application updates](wireless-updates.md) after one-time USB setup.
 
 Use official [LOLIN S2 Mini MicroPython](https://micropython.org/download/LOLIN_S2_MINI/)
