@@ -4,6 +4,8 @@ Reviewed 2026-09-07 for the headerless ESP32-S2 Mini, received XL63070 module, s
 
 **Verdict: the current power topology is suitable for a short, supervised first bench trial, conditional on voltage and load testing. Its current capacity has not been demonstrated.** Extra power gating, a signal resistor, battery monitoring, WAGO connectors, or a separate rocker are not needed to establish basic operation. This is not approval for an unattended or stall-tolerant installation.
 
+A [fresh three-critic review](reviews/wiring-decision-2026-09-08.md) adds direct duplicate-hole wiring and the live USB test procedure, including signal sequencing.
+
 ## Correct minimum connections
 
 ```text

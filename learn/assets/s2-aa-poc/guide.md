@@ -2,7 +2,7 @@
 
 This is the current **bench wiring reference**. It supersedes the Pico-specific POC wiring for this build; the old diagrams remain historical references. The [S2 firmware profile](https://github.com/eoinest/auto-switch/blob/main/docs/s2-firmware.md) now runs on the connected board; Wi-Fi and the ESP32-hosted two-button website were tested over USB power. The servo and battery circuit remain untested.
 
-For the actual received XL63070 board and headerless S2, start with the **[solder-prep map](https://github.com/eoinest/auto-switch/blob/main/hardware/wiring/solder-prep/solder-prep.png)** and [pad checklist](https://github.com/eoinest/auto-switch/blob/main/docs/solder-prep.md). See the [minimum-demo electrical review](https://github.com/eoinest/auto-switch/blob/main/docs/poc-electrical-sanity-check.md).
+For the actual received XL63070 board and headerless S2, start with the **[solder-prep map](https://github.com/eoinest/auto-switch/blob/main/hardware/wiring/solder-prep/solder-prep.png)** and [pad checklist](https://github.com/eoinest/auto-switch/blob/main/docs/solder-prep.md). See the [latest three-critic electrical review](https://github.com/eoinest/auto-switch/blob/main/docs/reviews/wiring-decision-2026-09-08.md).
 
 Open [the interactive illustrated map](https://github.com/eoinest/auto-switch/blob/main/learn/s2-aa-poc.html), [PNG](https://github.com/eoinest/auto-switch/blob/main/hardware/wiring/s2-aa-poc/breadboard.png), [SVG](https://github.com/eoinest/auto-switch/blob/main/hardware/wiring/s2-aa-poc/breadboard.svg), or [wire checklist](https://github.com/eoinest/auto-switch/blob/main/hardware/wiring/s2-aa-poc/connections.csv). Every wire is shown in one view. Illustrations reconstruct the component appearance but are not dimension drawings.
 
@@ -59,6 +59,8 @@ P/G numbers count the 50 left rail holes from the top; these are drawing labels,
 ## USB programming — important S2 difference
 
 The [official S2 Mini schematic](https://www.wemos.cc/en/latest/_static/files/sch_s2_mini_v1.0.0.pdf) ties the 5V/VBUS header directly to USB VBUS. **Disconnect the S2's three jumper leads before plugging in USB.** Turning the battery switch off, or unplugging only the battery, is insufficient: USB would otherwise power the servo rail and feed voltage into the converter output.
+
+For a separate live USB/servo test, use the [explicit split-supply mode](https://github.com/eoinest/auto-switch/blob/main/docs/reviews/wiring-decision-2026-09-08.md): remove and insulate the booster-to-S2 VBUS lead, keep ground common, and manage the signal when either device is unpowered. This is different from the isolated programming procedure above.
 
 After programming, unplug USB first, reconnect the three jumpers with battery power off, then switch the battery holder on. Use the dedicated `config.s2-demo.example.json`, not a Pico configuration. GPIO16 is an ordinary output-capable pin on ESP32-S2; PWM support is described in [Espressif's LEDC documentation](https://docs.espressif.com/projects/esp-idf/en/stable/esp32s2/api-reference/peripherals/ledc.html).
 

@@ -1,10 +1,10 @@
 # Solder preparation — headerless S2 Mini and received XL63070
 
-[One-page diagram](../hardware/wiring/solder-prep/solder-prep.png) · [Scalable SVG](../hardware/wiring/solder-prep/solder-prep.svg) · [Minimum-demo circuit review](poc-electrical-sanity-check.md)
+[One-page diagram](../hardware/wiring/solder-prep/solder-prep.png) · [Scalable SVG](../hardware/wiring/solder-prep/solder-prep.svg) · [Latest three-critic wiring review](reviews/wiring-decision-2026-09-08.md)
 
 ## Seven terminal groups to prepare
 
-Disconnect USB and remove batteries before soldering. Apply a small amount of solder to the chosen pads and stripped wire ends; avoid large blobs, loose strands and bridges to neighboring pads. Use one convenient hole from each converter terminal group, not all duplicate holes. Keep the two bare center strips at the converter’s short ends free for the mounting fingers.
+Disconnect USB and remove batteries before soldering. Apply a small amount of solder to the chosen pads and stripped wire ends; avoid large blobs, loose strands and bridges to neighboring pads. For the illustrated breadboard arrangement, use one convenient hole from each converter terminal group. For direct wiring, use both VOUT holes for separate S2/servo power leads and both output GND holes for their separate returns; verify same-group continuity unpowered. These are duplicate connections to one supply, not extra current capacity. Keep the two bare center strips at the converter’s short ends free for the mounting fingers.
 
 ### ESP32-S2 Mini: three pads
 
@@ -29,7 +29,7 @@ View the component side like your photo: inductor on the left and the XL63070 la
 | Top left | VOUT | Shared positive rail, **after measuring about 5.0 V** |
 | Top right | GND | Shared ground rail |
 
-The two GND groups are the same electrical ground. Duplicate holes within a terminal group are alternatives for attaching the same wire. **Do not pre-tin EN, PS, ADJ or the voltage-selection links.** Leave the factory configuration unchanged during this preparation; verify its output separately.
+The two GND groups are the same electrical ground. Duplicate holes within a terminal group share a net and can accept separate wires to the two loads. **Do not pre-tin EN, PS, ADJ or the voltage-selection links.** Leave the factory configuration unchanged during this preparation; verify its output separately.
 
 ## Whole circuit
 
@@ -52,3 +52,7 @@ The holder red lead is already switched; no second switch is required. The S2 an
 4. For USB programming, disconnect all three S2 harness leads from the breadboard first, and keep their exposed ends isolated. The [S2 schematic](https://www.wemos.cc/en/latest/_static/files/sch_s2_mini_v1.0.0.pdf) directly ties VBUS to USB power: switching the battery holder off alone does not isolate USB from the servo/converter rail.
 
 No firmware was enabled or flashed as part of this diagram update. The actual battery-and-servo circuit still needs these bench tests.
+
+## USB live testing is a separate wiring mode
+
+The all-three-leads disconnect above is the simple isolated programming procedure. For live servo testing over USB, physically remove and insulate **only the booster-to-S2 VBUS power lead**, ensure no breadboard positive rail bypasses it, and retain the common ground. USB then powers the S2; the battery/booster powers the servo. Keep GPIO16 disconnected until both devices are powered; disconnect it before either supply is switched off, unless a verified inactive-signal procedure is in use. Do not send commands to an unpowered servo. See the [mode table and complete direct-wiring map](reviews/wiring-decision-2026-09-08.md).
