@@ -13,11 +13,12 @@ def git(*args, **kwargs):
 def known_secrets(root):
     values = set()
     private = root / ".local" / "s2"
-    password = private / "wifi-password.txt"
-    if password.exists():
-        value = password.read_text().rstrip("\r\n")
-        if value and not value.startswith("REPLACE"):
-            values.add(value)
+    for name in ("wifi-password.txt", "webrepl-password.txt"):
+        password = private / name
+        if password.exists():
+            value = password.read_text().rstrip("\r\n")
+            if value and not value.startswith("REPLACE"):
+                values.add(value)
     keys = private / "gateway-keys.json"
     if keys.exists():
         values.update(json.loads(keys.read_text()).values())

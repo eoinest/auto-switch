@@ -28,6 +28,8 @@ secrets.*
 *.secret
 *.secrets.*
 wifi-password*
+webrepl_cfg.py
+webrepl-password*
 client-token*
 device-token*
 gateway-keys*

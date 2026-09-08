@@ -95,8 +95,8 @@ async def maintain_clock_and_schedules(clock, scheduler, controller):
         await asyncio.sleep(1)
 
 
-async def run(config):
-    hardware = Hardware(config)
+async def run(config, hardware=None):
+    hardware = hardware if hardware is not None else Hardware(config)
     import machine
     reset_cause = machine.reset_cause()
     scheduler_task = None
@@ -147,6 +147,8 @@ async def run(config):
                     print(str(error))
                     await asyncio.sleep(15)
             server = await asyncio.start_server(api.handle, "0.0.0.0", 80, backlog=2)
+            from wireless_updates import start as start_wireless_updates
+            start_wireless_updates(config)
             print("auto-switch UI: http://" + wlan.ifconfig()[0])
             try:
                 while True:
@@ -193,15 +195,22 @@ async def run(config):
 
 
 def start():
+    hardware = None
     try:
         with open("config.json") as stream:
             config = json.load(stream)
         load_calibration(config)
-        asyncio.run(run(config))
+        hardware = Hardware(config)
+        asyncio.run(run(config, hardware))
     except OSError as error:
         print("Startup stopped. Copy/edit config.example.json as config.json:", str(error))
     except Exception as error:
         print("Startup stopped; disconnect servo supply before troubleshooting:", str(error))
+    finally:
+        # KeyboardInterrupt can escape the event-loop poll without unwinding a
+        # suspended coroutine on MicroPython. Clean up synchronously before REPL.
+        if hardware is not None:
+            hardware.off()
 
 
 if __name__ == "__main__":

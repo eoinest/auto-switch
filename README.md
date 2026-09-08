@@ -21,6 +21,7 @@ The USB-powered S2 joins Wi-Fi and serves the website directly. Both buttons ren
 1. **[Parts list](BOM.md)** — selected components and what is already available.
 2. **[Solder pads and wiring](docs/solder-prep.md)** — three S2 pads, four converter terminal groups and one servo. [Latest three-critic sanity check](docs/reviews/wiring-decision-2026-09-08.md); [detailed breadboard map](docs/s2-aa-poc.md).
 3. **[Firmware](docs/s2-firmware.md)** — install MicroPython files, enter Wi-Fi credentials privately and open the phone page.
+   **[Wireless updates](docs/wireless-updates.md)** — update code over Wi-Fi after one-time USB setup; hardware verification pending.
 4. **[Servo mechanism](docs/servo-command-mount.md)** — approved export, stock horn and two narrow Command-strip mounting pads.
 5. **[Electronics holder](docs/electronics-retention.md)** — mounting-hole fastenings, converter clamps and removable battery retention under review.
 

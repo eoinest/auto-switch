@@ -38,7 +38,7 @@ Gateway delivery is at most once: the Mac mini marks a queued command dispatched
 6. Transfer the files with Thonny or [MicroPython's mpremote](https://docs.micropython.org/en/latest/reference/mpremote.html). With mpremote installed and exactly one board connected, run from the repository root:
 
 ```sh
-mpremote fs cp firmware/main.py firmware/control.py firmware/hardware.py firmware/http_api.py firmware/gateway_client.py firmware/bench.py :
+mpremote fs cp firmware/main.py firmware/control.py firmware/calibration.py firmware/hardware.py firmware/http_api.py firmware/gateway_client.py firmware/bench.py firmware/wireless_updates.py :
 mpremote fs cp firmware/config.json :config.json
 mpremote fs mkdir :www
 mpremote fs cp firmware/www/index.html firmware/www/app.js firmware/www/style.css :www/

@@ -23,6 +23,9 @@ board-hosted status endpoint responded after restart. Regression checks passed
 
 ## Install or update
 
+For routine changes without unplugging battery wiring, use
+[wireless application updates](wireless-updates.md) after one-time USB setup.
+
 Use official [LOLIN S2 Mini MicroPython](https://micropython.org/download/LOLIN_S2_MINI/)
 (the current board runs v1.29.0) and `mpremote` on your computer. Run the commands
 below from the repository root.
@@ -42,7 +45,7 @@ isolate the servo rail. See the [POC wiring guide](s2-aa-poc.md).
 3. Copy all modules, configuration and website assets **before resetting**:
 
 ```sh
-mpremote fs cp firmware/control.py firmware/calibration.py firmware/hardware.py firmware/http_api.py firmware/gateway_client.py firmware/bench.py firmware/main.py :
+mpremote fs cp firmware/control.py firmware/calibration.py firmware/hardware.py firmware/http_api.py firmware/gateway_client.py firmware/bench.py firmware/wireless_updates.py firmware/main.py :
 mpremote fs cp .local/s2/config.json :config.json
 mpremote fs mkdir :www
 mpremote fs cp firmware/www/index.html firmware/www/app.js firmware/www/style.css :www/
