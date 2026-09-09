@@ -18,6 +18,8 @@ The USB-powered S2 joins Wi-Fi and serves the website directly. Both buttons ren
 
 ## Build this version
 
+**[Download the USB setup app for Mac](https://github.com/eoinest/auto-switch/releases/tag/companion-v0.1.0)** — Apple Silicon, macOS 15+, preview build. Python and USB tools included.
+
 1. **[Parts list](BOM.md)** — selected components and what is already available.
 2. **[Solder pads and wiring](docs/solder-prep.md)** — three S2 pads, four converter terminal groups and one servo. [Latest three-critic sanity check](docs/reviews/wiring-decision-2026-09-08.md); [detailed breadboard map](docs/s2-aa-poc.md).
 3. **[Firmware](docs/s2-firmware.md)** — install MicroPython files, enter Wi-Fi credentials privately and open the phone page.

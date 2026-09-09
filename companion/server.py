@@ -11,6 +11,7 @@ import subprocess
 import sys
 import tempfile
 import threading
+import webbrowser
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -41,6 +42,8 @@ def validate_settings(payload):
 
 
 def mpremote_command():
+    if getattr(sys, 'frozen', False):
+        return [sys.executable, '--device-command']
     executable = ROOT / '.venv' / 'bin' / 'mpremote'
     return [str(executable)] if executable.is_file() else [sys.executable, '-m', 'mpremote']
 
@@ -59,7 +62,12 @@ def run_device(port, *args):
 
 def save_wifi(payload, private_root=None):
     port, ssid, password = validate_settings(payload)
-    private = Path(private_root) if private_root else ROOT / '.local' / 's2'
+    if private_root is not None:
+        private = Path(private_root)
+    elif getattr(sys, 'frozen', False):
+        private = Path.home() / 'Library/Application Support/Auto Switch Setup/private'
+    else:
+        private = ROOT / '.local' / 's2'
     private.mkdir(parents=True, mode=0o700, exist_ok=True)
     os.chmod(private, 0o700)
     uploaded = False
@@ -172,6 +180,13 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         if not self.authorized(mutation=True):
             return
+        if self.path == '/quit':
+            if not self.server.operation.acquire(blocking=False):
+                self.reply(409, {'error': 'Wait for USB setup to finish before quitting.'})
+                return
+            self.reply(200, {'ok': True})
+            threading.Thread(target=self.server.shutdown, daemon=True).start()
+            return
         if self.path != '/wifi':
             self.reply(404, {'error': 'Not found.'})
             return
@@ -197,13 +212,17 @@ class Handler(BaseHTTPRequestHandler):
             self.server.operation.release()
 
 
-def main():
+def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--port', type=int, default=8790)
-    args = parser.parse_args()
+    parser.add_argument('--open-browser', action='store_true')
+    parser.add_argument('--no-browser', action='store_false', dest='open_browser')
+    args = parser.parse_args(argv)
     server = SetupServer(('127.0.0.1', args.port))
-    print('Open http://127.0.0.1:' + str(server.server_address[1]) + '/')
+    print('Open http://127.0.0.1:' + str(server.server_address[1]) + '/', flush=True)
     print('Local USB setup only. Press Ctrl-C to stop.')
+    if args.open_browser:
+        webbrowser.open('http://127.0.0.1:' + str(server.server_address[1]) + '/')
     try:
         server.serve_forever()
     except KeyboardInterrupt:

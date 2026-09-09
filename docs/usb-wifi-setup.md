@@ -4,6 +4,11 @@ Normal use and wireless application updates both use your saved home Wi-Fi.
 The ESP32 never creates a setup or recovery access point. To join a different
 network, connect USB and save credentials through the local companion.
 
+[Download the Mac app](https://github.com/eoinest/auto-switch/releases/tag/companion-v0.1.0)
+for Apple Silicon/macOS 15+. It bundles Python and the USB tools; unzip and open
+**Auto Switch Setup.app**. This preview is not Apple-notarized and may need manual
+first-launch approval. The command below remains available for running from source.
+
 **Status:** implementation and host tests complete; installation and saving to
 the physical S2 Mini still need testing. The board was not detected during this change.
 

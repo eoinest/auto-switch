@@ -43,5 +43,15 @@
     } catch (_) { message('Connection lost before confirmation. Settings may have been saved. Check the device before trying again.', true); }
     finally { lock(false); }
   });
+  document.getElementById('quit').addEventListener('click', async () => {
+    if (busy) return;
+    lock(true);
+    try {
+      const response = await fetch('/quit', {method: 'POST', headers: {'X-AutoSwitch-CSRF': token}});
+      if (!response.ok) { message('Wait for setup to finish before quitting.', true); lock(false); return; }
+      password.value = '';
+      message('Setup app closed. You can close this browser tab.');
+    } catch (_) { message('The setup app is no longer reachable. You can close this tab.'); }
+  });
   refresh();
 })();

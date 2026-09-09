@@ -51,6 +51,8 @@ gateway/*.plist
 *.uf2
 *.hex
 *.asupdate
+/build/
+/dist/
 
 # Additional local databases and editor backups can retain credentials.
 *.db
